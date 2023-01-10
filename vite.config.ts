@@ -9,10 +9,20 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './test-setup.ts',
+    reporters: ['verbose'],
     coverage: {
       clean: true,
       cleanOnRerun: true,
       reporter: ['lcov', 'text-summary'],
+      all: true,
+      src: ['./src'],
+      exclude: [
+        '**/*/index.ts?(x)',
+        '**/*/*test.ts?(x)',
+        'test-setup.ts',
+        '**/*/types.ts',
+        '**/*/*.d.ts',
+      ],
     },
   },
 });

@@ -8,8 +8,8 @@
     "e2e:run": "concurrently -k -s first \"npm start\" \"cypress run\"",
     "format:check": "prettier -c .",
     "format:fix": "prettier -w .",
-    "lint:check": "eslint ./src && stylelint **/*.scss && markdownlint .",
-    "lint:fix": "eslint ./src --fix && stylelint **/*.scss --fix  && markdownlint . --fix",
+    "lint:check": "eslint ./src && markdownlint .",
+    "lint:fix": "eslint ./src --fix && markdownlint . --fix",
     "prepare": "husky install",
     "preview": "vite preview",
     "sanity-check": "npm run lint:check && npm run format:check && npm test && npm run e2e:run",
@@ -18,6 +18,10 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mantine/core": "^5.10.0",
+    "@mantine/hooks": "^5.10.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -46,18 +50,13 @@
     "markdownlint": "0.27.0",
     "markdownlint-cli": "0.33.0",
     "prettier": "2.8.2",
-    "sass": "1.57.1",
-    "stylelint": "14.16.1",
-    "stylelint-config-prettier-scss": "0.0.1",
-    "stylelint-config-standard-scss": "6.1.0",
     "typescript": "4.9.4",
     "vite": "4.0.4",
     "vitest": "0.26.3"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",
-    "*.{css,scss}": "stylelint --fix",
-    "*.{js,ts,tsx,css,scss,md,json}": "prettier --write",
+    "*.{js,ts,tsx,css,md,json}": "prettier --write",
     "*.md": "markdownlint --fix"
   }
 }
