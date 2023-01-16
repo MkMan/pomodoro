@@ -5,14 +5,25 @@ import { useStateAndRef } from '$app-utils';
 import { CounterState, Props } from './types';
 import { getFormattedTime, useInterval } from './utils';
 
-export const Countdown: React.FC<Props> = ({ seconds, onComplete }) => {
+export const Countdown: React.FC<Props> = ({
+  seconds,
+  onComplete,
+  onStop,
+  onStart,
+}) => {
   const [time, setTime, timeRef] = useStateAndRef(seconds);
   const [counterState, setCounterState, counterStateRef] =
     useStateAndRef<CounterState>('stopped');
 
   // utility functions
-  const startCount = () => setCounterState('running');
-  const stopCount = () => setCounterState('stopped');
+  const startCount = () => {
+    setCounterState('running');
+    onStart?.();
+  };
+  const stopCount = () => {
+    setCounterState('stopped');
+    onStop?.();
+  };
   const reset = () => {
     setTime(seconds);
     stopCount();
