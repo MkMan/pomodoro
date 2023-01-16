@@ -28,7 +28,8 @@
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "react/prop-types": "off",
-    "react/jsx-sort-props": "error"
+    "react/jsx-sort-props": "error",
+    "@typescript-eslint/no-unused-vars": "error"
   },
   "overrides": [
     {
