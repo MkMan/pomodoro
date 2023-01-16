@@ -19,6 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "app-utils": ["./src/utility"],
+      "app-components": ["./src/components"],
       "test-utils": ["./src/test-utils"]
     }
   },
