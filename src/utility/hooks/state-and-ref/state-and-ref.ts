@@ -14,6 +14,11 @@ export const useStateAndRef = <T>(initialValue: T): ReturnedTuple<T> => {
   const valueRef = useRef(initialValue);
 
   useEffect(() => {
+    setValue(initialValue);
+    valueRef.current = initialValue;
+  }, [initialValue]);
+
+  useEffect(() => {
     valueRef.current = value;
   }, [value]);
 
