@@ -21,15 +21,18 @@ export const CounterSelector: React.FC<Props> = ({
   currentCounter,
   setCurrentCounter,
   isDisabled,
+  ...chipGroupProps
 }) => {
   return (
     <Chip.Group
       multiple={false}
       onChange={setCurrentCounter}
+      position="center"
       value={currentCounter}
+      {...chipGroupProps}
     >
       {chips.map(({ label, value }) => (
-        <Chip disabled={isDisabled} key={label} value={value}>
+        <Chip disabled={isDisabled} key={label} size="md" value={value}>
           {label}
         </Chip>
       ))}

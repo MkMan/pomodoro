@@ -1,8 +1,12 @@
-import { NumberInput } from '@mantine/core';
+import { NumberInput, Title } from '@mantine/core';
 
 import { useAppSettings } from '$app-utils';
 
-export const Settings: React.FC = () => {
+type Props = {
+  isDurationEditingDisabled?: boolean;
+};
+
+export const Settings: React.FC<Props> = ({ isDurationEditingDisabled }) => {
   const {
     durations,
     setLongBreakDuration,
@@ -30,9 +34,13 @@ export const Settings: React.FC = () => {
   ];
 
   return (
-    <>
+    <section>
+      <Title mb={16} order={3}>
+        Durations
+      </Title>
       {fields.map(({ label, setter, value }) => (
         <NumberInput
+          disabled={isDurationEditingDisabled}
           error={value <= 0 && `${label} durations must be set`}
           key={label}
           label={label}
@@ -47,6 +55,6 @@ export const Settings: React.FC = () => {
           withAsterisk
         />
       ))}
-    </>
+    </section>
   );
 };
