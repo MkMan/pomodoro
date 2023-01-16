@@ -1,5 +1,6 @@
 import { Button } from '@mantine/core';
-import { useStateAndRef } from 'app-utils';
+
+import { useStateAndRef } from '$app-utils';
 
 import { CounterState, Props } from './types';
 import { getFormattedTime, useInterval } from './utils';
