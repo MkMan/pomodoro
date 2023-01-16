@@ -1,9 +1,10 @@
 import './index.css';
 
 import { MantineProvider, Title } from '@mantine/core';
-import { Countdown } from 'app-components';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+
+import { Countdown } from '$app-components';
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- defined in index.html
 createRoot(document.getElementById('root')!).render(
