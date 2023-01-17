@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/MkMan/pomodoro/compare/v1.0.0...v1.0.1) (2023-01-17)
+
+### Bug Fixes
+
+- set public path for gh pages ([#4](https://github.com/MkMan/pomodoro/issues/4)) ([4556c93](https://github.com/MkMan/pomodoro/commit/4556c937f280dc1b8ee895f6e89b7c7b85ebb4e0))
+
 # 1.0.0 (2023-01-17)
 
 ### Bug Fixes
