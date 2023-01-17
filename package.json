@@ -7,7 +7,7 @@
     "url": "https://github.com/MkMan/pomodoro"
   },
   "scripts": {
-    "build": "vite build --assetsDir .",
+    "build": "vite build --base /pomodoro",
     "e2e:open": "concurrently -k -s first \"npm start\" \"cypress open\"",
     "e2e:run": "concurrently -k -s first \"npm start\" \"cypress run\"",
     "format:check": "prettier -c .",
