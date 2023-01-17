@@ -16,7 +16,17 @@ import {
 } from '$app-components';
 import { useAppSettings } from '$app-utils';
 
+import { useRequestNotificationPermission } from './app.utils';
+
+const notificationDataMap: Record<CurrentCounter, string> = {
+  pomodoro: `You've earned a break 😌`,
+  shortBreak: 'Break is over, back to it 🔨!',
+  longBreak: 'Break is over, back to it 🔨!',
+};
+
 export const App: React.FC = () => {
+  // TODO: clean up and move to settings
+  useRequestNotificationPermission();
   const [currentCounter, setCurrentCounter] =
     useState<CurrentCounter>('pomodoro');
   const { pomodoro, shortBreak, longBreak } = useAppSettings(
@@ -60,9 +70,9 @@ export const App: React.FC = () => {
             setCurrentCounter={setCurrentCounter}
           />
           <Countdown
-            onComplete={() => {
-              console.log('LOG DONE');
-            }}
+            onComplete={() =>
+              new Notification(notificationDataMap[currentCounter])
+            }
             onStart={() => setIsRunning(true)}
             onStop={() => setIsRunning(false)}
             seconds={counterTypeDurationMap[currentCounter] * 60}
