@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { AppToWorkerMessageData } from './types';
 
 const formatTimeUnit = (timeUnit: number): string =>
   timeUnit.toString().padStart(2, '0');
@@ -10,13 +10,18 @@ export const getFormattedTime = (timeInSeconds: number): [string, string] => {
   return [formatTimeUnit(minutes), formatTimeUnit(seconds)];
 };
 
-export const useInterval = (callback: () => void, interval: number): void => {
-  useEffect(() => {
-    const intervalNumber = window.setInterval(callback, interval);
-
-    return () => {
-      window.clearInterval(intervalNumber);
+export const getWorkerHelpers = (worker: Worker) => ({
+  stopWorkerCounter() {
+    const workerMessage: AppToWorkerMessageData = {
+      type: 'stop',
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- set interval once
-  }, []);
-};
+    worker.postMessage(workerMessage);
+  },
+  startWorkerCounter(time: number) {
+    const workerMessage: AppToWorkerMessageData = {
+      type: 'start',
+      time,
+    };
+    worker.postMessage(workerMessage);
+  },
+});
