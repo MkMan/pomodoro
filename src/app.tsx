@@ -16,7 +16,10 @@ import {
 } from '$app-components';
 import { useAppSettings } from '$app-utils';
 
-import { useRequestNotificationPermission } from './app.utils';
+import {
+  playNotificationSound,
+  useRequestNotificationPermission,
+} from './app.utils';
 
 const notificationDataMap: Record<CurrentCounter, string> = {
   pomodoro: `You've earned a break 😌`,
@@ -70,9 +73,10 @@ export const App: React.FC = () => {
             setCurrentCounter={setCurrentCounter}
           />
           <Countdown
-            onComplete={() =>
-              new Notification(notificationDataMap[currentCounter])
-            }
+            onComplete={() => {
+              new Notification(notificationDataMap[currentCounter]);
+              playNotificationSound();
+            }}
             onStart={() => setIsRunning(true)}
             onStop={() => setIsRunning(false)}
             seconds={counterTypeDurationMap[currentCounter] * 60}
