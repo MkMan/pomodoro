@@ -32,7 +32,7 @@ export const CounterSelector: React.FC<Props> = ({
       {...chipGroupProps}
     >
       {chips.map(({ label, value }) => (
-        <Chip disabled={isDisabled} key={label} size="md" value={value}>
+        <Chip disabled={isDisabled} key={label} size="lg" value={value}>
           {label}
         </Chip>
       ))}
