@@ -20,12 +20,7 @@ import {
   playNotificationSound,
   useRequestNotificationPermission,
 } from './app.utils';
-
-const notificationDataMap: Record<CurrentCounter, string> = {
-  pomodoro: `You've earned a break 😌`,
-  shortBreak: 'Break is over, back to it 🔨!',
-  longBreak: 'Break is over, back to it 🔨!',
-};
+import { mantineTheme, notificationDataMap } from './constants';
 
 export const App: React.FC = () => {
   // TODO: clean up and move to settings
@@ -45,19 +40,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <MantineProvider
-      theme={{
-        components: {
-          Container: {
-            defaultProps: {
-              sizes: {
-                md: 600,
-              },
-            },
-          },
-        },
-      }}
-    >
+    <MantineProvider theme={mantineTheme}>
       <AppShell
         header={
           <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
