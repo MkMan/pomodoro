@@ -1,10 +1,12 @@
 import { Button, Flex } from '@mantine/core';
-
-import { useStateAndRef } from '$app-utils';
+import { useCallback, useEffect, useState } from 'react';
 
 import { CountText } from './styled';
-import { CounterState, Props } from './types';
-import { getFormattedTime, useInterval } from './utils';
+import { CounterState, Props, WorkerToAppMessage } from './types';
+import { getFormattedTime, getWorkerHelpers } from './utils';
+
+const worker = new Worker(new URL('./worker.ts', import.meta.url));
+const { startWorkerCounter, stopWorkerCounter } = getWorkerHelpers(worker);
 
 export const Countdown: React.FC<Props> = ({
   seconds,
@@ -12,43 +14,45 @@ export const Countdown: React.FC<Props> = ({
   onStop,
   onStart,
 }) => {
-  const [time, setTime, timeRef] = useStateAndRef(seconds);
-  const [counterState, setCounterState, counterStateRef] =
-    useStateAndRef<CounterState>('stopped');
-
-  // utility functions
-  const startCount = () => {
-    setCounterState('running');
-    onStart?.();
-  };
-  const stopCount = () => {
-    setCounterState('stopped');
-    onStop?.();
-  };
-  const reset = () => {
-    setTime(seconds);
-    stopCount();
-  };
+  const [time, setTime] = useState(seconds);
+  const [counterState, setCounterState] = useState<CounterState>('stopped');
 
   // utility flags
+  const isPaused = counterState === 'stopped' && time > 0;
   const shouldShowStartButton = counterState === 'stopped';
   const shouldShowPauseButton = counterState === 'running' && time > 0;
 
-  const onEverySecond = () => {
-    if (counterStateRef.current === 'stopped') {
-      return;
-    }
-
-    if (timeRef.current > 0) {
-      setTime((time) => time - 1);
-      return;
-    }
-
-    onComplete?.();
-    stopCount();
+  // utility functions
+  const startCount = () => {
+    startWorkerCounter(isPaused ? time : seconds);
+    setCounterState('running');
+    onStart?.();
   };
+  const stopCount = useCallback(() => {
+    stopWorkerCounter();
+    setCounterState('stopped');
+    onStop?.();
+  }, [onStop]);
+  const reset = useCallback(() => {
+    setTime(seconds);
+    stopCount();
+  }, [seconds, stopCount]);
+  const syncTimeWithWorker = useCallback(() => {
+    worker.onmessage = ({ data }: WorkerToAppMessage) => {
+      setTime(data.newTime);
 
-  useInterval(onEverySecond, 1000);
+      if (data.newTime === 0) {
+        stopCount();
+        onComplete?.();
+      }
+    };
+  }, [onComplete, setTime, stopCount]);
+  const updateTimeStateOnPropChange = useCallback(() => {
+    setTime(seconds);
+  }, [seconds]);
+
+  useEffect(syncTimeWithWorker, [syncTimeWithWorker]);
+  useEffect(updateTimeStateOnPropChange, [updateTimeStateOnPropChange]);
 
   const [formattedMinutes, formattedSeconds] = getFormattedTime(time);
 
