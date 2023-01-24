@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/MkMan/pomodoro/compare/v1.2.0...v1.2.1) (2023-01-24)
+
+### Bug Fixes
+
+- await play audio promise ([9e34a7d](https://github.com/MkMan/pomodoro/commit/9e34a7d998146d65861108382bb2ab81a21c2fd3))
+
 # [1.2.0](https://github.com/MkMan/pomodoro/compare/v1.1.0...v1.2.0) (2023-01-23)
 
 ### Features
