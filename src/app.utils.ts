@@ -8,9 +8,9 @@ export const useRequestNotificationPermission = () => {
   }, []);
 };
 
-export const playNotificationSound = () => {
+export const playNotificationSound = async () => {
   const audio = new Audio(alarm1Url);
-  audio.play();
+  await audio.play();
 
   setTimeout(() => {
     audio.pause();
