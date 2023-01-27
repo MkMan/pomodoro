@@ -2,10 +2,10 @@ import { useState } from 'react';
 
 import { CurrentCounter } from './components/counter-selector/types';
 import { counterOrder } from './constants';
-import alarm1Url from './sounds/alarm-1.mp3';
+import { audioUrlsMap } from './sounds';
 
 export const playNotificationSound = async () => {
-  const audio = new Audio(alarm1Url);
+  const audio = new Audio(audioUrlsMap.alarm1);
   await audio.play();
 
   setTimeout(() => {
