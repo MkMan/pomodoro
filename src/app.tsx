@@ -16,27 +16,20 @@ import {
 } from '$app-components';
 import { useAppSettings } from '$app-utils';
 
-import {
-  playNotificationSound,
-  useRequestNotificationPermission,
-} from './app.utils';
+import { playNotificationSound, useCurrentCounterState } from './app.utils';
 import { mantineTheme, notificationDataMap } from './constants';
 
 export const App: React.FC = () => {
-  // TODO: clean up and move to settings
-  useRequestNotificationPermission();
-  const [currentCounter, setCurrentCounter] =
-    useState<CurrentCounter>('pomodoro');
-  const { pomodoro, shortBreak, longBreak } = useAppSettings(
-    ({ durations }) => durations
-  );
+  const { currentCounter, setCurrentCounter, increment } =
+    useCurrentCounterState();
+  const counterDurations = useAppSettings(({ durations }) => durations);
   const [isRunning, setIsRunning] = useState(false);
   const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = useState(false);
 
   const counterTypeDurationMap: Record<CurrentCounter, number> = {
-    longBreak,
-    pomodoro,
-    shortBreak,
+    longBreak: counterDurations.longBreak,
+    pomodoro: counterDurations.pomodoro,
+    shortBreak: counterDurations.shortBreak,
   };
 
   return (
@@ -59,6 +52,7 @@ export const App: React.FC = () => {
             onComplete={() => {
               new Notification(notificationDataMap[currentCounter]);
               playNotificationSound();
+              increment();
             }}
             onStart={() => setIsRunning(true)}
             onStop={() => setIsRunning(false)}
