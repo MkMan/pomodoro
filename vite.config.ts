@@ -22,6 +22,8 @@ export default defineConfig({
         '**/*/*test.ts?(x)',
         'test-setup.ts',
         '**/*/types.ts',
+        '**/*/constants.ts',
+        '**/*/styled.ts',
         '**/*/*.d.ts',
       ],
     },

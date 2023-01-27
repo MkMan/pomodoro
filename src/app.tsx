@@ -60,6 +60,7 @@ export const App: React.FC = () => {
           />
         </Container>
         <Drawer
+          closeButtonLabel="close settings menu"
           onClose={() => setIsSettingsDrawerOpen(false)}
           opened={isSettingsDrawerOpen}
           padding={24}
@@ -71,7 +72,10 @@ export const App: React.FC = () => {
           withCloseButton
           withFocusReturn
         >
-          <Settings isDurationEditingDisabled={isRunning} />
+          <Settings
+            dataTestId="appSettings"
+            isDurationEditingDisabled={isRunning}
+          />
         </Drawer>
       </AppShell>
     </MantineProvider>
