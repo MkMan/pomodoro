@@ -1,3 +1,9 @@
+# [1.3.0](https://github.com/MkMan/pomodoro/compare/v1.2.1...v1.3.0) (2023-01-27)
+
+### Features
+
+- implement auto counter increment ([95f4369](https://github.com/MkMan/pomodoro/commit/95f43692b39b6802826476b05b6d81c44b9f35d3))
+
 ## [1.2.1](https://github.com/MkMan/pomodoro/compare/v1.2.0...v1.2.1) (2023-01-24)
 
 ### Bug Fixes
