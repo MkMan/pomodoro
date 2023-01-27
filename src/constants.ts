@@ -19,3 +19,14 @@ export const notificationDataMap: Record<CurrentCounter, string> = {
   shortBreak: 'Break is over, back to it 🔨!',
   longBreak: 'Break is over, back to it 🔨!',
 };
+
+export const counterOrder: CurrentCounter[] = [
+  'pomodoro',
+  'shortBreak',
+  'pomodoro',
+  'shortBreak',
+  'pomodoro',
+  'shortBreak',
+  'pomodoro',
+  'longBreak',
+];

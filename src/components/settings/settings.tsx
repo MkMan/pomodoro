@@ -4,9 +4,13 @@ import { useAppSettings } from '$app-utils';
 
 type Props = {
   isDurationEditingDisabled?: boolean;
+  dataTestId?: string;
 };
 
-export const Settings: React.FC<Props> = ({ isDurationEditingDisabled }) => {
+export const Settings: React.FC<Props> = ({
+  isDurationEditingDisabled,
+  dataTestId,
+}) => {
   const {
     durations,
     setLongBreakDuration,
@@ -34,7 +38,7 @@ export const Settings: React.FC<Props> = ({ isDurationEditingDisabled }) => {
   ];
 
   return (
-    <section>
+    <section data-testid={dataTestId}>
       <Title mb={16} order={3}>
         Durations
       </Title>

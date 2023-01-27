@@ -58,7 +58,7 @@ export const Countdown: React.FC<Props> = ({
 
   return (
     <>
-      <CountText align="center" pb={48}>
+      <CountText align="center" data-testid="remainingTime" pb={48}>
         {formattedMinutes}:{formattedSeconds}
       </CountText>
       <Flex gap={20} justify="center">
