@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/MkMan/pomodoro/compare/v1.3.0...v1.4.0) (2023-02-02)
+
+### Features
+
+- add app logo ([ee3fe94](https://github.com/MkMan/pomodoro/commit/ee3fe94563a18577c2cdb03f3cb85b62a25b56d1))
+- make app PWA ([18ebafe](https://github.com/MkMan/pomodoro/commit/18ebafe45455855565f8852404fae4ae1b665a3c))
+
 # [1.3.0](https://github.com/MkMan/pomodoro/compare/v1.2.1...v1.3.0) (2023-01-27)
 
 ### Features
