@@ -26,6 +26,9 @@ jobs:
       - name: Check code quality and formatting
         run: npm run lint:check && npm run format:check
 
+      - name: Check TS types
+        run: npm run ts:check
+
       - name: Run unit tests
         run: npm test
 
