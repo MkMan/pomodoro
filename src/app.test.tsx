@@ -28,7 +28,7 @@ describe('App', () => {
     expect(remainingTime).toHaveTextContent('10:00');
   });
 
-  it('should open and close the settings', async () => {
+  it('should open and close the settings drawer', async () => {
     const user = userEvent.setup();
 
     render(<App />);
