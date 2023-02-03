@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/MkMan/pomodoro/compare/v1.4.0...v1.4.1) (2023-02-03)
+
+### Bug Fixes
+
+- increase margin between settings fields ([daa00ef](https://github.com/MkMan/pomodoro/commit/daa00efbd4b6ceadb427a02e1fdd431260c9174b))
+- load audio on app load ([6694259](https://github.com/MkMan/pomodoro/commit/6694259cbdcdac8ebf2471da7ec791c8ae5c8417))
+- use correct base paths for manifest icons ([09a493a](https://github.com/MkMan/pomodoro/commit/09a493a15bd61aaca03a235f514cd2e089cc4e6f))
+
 # [1.4.0](https://github.com/MkMan/pomodoro/compare/v1.3.0...v1.4.0) (2023-02-02)
 
 ### Features
