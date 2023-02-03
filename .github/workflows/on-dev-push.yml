@@ -1,0 +1,42 @@
+name: On dev branch push
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+
+jobs:
+  sanity_check:
+    name: Code checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Set up NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check code quality and formatting
+        run: npm run lint:check && npm run format:check
+
+      - name: Check TS types
+        run: npm run ts:check
+
+      - name: Check build is fine
+        run: npm run build
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Run e2e tests
+        if: ${{ false }}
+        run: npm run e2e:run

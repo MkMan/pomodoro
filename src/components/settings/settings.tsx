@@ -48,6 +48,7 @@ export const Settings: React.FC<Props> = ({
           error={value <= 0 && `${label} durations must be set`}
           key={label}
           label={label}
+          mb={16}
           min={0}
           onChange={(number) => {
             const value = number || 0;

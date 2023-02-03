@@ -5,7 +5,7 @@ import {
   MantineProvider,
   Title,
 } from '@mantine/core';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import {
   Countdown,
@@ -16,7 +16,8 @@ import {
 } from '$app-components';
 import { useAppSettings } from '$app-utils';
 
-import { playNotificationSound, useCurrentCounterState } from './app.utils';
+import { useCurrentCounterState } from './app.utils';
+import { audioUrlsMap } from './assets/sounds';
 import { mantineTheme, notificationDataMap } from './constants';
 
 export const App: React.FC = () => {
@@ -25,6 +26,7 @@ export const App: React.FC = () => {
   const counterDurations = useAppSettings(({ durations }) => durations);
   const [isRunning, setIsRunning] = useState(false);
   const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const counterTypeDurationMap: Record<CurrentCounter, number> = {
     longBreak: counterDurations.longBreak,
@@ -34,6 +36,7 @@ export const App: React.FC = () => {
 
   return (
     <MantineProvider theme={mantineTheme}>
+      <audio ref={audioRef} src={audioUrlsMap.alarm1} />
       <AppShell
         header={
           <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
@@ -49,10 +52,13 @@ export const App: React.FC = () => {
             setCurrentCounter={setCurrentCounter}
           />
           <Countdown
-            onComplete={() => {
+            onComplete={async () => {
               new Notification(notificationDataMap[currentCounter]);
-              playNotificationSound();
               increment();
+              await audioRef.current?.play();
+              setTimeout(() => {
+                audioRef.current?.pause();
+              }, 5000);
             }}
             onStart={() => setIsRunning(true)}
             onStop={() => setIsRunning(false)}

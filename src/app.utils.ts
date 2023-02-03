@@ -2,17 +2,6 @@ import { useState } from 'react';
 
 import { CurrentCounter } from './components/counter-selector/types';
 import { counterOrder } from './constants';
-import { audioUrlsMap } from './sounds';
-
-export const playNotificationSound = async () => {
-  const audio = new Audio(audioUrlsMap.alarm1);
-  await audio.play();
-
-  setTimeout(() => {
-    audio.pause();
-    audio.remove();
-  }, 5000);
-};
 
 export const useCurrentCounterState = (): {
   currentCounter: CurrentCounter;
