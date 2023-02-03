@@ -17,12 +17,12 @@ export default defineConfig({
         background_color: '#bf5b4a',
         icons: [
           {
-            src: '/logos/manifest-icon-512.maskable.png',
+            src: '/pomodoro/images/manifest-icon-512.maskable.png',
             sizes: '512x512',
             type: 'image/webp',
           },
           {
-            src: '/logos/manifest-icon-192.maskable.png',
+            src: '/pomodoro/images/manifest-icon-192.maskable.png',
             sizes: '192x192',
             type: 'image/webp',
             purpose: 'maskable',

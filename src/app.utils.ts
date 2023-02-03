@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
+import { audioUrlsMap } from './assets/sounds';
 import { CurrentCounter } from './components/counter-selector/types';
 import { counterOrder } from './constants';
-import { audioUrlsMap } from './sounds';
 
 export const playNotificationSound = async () => {
   const audio = new Audio(audioUrlsMap.alarm1);
