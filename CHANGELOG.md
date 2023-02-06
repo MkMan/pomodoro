@@ -1,3 +1,14 @@
+# [1.5.0](https://github.com/MkMan/pomodoro/compare/v1.4.1...v1.5.0) (2023-02-06)
+
+### Bug Fixes
+
+- reset audio after it plays ([ecc0eb8](https://github.com/MkMan/pomodoro/commit/ecc0eb81ee28bea1217abb0a6c4d1fb114c0a028))
+- update app icons ([e17ae0c](https://github.com/MkMan/pomodoro/commit/e17ae0c72b2bece64fa2eb1da35dc2a412838ec3))
+
+### Features
+
+- increase timer font size and weight ([a76120e](https://github.com/MkMan/pomodoro/commit/a76120e805b46d081d1dde93fdb90858ea0dc06b))
+
 ## [1.4.1](https://github.com/MkMan/pomodoro/compare/v1.4.0...v1.4.1) (2023-02-03)
 
 ### Bug Fixes
