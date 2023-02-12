@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/MkMan/pomodoro/compare/v1.5.0...v1.6.0) (2023-02-12)
+
+### Bug Fixes
+
+- correct header height ([71e6793](https://github.com/MkMan/pomodoro/commit/71e6793b0413798fea096753cb78350475e4d681))
+
+### Features
+
+- implement exact counter select ([9a58cfa](https://github.com/MkMan/pomodoro/commit/9a58cfae19b2f866b8c751220c126e6b1fffc2fc))
+- increase counter button size ([acdcf4b](https://github.com/MkMan/pomodoro/commit/acdcf4bcc8d701c7c679e17b03fb596e4813425b))
+- trim alarm audio clip to 5s ([753f81e](https://github.com/MkMan/pomodoro/commit/753f81eefcf9205e474ade7fb8c9589ae1aa4d7d))
+
 # [1.5.0](https://github.com/MkMan/pomodoro/compare/v1.4.1...v1.5.0) (2023-02-06)
 
 ### Bug Fixes
