@@ -72,13 +72,13 @@ export const Countdown: React.FC<Props> = ({
             color="green"
             disabled={time === 0}
             onClick={startCount}
-            size="lg"
+            size="xl"
           >
             Start
           </Button>
         )}
         {shouldShowPauseButton && (
-          <Button color="yellow" onClick={stopCount} size="lg">
+          <Button color="yellow" onClick={stopCount} size="xl">
             Pause
           </Button>
         )}
@@ -86,7 +86,7 @@ export const Countdown: React.FC<Props> = ({
           color="red"
           disabled={counterState === 'running'}
           onClick={reset}
-          size="lg"
+          size="xl"
         >
           Reset
         </Button>
