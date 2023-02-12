@@ -1,9 +1,11 @@
-import { ChipGroupProps } from '@mantine/core';
+import { BoxProps, MantineColor } from '@mantine/core';
 
 export type CurrentCounter = 'pomodoro' | 'shortBreak' | 'longBreak';
 
 export type Props = {
-  currentCounter: CurrentCounter;
-  setCurrentCounter: (CurrentCounter: CurrentCounter) => void;
+  currentCounterIndex: number;
+  setCurrentCounterIndex: (currentCounterIndex: number) => void;
   isDisabled?: boolean;
-} & ChipGroupProps;
+} & BoxProps;
+
+export type DisplayAttributes = { text: string; color: MantineColor };

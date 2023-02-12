@@ -5,40 +5,26 @@ import { counterOrder } from './constants';
 
 export const useCurrentCounterState = (): {
   currentCounter: CurrentCounter;
-  setCurrentCounter: (currentCounter: CurrentCounter) => void;
+  currentCounterIndex: number;
+  setCurrentCounterIndex: (currentCounterIndex: number) => void;
   increment: () => void;
 } => {
-  const [index, setIndex] = useState(0);
+  const [currentCounterIndex, setCurrentCounterIndex] = useState(0);
 
   const increment = () => {
-    if (index === counterOrder.length - 1) {
+    if (currentCounterIndex === counterOrder.length - 1) {
       // if at the end of the array -> start over
-      setIndex(0);
+      setCurrentCounterIndex(0);
     } else {
       // else just increment
-      setIndex(index + 1);
+      setCurrentCounterIndex(currentCounterIndex + 1);
     }
   };
 
-  const setCurrentCounter = (currentCounter: CurrentCounter) => {
-    // clicking the currently selected counter does nothing
-    if (currentCounter === counterOrder[index]) return;
-
-    // find index of **next** occurrence of `currentCounter`
-    let newIndex = counterOrder.findIndex((value, i) => {
-      if (index >= i) return;
-      return value === currentCounter;
-    });
-
-    // if not found loop from the start
-    newIndex = newIndex > -1 ? newIndex : counterOrder.indexOf(currentCounter);
-
-    setIndex(newIndex);
-  };
-
   return {
-    currentCounter: counterOrder[index],
+    currentCounter: counterOrder[currentCounterIndex],
     increment,
-    setCurrentCounter,
+    setCurrentCounterIndex,
+    currentCounterIndex,
   };
 };

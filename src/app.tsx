@@ -18,11 +18,15 @@ import { useAppSettings } from '$app-utils';
 
 import { useCurrentCounterState } from './app.utils';
 import { audioUrlsMap } from './assets/sounds';
-import { mantineTheme, notificationDataMap } from './constants';
+import { mantineTheme } from './constants';
 
 export const App: React.FC = () => {
-  const { currentCounter, setCurrentCounter, increment } =
-    useCurrentCounterState();
+  const {
+    currentCounter,
+    currentCounterIndex,
+    setCurrentCounterIndex,
+    increment,
+  } = useCurrentCounterState();
   const counterDurations = useAppSettings(({ durations }) => durations);
   const [isRunning, setIsRunning] = useState(false);
   const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = useState(false);
@@ -45,15 +49,14 @@ export const App: React.FC = () => {
       >
         <Container pt={16}>
           <CounterSelector
-            currentCounter={currentCounter}
+            currentCounterIndex={currentCounterIndex}
             isDisabled={isRunning}
             pb={32}
             pt={32}
-            setCurrentCounter={setCurrentCounter}
+            setCurrentCounterIndex={setCurrentCounterIndex}
           />
           <Countdown
             onComplete={() => {
-              new Notification(notificationDataMap[currentCounter]);
               audioRef.current?.play();
               increment();
             }}

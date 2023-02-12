@@ -14,12 +14,6 @@ export const mantineTheme: MantineThemeColorsOverride = {
   },
 };
 
-export const notificationDataMap: Record<CurrentCounter, string> = {
-  pomodoro: `You've earned a break 😌`,
-  shortBreak: 'Break is over, back to it 🔨!',
-  longBreak: 'Break is over, back to it 🔨!',
-};
-
 export const counterOrder: CurrentCounter[] = [
   'pomodoro',
   'shortBreak',
