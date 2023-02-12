@@ -1,20 +1,7 @@
-import { RefObject, useState } from 'react';
+import { useState } from 'react';
 
 import { CurrentCounter } from './components/counter-selector/types';
 import { counterOrder } from './constants';
-
-export const playAlarm = (audioRef: RefObject<HTMLAudioElement>) => {
-  if (!audioRef.current) return;
-
-  audioRef.current.play().then(() => {
-    setTimeout(() => {
-      /* eslint-disable @typescript-eslint/no-non-null-assertion -- if it's not defined it wouldn't have played */
-      audioRef.current!.pause();
-      audioRef.current!.currentTime = 0;
-      /* eslint-enable @typescript-eslint/no-non-null-assertion */
-    }, 5000);
-  });
-};
 
 export const useCurrentCounterState = (): {
   currentCounter: CurrentCounter;

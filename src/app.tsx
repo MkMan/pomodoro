@@ -16,7 +16,7 @@ import {
 } from '$app-components';
 import { useAppSettings } from '$app-utils';
 
-import { playAlarm, useCurrentCounterState } from './app.utils';
+import { useCurrentCounterState } from './app.utils';
 import { audioUrlsMap } from './assets/sounds';
 import { mantineTheme, notificationDataMap } from './constants';
 
@@ -54,7 +54,7 @@ export const App: React.FC = () => {
           <Countdown
             onComplete={() => {
               new Notification(notificationDataMap[currentCounter]);
-              playAlarm(audioRef);
+              audioRef.current?.play();
               increment();
             }}
             onStart={() => setIsRunning(true)}
