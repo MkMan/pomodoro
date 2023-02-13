@@ -1,3 +1,9 @@
+# [1.7.0](https://github.com/MkMan/pomodoro/compare/v1.6.0...v1.7.0) (2023-02-13)
+
+### Features
+
+- improve timer selector ui ([9528237](https://github.com/MkMan/pomodoro/commit/95282372749f6a1fd462cfdd1f1aa5d2755ae285))
+
 # [1.6.0](https://github.com/MkMan/pomodoro/compare/v1.5.0...v1.6.0) (2023-02-12)
 
 ### Bug Fixes
