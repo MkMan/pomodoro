@@ -6,5 +6,5 @@ export const currentCounterDisplayMap: Record<
 > = {
   pomodoro: { text: 'Pomodoro', color: 'blue' },
   shortBreak: { text: 'Short break', color: 'green' },
-  longBreak: { text: 'Long break', color: 'green' },
+  longBreak: { text: 'Long break', color: 'grape' },
 };
