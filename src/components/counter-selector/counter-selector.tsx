@@ -1,4 +1,4 @@
-import { ActionIcon, Box, Chip, Flex, Title } from '@mantine/core';
+import { ActionIcon, Box, Chip, Flex, Highlight, Title } from '@mantine/core';
 import React from 'react';
 import { useState } from 'react';
 import { FiChevronRight, FiEdit2, FiX } from 'react-icons/fi';
@@ -18,23 +18,25 @@ export const CounterSelector: React.FC<Props> = ({
 
   const displayMode = (
     <Flex align="center" justify="center">
-      <Title
-        color={currentCounterDisplayMap[currentCounter].color}
-        mr={32}
-        order={2}
-        size={`${24 / 16}rem`}
-      >
-        {currentCounterDisplayMap[currentCounter].text}
+      <Title mr={8} order={2} size={`${24 / 16}rem`}>
+        <Highlight
+          highlight={currentCounterDisplayMap[currentCounter].text}
+          highlightStyles={({ colors }) => ({
+            color: colors[currentCounterDisplayMap[currentCounter].color],
+            backgroundColor: 'transparent',
+          })}
+        >
+          {`Current timer: ${currentCounterDisplayMap[currentCounter].text}`}
+        </Highlight>
       </Title>
       <ActionIcon
         aria-label="edit counter type"
-        color="blue"
         onClick={() => {
           setIsInEditMode(true);
         }}
-        size={30}
+        size={40}
       >
-        <FiEdit2 size={30} />
+        <FiEdit2 size={25} />
       </ActionIcon>
     </Flex>
   );
@@ -50,20 +52,24 @@ export const CounterSelector: React.FC<Props> = ({
     >
       {counterOrder.map((counter, index) => (
         <React.Fragment key={index}>
-          <Chip disabled={isDisabled} value={index.toString()}>
+          <Chip
+            color={currentCounterDisplayMap[currentCounter].color}
+            disabled={isDisabled}
+            size={index === currentCounterIndex ? 'lg' : 'md'}
+            value={index.toString()}
+          >
             {currentCounterDisplayMap[counter].text}
           </Chip>
           {index < counterOrder.length - 1 && <FiChevronRight />}
         </React.Fragment>
       ))}
       <ActionIcon
-        color="blue"
         onClick={() => {
           setIsInEditMode(false);
         }}
-        size={30}
+        size={40}
       >
-        <FiX size={30} />
+        <FiX size={25} />
       </ActionIcon>
     </Chip.Group>
   );
