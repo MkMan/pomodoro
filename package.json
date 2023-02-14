@@ -7,6 +7,7 @@
     "url": "https://github.com/MkMan/pomodoro"
   },
   "scripts": {
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "build": "vite build --base /pomodoro",
     "e2e:open": "concurrently -k -s first \"npm start\" \"cypress open\"",
     "e2e:run": "concurrently -k -s first \"npm start\" \"cypress run\"",
@@ -18,6 +19,7 @@
     "preview": "vite preview",
     "sanity-check": "npm run lint:check && npm run format:check && npm run ts:check && npm test && npm run e2e:run",
     "start": "vite --port 3000",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
     "test:watch": "vitest watch --coverage",
     "test": "vitest run --coverage",
     "ts:check": "tsc --noEmit"
@@ -33,10 +35,14 @@
     "zustand": "^4.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
     "@commitlint/cli": "17.4.0",
     "@commitlint/config-conventional": "17.4.0",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/builder-vite": "^0.4.2",
+    "@storybook/react": "^6.5.16",
     "@testing-library/cypress": "^9.0.0",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
@@ -47,12 +53,14 @@
     "@typescript-eslint/parser": "5.48.0",
     "@vitejs/plugin-react": "3.0.1",
     "@vitest/coverage-c8": "^0.26.3",
+    "babel-loader": "^8.3.0",
     "concurrently": "7.6.0",
     "cypress": "^12.3.0",
     "eslint": "8.31.0",
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-simple-import-sort": "8.0.0",
+    "eslint-plugin-storybook": "^0.6.10",
     "eslint-plugin-testing-library": "5.9.1",
     "gh-pages": "^4.0.0",
     "husky": "8.0.3",
@@ -70,7 +78,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",
-    "*.{js,ts,tsx,css,md,json}": "prettier --write",
+    "*.{js,ts,tsx,css,md,json,html}": "prettier --write",
     "*.md": "markdownlint --fix"
   }
 }
