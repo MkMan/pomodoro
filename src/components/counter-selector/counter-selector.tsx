@@ -43,6 +43,7 @@ export const CounterSelector: React.FC<Props> = ({
 
   const editMode = (
     <Chip.Group
+      data-testid="counters-group"
       multiple={false}
       onChange={(value) => {
         setCurrentCounterIndex(parseInt(value));

@@ -38,5 +38,4 @@ jobs:
         run: npm test
 
       - name: Run e2e tests
-        if: ${{ false }}
         run: npm run e2e:run
