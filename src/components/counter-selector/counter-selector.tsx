@@ -2,19 +2,27 @@ import { ActionIcon, Box, Chip, Flex, Highlight, Title } from '@mantine/core';
 import React from 'react';
 import { useState } from 'react';
 import { FiChevronRight, FiEdit2, FiX } from 'react-icons/fi';
-import { counterOrder } from 'src/constants';
 
+import { counterOrder } from '../../constants';
 import { currentCounterDisplayMap } from './constants';
 import { Props } from './types';
 
 export const CounterSelector: React.FC<Props> = ({
   currentCounterIndex,
-  setCurrentCounterIndex,
   isDisabled,
+  isInEditMode: isInEditModeProp = false,
+  setCurrentCounterIndex,
   ...boxProps
 }) => {
-  const [isInEditMode, setIsInEditMode] = useState(false);
+  const [isInEditMode, setIsInEditMode] = useState(isInEditModeProp);
   const currentCounter = counterOrder[currentCounterIndex];
+
+  if (
+    currentCounterIndex < 0 ||
+    currentCounterIndex + 1 > counterOrder.length
+  ) {
+    throw new Error('Invalid currentCounterIndex value');
+  }
 
   const displayMode = (
     <Flex align="center" justify="center">
@@ -43,6 +51,7 @@ export const CounterSelector: React.FC<Props> = ({
 
   const editMode = (
     <Chip.Group
+      data-testid="counters-group"
       multiple={false}
       onChange={(value) => {
         setCurrentCounterIndex(parseInt(value));
