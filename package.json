@@ -15,6 +15,8 @@
     "format:fix": "prettier -w .",
     "lint:check": "eslint ./src && markdownlint .",
     "lint:fix": "eslint ./src --fix && markdownlint . --fix",
+    "loki:update": "concurrently -k -s first \"npm run storybook\" \"wait-on http-get://localhost:6006/ && loki update\"",
+    "loki:test": "concurrently -k -s first \"npm run storybook\" \"wait-on http-get://localhost:6006/ && loki test\"",
     "prepare": "husky install",
     "preview": "vite preview",
     "sanity-check": "npm run lint:check && npm run format:check && npm run ts:check && npm test && npm run e2e:run",
@@ -67,6 +69,7 @@
     "identity-obj-proxy": "3.0.0",
     "jsdom": "^21.1.0",
     "lint-staged": "13.1.0",
+    "loki": "^0.31.0",
     "markdownlint": "0.27.0",
     "markdownlint-cli": "0.33.0",
     "prettier": "2.8.2",
@@ -75,7 +78,8 @@
     "vite": "4.0.4",
     "vite-plugin-pwa": "^0.14.1",
     "vite-tsconfig-paths": "^4.0.3",
-    "vitest": "0.26.3"
+    "vitest": "0.26.3",
+    "wait-on": "^7.0.1"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",
