@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GH_TOKEN }}
+      # - uses: browser-actions/setup-chrome@v1
 
       - name: Set up NodeJs
         uses: actions/setup-node@v3
@@ -39,3 +40,17 @@ jobs:
 
       - name: Run e2e tests
         run: npm run e2e:run
+
+      - name: Run visual regression tests
+        run: npm run loki:test
+
+      - name: Upload test artifacts
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Testing artifacts
+          if-no-files-found: ignore
+          path: |
+            .loki/difference/
+            .loki/current/
+            cypress/videos/

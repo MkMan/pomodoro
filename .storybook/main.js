@@ -8,7 +8,8 @@ module.exports = {
     builder: '@storybook/builder-vite',
   },
   features: {
-    storyStoreV7: true,
+    // Disabled for Loki
+    // storyStoreV7: true,
   },
   viteFinal(config) {
     config.plugins.push(tsconfigPaths.default());
