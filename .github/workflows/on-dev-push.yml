@@ -13,9 +13,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-      # - uses: browser-actions/setup-chrome@v1
 
       - name: Set up NodeJs
         uses: actions/setup-node@v3
@@ -41,6 +38,30 @@ jobs:
       - name: Run e2e tests
         run: npm run e2e:run
 
+      - name: Upload test artifacts
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Cypress videos
+          if-no-files-found: ignore
+          path: cypress/videos/
+
+  visual_regression:
+    name: Loki visual regression
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run visual regression tests
         run: npm run loki:test
 
@@ -48,9 +69,8 @@ jobs:
         if: ${{ failure() }}
         uses: actions/upload-artifact@v3
         with:
-          name: Testing artifacts
+          name: Loki images
           if-no-files-found: ignore
           path: |
             .loki/difference/
             .loki/current/
-            cypress/videos/
