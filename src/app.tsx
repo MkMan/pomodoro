@@ -1,10 +1,4 @@
-import {
-  AppShell,
-  Container,
-  Drawer,
-  MantineProvider,
-  Title,
-} from '@mantine/core';
+import { AppShell, Container, Drawer, MantineProvider } from '@mantine/core';
 import { useRef, useState } from 'react';
 
 import {
@@ -12,6 +6,7 @@ import {
   CounterSelector,
   CurrentCounter,
   Header,
+  Heading,
   Settings,
 } from '$app-components';
 import { useAppSettings } from '$app-utils';
@@ -71,9 +66,9 @@ export const App: React.FC = () => {
           opened={isSettingsDrawerOpen}
           padding={24}
           title={
-            <Title data-autofocus order={2}>
+            <Heading level={2} shouldAutoFocus>
               Settings
-            </Title>
+            </Heading>
           }
           withCloseButton
           withFocusReturn

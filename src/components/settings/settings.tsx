@@ -1,6 +1,8 @@
-import { NumberInput, Title } from '@mantine/core';
+import { NumberInput } from '@mantine/core';
 
 import { useAppSettings } from '$app-utils';
+
+import { Heading } from '../heading/heading';
 
 type Props = {
   isDurationEditingDisabled?: boolean;
@@ -39,9 +41,9 @@ export const Settings: React.FC<Props> = ({
 
   return (
     <section data-testid={dataTestId}>
-      <Title mb={16} order={3}>
+      <Heading level={3} mb={16}>
         Durations
-      </Title>
+      </Heading>
       {fields.map(({ label, setter, value }) => (
         <NumberInput
           disabled={isDurationEditingDisabled}

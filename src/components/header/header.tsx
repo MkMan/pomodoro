@@ -1,11 +1,7 @@
-import {
-  ActionIcon,
-  Container,
-  Header as MantineHeader,
-  Title,
-} from '@mantine/core';
+import { ActionIcon, Container, Header as MantineHeader } from '@mantine/core';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
+import { Heading } from '../heading/heading';
 import { HeaderContentWrapper } from './styled';
 
 type Props = {
@@ -21,7 +17,7 @@ export const Header: React.FC<Props> = ({ onSettingsClick }) => (
         <ActionIcon color="blue" onClick={onSettingsClick} size={30}>
           <GiHamburgerMenu aria-label="settings menu" size={30} />
         </ActionIcon>
-        <Title size="3rem">Pomodoro</Title>
+        <Heading size="3rem">Pomodoro</Heading>
       </HeaderContentWrapper>
     </Container>
   </MantineHeader>

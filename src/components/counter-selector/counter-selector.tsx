@@ -1,9 +1,10 @@
-import { ActionIcon, Box, Chip, Flex, Highlight, Title } from '@mantine/core';
+import { ActionIcon, Box, Chip, Flex, Highlight } from '@mantine/core';
 import React from 'react';
 import { useState } from 'react';
 import { FiChevronRight, FiEdit2, FiX } from 'react-icons/fi';
 
 import { counterOrder } from '../../constants';
+import { Heading } from '../heading/heading';
 import { currentCounterDisplayMap } from './constants';
 import { Props } from './types';
 
@@ -26,7 +27,7 @@ export const CounterSelector: React.FC<Props> = ({
 
   const displayMode = (
     <Flex align="center" justify="center">
-      <Title mr={8} order={2} size={`${24 / 16}rem`}>
+      <Heading level={2} mr={8}>
         <Highlight
           highlight={currentCounterDisplayMap[currentCounter].text}
           highlightStyles={({ colors }) => ({
@@ -36,7 +37,7 @@ export const CounterSelector: React.FC<Props> = ({
         >
           {`Current timer: ${currentCounterDisplayMap[currentCounter].text}`}
         </Highlight>
-      </Title>
+      </Heading>
       <ActionIcon
         aria-label="edit counter type"
         onClick={() => {
