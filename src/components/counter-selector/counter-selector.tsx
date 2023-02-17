@@ -1,4 +1,4 @@
-import { ActionIcon, Box, Chip, Flex, Highlight } from '@mantine/core';
+import { ActionIcon, Box, Chip, Highlight } from '@mantine/core';
 import React from 'react';
 import { useState } from 'react';
 import { FiChevronRight, FiEdit2, FiX } from 'react-icons/fi';
@@ -6,6 +6,7 @@ import { FiChevronRight, FiEdit2, FiX } from 'react-icons/fi';
 import { counterOrder } from '../../constants';
 import { Heading } from '../heading/heading';
 import { currentCounterDisplayMap } from './constants';
+import { editHeadingWrapperStyles } from './styled';
 import { Props } from './types';
 
 export const CounterSelector: React.FC<Props> = ({
@@ -26,7 +27,7 @@ export const CounterSelector: React.FC<Props> = ({
   }
 
   const displayMode = (
-    <Flex align="center" justify="center">
+    <div className={editHeadingWrapperStyles}>
       <Heading level={2} mr={8}>
         <Highlight
           highlight={currentCounterDisplayMap[currentCounter].text}
@@ -47,7 +48,7 @@ export const CounterSelector: React.FC<Props> = ({
       >
         <FiEdit2 size={25} />
       </ActionIcon>
-    </Flex>
+    </div>
   );
 
   const editMode = (

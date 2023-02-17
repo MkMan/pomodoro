@@ -1,7 +1,7 @@
-import { Button, Flex } from '@mantine/core';
+import { Button } from '@mantine/core';
 import { useCallback, useEffect, useState } from 'react';
 
-import { CountText } from './styled';
+import { buttonsContainerStyles, CountText } from './styled';
 import { CounterState, Props, WorkerToAppMessage } from './types';
 import { getFormattedTime, getWorkerHelpers } from './utils';
 
@@ -66,7 +66,7 @@ export const Countdown: React.FC<Props> = ({
       >
         {formattedMinutes}:{formattedSeconds}
       </CountText>
-      <Flex gap={20} justify="center">
+      <div className={buttonsContainerStyles}>
         {shouldShowStartButton && (
           <Button
             color="green"
@@ -90,7 +90,7 @@ export const Countdown: React.FC<Props> = ({
         >
           Reset
         </Button>
-      </Flex>
+      </div>
     </>
   );
 };
