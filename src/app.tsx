@@ -1,7 +1,8 @@
-import { AppShell, Container, Drawer, MantineProvider } from '@mantine/core';
+import { AppShell, Drawer, MantineProvider } from '@mantine/core';
 import { useRef, useState } from 'react';
 
 import {
+  Container,
   Countdown,
   CounterSelector,
   CurrentCounter,
@@ -13,7 +14,6 @@ import { useAppSettings } from '$app-utils';
 
 import { useCurrentCounterState } from './app.utils';
 import { audioUrlsMap } from './assets/sounds';
-import { mantineTheme } from './constants';
 
 export const App: React.FC = () => {
   const {
@@ -34,7 +34,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <MantineProvider theme={mantineTheme}>
+    <MantineProvider>
       <audio ref={audioRef} src={audioUrlsMap.alarm1} />
       <AppShell
         header={
@@ -42,7 +42,7 @@ export const App: React.FC = () => {
         }
         padding={0}
       >
-        <Container pt={16}>
+        <Container maxWidth={600} pt={16}>
           <CounterSelector
             currentCounterIndex={currentCounterIndex}
             isDisabled={isRunning}
