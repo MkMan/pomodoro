@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import React from 'react';
 
-import { cx, withMargins } from '$app-utils';
+import { cx, withDefaultProps } from '$app-utils';
 
 import { fontWeightMap, sizeMap } from './constants';
 import { HeadingProps } from './types';
@@ -34,6 +34,6 @@ const Heading = ({
   );
 };
 
-const HeadingWithMargins = withMargins(Heading);
+const HeadingWithDefaultProps = withDefaultProps(Heading);
 
-export { HeadingWithMargins as Heading };
+export { HeadingWithDefaultProps as Heading };

@@ -1,4 +1,4 @@
-import { cx, withMargins } from '$app-utils';
+import { cx, withDefaultProps } from '$app-utils';
 
 import * as styles from './styles';
 import { InputProps } from './types';
@@ -34,6 +34,6 @@ const Input = ({
   );
 };
 
-const InputWithMargins = withMargins(Input);
+const InputWithDefaultProps = withDefaultProps(Input);
 
-export { InputWithMargins as Input };
+export { InputWithDefaultProps as Input };
