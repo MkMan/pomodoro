@@ -1,4 +1,4 @@
-import { AppShell, Drawer, MantineProvider } from '@mantine/core';
+import { Drawer } from '@mantine/core';
 import { useRef, useState } from 'react';
 
 import {
@@ -34,14 +34,10 @@ export const App: React.FC = () => {
   };
 
   return (
-    <MantineProvider>
+    <div>
       <audio ref={audioRef} src={audioUrlsMap.alarm1} />
-      <AppShell
-        header={
-          <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
-        }
-        padding={0}
-      >
+      <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
+      <main>
         <Container maxWidth={600} pt={16}>
           <CounterSelector
             currentCounterIndex={currentCounterIndex}
@@ -60,25 +56,25 @@ export const App: React.FC = () => {
             seconds={counterTypeDurationMap[currentCounter] * 60}
           />
         </Container>
-        <Drawer
-          closeButtonLabel="close settings menu"
-          onClose={() => setIsSettingsDrawerOpen(false)}
-          opened={isSettingsDrawerOpen}
-          padding={24}
-          title={
-            <Heading level={2} shouldAutoFocus>
-              Settings
-            </Heading>
-          }
-          withCloseButton
-          withFocusReturn
-        >
-          <Settings
-            dataTestId="appSettings"
-            isDurationEditingDisabled={isRunning}
-          />
-        </Drawer>
-      </AppShell>
-    </MantineProvider>
+      </main>
+      <Drawer
+        closeButtonLabel="close settings menu"
+        onClose={() => setIsSettingsDrawerOpen(false)}
+        opened={isSettingsDrawerOpen}
+        padding={24}
+        title={
+          <Heading level={2} shouldAutoFocus>
+            Settings
+          </Heading>
+        }
+        withCloseButton
+        withFocusReturn
+      >
+        <Settings
+          dataTestId="appSettings"
+          isDurationEditingDisabled={isRunning}
+        />
+      </Drawer>
+    </div>
   );
 };
