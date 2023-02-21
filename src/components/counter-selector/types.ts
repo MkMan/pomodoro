@@ -1,12 +1,10 @@
-import { BoxProps, MantineColor } from '@mantine/core';
-
 export type CurrentCounter = 'pomodoro' | 'shortBreak' | 'longBreak';
 
-export type Props = {
+export type CounterSelectorProps = {
+  className?: string;
   currentCounterIndex: number;
   isDisabled?: boolean;
-  isInEditMode?: boolean;
   setCurrentCounterIndex: (currentCounterIndex: number) => void;
-} & BoxProps;
+};
 
-export type DisplayAttributes = { text: string; color: MantineColor };
+export type DisplayAttributes = { text: string; color: string };

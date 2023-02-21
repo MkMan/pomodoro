@@ -28,11 +28,4 @@ const Template: ComponentStory<typeof CounterSelector> = (args) => (
 );
 
 export const DisplayMode = Template.bind({});
-DisplayMode.args = {
-  isInEditMode: false,
-};
-
-export const EditMode = Template.bind({});
-EditMode.args = {
-  isInEditMode: true,
-};
+DisplayMode.args = {};
