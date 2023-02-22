@@ -1,4 +1,3 @@
-import { Drawer } from '@mantine/core';
 import { useRef, useState } from 'react';
 
 import {
@@ -6,6 +5,7 @@ import {
   Countdown,
   CounterSelector,
   CurrentCounter,
+  Drawer,
   Header,
   Heading,
   Settings,
@@ -58,17 +58,14 @@ export const App: React.FC = () => {
         </Container>
       </main>
       <Drawer
-        closeButtonLabel="close settings menu"
-        onClose={() => setIsSettingsDrawerOpen(false)}
-        opened={isSettingsDrawerOpen}
-        padding={24}
-        title={
+        closeIconLabel="close settings menu"
+        heading={
           <Heading level={2} shouldAutoFocus>
             Settings
           </Heading>
         }
-        withCloseButton
-        withFocusReturn
+        isOpen={isSettingsDrawerOpen}
+        onClose={() => setIsSettingsDrawerOpen(false)}
       >
         <Settings
           dataTestId="appSettings"
