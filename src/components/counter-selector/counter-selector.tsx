@@ -1,12 +1,12 @@
-import { ActionIcon } from '@mantine/core';
 import React from 'react';
 import { useState } from 'react';
-import { FiChevronRight, FiEdit2, FiX } from 'react-icons/fi';
 
 import { withDefaultProps } from '$app-utils';
 
 import { counterOrder } from '../../constants';
+import { ButtonIcon } from '../button-icon/button-icon';
 import { Heading } from '../heading/heading';
+import { Icon } from '../icon/icon';
 import { Chip, Chips } from './chips/chips';
 import { currentCounterDisplayMap } from './constants';
 import { editHeadingWrapperStyles } from './styled';
@@ -36,15 +36,14 @@ const CounterSelector = ({
           {` ${currentCounterDisplayMap[currentCounter].text}`}
         </span>
       </Heading>
-      <ActionIcon
+      <ButtonIcon
         aria-label="edit counter type"
+        iconName="pencil"
         onClick={() => {
           setIsInEditMode(true);
         }}
-        size={40}
-      >
-        <FiEdit2 size={25} />
-      </ActionIcon>
+        size={30}
+      />
     </div>
   );
 
@@ -62,16 +61,17 @@ const CounterSelector = ({
             >
               {currentCounterDisplayMap[counter].text}
             </Chip>
-            {index < counterOrder.length - 1 && <FiChevronRight />}
+            {index < counterOrder.length - 1 && (
+              <Icon iconName="chevron-right" size={15} />
+            )}
             {index === counterOrder.length - 1 && (
-              <ActionIcon
+              <ButtonIcon
+                iconName="close"
                 onClick={() => {
                   setIsInEditMode(false);
                 }}
-                size={40}
-              >
-                <FiX size={25} />
-              </ActionIcon>
+                size={30}
+              />
             )}
           </React.Fragment>
         ))
