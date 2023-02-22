@@ -1,7 +1,6 @@
-import { Button, Flex } from '@mantine/core';
 import { useCallback, useEffect, useState } from 'react';
 
-import { CountText } from './styled';
+import * as styles from './styles';
 import { CounterState, Props, WorkerToAppMessage } from './types';
 import { getFormattedTime, getWorkerHelpers } from './utils';
 
@@ -58,39 +57,32 @@ export const Countdown: React.FC<Props> = ({
 
   return (
     <>
-      <CountText
-        align="center"
-        data-testid="remainingTime"
-        pb={48}
-        weight="500"
-      >
+      <div className={styles.remainingTime} data-testid="remainingTime">
         {formattedMinutes}:{formattedSeconds}
-      </CountText>
-      <Flex gap={20} justify="center">
+      </div>
+      <div className={styles.buttonsContainer}>
         {shouldShowStartButton && (
-          <Button
-            color="green"
+          <button
+            className={styles.startButton}
             disabled={time === 0}
             onClick={startCount}
-            size="xl"
           >
             Start
-          </Button>
+          </button>
         )}
         {shouldShowPauseButton && (
-          <Button color="yellow" onClick={stopCount} size="xl">
+          <button className={styles.pauseButton} onClick={stopCount}>
             Pause
-          </Button>
+          </button>
         )}
-        <Button
-          color="red"
+        <button
+          className={styles.stopButton}
           disabled={counterState === 'running'}
           onClick={reset}
-          size="xl"
         >
           Reset
-        </Button>
-      </Flex>
+        </button>
+      </div>
     </>
   );
 };

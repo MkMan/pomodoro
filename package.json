@@ -15,8 +15,8 @@
     "format:fix": "prettier -w .",
     "lint:check": "eslint ./src && markdownlint .",
     "lint:fix": "eslint ./src --fix && markdownlint . --fix",
-    "loki:update": "concurrently -k -s first \"npm run storybook\" \"wait-on http-get://localhost:6006/ -i 5000 && loki update\"",
-    "loki:test": "concurrently -k -s first \"npm run storybook\" \"wait-on http-get://localhost:6006/ -i 5000 && loki test\"",
+    "loki:update": "concurrently -k -s first \"npm run storybook -- --no-open\" \"wait-on http-get://localhost:6006/ -i 5000 && loki update\"",
+    "loki:test": "concurrently -k -s first \"npm run storybook -- --no-open\" \"wait-on http-get://localhost:6006/ -i 5000 && loki test\"",
     "prepare": "husky install",
     "preview": "vite preview",
     "sanity-check": "npm run lint:check && npm run format:check && npm run ts:check && npm test && npm run e2e:run",
@@ -27,13 +27,11 @@
     "ts:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mantine/core": "^5.10.0",
-    "@mantine/hooks": "^5.10.0",
+    "@emotion/css": "^11.10.5",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.7.1",
     "zustand": "^4.3.2"
   },
   "devDependencies": {

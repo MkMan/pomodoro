@@ -1,20 +1,24 @@
-import { ActionIcon, Box, Chip, Flex, Highlight, Title } from '@mantine/core';
 import React from 'react';
 import { useState } from 'react';
-import { FiChevronRight, FiEdit2, FiX } from 'react-icons/fi';
+
+import { withDefaultProps } from '$app-utils';
 
 import { counterOrder } from '../../constants';
+import { ButtonIcon } from '../button-icon/button-icon';
+import { Heading } from '../heading/heading';
+import { Icon } from '../icon/icon';
+import { Chip, Chips } from './chips/chips';
 import { currentCounterDisplayMap } from './constants';
-import { Props } from './types';
+import { editHeadingWrapperStyles } from './styled';
+import { CounterSelectorProps } from './types';
 
-export const CounterSelector: React.FC<Props> = ({
+const CounterSelector = ({
+  className,
   currentCounterIndex,
   isDisabled,
-  isInEditMode: isInEditModeProp = false,
   setCurrentCounterIndex,
-  ...boxProps
-}) => {
-  const [isInEditMode, setIsInEditMode] = useState(isInEditModeProp);
+}: CounterSelectorProps): JSX.Element => {
+  const [isInEditMode, setIsInEditMode] = useState(false);
   const currentCounter = counterOrder[currentCounterIndex];
 
   if (
@@ -25,63 +29,61 @@ export const CounterSelector: React.FC<Props> = ({
   }
 
   const displayMode = (
-    <Flex align="center" justify="center">
-      <Title mr={8} order={2} size={`${24 / 16}rem`}>
-        <Highlight
-          highlight={currentCounterDisplayMap[currentCounter].text}
-          highlightStyles={({ colors }) => ({
-            color: colors[currentCounterDisplayMap[currentCounter].color],
-            backgroundColor: 'transparent',
-          })}
-        >
-          {`Current timer: ${currentCounterDisplayMap[currentCounter].text}`}
-        </Highlight>
-      </Title>
-      <ActionIcon
+    <div className={editHeadingWrapperStyles}>
+      <Heading level={2} mr={8}>
+        Current timer:
+        <span style={{ color: currentCounterDisplayMap[currentCounter].color }}>
+          {` ${currentCounterDisplayMap[currentCounter].text}`}
+        </span>
+      </Heading>
+      <ButtonIcon
         aria-label="edit counter type"
+        iconName="pencil"
         onClick={() => {
           setIsInEditMode(true);
         }}
-        size={40}
-      >
-        <FiEdit2 size={25} />
-      </ActionIcon>
-    </Flex>
+        size={30}
+      />
+    </div>
   );
 
   const editMode = (
-    <Chip.Group
-      data-testid="counters-group"
-      multiple={false}
-      onChange={(value) => {
-        setCurrentCounterIndex(parseInt(value));
-      }}
-      position="center"
-      value={currentCounterIndex.toString()}
-    >
-      {counterOrder.map((counter, index) => (
-        <React.Fragment key={index}>
-          <Chip
-            color={currentCounterDisplayMap[currentCounter].color}
-            disabled={isDisabled}
-            size={index === currentCounterIndex ? 'lg' : 'md'}
-            value={index.toString()}
-          >
-            {currentCounterDisplayMap[counter].text}
-          </Chip>
-          {index < counterOrder.length - 1 && <FiChevronRight />}
-        </React.Fragment>
-      ))}
-      <ActionIcon
-        onClick={() => {
-          setIsInEditMode(false);
-        }}
-        size={40}
-      >
-        <FiX size={25} />
-      </ActionIcon>
-    </Chip.Group>
+    <Chips onChange={setCurrentCounterIndex}>
+      {(inputProps) =>
+        counterOrder.map((counter, index) => (
+          <React.Fragment key={index}>
+            <Chip
+              colour={currentCounterDisplayMap[counter].color}
+              isChecked={index === currentCounterIndex}
+              isEnabled={!isDisabled}
+              value={index}
+              {...inputProps}
+            >
+              {currentCounterDisplayMap[counter].text}
+            </Chip>
+            {index < counterOrder.length - 1 && (
+              <Icon iconName="chevron-right" size={15} />
+            )}
+            {index === counterOrder.length - 1 && (
+              <ButtonIcon
+                iconName="close"
+                onClick={() => {
+                  setIsInEditMode(false);
+                }}
+                size={30}
+              />
+            )}
+          </React.Fragment>
+        ))
+      }
+    </Chips>
   );
 
-  return <Box {...boxProps}>{isInEditMode ? editMode : displayMode}</Box>;
+  return (
+    <div className={className}>{isInEditMode ? editMode : displayMode}</div>
+  );
 };
+
+const CounterSelectorWithDefaultProps = withDefaultProps(CounterSelector);
+
+export { CounterSelectorWithDefaultProps as CounterSelector };
