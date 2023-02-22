@@ -1,3 +1,17 @@
+# [1.8.0](https://github.com/MkMan/pomodoro/compare/v1.7.0...v1.8.0) (2023-02-22)
+
+### Features
+
+- remove Mantine ActionIcon ([98f2f44](https://github.com/MkMan/pomodoro/commit/98f2f44921f4c090090596ecf75ae236b539cb5a))
+- remove Mantine AppShell & Header ([ecbdfdd](https://github.com/MkMan/pomodoro/commit/ecbdfdd06c6f39669074e91b27d5feeb15bd813b))
+- remove Mantine Button ([75719ff](https://github.com/MkMan/pomodoro/commit/75719ff9547f03d8b698e7b56ee15b015e50a7c5))
+- remove Mantine Chip ([8bd7280](https://github.com/MkMan/pomodoro/commit/8bd7280157676a6244d34c1e11b21366b0512582))
+- remove Mantine Container ([2b2e2d8](https://github.com/MkMan/pomodoro/commit/2b2e2d82363f900f3ef4f973d5bedd2c69aca89d))
+- remove Mantine drawer ([14d08f9](https://github.com/MkMan/pomodoro/commit/14d08f9a29ea310922f11b5cf695d3583e896086))
+- remove Mantine Flex ([2a6ec2e](https://github.com/MkMan/pomodoro/commit/2a6ec2e281e438ea6f60ea7d3d0a92cc183af90e))
+- remove Mantine input ([398de13](https://github.com/MkMan/pomodoro/commit/398de134d435db16cacb31a8c3b67939cd8503c4))
+- remove Mantine Title ([b64cfab](https://github.com/MkMan/pomodoro/commit/b64cfaba3fa786222039dc0fa899e32488aad051))
+
 # [1.7.0](https://github.com/MkMan/pomodoro/compare/v1.6.0...v1.7.0) (2023-02-13)
 
 ### Features
