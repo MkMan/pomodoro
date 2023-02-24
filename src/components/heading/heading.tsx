@@ -1,36 +1,32 @@
 import { css } from '@emotion/css';
-import React from 'react';
+import { Component, mergeProps } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
 
 import { cx, withDefaultProps } from '$app-utils';
 
 import { fontWeightMap, sizeMap } from './constants';
 import { HeadingProps } from './types';
 
-const Heading = ({
-  className,
-  children,
-  level = 1,
-  shouldAutoFocus,
-  size,
-  weight,
-}: HeadingProps): JSX.Element => {
-  const classes = cx(
-    className,
-    css({
-      fontFamily: `'Raleway', sans-serif`,
-      fontSize: size ? size : sizeMap[level],
-      fontWeight: weight ? fontWeightMap[weight] : 'bold',
-    })
-  );
+const Heading: Component<HeadingProps> = (_props) => {
+  const props = mergeProps({ level: 1 }, _props);
 
-  return React.createElement(
-    `h${level}`,
-    {
-      className: classes,
-      autoFocus: shouldAutoFocus,
-      tabIndex: shouldAutoFocus ? -1 : undefined,
-    },
-    children
+  return (
+    <Dynamic
+      tabIndex={props.shouldAutoFocus ? -1 : undefined}
+      component={`h${props.level}`}
+      class={cx(
+        props.className,
+        css({
+          fontFamily: `'Raleway', sans-serif`,
+          fontSize: props.size
+            ? props.size
+            : sizeMap[props.level as NonNullable<HeadingProps['level']>],
+          fontWeight: props.weight ? fontWeightMap[props.weight] : 'bold',
+        })
+      )}
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

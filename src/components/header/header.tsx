@@ -1,3 +1,5 @@
+import { Component } from 'solid-js';
+
 import { ButtonIcon } from '../button-icon/button-icon';
 import { Container } from '../container/container';
 import { Heading } from '../heading/heading';
@@ -9,14 +11,14 @@ type Props = {
 
 const headerHight = 80;
 
-export const Header: React.FC<Props> = ({ onSettingsClick }) => (
-  <header className={styles.header(headerHight)}>
+export const Header: Component<Props> = (props) => (
+  <header class={styles.header(headerHight)}>
     <Container height={headerHight} maxWidth={600}>
-      <div className={styles.headerContentWrapper}>
+      <div class={styles.headerContentWrapper}>
         <ButtonIcon
           aria-label="settings menu"
           iconName="bars"
-          onClick={onSettingsClick}
+          onClick={props.onSettingsClick}
           size={30}
         />
         <Heading size="3rem">Pomodoro</Heading>

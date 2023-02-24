@@ -1,3 +1,5 @@
+import { JSX } from 'solid-js';
+
 export type ChipProps = {
   children: string;
   colour?: string;
@@ -13,5 +15,5 @@ export type ChipsProps = {
   children: (renderProps: {
     name: string;
     onChange: (value: number) => void;
-  }) => JSX.Element | JSX.Element[];
+  }) => JSX.Element;
 };

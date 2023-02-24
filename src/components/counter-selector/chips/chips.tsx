@@ -1,35 +1,33 @@
+import { Component, mergeProps } from 'solid-js';
+
 import * as styles from './styles';
 import { ChipProps, ChipsProps } from './types';
 
-export const Chip = ({
-  children,
-  colour,
-  isChecked,
-  isEnabled = true,
-  name,
-  value,
-  onChange,
-}: ChipProps): JSX.Element => (
-  <label className={styles.label} style={{ '--color': colour } as any}>
-    <input
-      checked={isChecked}
-      className={styles.input}
-      disabled={!isEnabled}
-      name={name}
-      onChange={({ target: { value } }) => {
-        onChange(parseInt(value));
-      }}
-      type="radio"
-      value={value}
-    />
-    {children}
-  </label>
-);
+export const Chip: Component<ChipProps> = (_props) => {
+  const props = mergeProps({ isEnabled: true }, _props);
 
-export const Chips = ({ children, onChange }: ChipsProps) => {
   return (
-    <fieldset className={styles.chips} data-testid="counters-group">
-      {children({ name: 'counter-selector', onChange })}
+    <label class={styles.label} style={{ '--color': props.colour }}>
+      <input
+        checked={props.isChecked}
+        class={styles.input}
+        disabled={!props.isEnabled}
+        name={props.name}
+        onChange={({ currentTarget: { value } }) => {
+          props.onChange(parseInt(value));
+        }}
+        type="radio"
+        value={props.value}
+      />
+      {props.children}
+    </label>
+  );
+};
+
+export const Chips: Component<ChipsProps> = (props) => {
+  return (
+    <fieldset class={styles.chips} data-testid="counters-group">
+      {props.children({ name: 'counter-selector', onChange: props.onChange })}
     </fieldset>
   );
 };

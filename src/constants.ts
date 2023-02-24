@@ -1,4 +1,4 @@
-import { CurrentCounter } from '$app-components';
+import { CurrentCounter } from './types';
 
 export const counterOrder: CurrentCounter[] = [
   'pomodoro',

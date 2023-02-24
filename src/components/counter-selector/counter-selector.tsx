@@ -1,6 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
+import { Component, createSignal } from 'solid-js';
 
+import {
+  currentCounterIndex,
+  getCurrentCounter,
+  setCurrentCounterIndex,
+} from '$app-state';
 import { withDefaultProps } from '$app-utils';
 
 import { counterOrder } from '../../constants';
@@ -12,28 +16,24 @@ import { currentCounterDisplayMap } from './constants';
 import { editHeadingWrapperStyles } from './styled';
 import { CounterSelectorProps } from './types';
 
-const CounterSelector = ({
-  className,
-  currentCounterIndex,
-  isDisabled,
-  setCurrentCounterIndex,
-}: CounterSelectorProps): JSX.Element => {
-  const [isInEditMode, setIsInEditMode] = useState(false);
-  const currentCounter = counterOrder[currentCounterIndex];
+const CounterSelector: Component<CounterSelectorProps> = (props) => {
+  const [isInEditMode, setIsInEditMode] = createSignal(false);
 
   if (
-    currentCounterIndex < 0 ||
-    currentCounterIndex + 1 > counterOrder.length
+    currentCounterIndex() < 0 ||
+    currentCounterIndex() + 1 > counterOrder.length
   ) {
     throw new Error('Invalid currentCounterIndex value');
   }
 
   const displayMode = (
-    <div className={editHeadingWrapperStyles}>
+    <div class={editHeadingWrapperStyles}>
       <Heading level={2} mr={8}>
         Current timer:
-        <span style={{ color: currentCounterDisplayMap[currentCounter].color }}>
-          {` ${currentCounterDisplayMap[currentCounter].text}`}
+        <span
+          style={{ color: currentCounterDisplayMap[getCurrentCounter()].color }}
+        >
+          {` ${currentCounterDisplayMap[getCurrentCounter()].text}`}
         </span>
       </Heading>
       <ButtonIcon
@@ -51,11 +51,11 @@ const CounterSelector = ({
     <Chips onChange={setCurrentCounterIndex}>
       {(inputProps) =>
         counterOrder.map((counter, index) => (
-          <React.Fragment key={index}>
+          <>
             <Chip
               colour={currentCounterDisplayMap[counter].color}
-              isChecked={index === currentCounterIndex}
-              isEnabled={!isDisabled}
+              isChecked={index === currentCounterIndex()}
+              isEnabled={!props.isDisabled}
               value={index}
               {...inputProps}
             >
@@ -73,14 +73,14 @@ const CounterSelector = ({
                 size={30}
               />
             )}
-          </React.Fragment>
+          </>
         ))
       }
     </Chips>
   );
 
   return (
-    <div className={className}>{isInEditMode ? editMode : displayMode}</div>
+    <div class={props.className}>{isInEditMode() ? editMode : displayMode}</div>
   );
 };
 

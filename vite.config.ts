@@ -1,13 +1,13 @@
 /// <reference types="vitest" />
-import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import solidPlugin from 'vite-plugin-solid';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    solidPlugin(),
     tsconfigPaths(),
     VitePWA({
       registerType: 'autoUpdate',
@@ -35,11 +35,21 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './test-setup.ts',
+    // transformMode: { web: [/\.[jt]sx?$/] },
+    // setupFiles: ['node_modules/@testing-library/jest-dom/extend-expect.js'],
     reporters: ['verbose'],
+    // otherwise, solid would be loaded twice:
+    deps: { registerNodeLoader: true },
+
+    // if you have few tests, try commenting one
+    // or both out to improve performance:
+    threads: false,
+    isolate: false,
+
     coverage: {
       clean: true,
       cleanOnRerun: true,
-      reporter: ['lcov', 'text-summary'],
+      reporter: [],
       all: true,
       src: ['./src'],
       exclude: [

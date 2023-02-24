@@ -1,9 +1,8 @@
-import { ButtonHTMLAttributes, MouseEventHandler } from 'react';
+import { JSX } from 'solid-js';
 
 import { IconProps } from '../icon/types';
 
 export type ButtonIconProps = {
-  onClick: MouseEventHandler<HTMLButtonElement>;
-  children?: never;
+  onClick: (event: MouseEvent) => void;
 } & IconProps &
-  ButtonHTMLAttributes<HTMLButtonElement>;
+  JSX.ButtonHTMLAttributes<HTMLButtonElement>;

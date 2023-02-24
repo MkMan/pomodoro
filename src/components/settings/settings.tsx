@@ -1,4 +1,6 @@
-import { useAppSettings } from '$app-utils';
+import { Component, ComponentProps } from 'solid-js';
+
+import { setSettingsStore, settingsStore } from '$app-state';
 
 import { Heading } from '../heading/heading';
 import { Input } from '../input/input';
@@ -8,57 +10,54 @@ type Props = {
   dataTestId?: string;
 };
 
-export const Settings: React.FC<Props> = ({
-  isDurationEditingDisabled,
-  dataTestId,
-}) => {
-  const {
-    durations,
-    setLongBreakDuration,
-    setPomodoroDuration,
-    setShortBreakDuration,
-  } = useAppSettings();
-  const { pomodoro, shortBreak, longBreak } = durations;
+export const Settings: Component<Props> = (props) => {
+  const durations = settingsStore.durations;
 
-  const fields = [
-    {
-      label: 'Pomodoro',
-      setter: setPomodoroDuration,
-      value: pomodoro,
-    },
-    {
-      label: 'Short break',
-      setter: setShortBreakDuration,
-      value: shortBreak,
-    },
-    {
-      label: 'Long break',
-      setter: setLongBreakDuration,
-      value: longBreak,
-    },
-  ];
+  const commonInputProps: Partial<ComponentProps<typeof Input>> = {
+    isRequired: true,
+    mb: 16,
+    type: 'number',
+    min: 0,
+  };
 
   return (
-    <section data-testid={dataTestId}>
+    <section data-testid={props.dataTestId}>
       <Heading level={3} mb={16}>
         Durations
       </Heading>
-      {fields.map(({ label, setter, value }) => (
-        <Input
-          disabled={isDurationEditingDisabled}
-          error={value <= 0 && `${label} durations must be set`}
-          isRequired
-          key={label}
-          label={label}
-          mb={16}
-          onChange={({ target }) => {
-            const value = target.valueAsNumber || 0;
-            setter(value);
-          }}
-          type="number"
-          value={value === 0 ? '' : value}
-        />
-      ))}
+      <Input
+        {...commonInputProps}
+        disabled={props.isDurationEditingDisabled}
+        error={durations.pomodoro <= 0 && `Pomodoro duration must be set`}
+        label="Pomodoro"
+        onChange={(event) => {
+          const value = event.currentTarget.valueAsNumber || 0;
+          setSettingsStore('durations', 'pomodoro', value);
+        }}
+        value={durations.pomodoro === 0 ? '' : durations.pomodoro}
+      />
+      <Input
+        {...commonInputProps}
+        disabled={props.isDurationEditingDisabled}
+        error={durations.shortBreak <= 0 && `Short break duration must be set`}
+        label="Short break"
+        onChange={(event) => {
+          const value = event.currentTarget.valueAsNumber || 0;
+          setSettingsStore('durations', 'shortBreak', value);
+        }}
+        value={durations.shortBreak === 0 ? '' : durations.shortBreak}
+      />
+      <Input
+        {...commonInputProps}
+        disabled={props.isDurationEditingDisabled}
+        error={durations.longBreak <= 0 && `Long break duration must be set`}
+        label="Long break"
+        onChange={(event) => {
+          const value = event.currentTarget.valueAsNumber || 0;
+          setSettingsStore('durations', 'longBreak', value);
+        }}
+        value={durations.longBreak === 0 ? '' : durations.longBreak}
+      />
     </section>
   );
 };

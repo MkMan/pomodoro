@@ -1,5 +1,4 @@
-export type Props = {
-  seconds: number;
+export type CountdownProps = {
   onComplete?: () => void;
   onStart?: () => void;
   onStop?: () => void;
