@@ -1,8 +1,7 @@
 import { Component } from 'solid-js';
 
-import { ButtonIcon } from '../button-icon/button-icon';
-import { Container } from '../container/container';
-import { Heading } from '../heading/heading';
+import { ButtonIcon, Container, Heading } from '$app-components';
+
 import * as styles from './styles';
 
 type Props = {

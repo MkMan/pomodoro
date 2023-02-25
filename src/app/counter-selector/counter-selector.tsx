@@ -1,5 +1,6 @@
 import { Component, createSignal } from 'solid-js';
 
+import { ButtonIcon, Heading, Icon } from '$app-components';
 import {
   currentCounterIndex,
   getCurrentCounter,
@@ -8,9 +9,6 @@ import {
 import { withDefaultProps } from '$app-utils';
 
 import { counterOrder } from '../../constants';
-import { ButtonIcon } from '../button-icon/button-icon';
-import { Heading } from '../heading/heading';
-import { Icon } from '../icon/icon';
 import { Chip, Chips } from './chips/chips';
 import { currentCounterDisplayMap } from './constants';
 import { editHeadingWrapperStyles } from './styled';
