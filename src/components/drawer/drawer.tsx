@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import { Component, createEffect, createSignal, Show } from 'solid-js';
 import { Portal } from 'solid-js/web';
 
 import { cx } from '$app-utils';
@@ -15,15 +15,52 @@ if (!document.getElementById(drawerContainerId)) {
 }
 
 export const Drawer: Component<DrawerProps> = (props) => {
+  const [isOpen, setIsOpen] = createSignal(false);
+
+  let overlay: HTMLDivElement | undefined;
+  let drawerWrapper: HTMLDivElement | undefined;
+
+  createEffect(() => {
+    if (props.isOpen) {
+      setIsOpen(true);
+    }
+
+    if (!props.isOpen && isOpen()) {
+      // delay unmounting to show closing transitions
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 300);
+    }
+  });
+
+  createEffect(() => {
+    if (props.isOpen) {
+      setTimeout(() => {
+        // add opening transitions in next tick
+        // so that the drawer mounts fires
+        overlay?.classList.add('isOpen');
+        drawerWrapper?.classList.add('isOpen');
+      }, 0);
+    } else {
+      overlay?.classList.remove('isOpen');
+      drawerWrapper?.classList.remove('isOpen');
+    }
+  });
+
   return (
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     <Portal mount={document.getElementById(drawerContainerId)!}>
-      {props.isOpen && (
+      <Show when={isOpen()}>
         <>
-          <div class={cx(styles.overlay, 'isOpen')} onClick={props.onClose} />
+          <div
+            class={cx(styles.overlay)}
+            onClick={() => props.onClose()}
+            ref={overlay}
+          />
           <div
             aria-labelledby="drawer-header"
             class={styles.wrapper}
+            ref={drawerWrapper}
             role="dialog"
           >
             <header class={styles.header} id="drawer-header">
@@ -38,7 +75,7 @@ export const Drawer: Component<DrawerProps> = (props) => {
             <div class={styles.content}>{props.children}</div>
           </div>
         </>
-      )}
+      </Show>
     </Portal>
   );
 };

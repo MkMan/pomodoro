@@ -9,7 +9,7 @@ export const overlay = css({
   width: '100%',
   zIndex: 1,
   opacity: 0,
-  transition: 'opacity 0.3s',
+  transition: 'opacity 300ms',
   willChange: 'opacity',
   backgroundColor: '#000',
   userSelect: 'none',
@@ -30,16 +30,20 @@ export const wrapper = css({
   zIndex: 2,
   overflow: 'auto',
 
-  transition: 'transform 0.3s',
+  transition: 'transform 200ms',
   willChange: 'transform',
   backgroundColor: '#fff',
 
   display: 'flex',
   flexDirection: 'column',
 
-  transform: 'translate3d(0%, 0, 0)' /* extra 3% because of box-shadow */,
+  transform: 'translate3d(-103%, 0, 0)' /* extra 3% because of box-shadow */,
 
-  boxShadow: '6px 0px 6px 1px #777',
+  boxShadow: '6px 0px 16px 2px #777',
+
+  '&.isOpen': {
+    transform: 'translate3d(0%, 0, 0)',
+  },
 });
 
 export const header = css({
