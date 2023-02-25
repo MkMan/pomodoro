@@ -4,7 +4,7 @@ export const wrapper = css({
   display: 'flex',
   flexDirection: 'column',
   gap: 4,
-  fontSize: '0.8rem',
+  fontSize: '1rem',
   fontWeight: 500,
 });
 
@@ -25,6 +25,7 @@ export const input = css({
 
   ':disabled': {
     cursor: 'not-allowed',
+    color: 'darkgray',
   },
 });
 

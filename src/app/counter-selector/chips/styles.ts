@@ -35,6 +35,10 @@ export const input = css({
     marginInlineEnd: 8,
     color: 'var(--color)',
   },
+
+  ':disabled:checked:before': {
+    color: 'gray',
+  },
 });
 
 export const chips = css({
