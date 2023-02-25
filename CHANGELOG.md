@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/MkMan/pomodoro/compare/v1.8.0...v2.0.0) (2023-02-25)
+
+### Code Refactoring
+
+- migrate to SolidJS ([e83f014](https://github.com/MkMan/pomodoro/commit/e83f01410a634734e880efb9b098912980ac435b))
+
+### BREAKING CHANGES
+
+- migrate to SolidJS
+
 # [1.8.0](https://github.com/MkMan/pomodoro/compare/v1.7.0...v1.8.0) (2023-02-22)
 
 ### Features
