@@ -1,4 +1,5 @@
-import { createPortal } from 'react-dom';
+import { Component } from 'solid-js';
+import { Portal } from 'solid-js/web';
 
 import { cx } from '$app-utils';
 
@@ -13,35 +14,31 @@ if (!document.getElementById(drawerContainerId)) {
   document.body.appendChild(drawerContainer);
 }
 
-export const Drawer = ({
-  children,
-  closeIconLabel = 'close',
-  heading,
-  isOpen,
-  onClose,
-}: DrawerProps) =>
-  createPortal(
-    isOpen ? (
-      <>
-        <div className={cx(styles.overlay, 'isOpen')} onClick={onClose} />
-        <div
-          aria-labelledby="drawer-header"
-          className={styles.wrapper}
-          role="dialog"
-        >
-          <header className={styles.header} id="drawer-header">
-            <div>{heading}</div>
-            <ButtonIcon
-              aria-label={closeIconLabel}
-              iconName="close"
-              onClick={onClose}
-              size={30}
-            />
-          </header>
-          <div className={styles.content}>{children}</div>
-        </div>
-      </>
-    ) : null,
+export const Drawer: Component<DrawerProps> = (props) => {
+  return (
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    document.getElementById(drawerContainerId)!
+    <Portal mount={document.getElementById(drawerContainerId)!}>
+      {props.isOpen && (
+        <>
+          <div class={cx(styles.overlay, 'isOpen')} onClick={props.onClose} />
+          <div
+            aria-labelledby="drawer-header"
+            class={styles.wrapper}
+            role="dialog"
+          >
+            <header class={styles.header} id="drawer-header">
+              <div>{props.heading}</div>
+              <ButtonIcon
+                aria-label={props.closeIconLabel ?? 'close'}
+                iconName="close"
+                onClick={props.onClose}
+                size={30}
+              />
+            </header>
+            <div class={styles.content}>{props.children}</div>
+          </div>
+        </>
+      )}
+    </Portal>
   );
+};

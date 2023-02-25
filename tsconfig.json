@@ -14,15 +14,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
     "types": ["vitest/globals"],
     "baseUrl": ".",
     "paths": {
       "$app-utils": ["./src/utility"],
       "$app-components": ["./src/components"],
-      "$test-utils": ["./src/test-utils"]
+      "$app-state": ["./src/state"]
     }
   },
-  "include": ["src", "./test-setup.ts"],
+  "include": ["src", "./test-setup.ts", "./index.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

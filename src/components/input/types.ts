@@ -1,10 +1,10 @@
-import { ChangeEvent, InputHTMLAttributes } from 'react';
+import { JSX } from 'solid-js';
 
 export type InputProps = {
   className?: string;
   error?: string | boolean;
   label: string;
   isRequired?: boolean;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: JSX.EventHandler<HTMLInputElement, Event>;
   value: string | number;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & Omit<JSX.InputHTMLAttributes<HTMLInputElement>, 'onChange'>;

@@ -1,35 +1,39 @@
+import { Component, createMemo, splitProps } from 'solid-js';
+
 import { cx, withDefaultProps } from '$app-utils';
 
 import * as styles from './styles';
 import { InputProps } from './types';
 
-const Input = ({
-  className,
-  error,
-  label,
-  isRequired,
-  onChange,
-  value,
-  ...inputProps
-}: InputProps) => {
+const Input: Component<InputProps> = (_props) => {
+  const [props, inputProps] = splitProps(_props, [
+    'className',
+    'error',
+    'isRequired',
+    'label',
+    'onChange',
+    'value',
+  ]);
+
+  const wrapperClasses = createMemo(() => cx(styles.wrapper, props.className));
+  const labelClasses = createMemo(() =>
+    cx(props.isRequired && styles.labelAsterisk)
+  );
+
   return (
-    <div className={cx(styles.wrapper, className)}>
-      <label
-        className={cx(isRequired && styles.labelAsterisk)}
-        htmlFor={label}
-        key={label}
-      >
-        {label}
+    <div class={wrapperClasses()}>
+      <label class={labelClasses()} for={props.label}>
+        {props.label}
       </label>
       <input
-        className={styles.input}
+        class={styles.input}
         {...inputProps}
-        aria-required={isRequired}
-        id={label}
-        onChange={onChange}
-        value={value}
+        aria-required={props.isRequired}
+        id={props.label}
+        onChange={(event) => props.onChange(event)}
+        value={props.value}
       />
-      {error && <span className={styles.error}>{error}</span>}
+      {props.error && <span class={styles.error}>{props.error}</span>}
     </div>
   );
 };

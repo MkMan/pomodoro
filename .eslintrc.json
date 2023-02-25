@@ -3,18 +3,11 @@
     "browser": true,
     "es2021": true
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
+  "settings": {},
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:storybook/recommended"
+    "plugin:solid/typescript"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -24,18 +17,10 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
+  "plugins": ["solid", "@typescript-eslint", "simple-import-sort"],
   "rules": {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "react/prop-types": "off",
-    "react/jsx-sort-props": "error",
     "@typescript-eslint/no-unused-vars": "error"
-  },
-  "overrides": [
-    {
-      "files": ["**/*.spec.[jt]s?(x)"],
-      "extends": ["plugin:testing-library/react"]
-    }
-  ]
+  }
 }

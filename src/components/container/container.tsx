@@ -1,4 +1,5 @@
 import { css } from '@emotion/css';
+import { Component, JSX } from 'solid-js';
 
 import { cx, withDefaultProps } from '$app-utils';
 
@@ -9,20 +10,20 @@ type ContainerProps = {
   maxWidth?: string | number;
 };
 
-const Container = ({
-  children,
-  className,
-  height,
-  maxWidth,
-}: ContainerProps): JSX.Element => {
+const Container: Component<ContainerProps> = (props) => {
   return (
     <div
-      className={cx(
-        css({ height, maxWidth, marginInline: 'auto', paddingInline: 16 }),
-        className
+      class={cx(
+        css({
+          height: props.height,
+          maxWidth: props.maxWidth,
+          marginInline: 'auto',
+          paddingInline: 16,
+        }),
+        props.className
       )}
     >
-      {children}
+      {props.children}
     </div>
   );
 };

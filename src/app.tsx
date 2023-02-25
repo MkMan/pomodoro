@@ -1,59 +1,41 @@
-import { useRef, useState } from 'react';
+import { Component, createSignal } from 'solid-js';
 
 import {
   Container,
   Countdown,
   CounterSelector,
-  CurrentCounter,
   Drawer,
   Header,
   Heading,
   Settings,
 } from '$app-components';
-import { useAppSettings } from '$app-utils';
+import { increment } from '$app-state';
 
-import { useCurrentCounterState } from './app.utils';
 import { audioUrlsMap } from './assets/sounds';
+import { initialiseSettingsStore } from './state/settings/settings';
 
-export const App: React.FC = () => {
-  const {
-    currentCounter,
-    currentCounterIndex,
-    setCurrentCounterIndex,
-    increment,
-  } = useCurrentCounterState();
-  const counterDurations = useAppSettings(({ durations }) => durations);
-  const [isRunning, setIsRunning] = useState(false);
-  const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
+export const App: Component = () => {
+  initialiseSettingsStore();
+  const [isRunning, setIsRunning] = createSignal(false);
+  const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = createSignal(false);
 
-  const counterTypeDurationMap: Record<CurrentCounter, number> = {
-    longBreak: counterDurations.longBreak,
-    pomodoro: counterDurations.pomodoro,
-    shortBreak: counterDurations.shortBreak,
-  };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  let audioRef: HTMLAudioElement;
 
   return (
     <div>
-      <audio ref={audioRef} src={audioUrlsMap.alarm1} />
+      <audio ref={(ref) => (audioRef = ref)} src={audioUrlsMap.alarm1} />
       <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
       <main>
         <Container maxWidth={600} pt={16}>
-          <CounterSelector
-            currentCounterIndex={currentCounterIndex}
-            isDisabled={isRunning}
-            pb={32}
-            pt={32}
-            setCurrentCounterIndex={setCurrentCounterIndex}
-          />
+          <CounterSelector isDisabled={isRunning()} pb={32} pt={32} />
           <Countdown
             onComplete={() => {
-              audioRef.current?.play();
+              audioRef.play();
               increment();
             }}
             onStart={() => setIsRunning(true)}
             onStop={() => setIsRunning(false)}
-            seconds={counterTypeDurationMap[currentCounter] * 60}
           />
         </Container>
       </main>
@@ -64,12 +46,12 @@ export const App: React.FC = () => {
             Settings
           </Heading>
         }
-        isOpen={isSettingsDrawerOpen}
+        isOpen={isSettingsDrawerOpen()}
         onClose={() => setIsSettingsDrawerOpen(false)}
       >
         <Settings
           dataTestId="appSettings"
-          isDurationEditingDisabled={isRunning}
+          isDurationEditingDisabled={isRunning()}
         />
       </Drawer>
     </div>

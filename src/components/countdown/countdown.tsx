@@ -1,83 +1,82 @@
-import { useCallback, useEffect, useState } from 'react';
+import { Component, createEffect, createMemo, createSignal } from 'solid-js';
+
+import { getCurrentCounter, settingsStore } from '$app-state';
 
 import * as styles from './styles';
-import { CounterState, Props, WorkerToAppMessage } from './types';
+import { CountdownProps, CounterState, WorkerToAppMessage } from './types';
 import { getFormattedTime, getWorkerHelpers } from './utils';
 
 const worker = new Worker(new URL('./worker.ts', import.meta.url));
 const { startWorkerCounter, stopWorkerCounter } = getWorkerHelpers(worker);
 
-export const Countdown: React.FC<Props> = ({
-  seconds,
-  onComplete,
-  onStop,
-  onStart,
-}) => {
-  const [time, setTime] = useState(seconds);
-  const [counterState, setCounterState] = useState<CounterState>('stopped');
+export const Countdown: Component<CountdownProps> = (props) => {
+  const getInitialDuration = () =>
+    settingsStore.durations[getCurrentCounter()] * 60;
+  const [time, setTime] = createSignal(getInitialDuration());
+  const [counterState, setCounterState] = createSignal<CounterState>('stopped'); // TODO: merge with one in app state and make global
 
   // utility flags
-  const isPaused = counterState === 'stopped' && time > 0;
-  const shouldShowStartButton = counterState === 'stopped';
-  const shouldShowPauseButton = counterState === 'running' && time > 0;
+  const isPaused = createMemo(() => counterState() === 'stopped' && time() > 0);
+  const shouldShowStartButton = createMemo(() => counterState() === 'stopped');
+  const shouldShowPauseButton = createMemo(
+    () => counterState() === 'running' && time() > 0
+  );
 
   // utility functions
   const startCount = () => {
-    startWorkerCounter(isPaused ? time : seconds);
+    startWorkerCounter(isPaused() ? time() : getInitialDuration());
     setCounterState('running');
-    onStart?.();
+    props.onStart?.();
   };
-  const stopCount = useCallback(() => {
+  const stopCount = () => {
     stopWorkerCounter();
     setCounterState('stopped');
-    onStop?.();
-  }, [onStop]);
-  const reset = useCallback(() => {
-    setTime(seconds);
+    props.onStop?.();
+  };
+  const reset = () => {
+    setTime(getInitialDuration());
     stopCount();
-  }, [seconds, stopCount]);
-  const syncTimeWithWorker = useCallback(() => {
+  };
+  const syncTimeWithWorker = () => {
     worker.onmessage = ({ data }: WorkerToAppMessage) => {
       setTime(data.newTime);
 
       if (data.newTime === 0) {
         stopCount();
-        onComplete?.();
+        props.onComplete?.();
       }
     };
-  }, [onComplete, setTime, stopCount]);
-  const updateTimeStateOnPropChange = useCallback(() => {
-    setTime(seconds);
-  }, [seconds]);
+  };
+  const updateTimeStateOnPropChange = () => {
+    setTime(getInitialDuration());
+  };
 
-  useEffect(syncTimeWithWorker, [syncTimeWithWorker]);
-  useEffect(updateTimeStateOnPropChange, [updateTimeStateOnPropChange]);
-
-  const [formattedMinutes, formattedSeconds] = getFormattedTime(time);
+  createEffect(syncTimeWithWorker);
+  createEffect(updateTimeStateOnPropChange);
 
   return (
     <>
-      <div className={styles.remainingTime} data-testid="remainingTime">
-        {formattedMinutes}:{formattedSeconds}
+      <div class={styles.remainingTime} data-testid="remainingTime">
+        {getFormattedTime(time())}
       </div>
-      <div className={styles.buttonsContainer}>
-        {shouldShowStartButton && (
+      <div class={styles.buttonsContainer}>
+        {shouldShowStartButton() && (
           <button
-            className={styles.startButton}
-            disabled={time === 0}
+            class={styles.startButton}
+            disabled={time() === 0}
             onClick={startCount}
           >
             Start
           </button>
         )}
-        {shouldShowPauseButton && (
-          <button className={styles.pauseButton} onClick={stopCount}>
+        {shouldShowPauseButton() && (
+          <button class={styles.pauseButton} onClick={stopCount}>
             Pause
           </button>
         )}
         <button
-          className={styles.stopButton}
-          disabled={counterState === 'running'}
+          class={styles.stopButton}
+          disabled={counterState() === 'running'}
           onClick={reset}
         >
           Reset

@@ -1,4 +1,6 @@
 import { css } from '@emotion/css';
+import { splitProps } from 'solid-js';
+import { JSX } from 'solid-js/jsx-runtime';
 
 import { cx } from '../cx/cx';
 
@@ -22,26 +24,41 @@ export const withDefaultProps = <BaseProps,>(
 ): Component<BaseProps & DefaultProps & { className?: string }> => {
   const WithDefaultProps: Component<
     BaseProps & DefaultProps & { className?: string }
-  > = ({ className, m, mb, ml, mr, mt, p, pb, pl, pr, pt, ...baseProps }) => (
-    <Component
-      {...(baseProps as BaseProps)}
-      className={cx(
-        css({
-          margin: m,
-          marginBlockEnd: mb,
-          marginInlineStart: ml,
-          marginInlineEnd: mr,
-          marginBlockStart: mt,
-          padding: p,
-          paddingBlockEnd: pb,
-          paddingInlineStart: pl,
-          paddingInlineEnd: pr,
-          paddingBlockStart: pt,
-        }),
-        className
-      )}
-    />
-  );
-
+  > = (_props) => {
+    const [props, baseProps] = splitProps(_props, [
+      'className',
+      'm',
+      'mb',
+      'ml',
+      'mr',
+      'mt',
+      'p',
+      'pb',
+      'pl',
+      'pr',
+      'pt',
+    ]);
+    return (
+      <Component
+        {...(baseProps as BaseProps)}
+        // eslint-disable-next-line solid/no-react-specific-props -- accepting a prop called `class` is problematic
+        className={cx(
+          css({
+            margin: props.m,
+            marginBlockEnd: props.mb,
+            marginInlineStart: props.ml,
+            marginInlineEnd: props.mr,
+            marginBlockStart: props.mt,
+            padding: props.p,
+            paddingBlockEnd: props.pb,
+            paddingInlineStart: props.pl,
+            paddingInlineEnd: props.pr,
+            paddingBlockStart: props.pt,
+          }),
+          props.className
+        )}
+      />
+    );
+  };
   return WithDefaultProps;
 };

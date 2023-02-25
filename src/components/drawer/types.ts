@@ -1,3 +1,5 @@
+import { JSX } from 'solid-js';
+
 export type DrawerProps = {
   children?: JSX.Element | JSX.Element[];
   closeIconLabel?: string;

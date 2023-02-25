@@ -1,4 +1,5 @@
-import { CurrentCounter, DisplayAttributes } from './types';
+import { CurrentCounter } from '../../types';
+import { DisplayAttributes } from './types';
 
 export const currentCounterDisplayMap: Record<
   CurrentCounter,
