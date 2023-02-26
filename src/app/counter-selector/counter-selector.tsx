@@ -11,7 +11,7 @@ import { withDefaultProps } from '$app-utils';
 import { counterOrder } from '../../constants';
 import { Chip, Chips } from './chips/chips';
 import { currentCounterDisplayMap } from './constants';
-import { editHeadingWrapperStyles } from './styled';
+import * as styles from './styles';
 import { CounterSelectorProps } from './types';
 
 const CounterSelector: Component<CounterSelectorProps> = (props) => {
@@ -25,7 +25,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
   }
 
   const displayMode = (
-    <div class={editHeadingWrapperStyles}>
+    <div class={styles.editHeadingWrapperStyles}>
       <Heading level={2} mr={8}>
         Current timer:
         <span
