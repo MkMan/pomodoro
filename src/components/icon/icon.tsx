@@ -7,6 +7,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Component } from 'solid-js';
 
+import { cx } from '$app-utils';
+
 import * as styles from './styles';
 import { IconProps } from './types';
 
@@ -16,7 +18,7 @@ library.add(...supportedIcons);
 
 export const Icon: Component<IconProps> = (props) => (
   <span
-    class={styles.wrapper}
+    class={cx(styles.wrapper, props.class)}
     // eslint-disable-next-line solid/no-innerhtml -- trusted svgs
     innerHTML={
       icon({ prefix: 'fas', iconName: props.iconName })
