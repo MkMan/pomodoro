@@ -1,18 +1,14 @@
 import { Component, createSignal } from 'solid-js';
 
-import {
-  Container,
-  Countdown,
-  CounterSelector,
-  Drawer,
-  Header,
-  Heading,
-  Settings,
-} from '$app-components';
+import { Container, Drawer, Heading } from '$app-components';
 import { increment } from '$app-state';
 
-import { audioUrlsMap } from './assets/sounds';
-import { initialiseSettingsStore } from './state/settings/settings';
+import { audioUrlsMap } from '../assets/sounds';
+import { initialiseSettingsStore } from '../state/settings/settings';
+import { Countdown } from './countdown/countdown';
+import { CounterSelector } from './counter-selector/counter-selector';
+import { Header } from './header/header';
+import { Settings } from './settings/settings';
 
 export const App: Component = () => {
   initialiseSettingsStore();

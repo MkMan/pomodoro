@@ -1,9 +1,7 @@
 import { Component, ComponentProps } from 'solid-js';
 
+import { Heading, Input } from '$app-components';
 import { setSettingsStore, settingsStore } from '$app-state';
-
-import { Heading } from '../heading/heading';
-import { Input } from '../input/input';
 
 type Props = {
   isDurationEditingDisabled?: boolean;

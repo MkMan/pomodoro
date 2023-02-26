@@ -3,4 +3,12 @@ export type CounterSelectorProps = {
   isDisabled?: boolean;
 };
 
+export type EditModeProps = {
+  isDisabled?: boolean;
+};
+
+export type DisplayModeProps = {
+  onEditClick: () => void;
+};
+
 export type DisplayAttributes = { text: string; color: string };
