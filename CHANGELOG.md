@@ -1,3 +1,14 @@
+# [2.1.0](https://github.com/MkMan/pomodoro/compare/v2.0.0...v2.1.0) (2023-02-26)
+
+### Bug Fixes
+
+- apply correct disabled colours ([79e2050](https://github.com/MkMan/pomodoro/commit/79e2050298b548cc2b85d069096ece9cfb95256f))
+
+### Features
+
+- add drawer transitions ([de32857](https://github.com/MkMan/pomodoro/commit/de328571acebaed0796bacf5c4fc0902163a056b))
+- **counter-selector:** rework UI ([8fe02c7](https://github.com/MkMan/pomodoro/commit/8fe02c747437a71618e2c7e6ee76440dabcd8687))
+
 # [2.0.0](https://github.com/MkMan/pomodoro/compare/v1.8.0...v2.0.0) (2023-02-25)
 
 ### Code Refactoring
