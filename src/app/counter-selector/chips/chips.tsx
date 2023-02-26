@@ -1,4 +1,4 @@
-import { Component, mergeProps } from 'solid-js';
+import { Component, createEffect, mergeProps } from 'solid-js';
 
 import * as styles from './styles';
 import { ChipProps, ChipsProps } from './types';
@@ -6,8 +6,16 @@ import { ChipProps, ChipsProps } from './types';
 export const Chip: Component<ChipProps> = (_props) => {
   const props = mergeProps({ isEnabled: true }, _props);
 
+  let label: HTMLLabelElement | undefined;
+
+  createEffect(() => {
+    if (props.isChecked) {
+      label?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
   return (
-    <label class={styles.label} style={{ '--color': props.colour }}>
+    <label class={styles.label} style={{ '--color': props.colour }} ref={label}>
       <input
         checked={props.isChecked}
         class={styles.input}
