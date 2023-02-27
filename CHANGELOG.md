@@ -1,3 +1,13 @@
+# [2.2.0](https://github.com/MkMan/pomodoro/compare/v2.1.0...v2.2.0) (2023-02-27)
+
+### Bug Fixes
+
+- **app:** load alarm sound differently ([f01480d](https://github.com/MkMan/pomodoro/commit/f01480d004e84e78fe5f1a41446cf8628cc157be))
+
+### Features
+
+- **icon:** add chevron-down icon ([bbc970b](https://github.com/MkMan/pomodoro/commit/bbc970b3454b40080a1ef0092470fc8c98f7c8b2))
+
 # [2.1.0](https://github.com/MkMan/pomodoro/compare/v2.0.0...v2.1.0) (2023-02-26)
 
 ### Bug Fixes
