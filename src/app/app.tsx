@@ -3,31 +3,29 @@ import { Component, createSignal } from 'solid-js';
 import { Container, Drawer, Heading } from '$app-components';
 import { increment } from '$app-state';
 
-import { audioUrlsMap } from '../assets/sounds';
 import { initialiseSettingsStore } from '../state/settings/settings';
 import { Countdown } from './countdown/countdown';
 import { CounterSelector } from './counter-selector/counter-selector';
 import { Header } from './header/header';
 import { Settings } from './settings/settings';
+import { getAlertHandle } from './utils';
 
 export const App: Component = () => {
   initialiseSettingsStore();
+  const audioRef = getAlertHandle();
+
   const [isRunning, setIsRunning] = createSignal(false);
   const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = createSignal(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  let audioRef: HTMLAudioElement;
-
   return (
     <div>
-      <audio ref={(ref) => (audioRef = ref)} src={audioUrlsMap.alarm1} />
       <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
       <main>
         <Container maxWidth={600} pt={16}>
           <CounterSelector isDisabled={isRunning()} pb={32} pt={32} />
           <Countdown
             onComplete={() => {
-              audioRef.play();
+              audioRef.play().catch(console.error);
               increment();
             }}
             onStart={() => setIsRunning(true)}

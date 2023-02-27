@@ -1,6 +1,7 @@
 import { icon, library } from '@fortawesome/fontawesome-svg-core';
 import {
   faBars,
+  faChevronDown,
   faChevronRight,
   faClose,
   faPencil,
@@ -12,7 +13,13 @@ import { cx } from '$app-utils';
 import * as styles from './styles';
 import { IconProps } from './types';
 
-const supportedIcons = [faPencil, faBars, faClose, faChevronRight];
+const supportedIcons = [
+  faPencil,
+  faBars,
+  faClose,
+  faChevronRight,
+  faChevronDown,
+];
 
 library.add(...supportedIcons);
 

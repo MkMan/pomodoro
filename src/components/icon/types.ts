@@ -1,4 +1,9 @@
-type SupportedIcons = 'pencil' | 'bars' | 'close' | 'chevron-right';
+type SupportedIcons =
+  | 'pencil'
+  | 'bars'
+  | 'close'
+  | 'chevron-right'
+  | 'chevron-down';
 
 export type IconProps = {
   class?: string;
