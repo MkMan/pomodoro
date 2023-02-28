@@ -1,9 +1,10 @@
 type SupportedIcons =
-  | 'pencil'
   | 'bars'
-  | 'close'
+  | 'chevron-down'
   | 'chevron-right'
-  | 'chevron-down';
+  | 'close'
+  | 'code'
+  | 'pencil';
 
 export type IconProps = {
   class?: string;

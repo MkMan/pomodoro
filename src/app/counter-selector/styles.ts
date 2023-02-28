@@ -2,17 +2,13 @@ import { css } from '@emotion/css';
 
 export const wrapper = css({
   display: 'flex',
-  flexDirection: 'column',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
   alignItems: 'center',
   gap: 8,
 });
 
-export const editHeadingWrapper = css({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-});
-
-export const chevron = css({
-  minWidth: 15,
+export const label = css({
+  fontSize: '1.8rem',
+  fontWeight: 'bold',
 });

@@ -5,7 +5,6 @@ export const remainingTime = css({
   paddingBlockEnd: 48,
   fontWeight: 500,
   fontSize: '7rem',
-  fontFamily: 'sans-serif',
 });
 
 export const buttonsContainer = css({

@@ -1,7 +1,9 @@
-import { Component, createSignal, Show } from 'solid-js';
+import { Component, createMemo, createSignal } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
 
-import { ButtonIcon, Heading, Icon } from '$app-components';
+import { ButtonIcon, Select } from '$app-components';
 import {
+  counterState,
   currentCounterIndex,
   getCurrentCounter,
   setCurrentCounterIndex,
@@ -9,55 +11,22 @@ import {
 import { cx, withDefaultProps } from '$app-utils';
 
 import { counterOrder } from '../../constants';
-import { Chip, Chips } from './chips/chips';
 import { currentCounterDisplayMap } from './constants';
 import * as styles from './styles';
-import { CounterSelectorProps, DisplayModeProps, EditModeProps } from './types';
+import { CounterSelectorProps } from './types';
 
-const EditMode: Component<EditModeProps> = (props) => (
-  <Chips onChange={setCurrentCounterIndex}>
-    {(inputProps) =>
-      counterOrder.map((counter, index) => (
-        <>
-          <Chip
-            colour={currentCounterDisplayMap[counter].color}
-            isChecked={index === currentCounterIndex()}
-            isEnabled={!props.isDisabled}
-            value={index}
-            {...inputProps}
-          >
-            {currentCounterDisplayMap[counter].text}
-          </Chip>
-          {index < counterOrder.length - 1 && (
-            <Icon class={styles.chevron} iconName="chevron-right" size={15} />
-          )}
-        </>
-      ))
-    }
-  </Chips>
-);
-
-const DisplayMode: Component<DisplayModeProps> = (props) => (
-  <div class={styles.editHeadingWrapper}>
-    <Heading level={2} mr={8}>
-      Current timer:
-      <span
-        style={{ color: currentCounterDisplayMap[getCurrentCounter()].color }}
-      >
-        {` ${currentCounterDisplayMap[getCurrentCounter()].text}`}
-      </span>
-    </Heading>
-    <ButtonIcon
-      aria-label="edit counter type"
-      iconName="pencil"
-      onClick={props.onEditClick}
-      size={30}
-    />
-  </div>
-);
+const selectId = 'counter-select';
 
 const CounterSelector: Component<CounterSelectorProps> = (props) => {
   const [isInEditMode, setIsInEditMode] = createSignal(false);
+
+  const toggleMode = () => setIsInEditMode((isInEditMode) => !isInEditMode);
+  const selectOptions = createMemo(() =>
+    counterOrder.map((counter, index) => ({
+      label: `${index + 1}. ${currentCounterDisplayMap[counter].text}`,
+      value: index.toString(),
+    }))
+  );
 
   if (
     currentCounterIndex() < 0 ||
@@ -68,21 +37,41 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
 
   return (
     <div class={cx(props.className, styles.wrapper)}>
-      <Show
-        when={isInEditMode()}
-        fallback={<DisplayMode onEditClick={() => setIsInEditMode(true)} />}
+      <Dynamic
+        class={styles.label}
+        component={isInEditMode() ? 'label' : 'span'}
+        for={isInEditMode() ? selectId : undefined}
       >
-        <>
-          <EditMode isDisabled={props.isDisabled} />
-          <ButtonIcon
-            iconName="close"
-            onClick={() => {
-              setIsInEditMode(false);
-            }}
-            size={30}
-          />
-        </>
-      </Show>
+        Current timer:
+      </Dynamic>
+      {isInEditMode() ? (
+        <Select
+          id={selectId}
+          disabled={counterState() !== 'stopped'}
+          value={currentCounterIndex().toString()}
+          onChange={({ currentTarget }) => {
+            setCurrentCounterIndex(parseInt(currentTarget.value));
+          }}
+          options={selectOptions()}
+        />
+      ) : (
+        <span
+          class={styles.label}
+          style={{
+            color: currentCounterDisplayMap[getCurrentCounter()].color,
+          }}
+        >
+          {` ${currentCounterDisplayMap[getCurrentCounter()].text}`}
+        </span>
+      )}
+      <ButtonIcon
+        aria-label={
+          isInEditMode() ? 'close counter editing' : 'edit counter type'
+        }
+        iconName={isInEditMode() ? 'close' : 'pencil'}
+        size={30}
+        onClick={toggleMode}
+      />
     </div>
   );
 };

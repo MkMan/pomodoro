@@ -6,5 +6,4 @@ export const headerContentWrapper = css({
   alignItems: 'center',
 });
 
-export const header = (height: string | number) =>
-  css({ height, borderBottom: '1px solid lightgrey' });
+export const header = css({ borderBottom: '1px solid lightgrey' });

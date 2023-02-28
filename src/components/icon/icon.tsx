@@ -4,6 +4,7 @@ import {
   faChevronDown,
   faChevronRight,
   faClose,
+  faCode,
   faPencil,
 } from '@fortawesome/free-solid-svg-icons';
 import { Component } from 'solid-js';
@@ -14,11 +15,12 @@ import * as styles from './styles';
 import { IconProps } from './types';
 
 const supportedIcons = [
-  faPencil,
   faBars,
-  faClose,
-  faChevronRight,
   faChevronDown,
+  faChevronRight,
+  faClose,
+  faCode,
+  faPencil,
 ];
 
 library.add(...supportedIcons);

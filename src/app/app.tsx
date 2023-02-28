@@ -6,30 +6,29 @@ import { increment } from '$app-state';
 import { initialiseSettingsStore } from '../state/settings/settings';
 import { Countdown } from './countdown/countdown';
 import { CounterSelector } from './counter-selector/counter-selector';
+import { Footer } from './footer/footer';
 import { Header } from './header/header';
 import { Settings } from './settings/settings';
+import * as styles from './styles';
 import { getAlertHandle } from './utils';
 
 export const App: Component = () => {
   initialiseSettingsStore();
   const audioRef = getAlertHandle();
 
-  const [isRunning, setIsRunning] = createSignal(false);
   const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = createSignal(false);
 
   return (
-    <div>
+    <div class={styles.wrapper}>
       <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
-      <main>
+      <main class={styles.main}>
         <Container maxWidth={600} pt={16}>
-          <CounterSelector isDisabled={isRunning()} pb={32} pt={32} />
+          <CounterSelector pb={32} pt={32} />
           <Countdown
             onComplete={() => {
               audioRef.play().catch(console.error);
               increment();
             }}
-            onStart={() => setIsRunning(true)}
-            onStop={() => setIsRunning(false)}
           />
         </Container>
       </main>
@@ -43,11 +42,9 @@ export const App: Component = () => {
         isOpen={isSettingsDrawerOpen()}
         onClose={() => setIsSettingsDrawerOpen(false)}
       >
-        <Settings
-          dataTestId="appSettings"
-          isDurationEditingDisabled={isRunning()}
-        />
+        <Settings dataTestId="appSettings" />
       </Drawer>
+      <Footer />
     </div>
   );
 };
