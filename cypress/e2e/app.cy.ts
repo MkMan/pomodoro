@@ -1,11 +1,9 @@
 const getEditCounterButton = () =>
   cy.findByRole('button', { name: 'edit counter type' });
-const getCounterChips = () => cy.findAllByRole('radio');
-const getChipsLabels = () =>
-  cy.get('[data-testid="counters-group"]').get('label');
+const getCounterDropdown = () => cy.findByRole('combobox');
 const getRemainingTime = () => cy.findByTestId('remainingTime');
-const clickChipByIndex = (index: number) =>
-  getCounterChips().eq(index).click({ force: true });
+const selectCounterByIndex = (index: number) =>
+  getCounterDropdown().select(index.toString());
 
 describe(`App e2e test`, () => {
   beforeEach(() => {
@@ -14,7 +12,7 @@ describe(`App e2e test`, () => {
 
   it(`should load with defaults`, () => {
     // Opens in counter display mode
-    getCounterChips().should('not.exist');
+    getCounterDropdown().should('not.exist');
     getEditCounterButton().should('be.visible');
     cy.findByRole('dialog', { name: 'Settings' }).should('not.exist');
 
@@ -23,25 +21,19 @@ describe(`App e2e test`, () => {
 
     // Edit mode
     getEditCounterButton().should('not.exist');
-    getCounterChips().should('have.length', 8);
-    getCounterChips().eq(0).should('be.checked');
-    getChipsLabels().should('have.length', 8);
-    getChipsLabels().eq(0).should('have.text', 'Pomodoro');
-    getChipsLabels().eq(1).should('have.text', 'Short break');
-    getChipsLabels().eq(2).should('have.text', 'Pomodoro');
-    getChipsLabels().eq(3).should('have.text', 'Short break');
-    getChipsLabels().eq(4).should('have.text', 'Pomodoro');
-    getChipsLabels().eq(5).should('have.text', 'Short break');
-    getChipsLabels().eq(6).should('have.text', 'Pomodoro');
-    getChipsLabels().eq(7).should('have.text', 'Long break');
+    getCounterDropdown().should('exist');
+    getCounterDropdown().should('have.value', '0');
+    getCounterDropdown()
+      .find('option')
+      .then((options) => {
+        expect(options.length).to.eq(8);
+      });
 
     // Timer values
     getRemainingTime().should('have.text', '25:00');
-    clickChipByIndex(1);
-    getCounterChips().eq(1).should('be.checked');
+    selectCounterByIndex(1);
     getRemainingTime().should('have.text', '05:00');
-    clickChipByIndex(7);
-    getCounterChips().eq(7).should('be.checked');
+    selectCounterByIndex(7);
     getRemainingTime().should('have.text', '10:00');
   });
 
@@ -61,21 +53,21 @@ describe(`App e2e test`, () => {
 
     // check timers updated
     getEditCounterButton().click();
-    clickChipByIndex(0);
+    selectCounterByIndex(0);
     getRemainingTime().should('have.text', '60:00');
-    clickChipByIndex(1);
+    selectCounterByIndex(1);
     getRemainingTime().should('have.text', '10:00');
-    clickChipByIndex(7);
+    selectCounterByIndex(7);
     getRemainingTime().should('have.text', '20:00');
 
     // reload and check again to verify changes persist
     cy.reload();
     getEditCounterButton().click();
-    clickChipByIndex(0);
+    selectCounterByIndex(0);
     getRemainingTime().should('have.text', '60:00');
-    clickChipByIndex(1);
+    selectCounterByIndex(1);
     getRemainingTime().should('have.text', '10:00');
-    clickChipByIndex(7);
+    selectCounterByIndex(7);
     getRemainingTime().should('have.text', '20:00');
   });
 });
