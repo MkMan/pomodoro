@@ -14,7 +14,6 @@ export const App: Component = () => {
   initialiseSettingsStore();
   const audioRef = getAlertHandle();
 
-  const [isRunning, setIsRunning] = createSignal(false);
   const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = createSignal(false);
 
   return (
@@ -22,14 +21,12 @@ export const App: Component = () => {
       <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
       <main>
         <Container maxWidth={600} pt={16}>
-          <CounterSelector isDisabled={isRunning()} pb={32} pt={32} />
+          <CounterSelector pb={32} pt={32} />
           <Countdown
             onComplete={() => {
               audioRef.play().catch(console.error);
               increment();
             }}
-            onStart={() => setIsRunning(true)}
-            onStop={() => setIsRunning(false)}
           />
         </Container>
       </main>
@@ -43,10 +40,7 @@ export const App: Component = () => {
         isOpen={isSettingsDrawerOpen()}
         onClose={() => setIsSettingsDrawerOpen(false)}
       >
-        <Settings
-          dataTestId="appSettings"
-          isDurationEditingDisabled={isRunning()}
-        />
+        <Settings dataTestId="appSettings" />
       </Drawer>
     </div>
   );

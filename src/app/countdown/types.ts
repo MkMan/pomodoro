@@ -1,10 +1,6 @@
 export type CountdownProps = {
   onComplete?: () => void;
-  onStart?: () => void;
-  onStop?: () => void;
 };
-
-export type CounterState = 'running' | 'stopped';
 
 export type AppToWorkerMessageData =
   | { type: 'start'; time: number }

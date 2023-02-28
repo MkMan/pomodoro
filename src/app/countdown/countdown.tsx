@@ -1,9 +1,14 @@
 import { Component, createEffect, createMemo, createSignal } from 'solid-js';
 
-import { getCurrentCounter, settingsStore } from '$app-state';
+import {
+  counterState,
+  getCurrentCounter,
+  setCounterState,
+  settingsStore,
+} from '$app-state';
 
 import * as styles from './styles';
-import { CountdownProps, CounterState, WorkerToAppMessage } from './types';
+import { CountdownProps, WorkerToAppMessage } from './types';
 import { getFormattedTime, getWorkerHelpers } from './utils';
 
 const worker = new Worker(new URL('./worker.ts', import.meta.url));
@@ -13,7 +18,6 @@ export const Countdown: Component<CountdownProps> = (props) => {
   const getInitialDuration = () =>
     settingsStore.durations[getCurrentCounter()] * 60;
   const [time, setTime] = createSignal(getInitialDuration());
-  const [counterState, setCounterState] = createSignal<CounterState>('stopped'); // TODO: merge with one in app state and make global
 
   // utility flags
   const isPaused = createMemo(() => counterState() === 'stopped' && time() > 0);
@@ -26,12 +30,10 @@ export const Countdown: Component<CountdownProps> = (props) => {
   const startCount = () => {
     startWorkerCounter(isPaused() ? time() : getInitialDuration());
     setCounterState('running');
-    props.onStart?.();
   };
   const stopCount = () => {
     stopWorkerCounter();
     setCounterState('stopped');
-    props.onStop?.();
   };
   const reset = () => {
     setTime(getInitialDuration());

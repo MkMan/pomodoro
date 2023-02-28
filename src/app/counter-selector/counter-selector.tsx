@@ -3,6 +3,7 @@ import { Dynamic } from 'solid-js/web';
 
 import { ButtonIcon, Select } from '$app-components';
 import {
+  counterState,
   currentCounterIndex,
   getCurrentCounter,
   setCurrentCounterIndex,
@@ -46,7 +47,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
       {isInEditMode() ? (
         <Select
           id={selectId}
-          disabled={props.isDisabled}
+          disabled={counterState() !== 'stopped'}
           value={currentCounterIndex().toString()}
           onChange={({ currentTarget }) => {
             setCurrentCounterIndex(parseInt(currentTarget.value));
