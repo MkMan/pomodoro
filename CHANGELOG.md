@@ -1,3 +1,15 @@
+# [2.3.0](https://github.com/MkMan/pomodoro/compare/v2.2.0...v2.3.0) (2023-02-28)
+
+### Bug Fixes
+
+- **counter:** standardise number glyphs alignment ([9b3b616](https://github.com/MkMan/pomodoro/commit/9b3b6161eebe4c39b6c23b44f0cc341f32a9a0a0))
+- **header:** reduce height ([5e76c3c](https://github.com/MkMan/pomodoro/commit/5e76c3c3ac05138c129706acb9d2c535d04cb0e5))
+
+### Features
+
+- **app:** add footer ([9fa7bde](https://github.com/MkMan/pomodoro/commit/9fa7bde617c4690d6e2d5d1da024f424b4b7cecc))
+- **counter-selector:** use native dropdown ([223cf84](https://github.com/MkMan/pomodoro/commit/223cf84e39e02974441477ef1de01e1e4a82f49e))
+
 # [2.2.0](https://github.com/MkMan/pomodoro/compare/v2.1.0...v2.2.0) (2023-02-27)
 
 ### Bug Fixes
