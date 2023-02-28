@@ -72,6 +72,10 @@ h6 {
   font-feature-settings: 'lnum';
 }
 
+#root {
+  height: 100%;
+}
+
 /* Fonts */
 @font-face {
   font-display: swap;
