@@ -11,7 +11,7 @@ const Input: Component<InputProps> = (_props) => {
     'error',
     'isRequired',
     'label',
-    'onChange',
+    'onInput',
     'value',
   ]);
 
@@ -30,7 +30,7 @@ const Input: Component<InputProps> = (_props) => {
         {...inputProps}
         aria-required={props.isRequired}
         id={props.label}
-        onChange={(event) => props.onChange(event)}
+        onInput={(event) => props.onInput(event)}
         value={props.value}
       />
       {props.error && <span class={styles.error}>{props.error}</span>}

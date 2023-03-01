@@ -15,15 +15,16 @@ export const Select: Component<SelectProps> = (_props) => {
     <div class={styles.wrapper}>
       <select
         class={styles.select}
-        value={props.value}
         onChange={(event) => props.onChange(event)}
         {...selectProps}
       >
         <For each={props.options}>
           {(option) => (
-            <option value={option.value}>
+            <option
+              selected={option.value === props.value}
+              value={option.value}
+            >
               {option.label}
-              {option.value === props.value && ' ✔'}
             </option>
           )}
         </For>

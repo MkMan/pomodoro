@@ -1,10 +1,16 @@
-import { Component, ComponentProps } from 'solid-js';
+import { Component, ComponentProps, For } from 'solid-js';
+import { AppSettings } from 'src/state/settings/types';
 
 import { Heading, Input } from '$app-components';
 import { counterState, setSettingsStore, settingsStore } from '$app-state';
 
 type Props = {
   dataTestId?: string;
+};
+
+type DurationField = {
+  label: string;
+  stateName: keyof AppSettings['durations'];
 };
 
 export const Settings: Component<Props> = (props) => {
@@ -14,47 +20,37 @@ export const Settings: Component<Props> = (props) => {
     isRequired: true,
     mb: 16,
     type: 'number',
-    min: 0,
+    min: 1,
   };
+
+  const durationFields: DurationField[] = [
+    { label: 'Pomodoro', stateName: 'pomodoro' },
+    { label: 'Short break', stateName: 'shortBreak' },
+    { label: 'Long break', stateName: 'longBreak' },
+  ];
 
   return (
     <section data-testid={props.dataTestId}>
       <Heading level={3} mb={16}>
         Durations
       </Heading>
-      <Input
-        {...commonInputProps}
-        disabled={counterState() !== 'stopped'}
-        error={durations.pomodoro <= 0 && `Pomodoro duration must be set`}
-        label="Pomodoro"
-        onChange={(event) => {
-          const value = event.currentTarget.valueAsNumber || 0;
-          setSettingsStore('durations', 'pomodoro', value);
-        }}
-        value={durations.pomodoro === 0 ? '' : durations.pomodoro}
-      />
-      <Input
-        {...commonInputProps}
-        disabled={counterState() !== 'stopped'}
-        error={durations.shortBreak <= 0 && `Short break duration must be set`}
-        label="Short break"
-        onChange={(event) => {
-          const value = event.currentTarget.valueAsNumber || 0;
-          setSettingsStore('durations', 'shortBreak', value);
-        }}
-        value={durations.shortBreak === 0 ? '' : durations.shortBreak}
-      />
-      <Input
-        {...commonInputProps}
-        disabled={counterState() !== 'stopped'}
-        error={durations.longBreak <= 0 && `Long break duration must be set`}
-        label="Long break"
-        onChange={(event) => {
-          const value = event.currentTarget.valueAsNumber || 0;
-          setSettingsStore('durations', 'longBreak', value);
-        }}
-        value={durations.longBreak === 0 ? '' : durations.longBreak}
-      />
+      <For each={durationFields}>
+        {({ stateName, label }) => (
+          <Input
+            {...commonInputProps}
+            disabled={counterState() !== 'stopped'}
+            error={
+              durations[stateName] <= 0 && `${label} must be greater than 0`
+            }
+            label={label}
+            onInput={(event) => {
+              const value = event.currentTarget.valueAsNumber || 0;
+              setSettingsStore('durations', stateName, value);
+            }}
+            value={durations[stateName] === 0 ? '' : durations[stateName]}
+          />
+        )}
+      </For>
     </section>
   );
 };
