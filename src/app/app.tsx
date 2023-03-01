@@ -8,6 +8,7 @@ import { Countdown } from './countdown/countdown';
 import { CounterSelector } from './counter-selector/counter-selector';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
+import { ReloadPrompt } from './reload-prompt/reload-prompt';
 import { Settings } from './settings/settings';
 import * as styles from './styles';
 import { getAlertHandle } from './utils';
@@ -20,6 +21,7 @@ export const App: Component = () => {
 
   return (
     <div class={styles.wrapper}>
+      <ReloadPrompt />
       <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
       <main class={styles.main}>
         <Container maxWidth={600} pt={16}>

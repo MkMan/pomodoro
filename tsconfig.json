@@ -16,7 +16,7 @@
     "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "vite-plugin-pwa/client"],
     "baseUrl": ".",
     "paths": {
       "$app-utils": ["./src/utility"],
