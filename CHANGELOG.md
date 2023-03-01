@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/MkMan/pomodoro/compare/v2.4.0...v2.4.1) (2023-03-01)
+
+### Bug Fixes
+
+- **input:** use onInput to run validations immediately ([58dd9ab](https://github.com/MkMan/pomodoro/commit/58dd9ab7f61d9f316fca8906110f868d5c92ec45))
+- **select:** correctly set selected value ([d389dee](https://github.com/MkMan/pomodoro/commit/d389deeba64bc5541fda2cbd410ddfd783de8a5a))
+
 # [2.4.0](https://github.com/MkMan/pomodoro/compare/v2.3.0...v2.4.0) (2023-03-01)
 
 ### Features
