@@ -1,3 +1,9 @@
+# [2.4.0](https://github.com/MkMan/pomodoro/compare/v2.3.0...v2.4.0) (2023-03-01)
+
+### Features
+
+- **app:** add updates prompt ([5fee790](https://github.com/MkMan/pomodoro/commit/5fee790ecf0ef911c593be9b1448c7ac2ea5dc93))
+
 # [2.3.0](https://github.com/MkMan/pomodoro/compare/v2.2.0...v2.3.0) (2023-02-28)
 
 ### Bug Fixes
