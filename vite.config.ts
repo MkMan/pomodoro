@@ -10,7 +10,7 @@ export default defineConfig({
     solidPlugin(),
     tsconfigPaths(),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       manifest: {
         theme_color: '#bf5b4a',
         name: 'Pomodoro',
