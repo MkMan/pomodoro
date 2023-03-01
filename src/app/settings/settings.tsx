@@ -27,7 +27,7 @@ export const Settings: Component<Props> = (props) => {
         disabled={counterState() !== 'stopped'}
         error={durations.pomodoro <= 0 && `Pomodoro duration must be set`}
         label="Pomodoro"
-        onChange={(event) => {
+        onInput={(event) => {
           const value = event.currentTarget.valueAsNumber || 0;
           setSettingsStore('durations', 'pomodoro', value);
         }}
@@ -38,7 +38,7 @@ export const Settings: Component<Props> = (props) => {
         disabled={counterState() !== 'stopped'}
         error={durations.shortBreak <= 0 && `Short break duration must be set`}
         label="Short break"
-        onChange={(event) => {
+        onInput={(event) => {
           const value = event.currentTarget.valueAsNumber || 0;
           setSettingsStore('durations', 'shortBreak', value);
         }}
@@ -49,7 +49,7 @@ export const Settings: Component<Props> = (props) => {
         disabled={counterState() !== 'stopped'}
         error={durations.longBreak <= 0 && `Long break duration must be set`}
         label="Long break"
-        onChange={(event) => {
+        onInput={(event) => {
           const value = event.currentTarget.valueAsNumber || 0;
           setSettingsStore('durations', 'longBreak', value);
         }}

@@ -5,6 +5,6 @@ export type InputProps = {
   error?: string | boolean;
   label: string;
   isRequired?: boolean;
-  onChange: JSX.EventHandler<HTMLInputElement, Event>;
+  onInput: JSX.EventHandler<HTMLInputElement, Event>;
   value: string | number;
-} & Omit<JSX.InputHTMLAttributes<HTMLInputElement>, 'onChange'>;
+} & Omit<JSX.InputHTMLAttributes<HTMLInputElement>, 'onInput'>;
