@@ -1,3 +1,4 @@
+export { Button } from './button/button';
 export { ButtonIcon } from './button-icon/button-icon';
 export { Container } from './container/container';
 export { Drawer } from './drawer/drawer';
