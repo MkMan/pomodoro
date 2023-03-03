@@ -1,0 +1,45 @@
+:root {
+  /* Light shades
+    Use this color as the background for your dark-on-light designs, or the text color of an inverted design.
+  */
+  --color-gray-nurse: #f5f7f5;
+
+  /* Light accent
+    Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette.
+   */
+  --color-bermuda-gray: #7a88aa;
+
+  /* Main brand color
+    This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity.
+ */
+  --color-chambray: #2c4f7c;
+
+  /* Dark accent
+    Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best.
+ */
+  --color-hippie-pink: #a84259;
+
+  /* Dark shades
+    Use as the text color for dark-on-light designs, or as the background for inverted designs.
+ */
+  --color-bleached-revolver: #211a39;
+}
+
+body {
+  /* light theme is default */
+  --color-background: var(--color-gray-nurse);
+  --color-font: var(--color-bleached-revolver);
+  --color-overlay: var(--color-bleached-revolver);
+  --color-danger: var(--color-hippie-pink);
+  --color-cta-background: var(--color-chambray);
+  --color-cta-font: var(--color-gray-nurse);
+
+  color: var(--color-font);
+  background-color: var(--color-background);
+}
+
+body.isDarkTheme {
+  --color-background: var(--color-bleached-revolver);
+  --color-font: var(--color-gray-nurse);
+  --color-overlay: var(--color-bermuda-gray);
+}
