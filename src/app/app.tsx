@@ -11,10 +11,12 @@ import { Header } from './header/header';
 import { ReloadPrompt } from './reload-prompt/reload-prompt';
 import { Settings } from './settings/settings';
 import * as styles from './styles';
-import { getAlertHandle } from './utils';
+import { getAlertHandle, syncTheme } from './utils';
 
 export const App: Component = () => {
   initialiseSettingsStore();
+  syncTheme();
+
   const audioRef = getAlertHandle();
 
   const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = createSignal(false);

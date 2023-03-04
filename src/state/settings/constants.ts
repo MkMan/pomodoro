@@ -8,6 +8,7 @@ const defaultSettings: AppSettings = {
     pomodoro: 25,
     shortBreak: 5,
   },
+  theme: 'OS',
 };
 
 export { defaultSettings, localStorageKey };
