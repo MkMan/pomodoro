@@ -1,4 +1,6 @@
-import './index.css';
+import './src/css/colors.css';
+import './src/css/fonts.css';
+import './src/css/reset.css';
 
 import { render } from 'solid-js/web';
 import { App } from 'src/app/app';

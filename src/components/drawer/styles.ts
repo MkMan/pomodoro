@@ -11,7 +11,7 @@ export const overlay = css({
   opacity: 0,
   transition: 'opacity 300ms',
   willChange: 'opacity',
-  backgroundColor: '#000',
+  backgroundColor: 'var(--color-overlay)',
   userSelect: 'none',
 
   '&.isOpen': {
@@ -32,7 +32,7 @@ export const wrapper = css({
 
   transition: 'transform 200ms',
   willChange: 'transform',
-  backgroundColor: '#fff',
+  backgroundColor: 'var(--color-background)',
 
   display: 'flex',
   flexDirection: 'column',

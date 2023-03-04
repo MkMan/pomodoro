@@ -1,6 +1,7 @@
+import { FiMenu } from 'solid-icons/fi';
 import { Component } from 'solid-js';
 
-import { ButtonIcon, Container, Heading } from '$app-components';
+import { Container, Heading, UnstyledButton } from '$app-components';
 
 import * as styles from './styles';
 
@@ -12,12 +13,12 @@ export const Header: Component<Props> = (props) => (
   <header class={styles.header}>
     <Container maxWidth={600}>
       <div class={styles.headerContentWrapper}>
-        <ButtonIcon
+        <UnstyledButton
           aria-label="settings menu"
-          iconName="bars"
           onClick={props.onSettingsClick}
-          size={30}
-        />
+        >
+          <FiMenu size={30} />
+        </UnstyledButton>
         <Heading size="3rem">Pomodoro</Heading>
       </div>
     </Container>

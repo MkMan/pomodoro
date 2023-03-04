@@ -1,7 +1,8 @@
+import { FiEdit3, FiX } from 'solid-icons/fi';
 import { Component, createMemo, createSignal } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { ButtonIcon, Select } from '$app-components';
+import { Select, UnstyledButton } from '$app-components';
 import {
   counterState,
   currentCounterIndex,
@@ -11,7 +12,7 @@ import {
 import { cx, withDefaultProps } from '$app-utils';
 
 import { counterOrder } from '../../constants';
-import { currentCounterDisplayMap } from './constants';
+import { currentCounterLabelMap } from './constants';
 import * as styles from './styles';
 import { CounterSelectorProps } from './types';
 
@@ -23,7 +24,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
   const toggleMode = () => setIsInEditMode((isInEditMode) => !isInEditMode);
   const selectOptions = createMemo(() =>
     counterOrder.map((counter, index) => ({
-      label: `${index + 1}. ${currentCounterDisplayMap[counter].text}`,
+      label: `${index + 1}. ${currentCounterLabelMap[counter]}`,
       value: index.toString(),
     }))
   );
@@ -55,23 +56,18 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
           options={selectOptions()}
         />
       ) : (
-        <span
-          class={styles.label}
-          style={{
-            color: currentCounterDisplayMap[getCurrentCounter()].color,
-          }}
-        >
-          {` ${currentCounterDisplayMap[getCurrentCounter()].text}`}
+        <span class={styles.label}>
+          {` ${currentCounterLabelMap[getCurrentCounter()]}`}
         </span>
       )}
-      <ButtonIcon
+      <UnstyledButton
         aria-label={
           isInEditMode() ? 'close counter editing' : 'edit counter type'
         }
-        iconName={isInEditMode() ? 'close' : 'pencil'}
-        size={30}
         onClick={toggleMode}
-      />
+      >
+        {isInEditMode() ? <FiX size={30} /> : <FiEdit3 size={30} />}
+      </UnstyledButton>
     </div>
   );
 };

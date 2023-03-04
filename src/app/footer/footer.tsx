@@ -1,6 +1,7 @@
+import { FiGithub } from 'solid-icons/fi';
 import { Component } from 'solid-js';
 
-import { Container, Icon } from '$app-components';
+import { Container } from '$app-components';
 
 import { version } from '../../../package.json';
 import * as styles from './styles';
@@ -16,7 +17,7 @@ export const Footer: Component = () => (
         href="https://github.com/MkMan/pomodoro"
         title="Source code"
       >
-        <Icon size={15} iconName="code" />
+        <FiGithub color="var(--color-font)" size={20} />
       </a>
     </Container>
   </footer>
