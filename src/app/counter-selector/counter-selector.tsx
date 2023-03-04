@@ -12,7 +12,7 @@ import {
 import { cx, withDefaultProps } from '$app-utils';
 
 import { counterOrder } from '../../constants';
-import { currentCounterDisplayMap } from './constants';
+import { currentCounterLabelMap } from './constants';
 import * as styles from './styles';
 import { CounterSelectorProps } from './types';
 
@@ -24,7 +24,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
   const toggleMode = () => setIsInEditMode((isInEditMode) => !isInEditMode);
   const selectOptions = createMemo(() =>
     counterOrder.map((counter, index) => ({
-      label: `${index + 1}. ${currentCounterDisplayMap[counter].text}`,
+      label: `${index + 1}. ${currentCounterLabelMap[counter]}`,
       value: index.toString(),
     }))
   );
@@ -56,13 +56,8 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
           options={selectOptions()}
         />
       ) : (
-        <span
-          class={styles.label}
-          style={{
-            color: currentCounterDisplayMap[getCurrentCounter()].color,
-          }}
-        >
-          {` ${currentCounterDisplayMap[getCurrentCounter()].text}`}
+        <span class={styles.label}>
+          {` ${currentCounterLabelMap[getCurrentCounter()]}`}
         </span>
       )}
       <UnstyledButton
