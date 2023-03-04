@@ -1,3 +1,13 @@
+# [2.5.0](https://github.com/MkMan/pomodoro/compare/v2.4.1...v2.5.0) (2023-03-04)
+
+### Features
+
+- **app:** add dark theme ([dfc145e](https://github.com/MkMan/pomodoro/commit/dfc145e6c750c9a602a2616ee8c3db312c11a326))
+- **app:** switch icon packs ([d13eb56](https://github.com/MkMan/pomodoro/commit/d13eb5678ff145c3418f55aef2ee0335e2f269ed))
+- **colours:** add colour pallet ([3cf7670](https://github.com/MkMan/pomodoro/commit/3cf7670a3a1a239e0d97073e81d0d33b167d1461))
+- **countdown:** use custom Button component ([a01d390](https://github.com/MkMan/pomodoro/commit/a01d390cc011eed9d1c08834898d580612b23e14))
+- **counter-selector:** remove counter color ([91d7a7d](https://github.com/MkMan/pomodoro/commit/91d7a7db74820974cb02f57d0a665566a251300c))
+
 ## [2.4.1](https://github.com/MkMan/pomodoro/compare/v2.4.0...v2.4.1) (2023-03-01)
 
 ### Bug Fixes
