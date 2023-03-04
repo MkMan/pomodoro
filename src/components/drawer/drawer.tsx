@@ -1,9 +1,10 @@
+import { FiX } from 'solid-icons/fi';
 import { Component, createEffect, createSignal, Show } from 'solid-js';
 import { Portal } from 'solid-js/web';
 
 import { cx } from '$app-utils';
 
-import { ButtonIcon } from '../button-icon/button-icon';
+import { UnstyledButton } from '../unstyled-button/unstyled-button';
 import * as styles from './styles';
 import { DrawerProps } from './types';
 
@@ -65,12 +66,12 @@ export const Drawer: Component<DrawerProps> = (props) => {
           >
             <header class={styles.header} id="drawer-header">
               <div>{props.heading}</div>
-              <ButtonIcon
+              <UnstyledButton
                 aria-label={props.closeIconLabel ?? 'close'}
-                iconName="close"
                 onClick={props.onClose}
-                size={30}
-              />
+              >
+                {<FiX size={30} />}
+              </UnstyledButton>
             </header>
             <div class={styles.content}>{props.children}</div>
           </div>

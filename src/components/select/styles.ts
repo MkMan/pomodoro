@@ -6,7 +6,7 @@ export const wrapper = css({
   borderRadius: 4,
 
   ':has(select:focus)': {
-    outline: '2px solid black',
+    outline: '2px solid currentcolor',
     outlineOffset: 4,
   },
 });
@@ -24,7 +24,6 @@ export const select = css({
 
     '+ *': {
       // styles for presentational
-      color: 'hsl(0deg 0% 00%)',
     },
   },
 
@@ -33,17 +32,16 @@ export const select = css({
 
     '+ *': {
       // styles for presentational
-      color: 'hsl(0deg 0% 30%)',
     },
   },
 });
 
 export const presentational = css({
-  color: 'hsl(0deg 0% 20%)',
+  color: 'var(--color-cta-font)',
+  backgroundColor: 'var(--color-cta-background)',
   padding: '12px 16px',
   fontSize: '1rem',
   fontWeight: 500,
-  backgroundColor: 'hsl(0deg 0% 90%)',
   borderRadius: 4,
   display: 'flex',
   gap: 16,
