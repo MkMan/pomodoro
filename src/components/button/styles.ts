@@ -19,6 +19,11 @@ const getBaseStyles = ({
   transition: 'background-color, color 200ms ease',
   outlineOffset: 4,
 
+  '&.isSmall': {
+    paddingInline: 16,
+    paddingBlock: 8,
+  },
+
   ':not(:disabled):hover': {
     border: `2px solid var(${background})`,
     backgroundColor: `var(${font})`,
