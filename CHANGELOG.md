@@ -1,3 +1,15 @@
+# [2.6.0](https://github.com/MkMan/pomodoro/compare/v2.5.0...v2.6.0) (2023-03-05)
+
+### Bug Fixes
+
+- **app:** update font urls ([849e42c](https://github.com/MkMan/pomodoro/commit/849e42c4e081ebaf8c82fd323dd2fcb389796310))
+
+### Features
+
+- **app:** standardise heading sizes ([569e21b](https://github.com/MkMan/pomodoro/commit/569e21b9a7666e476f49ef2120ccd8d4b29a0100))
+- **counter-selector:** improve UI on small viewports ([b4a901e](https://github.com/MkMan/pomodoro/commit/b4a901ed2bdbdaf7f3c2cc1c0a8188608b520717))
+- **reload-prompt:** use common Button component ([fbe0760](https://github.com/MkMan/pomodoro/commit/fbe07600d4fc7c589600fcca8f8910a53a713d16))
+
 # [2.5.0](https://github.com/MkMan/pomodoro/compare/v2.4.1...v2.5.0) (2023-03-04)
 
 ### Features
