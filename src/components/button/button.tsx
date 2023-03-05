@@ -13,11 +13,16 @@ const buttonVariantStylingMap: Record<
 };
 
 export const Button: Component<ButtonProps> = (_props) => {
-  const [props, buttonProps] = splitProps(_props, ['variant', 'children']);
+  const [props, buttonProps] = splitProps(_props, [
+    'variant',
+    'children',
+    'size',
+  ]);
 
   return (
     <button
       class={buttonVariantStylingMap[props.variant ?? 'primary']}
+      classList={{ isSmall: props.size === 'small' }}
       {...buttonProps}
     >
       {props.children}

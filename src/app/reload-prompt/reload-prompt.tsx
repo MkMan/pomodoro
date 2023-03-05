@@ -2,6 +2,8 @@ import type { Component } from 'solid-js';
 import { Show } from 'solid-js';
 import { useRegisterSW } from 'virtual:pwa-register/solid';
 
+import { Button } from '$app-components';
+
 import * as styles from './styles';
 
 export const ReloadPrompt: Component = () => {
@@ -25,20 +27,19 @@ export const ReloadPrompt: Component = () => {
     <div class={styles.container}>
       <Show when={needRefresh()}>
         <div class={styles.toast}>
-          <div class={styles.toastMessage}>
-            <span>App ready to work offline</span>
-          </div>
-          <Show when={needRefresh()}>
-            <button
-              class={styles.toastButton}
+          <div class={styles.toastMessage}>App ready to work offline</div>
+          <div class={styles.buttonsWrapper}>
+            <Button
+              variant="primary"
+              size="small"
               onClick={() => updateServiceWorker(true)}
             >
               Reload
-            </button>
-          </Show>
-          <button class={styles.toastButton} onClick={() => close()}>
-            Close
-          </button>
+            </Button>
+            <Button variant="danger" size="small" onClick={() => close()}>
+              Close
+            </Button>
+          </div>
         </div>
       </Show>
     </div>

@@ -16,10 +16,10 @@ export const fontWeightMap: Record<
 };
 
 export const sizeMap: Record<NonNullable<HeadingProps['level']>, string> = {
-  1: '2rem',
-  2: '1.8rem',
-  3: '1.6rem',
-  4: '1.4rem',
-  5: '1.2rem',
-  6: '1rem',
+  1: 'var(--size-font-h1)',
+  2: 'var(--size-font-h2)',
+  3: 'var(--size-font-h3)',
+  4: 'var(--size-font-h4)',
+  5: 'var(--size-font-h5)',
+  6: 'var(--size-font-h6)',
 };
