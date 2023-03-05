@@ -43,7 +43,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
         component={isInEditMode() ? 'label' : 'span'}
         for={isInEditMode() ? selectId : undefined}
       >
-        Current timer:
+        Timer:
       </Dynamic>
       {isInEditMode() ? (
         <Select
@@ -56,7 +56,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
           options={selectOptions()}
         />
       ) : (
-        <span class={styles.label}>
+        <span class={styles.currentCounter}>
           {` ${currentCounterLabelMap[getCurrentCounter()]}`}
         </span>
       )}
