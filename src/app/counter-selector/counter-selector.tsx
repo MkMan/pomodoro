@@ -1,7 +1,7 @@
 import { FiEdit3, FiX } from 'solid-icons/fi';
 import { Component, createMemo, createSignal } from 'solid-js';
 
-import { Select, UnstyledButton } from '$app-components';
+import { IconButton, Select } from '$app-components';
 import {
   counterState,
   currentCounterIndex,
@@ -57,14 +57,14 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
           {currentCounterLabelMap[getCurrentCounter()]}
         </span>
       )}
-      <UnstyledButton
+      <IconButton
         aria-label={
           isInEditMode() ? 'close counter editing' : 'edit counter type'
         }
         onClick={toggleMode}
       >
         {isInEditMode() ? <FiX size={30} /> : <FiEdit3 size={30} />}
-      </UnstyledButton>
+      </IconButton>
     </div>
   );
 };
