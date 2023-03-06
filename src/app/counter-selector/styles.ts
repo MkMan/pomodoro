@@ -1,4 +1,4 @@
-import { css, CSSObject } from '@emotion/css';
+import { css } from '@emotion/css';
 
 const wrapper = css({
   display: 'flex',
@@ -8,16 +8,8 @@ const wrapper = css({
   gap: 8,
 });
 
-const commonLabelStyles: CSSObject = {
-  fontSize: 'var(--size-font-h2)',
-  fontWeight: 'bold',
-};
-
-const label = css(commonLabelStyles);
-
-const currentCounter = css({
-  ...commonLabelStyles,
-  color: 'var(--color-cta-background)',
+const label = css({
+  fontSize: 'calc(var(--size-font-h1) + 0.6vw)',
 });
 
-export { currentCounter, label, wrapper };
+export { label, wrapper };
