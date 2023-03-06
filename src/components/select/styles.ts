@@ -4,11 +4,6 @@ export const wrapper = css({
   position: 'relative',
   width: 'max-content',
   borderRadius: 4,
-
-  ':has(select:focus)': {
-    outline: '2px solid currentcolor',
-    outlineOffset: 4,
-  },
 });
 
 export const select = css({
@@ -24,6 +19,7 @@ export const select = css({
 
     '+ *': {
       // styles for presentational
+      boxShadow: 'var(--boxShadow-input-hover)',
     },
   },
 
@@ -32,13 +28,21 @@ export const select = css({
 
     '+ *': {
       // styles for presentational
+      opacity: 'var(--opacity-input-disabled)',
+      cursor: 'not-allowed',
     },
+  },
+
+  ':focus + *': {
+    outline: '2px solid currentcolor',
+    outlineOffset: 4,
   },
 });
 
 export const presentational = css({
-  color: 'var(--color-cta-font)',
-  backgroundColor: 'var(--color-cta-background)',
+  color: 'var(--color-font)',
+  backgroundColor: 'var(--color-background)',
+  border: '2px solid var(--color-cta-background)',
   padding: '12px 16px',
   fontSize: '1rem',
   fontWeight: 500,
