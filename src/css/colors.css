@@ -34,6 +34,9 @@ body {
   --color-cta-background: var(--color-chambray);
   --color-cta-font: var(--color-gray-nurse);
 
+  --opacity-input-disabled: 0.7;
+  --boxShadow-input-hover: 0px 0px 5px 1px var(--color-overlay);
+
   color: var(--color-font);
   background-color: var(--color-background);
 }

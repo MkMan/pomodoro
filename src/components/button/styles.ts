@@ -32,7 +32,7 @@ const getBaseStyles = ({
 
   ':disabled': {
     cursor: 'not-allowed',
-    opacity: 0.7,
+    opacity: 'var(--opacity-input-disabled)',
   },
 });
 
