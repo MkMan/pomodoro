@@ -1,4 +1,5 @@
 export { Button } from './button/button';
+export { Collapse } from './collapse/collapse';
 export { Container } from './container/container';
 export { Drawer } from './drawer/drawer';
 export { Heading } from './heading/heading';
