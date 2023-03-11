@@ -28,7 +28,9 @@
 body {
   /* light theme is default */
   --color-background: var(--color-gray-nurse);
+  --color-background-inverted: var(--color-bleached-revolver);
   --color-font: var(--color-bleached-revolver);
+  --color-font-inverted: var(--color-gray-nurse);
   --color-overlay: var(--color-bleached-revolver);
   --color-danger: var(--color-hippie-pink);
   --color-cta-background: var(--color-chambray);
@@ -43,6 +45,8 @@ body {
 
 body.isDarkTheme {
   --color-background: var(--color-bleached-revolver);
+  --color-background-inverted: var(--color-gray-nurse);
   --color-font: var(--color-gray-nurse);
+  --color-font-inverted: var(--color-bleached-revolver);
   --color-overlay: var(--color-bermuda-gray);
 }
