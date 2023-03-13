@@ -1,14 +1,22 @@
 import { cx } from '@emotion/css';
 import { createEffect, createSignal } from 'solid-js';
+import { CurrentCounter } from 'src/types';
 
 import { settingsStore } from '$app-state';
 
 import { audioUrlsMap } from '../assets/sounds';
+import { currentCounterMessageMap } from './constants';
 
 const getAlertHandle = (): HTMLAudioElement => {
   const alarm = new Audio(audioUrlsMap.alarm1);
 
   return alarm;
+};
+
+const sendNotification = (newCounter: CurrentCounter) => {
+  new Notification(currentCounterMessageMap[newCounter], {
+    requireInteraction: true,
+  });
 };
 
 const syncTheme = () => {
@@ -50,4 +58,4 @@ const syncTheme = () => {
   });
 };
 
-export { getAlertHandle, syncTheme };
+export { getAlertHandle, sendNotification, syncTheme };

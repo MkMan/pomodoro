@@ -18,6 +18,7 @@ const getInitialStoreValue = (): AppSettings => {
     settings = {
       ...defaultSettings,
       ...settings,
+      alerts: { ...defaultSettings.alerts, ...settings.alerts },
       durations: { ...defaultSettings.durations, ...settings.durations },
     };
   } catch (error) {

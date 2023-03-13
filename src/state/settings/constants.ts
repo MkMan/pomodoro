@@ -9,6 +9,9 @@ const defaultSettings: AppSettings = {
     shortBreak: 5,
   },
   theme: 'OS',
+  alerts: {
+    shouldSendNotification: false,
+  },
 };
 
 export { defaultSettings, localStorageKey };
