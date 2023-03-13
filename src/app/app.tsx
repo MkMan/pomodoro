@@ -1,7 +1,7 @@
 import { Component, createSignal } from 'solid-js';
 
 import { Container, Drawer, Heading } from '$app-components';
-import { increment } from '$app-state';
+import { incrementCounter } from '$app-state';
 
 import { initialiseSettingsStore } from '../state/settings/settings';
 import { Countdown } from './countdown/countdown';
@@ -31,7 +31,7 @@ export const App: Component = () => {
           <Countdown
             onComplete={() => {
               audioRef.play().catch(console.error);
-              increment();
+              incrementCounter();
             }}
           />
         </Container>
