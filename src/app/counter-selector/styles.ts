@@ -10,6 +10,7 @@ const wrapper = css({
 
 const label = css({
   fontSize: 'calc(var(--size-font-h1) + 0.6vw)',
+  fontWeight: 'normal',
 });
 
 export { label, wrapper };
