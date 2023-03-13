@@ -1,3 +1,18 @@
+# [2.7.0](https://github.com/MkMan/pomodoro/compare/v2.6.0...v2.7.0) (2023-03-13)
+
+### Bug Fixes
+
+- **app:** improve Select styling ([da3f079](https://github.com/MkMan/pomodoro/commit/da3f079caf20a26e64ec606144a3dfb149adfb6f))
+- **counter-selector:** make legible on dark theme ([4ce7e38](https://github.com/MkMan/pomodoro/commit/4ce7e38c4c20e5eade54b8a5fe2248016d0ab571))
+
+### Features
+
+- **app:** implement notifications ([fb7d364](https://github.com/MkMan/pomodoro/commit/fb7d36461eb69c033f1d86ce6cfb9d43ab6ce64a))
+- **app:** improve icon buttons hover styles ([4163d75](https://github.com/MkMan/pomodoro/commit/4163d752f1f115f075cfa10be250cc69c56e0ae8))
+- **app:** increase input label size and weight ([5ed12e5](https://github.com/MkMan/pomodoro/commit/5ed12e58d7a2ac044e88ad307556fcaedeb891e9))
+- **app:** prefill local storage with default values for new settings ([2882e34](https://github.com/MkMan/pomodoro/commit/2882e342e1024469e2ee956ceeacae851cf2dde8))
+- **settings:** put settings sections in Collapse ([f48c482](https://github.com/MkMan/pomodoro/commit/f48c4825eee98b988ae9fa20b7543004d9921b0b))
+
 # [2.6.0](https://github.com/MkMan/pomodoro/compare/v2.5.0...v2.6.0) (2023-03-05)
 
 ### Bug Fixes
