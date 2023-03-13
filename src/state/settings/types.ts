@@ -7,4 +7,7 @@ export type AppSettings = {
     shortBreak: number;
   };
   theme: AppTheme;
+  alerts: {
+    shouldSendNotification: boolean;
+  };
 };

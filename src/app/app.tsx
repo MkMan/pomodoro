@@ -1,9 +1,13 @@
-import { Component, createSignal } from 'solid-js';
+import { Component, createMemo, createSignal } from 'solid-js';
 
 import { Container, Drawer, Heading } from '$app-components';
-import { increment } from '$app-state';
+import {
+  getCurrentCounter,
+  incrementCounter,
+  initialiseSettingsStore,
+  settingsStore,
+} from '$app-state';
 
-import { initialiseSettingsStore } from '../state/settings/settings';
 import { Countdown } from './countdown/countdown';
 import { CounterSelector } from './counter-selector/counter-selector';
 import { Footer } from './footer/footer';
@@ -11,7 +15,7 @@ import { Header } from './header/header';
 import { ReloadPrompt } from './reload-prompt/reload-prompt';
 import { Settings } from './settings/settings';
 import * as styles from './styles';
-import { getAlertHandle, syncTheme } from './utils';
+import { getAlertHandle, sendNotification, syncTheme } from './utils';
 
 export const App: Component = () => {
   initialiseSettingsStore();
@@ -21,6 +25,21 @@ export const App: Component = () => {
 
   const [isSettingsDrawerOpen, setIsSettingsDrawerOpen] = createSignal(false);
 
+  const shouldSendNotification = createMemo(
+    () =>
+      settingsStore.alerts.shouldSendNotification &&
+      Notification.permission === 'granted'
+  );
+
+  const onCounterComplete = () => {
+    audioRef.play().catch(console.error);
+    incrementCounter();
+
+    if (shouldSendNotification()) {
+      sendNotification(getCurrentCounter());
+    }
+  };
+
   return (
     <div class={styles.wrapper}>
       <ReloadPrompt />
@@ -28,12 +47,7 @@ export const App: Component = () => {
       <main class={styles.main}>
         <Container maxWidth={600} pt={16}>
           <CounterSelector pb={32} pt={32} />
-          <Countdown
-            onComplete={() => {
-              audioRef.play().catch(console.error);
-              increment();
-            }}
-          />
+          <Countdown onComplete={onCounterComplete} />
         </Container>
       </main>
       <Drawer

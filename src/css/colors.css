@@ -28,11 +28,16 @@
 body {
   /* light theme is default */
   --color-background: var(--color-gray-nurse);
+  --color-background-inverted: var(--color-bleached-revolver);
   --color-font: var(--color-bleached-revolver);
+  --color-font-inverted: var(--color-gray-nurse);
   --color-overlay: var(--color-bleached-revolver);
   --color-danger: var(--color-hippie-pink);
   --color-cta-background: var(--color-chambray);
   --color-cta-font: var(--color-gray-nurse);
+
+  --opacity-input-disabled: 0.7;
+  --boxShadow-input-hover: 0px 0px 5px 1px var(--color-overlay);
 
   color: var(--color-font);
   background-color: var(--color-background);
@@ -40,6 +45,8 @@ body {
 
 body.isDarkTheme {
   --color-background: var(--color-bleached-revolver);
+  --color-background-inverted: var(--color-gray-nurse);
   --color-font: var(--color-gray-nurse);
+  --color-font-inverted: var(--color-bleached-revolver);
   --color-overlay: var(--color-bermuda-gray);
 }

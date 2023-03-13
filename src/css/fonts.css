@@ -116,3 +116,8 @@
   font-family: 'Raleway', sans-serif;
   font-feature-settings: 'lnum';
 }
+
+label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}

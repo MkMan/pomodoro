@@ -5,7 +5,7 @@ import { CurrentCounter } from '../../types';
 
 const [currentCounterIndex, setCurrentCounterIndex] = createSignal(0);
 
-const increment = () => {
+const incrementCounter = () => {
   if (currentCounterIndex() === counterOrder.length - 1) {
     // if at the end of the array -> start over
     setCurrentCounterIndex(0);
@@ -21,6 +21,6 @@ const getCurrentCounter: () => CurrentCounter = () =>
 export {
   currentCounterIndex,
   getCurrentCounter,
-  increment,
+  incrementCounter,
   setCurrentCounterIndex,
 };

@@ -1,8 +1,7 @@
 import { FiEdit3, FiX } from 'solid-icons/fi';
 import { Component, createMemo, createSignal } from 'solid-js';
-import { Dynamic } from 'solid-js/web';
 
-import { Select, UnstyledButton } from '$app-components';
+import { IconButton, Select } from '$app-components';
 import {
   counterState,
   currentCounterIndex,
@@ -38,36 +37,34 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
 
   return (
     <div class={cx(props.className, styles.wrapper)}>
-      <Dynamic
-        class={styles.label}
-        component={isInEditMode() ? 'label' : 'span'}
-        for={isInEditMode() ? selectId : undefined}
-      >
-        Timer:
-      </Dynamic>
       {isInEditMode() ? (
-        <Select
-          id={selectId}
-          disabled={counterState() !== 'stopped'}
-          value={currentCounterIndex().toString()}
-          onChange={({ currentTarget }) => {
-            setCurrentCounterIndex(parseInt(currentTarget.value));
-          }}
-          options={selectOptions()}
-        />
+        <>
+          <label class={styles.label} for={selectId}>
+            Counter
+          </label>
+          <Select
+            id={selectId}
+            disabled={counterState() !== 'stopped'}
+            value={currentCounterIndex().toString()}
+            onChange={({ currentTarget }) => {
+              setCurrentCounterIndex(parseInt(currentTarget.value));
+            }}
+            options={selectOptions()}
+          />
+        </>
       ) : (
-        <span class={styles.currentCounter}>
-          {` ${currentCounterLabelMap[getCurrentCounter()]}`}
+        <span class={styles.label}>
+          {currentCounterLabelMap[getCurrentCounter()]}
         </span>
       )}
-      <UnstyledButton
+      <IconButton
         aria-label={
           isInEditMode() ? 'close counter editing' : 'edit counter type'
         }
         onClick={toggleMode}
       >
         {isInEditMode() ? <FiX size={30} /> : <FiEdit3 size={30} />}
-      </UnstyledButton>
+      </IconButton>
     </div>
   );
 };

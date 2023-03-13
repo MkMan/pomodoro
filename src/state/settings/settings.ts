@@ -13,6 +13,14 @@ const getInitialStoreValue = (): AppSettings => {
 
   try {
     settings = JSON.parse(storeInLocalStorage);
+
+    // fill in new fields with default values
+    settings = {
+      ...defaultSettings,
+      ...settings,
+      alerts: { ...defaultSettings.alerts, ...settings.alerts },
+      durations: { ...defaultSettings.durations, ...settings.durations },
+    };
   } catch (error) {
     console.error(error);
     settings = defaultSettings;

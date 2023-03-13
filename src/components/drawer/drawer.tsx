@@ -4,7 +4,7 @@ import { Portal } from 'solid-js/web';
 
 import { cx } from '$app-utils';
 
-import { UnstyledButton } from '../unstyled-button/unstyled-button';
+import { IconButton } from '../icon-button/icon-button';
 import * as styles from './styles';
 import { DrawerProps } from './types';
 
@@ -66,12 +66,12 @@ export const Drawer: Component<DrawerProps> = (props) => {
           >
             <header class={styles.header} id="drawer-header">
               <div>{props.heading}</div>
-              <UnstyledButton
+              <IconButton
                 aria-label={props.closeIconLabel ?? 'close'}
                 onClick={props.onClose}
               >
                 {<FiX size={30} />}
-              </UnstyledButton>
+              </IconButton>
             </header>
             <div class={styles.content}>{props.children}</div>
           </div>

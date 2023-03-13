@@ -7,12 +7,7 @@ export const unstyledButton = css({
   cursor: 'pointer',
   padding: 3,
   borderRadius: 4,
-  transition: 'background-color 200ms ease',
-
-  ':not(:disabled):hover': {
-    translate: '-1px -1px',
-    boxShadow: '0px 0px 5px 1px var(--color-overlay)',
-  },
+  transition: 'box-shadow 200ms ease',
 
   ':disabled': {
     cursor: 'not-allowed',
