@@ -11,8 +11,17 @@
 @import url('@fontsource/raleway/800.css');
 @import url('@fontsource/raleway/800-italic.css');
 
+@font-face {
+  font-family: 'Fallback';
+  src: local(Arial);
+  size-adjust: 103%;
+  ascent-override: normal;
+  descent-override: normal;
+  line-gap-override: normal;
+}
+
 * {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', 'Fallback', sans-serif;
   font-feature-settings: 'lnum';
 }
 
