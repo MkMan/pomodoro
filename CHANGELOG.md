@@ -1,3 +1,14 @@
+# [2.8.0](https://github.com/MkMan/pomodoro/compare/v2.7.0...v2.8.0) (2023-04-01)
+
+### Bug Fixes
+
+- **app:** correctly use pwa icon ([4463e7a](https://github.com/MkMan/pomodoro/commit/4463e7ac7a7361285cd49fbcab5759c33db23147))
+
+### Features
+
+- **app:** tweak and use Arial as a fallback font ([2e0008f](https://github.com/MkMan/pomodoro/commit/2e0008f4aa6175fd087a4f08f0ba9bb13444999c))
+- **app:** use fontsource for fonts ([c552888](https://github.com/MkMan/pomodoro/commit/c55288839a20ae50afd169479907741630f8cf0f))
+
 # [2.7.0](https://github.com/MkMan/pomodoro/compare/v2.6.0...v2.7.0) (2023-03-13)
 
 ### Bug Fixes
