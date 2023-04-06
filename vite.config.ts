@@ -20,7 +20,7 @@ export default defineConfig({
             src: '/pomodoro/images/manifest-icon-512.maskable.png',
             sizes: '512x512',
             type: 'image/webp',
-            purpose: 'any maskable',
+            purpose: 'maskable',
           },
           {
             src: '/pomodoro/images/manifest-icon-192.maskable.png',
