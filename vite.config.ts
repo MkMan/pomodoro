@@ -51,7 +51,7 @@ export default defineConfig({
       provider: 'c8',
       clean: true,
       cleanOnRerun: true,
-      reporter: ['lcov'],
+      reporter: ['lcov', 'text-summary'],
       all: true,
       src: ['./src'],
       exclude: [
