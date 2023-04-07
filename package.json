@@ -17,7 +17,7 @@
     "prepare": "husky install",
     "preview": "vite preview",
     "sanity-check": "npm run lint:check && npm run format:check && npm run ts:check && npm test && npm run e2e:run",
-    "start": "vite --port 3000",
+    "start": "vite --open --port 3000 --base /pomodoro",
     "test:watch": "vitest watch --coverage",
     "test": "vitest run --coverage",
     "ts:check": "tsc --noEmit"
