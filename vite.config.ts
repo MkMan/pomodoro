@@ -14,6 +14,7 @@ export default defineConfig({
       manifest: {
         theme_color: '#bf5b4a',
         name: 'Pomodoro',
+        id: '/pomodoro/',
         background_color: '#bf5b4a',
         icons: [
           {
@@ -27,6 +28,12 @@ export default defineConfig({
             sizes: '192x192',
             type: 'image/webp',
             purpose: 'maskable',
+          },
+          {
+            src: '/pomodoro/images/manifest-icon-192.maskable.png',
+            sizes: '192x192',
+            type: 'image/webp',
+            purpose: 'any',
           },
         ],
       },
