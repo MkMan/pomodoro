@@ -48,9 +48,10 @@ export default defineConfig({
     isolate: false,
 
     coverage: {
+      provider: 'c8',
       clean: true,
       cleanOnRerun: true,
-      reporter: [],
+      reporter: ['lcov'],
       all: true,
       src: ['./src'],
       exclude: [
