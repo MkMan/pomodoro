@@ -1,3 +1,9 @@
+## [2.8.2](https://github.com/MkMan/pomodoro/compare/v2.8.1...v2.8.2) (2023-04-07)
+
+### Bug Fixes
+
+- **app:** improve pwa manifest ([891ad7f](https://github.com/MkMan/pomodoro/commit/891ad7f6494cf86e5307d518276b1453e18ebbc3))
+
 ## [2.8.1](https://github.com/MkMan/pomodoro/compare/v2.8.0...v2.8.1) (2023-04-07)
 
 ### Bug Fixes
