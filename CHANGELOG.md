@@ -1,3 +1,9 @@
+## [2.8.1](https://github.com/MkMan/pomodoro/compare/v2.8.0...v2.8.1) (2023-04-07)
+
+### Bug Fixes
+
+- **app:** update public maskable icons and references ([8d94c68](https://github.com/MkMan/pomodoro/commit/8d94c689e152aca9a6d17c701e810c2bc4fae91a))
+
 # [2.8.0](https://github.com/MkMan/pomodoro/compare/v2.7.0...v2.8.0) (2023-04-01)
 
 ### Bug Fixes
