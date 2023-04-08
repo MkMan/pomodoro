@@ -1,7 +1,7 @@
 import { JSX } from 'solid-js';
 
 export type InputProps = {
-  className?: string;
+  class?: string;
   error?: string | boolean;
   label: string;
   isRequired?: boolean;

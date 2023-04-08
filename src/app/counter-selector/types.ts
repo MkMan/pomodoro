@@ -1,3 +1,3 @@
 export type CounterSelectorProps = {
-  className?: string;
+  class?: string;
 };

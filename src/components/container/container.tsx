@@ -1,11 +1,11 @@
 import { css } from '@emotion/css';
 import { Component, JSX } from 'solid-js';
 
-import { cx, withDefaultProps } from '$app-utils';
+import { cx } from '$app-utils';
 
 type ContainerProps = {
   children?: JSX.Element | JSX.Element[];
-  className?: string;
+  class?: string;
   height?: string | number;
   maxWidth?: string | number;
 };
@@ -20,7 +20,7 @@ const Container: Component<ContainerProps> = (props) => {
           marginInline: 'auto',
           paddingInline: 16,
         }),
-        props.className
+        props.class
       )}
     >
       {props.children}
@@ -28,6 +28,4 @@ const Container: Component<ContainerProps> = (props) => {
   );
 };
 
-const ContainerWithDefaultProps = withDefaultProps(Container);
-
-export { ContainerWithDefaultProps as Container };
+export { Container };

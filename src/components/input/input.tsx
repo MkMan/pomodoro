@@ -1,13 +1,13 @@
 import { Component, createMemo, splitProps } from 'solid-js';
 
-import { cx, withDefaultProps } from '$app-utils';
+import { cx } from '$app-utils';
 
 import * as styles from './styles';
 import { InputProps } from './types';
 
 const Input: Component<InputProps> = (_props) => {
   const [props, inputProps] = splitProps(_props, [
-    'className',
+    'class',
     'error',
     'isRequired',
     'label',
@@ -15,7 +15,7 @@ const Input: Component<InputProps> = (_props) => {
     'value',
   ]);
 
-  const wrapperClasses = createMemo(() => cx(styles.wrapper, props.className));
+  const wrapperClasses = createMemo(() => cx(styles.wrapper, props.class));
   const labelClasses = createMemo(() =>
     cx(props.isRequired && styles.labelAsterisk)
   );
@@ -38,6 +38,4 @@ const Input: Component<InputProps> = (_props) => {
   );
 };
 
-const InputWithDefaultProps = withDefaultProps(Input);
-
-export { InputWithDefaultProps as Input };
+export { Input };

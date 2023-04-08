@@ -45,8 +45,8 @@ export const App: Component = () => {
       <ReloadPrompt />
       <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
       <main class={styles.main}>
-        <Container maxWidth={600} pt={16}>
-          <CounterSelector pb={32} pt={32} />
+        <Container maxWidth={600}>
+          <CounterSelector class={styles.counterSelector} />
           <Countdown onComplete={onCounterComplete} />
         </Container>
       </main>

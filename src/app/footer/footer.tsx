@@ -8,8 +8,7 @@ import * as styles from './styles';
 
 export const Footer: Component = () => (
   <footer class={styles.footer}>
-    {/* eslint-disable-next-line solid/no-react-specific-props -- prop name */}
-    <Container className={styles.wrapper} maxWidth={600}>
+    <Container class={styles.wrapper} maxWidth={600}>
       <span>App version: {version}</span>
       <a
         class={styles.sourceCodeLink}

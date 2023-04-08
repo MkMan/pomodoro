@@ -13,8 +13,7 @@ export const Durations: Component = () => (
     {({ stateName, label }) => (
       <Input
         {...commonInputProps}
-        // eslint-disable-next-line solid/no-react-specific-props -- TODO: rename
-        className={styles.input}
+        class={styles.input}
         disabled={counterState() !== 'stopped'}
         error={durations[stateName] <= 0 && `${label} must be greater than 0`}
         label={label}
