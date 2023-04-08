@@ -7,10 +7,13 @@ const wrapper = css({
   height: '100%',
 });
 
-const main = css({ flex: '1', paddingBlockStart: 16 });
-
-const counterSelector = css({
-  paddingBlock: 32,
+const main = css({
+  flex: '1',
 });
 
-export { counterSelector, main, wrapper };
+const section = css({
+  paddingBlockStart: 48,
+  paddingBlockEnd: 32,
+});
+
+export { main, section, wrapper };

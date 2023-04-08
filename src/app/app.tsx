@@ -9,7 +9,6 @@ import {
 } from '$app-state';
 
 import { Countdown } from './countdown/countdown';
-import { CounterSelector } from './counter-selector/counter-selector';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
 import { ReloadPrompt } from './reload-prompt/reload-prompt';
@@ -45,8 +44,7 @@ export const App: Component = () => {
       <ReloadPrompt />
       <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
       <main class={styles.main}>
-        <Container maxWidth={600}>
-          <CounterSelector class={styles.counterSelector} />
+        <Container class={styles.section} maxWidth={600}>
           <Countdown onComplete={onCounterComplete} />
         </Container>
       </main>

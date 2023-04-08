@@ -10,7 +10,7 @@ import {
 } from '$app-state';
 import { cx } from '$app-utils';
 
-import { counterOrder } from '../../constants';
+import { counterOrder } from '../../../constants';
 import { currentCounterLabelMap } from './constants';
 import * as styles from './styles';
 import { CounterSelectorProps } from './types';

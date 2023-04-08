@@ -8,6 +8,7 @@ import {
   settingsStore,
 } from '$app-state';
 
+import { CounterSelector } from './counter-selector/counter-selector';
 import * as styles from './styles';
 import { CountdownProps, WorkerToAppMessage } from './types';
 import { getFormattedTime, getWorkerHelpers } from './utils';
@@ -59,6 +60,7 @@ export const Countdown: Component<CountdownProps> = (props) => {
 
   return (
     <>
+      <CounterSelector />
       <div class={styles.remainingTime} data-testid="remainingTime">
         {getFormattedTime(time())}
       </div>
