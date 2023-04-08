@@ -14,7 +14,7 @@ export const select = css({
   height: '100%',
   opacity: 0,
 
-  ':hover': {
+  ':not(:disabled):hover': {
     cursor: 'pointer',
 
     '+ *': {
