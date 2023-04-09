@@ -1,12 +1,21 @@
 import { css } from '@emotion/css';
 
-export const wrapper = css({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 4,
-  fontSize: '1rem',
-  fontWeight: 500,
-});
+import { appearanceBlock, appearanceInline } from './types';
+
+export const wrapper = css`
+  display: flex;
+  gap: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+
+  &.${appearanceBlock} {
+    flex-direction: column;
+  }
+
+  &.${appearanceInline} {
+    align-items: baseline;
+  }
+`;
 
 export const labelAsterisk = css({
   ':after': {

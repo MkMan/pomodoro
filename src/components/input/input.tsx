@@ -7,6 +7,7 @@ import { InputProps } from './types';
 
 const Input: Component<InputProps> = (_props) => {
   const [props, inputProps] = splitProps(_props, [
+    'appearance',
     'class',
     'error',
     'isRequired',
@@ -15,14 +16,16 @@ const Input: Component<InputProps> = (_props) => {
     'value',
   ]);
 
-  const wrapperClasses = createMemo(() => cx(styles.wrapper, props.class));
-  const labelClasses = createMemo(() =>
-    cx(props.isRequired && styles.labelAsterisk)
+  const appearance: () => InputProps['appearance'] = createMemo(
+    () => props.appearance ?? 'block'
   );
 
   return (
-    <div class={wrapperClasses()}>
-      <label class={labelClasses()} for={props.label}>
+    <div class={cx(styles.wrapper, props.class, appearance())}>
+      <label
+        class={cx(props.isRequired && styles.labelAsterisk)}
+        for={props.label}
+      >
         {props.label}
       </label>
       <input
