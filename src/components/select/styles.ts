@@ -43,7 +43,7 @@ export const presentational = css({
   color: 'var(--color-font)',
   backgroundColor: 'var(--color-background)',
   border: '2px solid var(--color-cta-background)',
-  padding: '12px 16px',
+  padding: '6px 12px',
   fontSize: '1rem',
   fontWeight: 500,
   borderRadius: 4,
