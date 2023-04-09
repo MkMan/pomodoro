@@ -31,6 +31,7 @@ export const input = css({
   padding: 8,
   paddingInlineStart: 16,
   border: '1px solid lightgrey',
+  width: '100%',
 
   ':disabled': {
     cursor: 'not-allowed',
