@@ -1,11 +1,11 @@
 import { ComponentProps } from 'solid-js';
-import { AppSettings } from 'src/state/settings/types';
+import { AppStore } from 'src/state/app-store/types';
 
 import { Input } from '$app-components';
 
 type DurationField = {
   label: string;
-  stateName: keyof AppSettings['durations'];
+  stateName: keyof AppStore['durations'];
 };
 
 const commonInputProps: Partial<ComponentProps<typeof Input>> = {

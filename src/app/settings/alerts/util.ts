@@ -1,6 +1,6 @@
 import { JSX } from 'solid-js';
 
-import { setSettingsStore } from '$app-state';
+import { setAppStore } from '$app-state';
 
 type InputChangeEvent = Parameters<
   JSX.EventHandler<HTMLInputElement, Event>
@@ -19,13 +19,13 @@ const onNotificationCheckboxChange = (
 
   if (Notification.permission === 'granted' || checked === false) {
     // to allow user to uncheck even if permission isn't granted
-    setSettingsStore('alerts', 'shouldSendNotification', checked);
+    setAppStore('alerts', 'shouldSendNotification', checked);
     return;
   }
 
   Notification.requestPermission().then((permission) => {
     if (permission === 'granted') {
-      setSettingsStore('alerts', 'shouldSendNotification', true);
+      setAppStore('alerts', 'shouldSendNotification', true);
     } else {
       onNotificationRequestDeclined();
     }

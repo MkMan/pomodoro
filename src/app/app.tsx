@@ -2,10 +2,10 @@ import { Component, createMemo, createSignal } from 'solid-js';
 
 import { Container, Drawer, Heading } from '$app-components';
 import {
+  appStore,
   getCurrentCounter,
   incrementCounter,
-  initialiseSettingsStore,
-  settingsStore,
+  initialiseAppStore,
 } from '$app-state';
 
 import { Countdown } from './countdown/countdown';
@@ -17,7 +17,7 @@ import * as styles from './styles';
 import { getAlertHandle, sendNotification, syncTheme } from './utils';
 
 export const App: Component = () => {
-  initialiseSettingsStore();
+  initialiseAppStore();
   syncTheme();
 
   const audioRef = getAlertHandle();
@@ -26,7 +26,7 @@ export const App: Component = () => {
 
   const shouldSendNotification = createMemo(
     () =>
-      settingsStore.alerts.shouldSendNotification &&
+      appStore.alerts.shouldSendNotification &&
       Notification.permission === 'granted'
   );
 

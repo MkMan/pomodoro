@@ -1,12 +1,12 @@
 import { Component, For } from 'solid-js';
 
 import { Input } from '$app-components';
-import { counterState, setSettingsStore, settingsStore } from '$app-state';
+import { appStore, counterState, setAppStore } from '$app-state';
 
 import { commonInputProps, durationFields } from './constants';
 import * as styles from './styles';
 
-const durations = settingsStore.durations;
+const durations = appStore.durations;
 
 export const Durations: Component = () => (
   <For each={durationFields}>
@@ -19,7 +19,7 @@ export const Durations: Component = () => (
         label={label}
         onInput={(event) => {
           const value = event.currentTarget.valueAsNumber || 0;
-          setSettingsStore('durations', stateName, value);
+          setAppStore('durations', stateName, value);
         }}
         value={durations[stateName] === 0 ? '' : durations[stateName]}
       />

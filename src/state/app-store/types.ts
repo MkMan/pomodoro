@@ -1,6 +1,6 @@
-export type AppTheme = 'light' | 'dark' | 'OS';
+type AppTheme = 'light' | 'dark' | 'OS';
 
-export type AppSettings = {
+type AppStore = {
   durations: {
     pomodoro: number;
     longBreak: number;
@@ -11,3 +11,5 @@ export type AppSettings = {
     shouldSendNotification: boolean;
   };
 };
+
+export type { AppStore, AppTheme };

@@ -2,10 +2,10 @@ import { Component, createEffect, createMemo, createSignal } from 'solid-js';
 
 import { Button } from '$app-components';
 import {
+  appStore,
   counterState,
   getCurrentCounter,
   setCounterState,
-  settingsStore,
 } from '$app-state';
 
 import { CounterSelector } from './counter-selector/counter-selector';
@@ -17,8 +17,7 @@ const worker = new Worker(new URL('./worker.ts', import.meta.url));
 const { startWorkerCounter, stopWorkerCounter } = getWorkerHelpers(worker);
 
 export const Countdown: Component<CountdownProps> = (props) => {
-  const getInitialDuration = () =>
-    settingsStore.durations[getCurrentCounter()] * 60;
+  const getInitialDuration = () => appStore.durations[getCurrentCounter()] * 60;
   const [time, setTime] = createSignal(getInitialDuration());
 
   // utility flags
