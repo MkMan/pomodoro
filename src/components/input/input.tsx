@@ -1,13 +1,14 @@
-import { Component, createMemo, splitProps } from 'solid-js';
+import { Component, createMemo, Show, splitProps } from 'solid-js';
 
-import { cx, withDefaultProps } from '$app-utils';
+import { cx } from '$app-utils';
 
 import * as styles from './styles';
 import { InputProps } from './types';
 
 const Input: Component<InputProps> = (_props) => {
   const [props, inputProps] = splitProps(_props, [
-    'className',
+    'appearance',
+    'class',
     'error',
     'isRequired',
     'label',
@@ -15,16 +16,20 @@ const Input: Component<InputProps> = (_props) => {
     'value',
   ]);
 
-  const wrapperClasses = createMemo(() => cx(styles.wrapper, props.className));
-  const labelClasses = createMemo(() =>
-    cx(props.isRequired && styles.labelAsterisk)
+  const appearance: () => InputProps['appearance'] = createMemo(
+    () => props.appearance ?? 'block'
   );
 
   return (
-    <div class={wrapperClasses()}>
-      <label class={labelClasses()} for={props.label}>
-        {props.label}
-      </label>
+    <div class={cx(styles.wrapper, props.class, appearance())}>
+      <Show when={props.label}>
+        <label
+          class={cx(props.isRequired && styles.labelAsterisk)}
+          for={props.label}
+        >
+          {props.label}
+        </label>
+      </Show>
       <input
         class={styles.input}
         {...inputProps}
@@ -38,6 +43,4 @@ const Input: Component<InputProps> = (_props) => {
   );
 };
 
-const InputWithDefaultProps = withDefaultProps(Input);
-
-export { InputWithDefaultProps as Input };
+export { Input };

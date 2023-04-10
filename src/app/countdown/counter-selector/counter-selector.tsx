@@ -8,9 +8,9 @@ import {
   getCurrentCounter,
   setCurrentCounterIndex,
 } from '$app-state';
-import { cx, withDefaultProps } from '$app-utils';
+import { cx } from '$app-utils';
 
-import { counterOrder } from '../../constants';
+import { counterOrder } from '../../../constants';
 import { currentCounterLabelMap } from './constants';
 import * as styles from './styles';
 import { CounterSelectorProps } from './types';
@@ -36,7 +36,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
   }
 
   return (
-    <div class={cx(props.className, styles.wrapper)}>
+    <div class={cx(props.class, styles.wrapper)}>
       {isInEditMode() ? (
         <>
           <label class={styles.label} for={selectId}>
@@ -69,6 +69,4 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
   );
 };
 
-const CounterSelectorWithDefaultProps = withDefaultProps(CounterSelector);
-
-export { CounterSelectorWithDefaultProps as CounterSelector };
+export { CounterSelector };

@@ -1,8 +1,8 @@
-import { AppSettings } from './types';
+import { AppStore } from './types';
 
 const localStorageKey = 'app-settings';
 
-const defaultSettings: AppSettings = {
+const initialAppStoreValues: AppStore = {
   durations: {
     longBreak: 10,
     pomodoro: 25,
@@ -14,4 +14,4 @@ const defaultSettings: AppSettings = {
   },
 };
 
-export { defaultSettings, localStorageKey };
+export { initialAppStoreValues, localStorageKey };

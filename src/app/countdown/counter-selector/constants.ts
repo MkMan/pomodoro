@@ -1,4 +1,4 @@
-import { CurrentCounter } from '../../types';
+import { CurrentCounter } from '../../../types';
 
 export const currentCounterLabelMap: Record<CurrentCounter, string> = {
   pomodoro: 'Pomodoro',

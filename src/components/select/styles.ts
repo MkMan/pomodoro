@@ -14,12 +14,13 @@ export const select = css({
   height: '100%',
   opacity: 0,
 
-  ':hover': {
+  ':not(:disabled):hover': {
     cursor: 'pointer',
 
     '+ *': {
       // styles for presentational
-      boxShadow: 'var(--boxShadow-input-hover)',
+      color: 'var(--color-font-inverted)',
+      backgroundColor: 'var(--color-background-inverted)',
     },
   },
 
@@ -43,7 +44,7 @@ export const presentational = css({
   color: 'var(--color-font)',
   backgroundColor: 'var(--color-background)',
   border: '2px solid var(--color-cta-background)',
-  padding: '12px 16px',
+  padding: '6px 12px',
   fontSize: '1rem',
   fontWeight: 500,
   borderRadius: 4,

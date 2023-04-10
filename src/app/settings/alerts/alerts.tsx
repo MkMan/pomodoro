@@ -1,6 +1,6 @@
 import { Component, createSignal } from 'solid-js';
 
-import { settingsStore } from '$app-state';
+import { appStore } from '$app-state';
 
 import * as styles from './styles';
 import { onNotificationCheckboxChange } from './util';
@@ -24,7 +24,7 @@ export const Alerts: Component = () => {
         onChange={(event) =>
           onNotificationCheckboxChange(event, onNotificationRequestDeclined)
         }
-        checked={settingsStore.alerts.shouldSendNotification}
+        checked={appStore.alerts.shouldSendNotification}
         disabled={isNotificationsCheckboxDisabled()}
       />
       System notifications

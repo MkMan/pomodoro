@@ -1,5 +1,5 @@
 import { FiChevronDown } from 'solid-icons/fi';
-import { Component, For, splitProps } from 'solid-js';
+import { Component, createMemo, For, splitProps } from 'solid-js';
 
 import * as styles from './styles';
 import { SelectProps } from './types';
@@ -10,6 +10,22 @@ export const Select: Component<SelectProps> = (_props) => {
     'value',
     'options',
   ]);
+
+  const currentLabel = createMemo(() => {
+    const currentOption = props.options.find(
+      ({ value }) => value === props.value
+    );
+
+    if (!currentOption) {
+      console.error(
+        `Error in Select: value ${props.value} not found in ${JSON.stringify(
+          props.options
+        )}`
+      );
+    }
+
+    return currentOption?.label ?? '';
+  });
 
   return (
     <div class={styles.wrapper}>
@@ -30,7 +46,7 @@ export const Select: Component<SelectProps> = (_props) => {
         </For>
       </select>
       <div class={styles.presentational}>
-        {props.options[parseInt(props.value)].label}
+        {currentLabel()}
         <FiChevronDown size={20} color="currentcolor" />
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { Component, For } from 'solid-js';
-import { AppTheme } from 'src/state/settings/types';
+import { AppTheme } from 'src/state/app-store/types';
 
-import { setSettingsStore, settingsStore } from '$app-state';
+import { appStore, setAppStore } from '$app-state';
 
 import * as styles from './styles';
 
@@ -12,7 +12,7 @@ const fields: { label: string; value: AppTheme }[] = [
 ];
 
 export const Theme: Component = () => {
-  const theme = settingsStore.theme;
+  const theme = appStore.theme;
 
   return (
     <fieldset class={styles.fieldset}>
@@ -24,7 +24,7 @@ export const Theme: Component = () => {
               name="theme"
               value={field.value}
               onChange={({ currentTarget }) => {
-                setSettingsStore('theme', currentTarget.value as AppTheme);
+                setAppStore('theme', currentTarget.value as AppTheme);
               }}
               checked={theme === field.value}
             />

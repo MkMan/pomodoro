@@ -2,7 +2,7 @@ import { cx } from '@emotion/css';
 import { createEffect, createSignal } from 'solid-js';
 import { CurrentCounter } from 'src/types';
 
-import { settingsStore } from '$app-state';
+import { appStore } from '$app-state';
 
 import { audioUrlsMap } from '../assets/sounds';
 import { currentCounterMessageMap } from './constants';
@@ -41,18 +41,18 @@ const syncTheme = () => {
   });
 
   createEffect(() => {
-    if (settingsStore.theme === 'OS') {
+    if (appStore.theme === 'OS') {
       document.body.setAttribute(
         'class',
         cx(osTheme() === 'dark' && 'isDarkTheme')
       );
     }
 
-    if (settingsStore.theme === 'light') {
+    if (appStore.theme === 'light') {
       document.body.classList.remove('isDarkTheme');
     }
 
-    if (settingsStore.theme === 'dark') {
+    if (appStore.theme === 'dark') {
       document.body.classList.add('isDarkTheme');
     }
   });

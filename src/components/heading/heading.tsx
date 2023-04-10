@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 import { Component, mergeProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { cx, withDefaultProps } from '$app-utils';
+import { cx } from '$app-utils';
 
 import { fontWeightMap, sizeMap } from './constants';
 import { HeadingProps } from './types';
@@ -15,7 +15,7 @@ const Heading: Component<HeadingProps> = (_props) => {
       tabIndex={props.shouldAutoFocus ? -1 : undefined}
       component={`h${props.level}`}
       class={cx(
-        props.className,
+        props.class,
         css({
           fontFamily: `'Raleway', sans-serif`,
           fontSize: props.size
@@ -30,6 +30,4 @@ const Heading: Component<HeadingProps> = (_props) => {
   );
 };
 
-const HeadingWithDefaultProps = withDefaultProps(Heading);
-
-export { HeadingWithDefaultProps as Heading };
+export { Heading };
