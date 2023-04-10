@@ -19,7 +19,8 @@ export const select = css({
 
     '+ *': {
       // styles for presentational
-      boxShadow: 'var(--boxShadow-input-hover)',
+      color: 'var(--color-font-inverted)',
+      backgroundColor: 'var(--color-background-inverted)',
     },
   },
 
