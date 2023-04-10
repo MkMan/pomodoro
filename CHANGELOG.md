@@ -1,3 +1,17 @@
+# [2.9.0](https://github.com/MkMan/pomodoro/compare/v2.8.2...v2.9.0) (2023-04-10)
+
+### Bug Fixes
+
+- **app:** fix access bug in `Select` ([6feb910](https://github.com/MkMan/pomodoro/commit/6feb9100553f8d66a008f3d78a83f1c4b8f9dbe0))
+- **app:** make `Input` 100% width ([cc7b9a6](https://github.com/MkMan/pomodoro/commit/cc7b9a6c5d3919bbd746eb8e3f3fe542d690f4d5))
+- **app:** remove hover when disabled ([db3da12](https://github.com/MkMan/pomodoro/commit/db3da12b9c7ba5d033e9973abae2b7bbdd556c03))
+
+### Features
+
+- **app:** change `Select` hover styles ([81aa434](https://github.com/MkMan/pomodoro/commit/81aa434f6823d87c6c3a7db64512eb92f0309055))
+- **app:** make `Input` label optional ([aeb7a00](https://github.com/MkMan/pomodoro/commit/aeb7a00af8e8f17f33049c56018514ebfc377d14))
+- **app:** reduce `Select` height ([6cfe8cf](https://github.com/MkMan/pomodoro/commit/6cfe8cf8ce195fd7f80c832d378d6919fd7422f7))
+
 ## [2.8.2](https://github.com/MkMan/pomodoro/compare/v2.8.1...v2.8.2) (2023-04-07)
 
 ### Bug Fixes
