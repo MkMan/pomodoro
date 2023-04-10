@@ -10,7 +10,7 @@ type InputProps = {
   class?: string;
   error?: string | boolean;
   isRequired?: boolean;
-  label: string;
+  label?: string;
   onInput: JSX.EventHandler<HTMLInputElement, Event>;
   value: string | number;
 } & Omit<JSX.InputHTMLAttributes<HTMLInputElement>, 'onInput'>;

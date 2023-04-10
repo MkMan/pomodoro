@@ -1,4 +1,4 @@
-import { Component, createMemo, splitProps } from 'solid-js';
+import { Component, createMemo, Show, splitProps } from 'solid-js';
 
 import { cx } from '$app-utils';
 
@@ -22,12 +22,14 @@ const Input: Component<InputProps> = (_props) => {
 
   return (
     <div class={cx(styles.wrapper, props.class, appearance())}>
-      <label
-        class={cx(props.isRequired && styles.labelAsterisk)}
-        for={props.label}
-      >
-        {props.label}
-      </label>
+      <Show when={props.label}>
+        <label
+          class={cx(props.isRequired && styles.labelAsterisk)}
+          for={props.label}
+        >
+          {props.label}
+        </label>
+      </Show>
       <input
         class={styles.input}
         {...inputProps}
