@@ -51,20 +51,20 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
             }}
             options={selectOptions()}
           />
+          <IconButton aria-label="close counter editing" onClick={toggleMode}>
+            <FiX size={30} />
+          </IconButton>
         </>
       ) : (
-        <span class={styles.label}>
-          {currentCounterLabelMap[getCurrentCounter()]}
-        </span>
+        <>
+          <span class={styles.label}>
+            {currentCounterLabelMap[getCurrentCounter()]}
+          </span>
+          <IconButton aria-label="edit counter type" onClick={toggleMode}>
+            <FiEdit3 size={30} />
+          </IconButton>
+        </>
       )}
-      <IconButton
-        aria-label={
-          isInEditMode() ? 'close counter editing' : 'edit counter type'
-        }
-        onClick={toggleMode}
-      >
-        {isInEditMode() ? <FiX size={30} /> : <FiEdit3 size={30} />}
-      </IconButton>
     </div>
   );
 };
