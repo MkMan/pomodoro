@@ -1,6 +1,6 @@
 const getEditCounterButton = () =>
   cy.findByRole('button', { name: 'edit counter type' });
-const getCounterDropdown = () => cy.findByRole('combobox');
+const getCounterDropdown = () => cy.findByLabelText('Counter');
 const getRemainingTime = () => cy.findByTestId('remainingTime');
 const selectCounterByIndex = (index: number) =>
   getCounterDropdown().select(index.toString());
