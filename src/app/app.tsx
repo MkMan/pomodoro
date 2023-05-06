@@ -14,6 +14,7 @@ import { Header } from './header/header';
 import { ReloadPrompt } from './reload-prompt/reload-prompt';
 import { Settings } from './settings/settings';
 import * as styles from './styles';
+import { Todos } from './todos';
 import { getAlertHandle, sendNotification, syncTheme } from './utils';
 
 export const App: Component = () => {
@@ -49,6 +50,9 @@ export const App: Component = () => {
       <main class={styles.main}>
         <Container class={styles.section} maxWidth={600}>
           <Countdown onComplete={onCounterComplete} />
+        </Container>
+        <Container class={styles.section} maxWidth={600}>
+          <Todos />
         </Container>
       </main>
       <Drawer

@@ -38,6 +38,7 @@ body {
 
   --opacity-input-disabled: 0.7;
   --boxShadow-input-hover: 0px 0px 5px 1px var(--color-overlay);
+  --boxShadow-card: 0 2px 14px hsl(120, 5%, 85%);
 
   color: var(--color-font);
   background-color: var(--color-background);
@@ -49,4 +50,6 @@ body.isDarkTheme {
   --color-font: var(--color-gray-nurse);
   --color-font-inverted: var(--color-bleached-revolver);
   --color-overlay: var(--color-bermuda-gray);
+
+  --boxShadow-card: 0 2px 14px hsl(254, 37%, 5%);
 }
