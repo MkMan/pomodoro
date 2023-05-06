@@ -42,7 +42,10 @@ export const App: Component = () => {
   return (
     <div class={styles.wrapper}>
       <ReloadPrompt />
-      <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
+      <Header
+        class={styles.header}
+        onSettingsClick={() => setIsSettingsDrawerOpen(true)}
+      />
       <main class={styles.main}>
         <Container class={styles.section} maxWidth={600}>
           <Countdown onComplete={onCounterComplete} />
