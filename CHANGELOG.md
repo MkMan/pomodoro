@@ -1,3 +1,14 @@
+# [2.10.0](https://github.com/MkMan/pomodoro/compare/v2.9.0...v2.10.0) (2023-05-06)
+
+### Bug Fixes
+
+- **countdown:** fix edit icon button hover style ([51656fc](https://github.com/MkMan/pomodoro/commit/51656fc28597c23255a07e73435db9e7cb7de197))
+
+### Features
+
+- **app:** add todos feature ([b223e0e](https://github.com/MkMan/pomodoro/commit/b223e0e61ceee666af7dd2766c6285e6de275e3c))
+- **app:** make header top sticky ([5737e4a](https://github.com/MkMan/pomodoro/commit/5737e4aaf66645309e7573caff4681bdf957a9e0))
+
 # [2.9.0](https://github.com/MkMan/pomodoro/compare/v2.8.2...v2.9.0) (2023-04-10)
 
 ### Bug Fixes
