@@ -7,6 +7,14 @@ const wrapper = css({
   height: '100%',
 });
 
+const header = css({
+  position: 'sticky',
+  top: 0,
+  backgroundColor: 'var(--color-background)',
+  isolation: 'isolate',
+  zIndex: 1,
+});
+
 const main = css({
   flex: '1',
 });
@@ -16,4 +24,4 @@ const section = css({
   paddingBlockEnd: 32,
 });
 
-export { main, section, wrapper };
+export { header, main, section, wrapper };

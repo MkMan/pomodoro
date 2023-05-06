@@ -12,6 +12,7 @@ const initialAppStoreValues: AppStore = {
   alerts: {
     shouldSendNotification: false,
   },
+  todos: [],
 };
 
 export { initialAppStoreValues, localStorageKey };

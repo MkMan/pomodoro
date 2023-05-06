@@ -1,5 +1,13 @@
 type AppTheme = 'light' | 'dark' | 'OS';
 
+type TodoFrequency = 'daily' | 'once';
+
+type Todo = {
+  description: string;
+  status: 'completed' | 'not-started';
+  frequency: TodoFrequency;
+};
+
 type AppStore = {
   durations: {
     pomodoro: number;
@@ -10,6 +18,7 @@ type AppStore = {
   alerts: {
     shouldSendNotification: boolean;
   };
+  todos: Todo[];
 };
 
-export type { AppStore, AppTheme };
+export type { AppStore, AppTheme, Todo, TodoFrequency };

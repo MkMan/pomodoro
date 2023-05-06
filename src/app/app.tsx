@@ -14,6 +14,7 @@ import { Header } from './header/header';
 import { ReloadPrompt } from './reload-prompt/reload-prompt';
 import { Settings } from './settings/settings';
 import * as styles from './styles';
+import { Todos } from './todos';
 import { getAlertHandle, sendNotification, syncTheme } from './utils';
 
 export const App: Component = () => {
@@ -42,10 +43,16 @@ export const App: Component = () => {
   return (
     <div class={styles.wrapper}>
       <ReloadPrompt />
-      <Header onSettingsClick={() => setIsSettingsDrawerOpen(true)} />
+      <Header
+        class={styles.header}
+        onSettingsClick={() => setIsSettingsDrawerOpen(true)}
+      />
       <main class={styles.main}>
         <Container class={styles.section} maxWidth={600}>
           <Countdown onComplete={onCounterComplete} />
+        </Container>
+        <Container class={styles.section} maxWidth={600}>
+          <Todos />
         </Container>
       </main>
       <Drawer

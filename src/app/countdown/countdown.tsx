@@ -8,7 +8,7 @@ import {
   setCounterState,
 } from '$app-state';
 
-import { CounterSelector } from './counter-selector/counter-selector';
+import { CounterSelector } from './counter-selector';
 import * as styles from './styles';
 import { CountdownProps, WorkerToAppMessage } from './types';
 import { getFormattedTime, getWorkerHelpers } from './utils';
