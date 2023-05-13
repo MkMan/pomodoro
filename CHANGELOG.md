@@ -1,3 +1,9 @@
+## [2.10.1](https://github.com/MkMan/pomodoro/compare/v2.10.0...v2.10.1) (2023-05-13)
+
+### Bug Fixes
+
+- **app:** fix shared components styling logic ([2f07d15](https://github.com/MkMan/pomodoro/commit/2f07d15688082c3bc12cdbe75c28fbc5eae11546))
+
 # [2.10.0](https://github.com/MkMan/pomodoro/compare/v2.9.0...v2.10.0) (2023-05-06)
 
 ### Bug Fixes
