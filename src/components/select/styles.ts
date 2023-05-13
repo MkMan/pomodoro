@@ -52,4 +52,6 @@ export const presentational = css({
   gap: 16,
   alignItems: 'center',
   transition: 'color 200ms ease',
+  height: '100%',
+  justifyContent: 'space-between',
 });

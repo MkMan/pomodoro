@@ -1,11 +1,14 @@
 import { FiChevronDown } from 'solid-icons/fi';
 import { Component, createMemo, For, splitProps } from 'solid-js';
 
+import { cx } from '$app-utils';
+
 import * as styles from './styles';
 import { SelectProps } from './types';
 
 export const Select: Component<SelectProps> = (_props) => {
   const [props, selectProps] = splitProps(_props, [
+    'class',
     'onChange',
     'value',
     'options',
@@ -28,7 +31,7 @@ export const Select: Component<SelectProps> = (_props) => {
   });
 
   return (
-    <div class={styles.wrapper}>
+    <div class={cx(styles.wrapper, props.class)}>
       <select
         class={styles.select}
         onChange={(event) => props.onChange(event)}

@@ -1,5 +1,7 @@
 import { Component, splitProps } from 'solid-js';
 
+import { cx } from '$app-utils';
+
 import * as styles from './styles';
 import { ButtonProps } from './types';
 
@@ -14,6 +16,7 @@ const buttonVariantStylingMap: Record<
 
 export const Button: Component<ButtonProps> = (_props) => {
   const [props, buttonProps] = splitProps(_props, [
+    'class',
     'variant',
     'children',
     'size',
@@ -21,8 +24,11 @@ export const Button: Component<ButtonProps> = (_props) => {
 
   return (
     <button
-      class={buttonVariantStylingMap[props.variant ?? 'primary']}
-      classList={{ isSmall: props.size === 'small' }}
+      class={cx(
+        buttonVariantStylingMap[props.variant ?? 'primary'],
+        props.size === 'small' && 'isSmall',
+        props.class
+      )}
       {...buttonProps}
     >
       {props.children}
