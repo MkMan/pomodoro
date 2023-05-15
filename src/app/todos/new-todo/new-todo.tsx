@@ -20,6 +20,10 @@ const NewTodo: Component<NewTodoProps> = (props) => {
   const onSubmit = (event: Event) => {
     event.preventDefault();
 
+    if (description().trim().length === 0) {
+      return;
+    }
+
     // submit values
     props.onCreate?.({
       description: description(),
