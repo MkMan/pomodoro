@@ -30,7 +30,11 @@ const Todos: Component = () => {
       appStore.todos.filter(({ status }) => status !== 'completed')
     );
   };
-  const onDeletingAllTodos = () => setAppStore('todos', []);
+  const onDeletingAllTodos = () => {
+    if (window.confirm('This will delete all todos. Are you sure?')) {
+      setAppStore('todos', []);
+    }
+  };
 
   const onTodoStatusChange =
     (todoIndex: number) => (newStatus: Todo['status']) => {
