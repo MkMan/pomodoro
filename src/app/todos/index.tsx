@@ -65,6 +65,7 @@ const Todos: Component = () => {
             <TodoItem
               {...todo}
               class={styles.listItem}
+              data-testid="todo-item"
               onStatusChange={onTodoStatusChange(index())}
               onDelete={onTodoDelete(index())}
             />
