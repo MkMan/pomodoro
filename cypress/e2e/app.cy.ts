@@ -1,9 +1,9 @@
-const getEditCounterButton = () =>
-  cy.findByRole('button', { name: 'edit counter type' });
-const getCounterDropdown = () => cy.findByLabelText('Counter');
-const getRemainingTime = () => cy.findByTestId('remainingTime');
-const selectCounterByIndex = (index: number) =>
-  getCounterDropdown().select(index.toString());
+import {
+  getCounterDropdown,
+  getEditCounterButton,
+  getRemainingTime,
+  selectCounterByIndex,
+} from './app.po';
 
 describe(`App e2e test`, () => {
   beforeEach(() => {
