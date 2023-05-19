@@ -60,7 +60,7 @@
     "vite-plugin-pwa": "^0.14.7",
     "vite-plugin-solid": "^2.7.0",
     "vite-tsconfig-paths": "^4.0.8",
-    "vitest": "0.29.8",
+    "vitest": "0.31.1",
     "wait-on": "^7.0.1",
     "workbox-window": "^6.5.4"
   },
