@@ -1,3 +1,14 @@
+# [2.11.0](https://github.com/MkMan/pomodoro/compare/v2.10.1...v2.11.0) (2023-05-20)
+
+### Bug Fixes
+
+- **todos:** prevent empty descriptions ([ada63f9](https://github.com/MkMan/pomodoro/commit/ada63f9fbb4131b90d11e57e6467578f04860958))
+
+### Features
+
+- **todos:** confirm before deleting all todos ([eab0324](https://github.com/MkMan/pomodoro/commit/eab0324693e50cd7aecba64d4b0740824a4fe2be))
+- **todos:** improve new todo form ([201bf99](https://github.com/MkMan/pomodoro/commit/201bf99870d99f9820695944befd59188f947caf))
+
 ## [2.10.1](https://github.com/MkMan/pomodoro/compare/v2.10.0...v2.10.1) (2023-05-13)
 
 ### Bug Fixes
