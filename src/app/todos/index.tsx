@@ -1,6 +1,6 @@
-import { Component, createMemo, For } from 'solid-js';
+import { Component, createMemo, createSignal, For } from 'solid-js';
 
-import { Heading } from '$app-components';
+import { Button, Heading } from '$app-components';
 import { appStore, setAppStore, Todo } from '$app-state';
 import { cx } from '$app-utils';
 
@@ -10,6 +10,9 @@ import * as styles from './styles';
 import { TodoItem } from './todo-item/todo-item';
 
 const Todos: Component = () => {
+  const [isNewTodoFormOpen, setIsNewTodoFormOpen] = createSignal(false);
+  const toggleNewTodoForm = () => setIsNewTodoFormOpen(!isNewTodoFormOpen());
+
   const hasTodos = createMemo(
     () => !!appStore.todos?.length && appStore.todos?.length > 0
   );
@@ -19,6 +22,7 @@ const Todos: Component = () => {
 
   const onCreatingNewTodo = (newTodo: Todo) => {
     setAppStore('todos', (currentTodos) => [...currentTodos, newTodo]);
+    setIsNewTodoFormOpen(false);
   };
   const onDeletingCompletedTodos = () => {
     setAppStore(
@@ -26,7 +30,11 @@ const Todos: Component = () => {
       appStore.todos.filter(({ status }) => status !== 'completed')
     );
   };
-  const onDeletingAllTodos = () => setAppStore('todos', []);
+  const onDeletingAllTodos = () => {
+    if (window.confirm('This will delete all todos. Are you sure?')) {
+      setAppStore('todos', []);
+    }
+  };
 
   const onTodoStatusChange =
     (todoIndex: number) => (newStatus: Todo['status']) => {
@@ -57,6 +65,7 @@ const Todos: Component = () => {
             <TodoItem
               {...todo}
               class={styles.listItem}
+              data-testid="todo-item"
               onStatusChange={onTodoStatusChange(index())}
               onDelete={onTodoDelete(index())}
             />
@@ -64,10 +73,23 @@ const Todos: Component = () => {
           </>
         )}
       </For>
-      <NewTodo
-        class={cx(styles.listItem, appStore.todos.length > 0 && styles.newTodo)}
-        onCreate={onCreatingNewTodo}
-      />
+      <div class={cx(appStore.todos.length > 0 && styles.newTodo)}>
+        {isNewTodoFormOpen() ? (
+          <NewTodo
+            class={styles.listItem}
+            onClose={toggleNewTodoForm}
+            onCreate={onCreatingNewTodo}
+          />
+        ) : (
+          <Button
+            class={styles.createTodoCta}
+            onClick={toggleNewTodoForm}
+            size="small"
+          >
+            Create a todo
+          </Button>
+        )}
+      </div>
     </section>
   );
 };

@@ -21,6 +21,11 @@ const listItem = css({
   borderRadius: 8,
 });
 
+const createTodoCta = css({
+  width: '100%',
+  height: 'min-content',
+});
+
 const separator = css({
   height: 2,
   backgroundColor: 'var(--color-background-inverted)',
@@ -33,4 +38,12 @@ const newTodo = css({
   paddingBlockStart: 40,
 });
 
-export { header, heading, listItem, newTodo, separator, wrapper };
+export {
+  createTodoCta,
+  header,
+  heading,
+  listItem,
+  newTodo,
+  separator,
+  wrapper,
+};

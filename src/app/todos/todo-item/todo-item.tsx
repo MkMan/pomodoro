@@ -14,7 +14,10 @@ const TodoItem: Component<TodoItemProps> = (props) => {
     props.onStatusChange(isCompleted() ? 'not-started' : 'completed');
 
   return (
-    <div class={cx(props.class, styles.wrapper)}>
+    <div
+      class={cx(props.class, styles.wrapper)}
+      data-testid={props['data-testid']}
+    >
       <input
         class={styles.checkbox}
         type="checkbox"
