@@ -41,19 +41,8 @@ export default defineConfig({
   ],
   test: {
     include: ['**/?(*.)test.ts?(x)'],
-    globals: true,
-    environment: 'jsdom',
     setupFiles: './test-setup.ts',
-    // transformMode: { web: [/\.[jt]sx?$/] },
-    // setupFiles: ['node_modules/@testing-library/jest-dom/extend-expect.js'],
     reporters: ['verbose'],
-    // otherwise, solid would be loaded twice:
-    deps: { registerNodeLoader: true },
-
-    // if you have few tests, try commenting one
-    // or both out to improve performance:
-    threads: false,
-    isolate: false,
 
     coverage: {
       provider: 'c8',
