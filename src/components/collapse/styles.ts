@@ -1,5 +1,7 @@
 import { css } from '@emotion/css';
 
+const expandingAnimationDuration = '300ms';
+
 const wrapper = css({
   borderRadius: 8,
   padding: 8,
@@ -14,10 +16,15 @@ const heading = css({
   alignItems: 'center',
   backgroundColor: 'inherit',
   color: 'inherit',
+  transition: `padding-block-end ${expandingAnimationDuration} ease-in-out`,
+
+  '&.isOpen': {
+    paddingBlockEnd: 8,
+  },
 });
 
 const headingIcon = css({
-  transition: 'transform 300ms ease',
+  transition: `transform ${expandingAnimationDuration} ease-in-out`,
 
   '&.isOpen': {
     transform: 'rotate(180deg)',
@@ -25,8 +32,18 @@ const headingIcon = css({
 });
 
 const content = css({
-  ':not(:empty)': {
-    padding: 8,
+  paddingInline: 8,
+
+  display: 'grid',
+  gridTemplateRows: '0fr',
+  transition: `grid-template-rows ${expandingAnimationDuration} ease-in-out`,
+
+  '> *': {
+    overflow: 'hidden',
+  },
+
+  '&.isOpen': {
+    gridTemplateRows: '1fr',
   },
 });
 
