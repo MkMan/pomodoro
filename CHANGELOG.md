@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/MkMan/pomodoro/compare/v2.11.0...v2.12.0) (2023-05-20)
+
+### Features
+
+- **app:** animate accordion open/close ([34f8c61](https://github.com/MkMan/pomodoro/commit/34f8c61f6b9f4510cf8ecfe2dab4bbc360c7d509))
+- **app:** switch sidebar cards to normal colours ([6c4b268](https://github.com/MkMan/pomodoro/commit/6c4b268becdd71e1000cf65a4e8d095db634b412))
+
 # [2.11.0](https://github.com/MkMan/pomodoro/compare/v2.10.1...v2.11.0) (2023-05-20)
 
 ### Bug Fixes
