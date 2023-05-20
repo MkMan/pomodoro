@@ -14,29 +14,33 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.5.1
+
       - name: Set up NodeJs
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Check code quality and formatting
-        run: npm run lint:check && npm run format:check
+        run: pnpm run lint:check && pnpm run format:check
 
       - name: Check TS types
-        run: npm run ts:check
+        run: pnpm run ts:check
 
       - name: Check build is fine
-        run: npm run build
+        run: pnpm run build
 
       - name: Run unit tests
-        run: npm test
+        run: pnpm test
 
       - name: Run e2e tests
-        run: npm run e2e:run
+        run: pnpm run e2e:run
 
       - name: Upload test artifacts
         if: ${{ failure() }}
