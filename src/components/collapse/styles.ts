@@ -4,9 +4,7 @@ const wrapper = css({
   borderRadius: 8,
   padding: 8,
   marginInline: -8,
-
-  backgroundColor: 'var(--color-background-inverted)',
-  color: 'var(--color-font-inverted)',
+  boxShadow: 'var(--boxShadow-card)',
 });
 
 const heading = css({
