@@ -1,10 +1,11 @@
 import { render, screen, within } from '@solidjs/testing-library';
 import userEvent from '@testing-library/user-event';
+import { Mock } from 'vitest';
 
 import { Todos } from './index';
 
 describe('Todos', () => {
-  const windowConfirmMock = vi.fn().mockReturnValue(true);
+  let windowConfirmMock: Mock;
 
   const renderTodos = () => render(() => <Todos />);
   const user = userEvent.setup();
@@ -34,6 +35,8 @@ describe('Todos', () => {
   };
 
   beforeEach(() => {
+    windowConfirmMock = vi.fn().mockReturnValue(true);
+
     vi.spyOn(window, 'confirm').mockImplementation(windowConfirmMock);
   });
 

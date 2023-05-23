@@ -44,6 +44,10 @@ export default defineConfig({
     setupFiles: './test-setup.ts',
     reporters: ['verbose'],
 
+    clearMocks: true,
+    restoreMocks: true,
+    mockReset: true,
+
     coverage: {
       thresholdAutoUpdate: true,
       provider: 'c8',
