@@ -45,6 +45,7 @@ export default defineConfig({
     reporters: ['verbose'],
 
     coverage: {
+      thresholdAutoUpdate: true,
       provider: 'c8',
       clean: true,
       cleanOnRerun: true,
@@ -60,6 +61,12 @@ export default defineConfig({
         '**/*/styled.ts',
         '**/*/*.d.ts',
       ],
+
+      // thresholds
+      lines: 52.52,
+      functions: 64.7,
+      branches: 90.43,
+      statements: 52.52,
     },
   },
 });
