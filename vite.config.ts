@@ -60,15 +60,15 @@ export default defineConfig({
         'test-setup.ts',
         '**/*/types.ts',
         '**/*/constants.ts',
-        '**/*/styled.ts',
+        '**/*/styles.ts',
         '**/*/*.d.ts',
       ],
 
       // thresholds
-      lines: 59.41,
-      functions: 75.75,
-      branches: 87.85,
-      statements: 59.41,
+      lines: 90.77,
+      functions: 88.63,
+      branches: 92.34,
+      statements: 90.77,
     },
   },
 });
