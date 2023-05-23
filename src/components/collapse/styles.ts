@@ -36,7 +36,9 @@ const content = css({
 
   display: 'grid',
   gridTemplateRows: '0fr',
-  transition: `grid-template-rows ${expandingAnimationDuration} ease-in-out`,
+  transition: `${expandingAnimationDuration} ease-in-out`,
+  transitionProperty: 'grid-template-rows, visibility',
+  visibility: 'collapse',
 
   '> *': {
     overflow: 'hidden',
@@ -44,6 +46,7 @@ const content = css({
 
   '&.isOpen': {
     gridTemplateRows: '1fr',
+    visibility: 'visible',
   },
 });
 
