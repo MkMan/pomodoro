@@ -1,3 +1,9 @@
+## [2.12.1](https://github.com/MkMan/pomodoro/compare/v2.12.0...v2.12.1) (2023-05-25)
+
+### Bug Fixes
+
+- **reload-prompt:** correct colours ([e6735fe](https://github.com/MkMan/pomodoro/commit/e6735fea16ae5987d50040f495d650e75b985b73))
+
 # [2.12.0](https://github.com/MkMan/pomodoro/compare/v2.11.0...v2.12.0) (2023-05-20)
 
 ### Features
