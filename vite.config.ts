@@ -1,10 +1,8 @@
-/// <reference types="vitest" />
-import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import solidPlugin from 'vite-plugin-solid';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from 'vitest/config';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     solidPlugin(),
