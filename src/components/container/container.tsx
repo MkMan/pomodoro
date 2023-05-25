@@ -10,22 +10,20 @@ type ContainerProps = {
   maxWidth?: string | number;
 };
 
-const Container: Component<ContainerProps> = (props) => {
-  return (
-    <div
-      class={cx(
-        css({
-          height: props.height,
-          maxWidth: props.maxWidth,
-          marginInline: 'auto',
-          paddingInline: 16,
-        }),
-        props.class
-      )}
-    >
-      {props.children}
-    </div>
-  );
-};
+const Container: Component<ContainerProps> = (props) => (
+  <div
+    class={cx(
+      css({
+        height: props.height,
+        maxWidth: props.maxWidth,
+        marginInline: 'auto',
+        paddingInline: 16,
+      }),
+      props.class
+    )}
+  >
+    {props.children}
+  </div>
+);
 
 export { Container };

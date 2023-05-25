@@ -20,29 +20,27 @@ const iconButton = css({
   },
 });
 
-const Actions: Component<Props> = (props) => {
-  return (
-    <>
-      <Show when={props.shouldShowDeleteCompletedTodosButton}>
-        <IconButton
-          class={iconButton}
-          onClick={props.onDeletingCompletedTodos}
-          title="remove completed todos"
-        >
-          <AiOutlineClear size={30} />
-        </IconButton>
-      </Show>
-      <Show when={props.shouldShowDeleteAllTodosButton}>
-        <IconButton
-          class={iconButton}
-          onClick={props.onDeletingAllTodos}
-          title="delete all todos"
-        >
-          <FiTrash size={30} />
-        </IconButton>
-      </Show>
-    </>
-  );
-};
+const Actions: Component<Props> = (props) => (
+  <>
+    <Show when={props.shouldShowDeleteCompletedTodosButton}>
+      <IconButton
+        class={iconButton}
+        onClick={props.onDeletingCompletedTodos}
+        title="remove completed todos"
+      >
+        <AiOutlineClear size={30} />
+      </IconButton>
+    </Show>
+    <Show when={props.shouldShowDeleteAllTodosButton}>
+      <IconButton
+        class={iconButton}
+        onClick={props.onDeletingAllTodos}
+        title="delete all todos"
+      >
+        <FiTrash size={30} />
+      </IconButton>
+    </Show>
+  </>
+);
 
 export { Actions };

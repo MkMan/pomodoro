@@ -11,17 +11,15 @@ type Props = {
   dataTestId?: string;
 };
 
-export const Settings: Component<Props> = (props) => {
-  return (
-    <div class={styles.settingsWrapper} data-testid={props.dataTestId}>
-      <Collapse
-        label="Durations"
-        headingLevel={3}
-        isOpen
-        content={<Durations />}
-      />
-      <Collapse label="Alerts" headingLevel={3} content={<Alerts />} />
-      <Collapse label="Theme" headingLevel={3} content={<Theme />} />
-    </div>
-  );
-};
+export const Settings: Component<Props> = (props) => (
+  <div class={styles.settingsWrapper} data-testid={props.dataTestId}>
+    <Collapse
+      label="Durations"
+      headingLevel={3}
+      isOpen
+      content={<Durations />}
+    />
+    <Collapse label="Alerts" headingLevel={3} content={<Alerts />} />
+    <Collapse label="Theme" headingLevel={3} content={<Theme />} />
+  </div>
+);

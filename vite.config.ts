@@ -1,10 +1,8 @@
-/// <reference types="vitest" />
-import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import solidPlugin from 'vite-plugin-solid';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from 'vitest/config';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     solidPlugin(),
@@ -44,7 +42,12 @@ export default defineConfig({
     setupFiles: './test-setup.ts',
     reporters: ['verbose'],
 
+    clearMocks: true,
+    restoreMocks: true,
+    mockReset: true,
+
     coverage: {
+      thresholdAutoUpdate: true,
       provider: 'c8',
       clean: true,
       cleanOnRerun: true,
@@ -57,9 +60,15 @@ export default defineConfig({
         'test-setup.ts',
         '**/*/types.ts',
         '**/*/constants.ts',
-        '**/*/styled.ts',
+        '**/*/styles.ts',
         '**/*/*.d.ts',
       ],
+
+      // thresholds
+      lines: 90.77,
+      functions: 88.63,
+      branches: 92.34,
+      statements: 90.77,
     },
   },
 });
