@@ -14,10 +14,10 @@ const Todos: Component = () => {
   const toggleNewTodoForm = () => setIsNewTodoFormOpen(!isNewTodoFormOpen());
 
   const hasTodos = createMemo(
-    () => !!appStore.todos?.length && appStore.todos?.length > 0
+    () => !!appStore.todos.length && appStore.todos.length > 0
   );
-  const hasCompletedTodos = createMemo(
-    () => appStore.todos?.some(({ status }) => status === 'completed') ?? false
+  const hasCompletedTodos = createMemo(() =>
+    appStore.todos.some(({ status }) => status === 'completed')
   );
 
   const onCreatingNewTodo = (newTodo: Todo) => {

@@ -12,7 +12,7 @@ export const ReloadPrompt: Component = () => {
     updateServiceWorker,
   } = useRegisterSW({
     onRegistered(registration) {
-      console.log(`SW Registered: ${registration}`);
+      console.log(`SW Registered: ${registration?.toString() ?? ''}`);
     },
     onRegisterError(error) {
       console.error('SW registration error', error);
@@ -32,7 +32,11 @@ export const ReloadPrompt: Component = () => {
             <Button
               variant="primary"
               size="small"
-              onClick={() => updateServiceWorker(true)}
+              onClick={() => {
+                updateServiceWorker(true).catch((error) => {
+                  console.error('Error updating service worker', error);
+                });
+              }}
             >
               Reload
             </Button>

@@ -14,6 +14,7 @@ import { CountdownProps, WorkerToAppMessage } from './types';
 import { getFormattedTime, getWorkerHelpers } from './utils';
 
 const worker = new Worker(new URL('./worker.ts', import.meta.url));
+// eslint-disable-next-line @typescript-eslint/unbound-method
 const { startWorkerCounter, stopWorkerCounter } = getWorkerHelpers(worker);
 
 export const Countdown: Component<CountdownProps> = (props) => {
