@@ -34,13 +34,14 @@ describe('Todos', () => {
     await user.click(getCreateTodoButton());
   };
 
-  beforeEach(() => {
+  const setUp = () => {
     windowConfirmMock = vi.fn().mockReturnValue(true);
 
     vi.spyOn(window, 'confirm').mockImplementation(windowConfirmMock);
-  });
+  };
 
   it('should show/hide the delete todos button correctly', async () => {
+    setUp();
     renderTodos();
 
     expect(getDeleteAllTodosButton()).not.toBeInTheDocument();

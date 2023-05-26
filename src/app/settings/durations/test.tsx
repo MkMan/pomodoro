@@ -7,7 +7,7 @@ import * as appState from '$app-state';
 import { Durations } from './durations';
 
 describe('Durations', () => {
-  beforeEach(() => {
+  const setUp = () => {
     vi.spyOn(appState, 'setAppStore');
     vi.spyOn(appState, 'counterState').mockReturnValue('stopped');
 
@@ -16,12 +16,13 @@ describe('Durations', () => {
       shortBreak: 2,
       longBreak: 3,
     });
-  });
+  };
 
   const user = userEvent.setup();
   const getAllInputs = () => screen.getAllByRole('spinbutton');
 
   it('should load the correct fields and update the store on change', async () => {
+    setUp();
     render(() => <Durations />);
 
     expect(getAllInputs()).toHaveLength(3);
@@ -43,6 +44,7 @@ describe('Durations', () => {
   });
 
   it('should disable the input if the counter is not stopped', () => {
+    setUp();
     (appState.counterState as Mock).mockImplementation(() => 'running');
 
     render(() => <Durations />);
@@ -53,6 +55,7 @@ describe('Durations', () => {
   });
 
   it('should show an error message if an entered duration is invalid', async () => {
+    setUp();
     render(() => <Durations />);
 
     const getErrorMessage = () => screen.queryByText(/must be greater than 0/);
