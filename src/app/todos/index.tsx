@@ -5,8 +5,8 @@ import { appStore, setAppStore, Todo } from '$app-state';
 import { cx } from '$app-utils';
 
 import { Actions } from './actions/actions';
-import { NewTodo } from './new-todo/new-todo';
 import * as styles from './styles';
+import { TodoForm } from './todo-form/todo-form';
 import { TodoItem } from './todo-item/todo-item';
 
 const Todos: Component = () => {
@@ -78,10 +78,10 @@ const Todos: Component = () => {
       </For>
       <div class={cx(appStore.todos.length > 0 && styles.newTodo)}>
         {isNewTodoFormOpen() ? (
-          <NewTodo
+          <TodoForm
             class={styles.listItem}
             onClose={toggleNewTodoForm}
-            onCreate={onCreatingNewTodo}
+            onSubmit={onCreatingNewTodo}
           />
         ) : (
           <Button

@@ -5,12 +5,17 @@ import { Button, Heading, IconButton, Input, Select } from '$app-components';
 import { TodoFrequency } from '$app-state';
 
 import * as styles from './styles';
-import { NewTodoProps } from './types';
+import { TodoFormProps } from './types';
 
 const initialDescription = '';
 const initialFrequency: TodoFrequency = 'once';
+const frequencyFieldId = 'todo-frequency';
+const frequencyOptions = [
+  { label: 'Once', value: initialFrequency },
+  { label: 'Daily', value: 'daily' },
+];
 
-const NewTodo: Component<NewTodoProps> = (props) => {
+const TodoForm: Component<TodoFormProps> = (props) => {
   let descriptionRef: HTMLInputElement | undefined;
 
   const [description, setDescription] = createSignal(initialDescription);
@@ -24,8 +29,7 @@ const NewTodo: Component<NewTodoProps> = (props) => {
       return;
     }
 
-    // submit values
-    props.onCreate?.({
+    props.onSubmit?.({
       description: description(),
       frequency: frequency(),
       status: 'not-started',
@@ -62,14 +66,11 @@ const NewTodo: Component<NewTodoProps> = (props) => {
           ref={descriptionRef}
         />
         <div class={styles.frequencyWrapper}>
-          <label for="new-todo-frequency">Frequency</label>
+          <label for={frequencyFieldId}>Frequency</label>
           <Select
             class={styles.frequency}
-            id="new-todo-frequency"
-            options={[
-              { label: 'Once', value: initialFrequency },
-              { label: 'Daily', value: 'daily' },
-            ]}
+            id={frequencyFieldId}
+            options={frequencyOptions}
             value={frequency()}
             onChange={({ currentTarget }) =>
               setFrequency(currentTarget.value as TodoFrequency)
@@ -84,4 +85,4 @@ const NewTodo: Component<NewTodoProps> = (props) => {
   );
 };
 
-export { NewTodo };
+export { TodoForm };
