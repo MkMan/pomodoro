@@ -20,8 +20,11 @@ const Todos: Component = () => {
     appStore.todos.some(({ status }) => status === 'completed')
   );
 
-  const onCreatingNewTodo = (newTodo: Todo) => {
-    setAppStore('todos', (currentTodos) => [...currentTodos, newTodo]);
+  const onCreatingNewTodo = (newTodo: Omit<Todo, 'id'>) => {
+    setAppStore('todos', (currentTodos) => [
+      ...currentTodos,
+      { id: globalThis.crypto.randomUUID(), ...newTodo },
+    ]);
     setIsNewTodoFormOpen(false);
   };
   const onDeletingCompletedTodos = () => {

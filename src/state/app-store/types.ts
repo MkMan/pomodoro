@@ -4,8 +4,9 @@ type TodoFrequency = 'daily' | 'once';
 
 type Todo = {
   description: string;
-  status: 'completed' | 'not-started';
   frequency: TodoFrequency;
+  id: string;
+  status: 'completed' | 'not-started';
 };
 
 type AppStore = {
