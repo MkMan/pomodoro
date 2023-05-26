@@ -5,10 +5,6 @@
 import { getFormattedTime, getWorkerHelpers } from './utils';
 
 describe('Countdown utils', () => {
-  beforeEach(() => {
-    vi.resetAllMocks();
-  });
-
   describe('#getFormattedTime', () => {
     it.each([
       ['00:00', 0],
@@ -17,7 +13,7 @@ describe('Countdown utils', () => {
       ['01:00', 60],
       ['01:01', 61],
     ])('should return %s:%s when time is %s', (expected, time) => {
-      expect(getFormattedTime(time)).toEqual(expected);
+      expect(getFormattedTime(time)).toStrictEqual(expected);
     });
   });
 

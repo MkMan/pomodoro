@@ -17,19 +17,24 @@ const onNotificationCheckboxChange = (
 
   const { checked } = event.currentTarget;
 
-  if (Notification.permission === 'granted' || checked === false) {
+  if (Notification.permission === 'granted' || !checked) {
     // to allow user to uncheck even if permission isn't granted
     setAppStore('alerts', 'shouldSendNotification', checked);
     return;
   }
 
-  Notification.requestPermission().then((permission) => {
-    if (permission === 'granted') {
-      setAppStore('alerts', 'shouldSendNotification', true);
-    } else {
+  Notification.requestPermission()
+    .then((permission) => {
+      if (permission === 'granted') {
+        setAppStore('alerts', 'shouldSendNotification', true);
+      } else {
+        onNotificationRequestDeclined();
+      }
+    })
+    .catch((error) => {
+      console.error('Failed to request notification permission', error);
       onNotificationRequestDeclined();
-    }
-  });
+    });
 };
 
 export { onNotificationCheckboxChange };

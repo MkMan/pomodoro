@@ -8,6 +8,7 @@ import {
 } from './current-counter';
 
 describe('current-counter', () => {
+  // eslint-disable-next-line vitest/no-hooks
   afterEach(() => {
     setCurrentCounterIndex(0);
   });

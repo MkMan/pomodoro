@@ -12,7 +12,7 @@ const getInitialAppStoreValue = (): AppStore => {
   let appStore: AppStore;
 
   try {
-    appStore = JSON.parse(storeInLocalStorage);
+    appStore = JSON.parse(storeInLocalStorage) as AppStore;
 
     // fill in new fields with default values
     appStore = {
