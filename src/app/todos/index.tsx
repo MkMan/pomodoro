@@ -64,25 +64,18 @@ const Todos: Component = () => {
       </div>
       <For each={appStore.todos}>
         {(todo, index) => (
-          <>
-            <TodoItem
-              {...todo}
-              class={styles.listItem}
-              data-testid="todo-item"
-              onStatusChange={onTodoStatusChange(index())}
-              onDelete={onTodoDelete(index())}
-            />
-            <div class={styles.separator} />
-          </>
+          <TodoItem
+            {...todo}
+            class={styles.listItem}
+            data-testid="todo-item"
+            onStatusChange={onTodoStatusChange(index())}
+            onDelete={onTodoDelete(index())}
+          />
         )}
       </For>
       <div class={cx(appStore.todos.length > 0 && styles.newTodo)}>
         {isNewTodoFormOpen() ? (
-          <TodoForm
-            class={styles.listItem}
-            onClose={toggleNewTodoForm}
-            onSubmit={onCreatingNewTodo}
-          />
+          <TodoForm onClose={toggleNewTodoForm} onSubmit={onCreatingNewTodo} />
         ) : (
           <Button
             class={styles.createTodoCta}

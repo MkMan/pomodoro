@@ -10,6 +10,9 @@ const header = css({
   display: 'flex',
   alignItems: 'center',
   paddingBlockEnd: 16,
+
+  borderBottom: '2px solid currentcolor',
+  marginBlockEnd: 32,
 });
 
 const heading = css({
@@ -17,8 +20,10 @@ const heading = css({
 });
 
 const listItem = css({
-  paddingBlock: 8,
+  padding: 8,
+  marginBlock: 16,
   borderRadius: 8,
+  boxShadow: 'var(--boxShadow-card)',
 });
 
 const createTodoCta = css({
@@ -26,24 +31,8 @@ const createTodoCta = css({
   height: 'min-content',
 });
 
-const separator = css({
-  height: 2,
-  backgroundColor: 'var(--color-background-inverted)',
-  marginInlineStart: 8,
-  marginInlineEnd: 12,
-  marginBlock: 4,
-});
-
 const newTodo = css({
   paddingBlockStart: 40,
 });
 
-export {
-  createTodoCta,
-  header,
-  heading,
-  listItem,
-  newTodo,
-  separator,
-  wrapper,
-};
+export { createTodoCta, header, heading, listItem, newTodo, wrapper };
