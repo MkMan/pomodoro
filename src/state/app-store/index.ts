@@ -38,4 +38,4 @@ const initialiseAppStore = () => {
 };
 
 export { appStore, initialiseAppStore, setAppStore };
-export type { AppStore, Todo, TodoFrequency } from './types';
+export type { AppStore, Todo } from './types';

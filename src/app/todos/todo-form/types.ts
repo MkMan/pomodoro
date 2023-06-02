@@ -1,11 +1,7 @@
-import { Todo } from '$app-state';
-
-type UserFacingTodoFields = Omit<Todo, 'id'>;
-
 type TodoFormProps = {
   class?: string;
   onClose?: () => void;
-  onSubmit?: (newTodo: UserFacingTodoFields) => void;
+  onSubmit?: (description: string) => void;
 };
 
 export type { TodoFormProps };

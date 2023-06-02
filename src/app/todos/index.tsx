@@ -20,10 +20,14 @@ const Todos: Component = () => {
     appStore.todos.some(({ status }) => status === 'completed')
   );
 
-  const onCreatingNewTodo = (newTodo: Omit<Todo, 'id'>) => {
+  const onCreatingNewTodo = (description: string) => {
     setAppStore('todos', (currentTodos) => [
       ...currentTodos,
-      { id: globalThis.crypto.randomUUID(), ...newTodo },
+      {
+        id: globalThis.crypto.randomUUID(),
+        description,
+        status: 'not-started',
+      },
     ]);
   };
   const onDeletingCompletedTodos = () => {
