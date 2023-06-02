@@ -25,7 +25,6 @@ const Todos: Component = () => {
       ...currentTodos,
       { id: globalThis.crypto.randomUUID(), ...newTodo },
     ]);
-    setIsNewTodoFormOpen(false);
   };
   const onDeletingCompletedTodos = () => {
     setAppStore(

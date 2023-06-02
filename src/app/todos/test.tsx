@@ -29,7 +29,6 @@ describe('Todos', () => {
   const getTodoDeleteButton = (todo: HTMLElement) =>
     within(todo).getByRole('button', { name: 'Delete' });
   const createATodo = async (todoDescription: string) => {
-    await user.click(getOpenNewTodoFormButton());
     await user.type(getNewTodoDescriptionField(), todoDescription);
     await user.click(getCreateTodoButton());
   };
@@ -46,6 +45,7 @@ describe('Todos', () => {
 
     expect(getDeleteAllTodosButton()).not.toBeInTheDocument();
 
+    await user.click(getOpenNewTodoFormButton());
     await createATodo('Todo 1');
     await createATodo('Todo 2');
 
@@ -67,6 +67,7 @@ describe('Todos', () => {
 
     expect(getDeleteCompleteTodosButton()).not.toBeInTheDocument();
 
+    await user.click(getOpenNewTodoFormButton());
     await createATodo('Todo 1');
     await user.click(getTodo('Todo 1'));
 
@@ -80,6 +81,7 @@ describe('Todos', () => {
   it('should delete individual todo items', async () => {
     renderTodos();
 
+    await user.click(getOpenNewTodoFormButton());
     await createATodo('Todo 1');
     await createATodo('Todo 2');
     expect(getAllTodos()).toHaveLength(2);
