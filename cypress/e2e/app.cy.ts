@@ -83,7 +83,6 @@ describe(`App e2e test`, () => {
       // Add todos
       getCreateTodoCta().click();
       createATodo('Todo 1');
-      getCreateTodoCta().click();
       createATodo('Todo 2');
 
       // refresh and verify todos are persisted

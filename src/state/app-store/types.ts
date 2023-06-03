@@ -1,11 +1,9 @@
 type AppTheme = 'light' | 'dark' | 'OS';
 
-type TodoFrequency = 'daily' | 'once';
-
 type Todo = {
   description: string;
+  id: string;
   status: 'completed' | 'not-started';
-  frequency: TodoFrequency;
 };
 
 type AppStore = {
@@ -21,4 +19,4 @@ type AppStore = {
   todos: Todo[];
 };
 
-export type { AppStore, AppTheme, Todo, TodoFrequency };
+export type { AppStore, AppTheme, Todo };

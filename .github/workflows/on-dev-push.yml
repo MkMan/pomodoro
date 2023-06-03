@@ -24,13 +24,6 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
 
-      - uses: actions/cache@v3
-        name: Setup Cypress cache
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-cache-binary-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: cypress-cache-binary
-
       - name: Install dependencies
         run: pnpm install
 
@@ -47,7 +40,7 @@ jobs:
         run: pnpm test
 
       - name: Run e2e tests
-        run: pnpm run e2e:run
+        run: pnpm cypress install && pnpm run e2e:run
 
       - name: Upload test artifacts
         if: ${{ failure() }}

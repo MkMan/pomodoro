@@ -5,8 +5,8 @@ import { appStore, setAppStore, Todo } from '$app-state';
 import { cx } from '$app-utils';
 
 import { Actions } from './actions/actions';
-import { NewTodo } from './new-todo/new-todo';
 import * as styles from './styles';
+import { TodoForm } from './todo-form/todo-form';
 import { TodoItem } from './todo-item/todo-item';
 
 const Todos: Component = () => {
@@ -20,9 +20,15 @@ const Todos: Component = () => {
     appStore.todos.some(({ status }) => status === 'completed')
   );
 
-  const onCreatingNewTodo = (newTodo: Todo) => {
-    setAppStore('todos', (currentTodos) => [...currentTodos, newTodo]);
-    setIsNewTodoFormOpen(false);
+  const onCreatingNewTodo = (description: string) => {
+    setAppStore('todos', (currentTodos) => [
+      ...currentTodos,
+      {
+        id: globalThis.crypto.randomUUID(),
+        description,
+        status: 'not-started',
+      },
+    ]);
   };
   const onDeletingCompletedTodos = () => {
     setAppStore(
@@ -61,25 +67,18 @@ const Todos: Component = () => {
       </div>
       <For each={appStore.todos}>
         {(todo, index) => (
-          <>
-            <TodoItem
-              {...todo}
-              class={styles.listItem}
-              data-testid="todo-item"
-              onStatusChange={onTodoStatusChange(index())}
-              onDelete={onTodoDelete(index())}
-            />
-            <div class={styles.separator} />
-          </>
+          <TodoItem
+            {...todo}
+            class={styles.listItem}
+            data-testid="todo-item"
+            onStatusChange={onTodoStatusChange(index())}
+            onDelete={onTodoDelete(index())}
+          />
         )}
       </For>
       <div class={cx(appStore.todos.length > 0 && styles.newTodo)}>
         {isNewTodoFormOpen() ? (
-          <NewTodo
-            class={styles.listItem}
-            onClose={toggleNewTodoForm}
-            onCreate={onCreatingNewTodo}
-          />
+          <TodoForm onClose={toggleNewTodoForm} onSubmit={onCreatingNewTodo} />
         ) : (
           <Button
             class={styles.createTodoCta}
