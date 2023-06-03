@@ -1,3 +1,12 @@
+# [2.13.0](https://github.com/MkMan/pomodoro/compare/v2.12.1...v2.13.0) (2023-06-03)
+
+### Features
+
+- **todos:** add a unique id to each todo ([2156337](https://github.com/MkMan/pomodoro/commit/2156337383ff183eca3f13147c10e1e2cab5cf9f))
+- **todos:** remove frequency ([b32bcd1](https://github.com/MkMan/pomodoro/commit/b32bcd1ad841e4220fb8884028974709a976f0ec))
+- **todos:** restyle todo list ([0233f9c](https://github.com/MkMan/pomodoro/commit/0233f9cb096066c8553dc3be5a60950057da8cc8))
+- **todos:** stop new todo form closing on creating a new todo ([499b08c](https://github.com/MkMan/pomodoro/commit/499b08c7215b1511627747cd66ae17ddf749ad42))
+
 ## [2.12.1](https://github.com/MkMan/pomodoro/compare/v2.12.0...v2.12.1) (2023-05-25)
 
 ### Bug Fixes
