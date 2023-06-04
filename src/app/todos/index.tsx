@@ -40,17 +40,20 @@ const Todos: Component = () => {
           shouldShowDeleteCompletedTodosButton={hasCompletedTodos()}
         />
       </div>
-      <For each={appStore.todos}>
-        {(todo, index) => (
-          <TodoItem
-            {...todo}
-            class={styles.listItem}
-            data-testid="todo-item"
-            onStatusChange={onTodoStatusChange(index())}
-            onDelete={onTodoDelete(index())}
-          />
-        )}
-      </For>
+      <ul class={styles.list}>
+        <For each={appStore.todos}>
+          {(todo, index) => (
+            <TodoItem
+              {...todo}
+              class={styles.listItem}
+              data-testid="todo-item"
+              onStatusChange={onTodoStatusChange(index())}
+              onDelete={onTodoDelete(index())}
+            />
+          )}
+        </For>
+      </ul>
+
       <div class={cx(appStore.todos.length > 0 && styles.newTodo)}>
         {isNewTodoFormOpen() ? (
           <TodoForm onClose={toggleNewTodoForm} onSubmit={onCreatingNewTodo} />

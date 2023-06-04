@@ -19,6 +19,10 @@ const heading = css({
   marginInlineEnd: 'auto',
 });
 
+const list = css({
+  padding: 0,
+});
+
 const listItem = css({
   padding: 8,
   marginBlock: 16,
@@ -35,4 +39,4 @@ const newTodo = css({
   paddingBlockStart: 40,
 });
 
-export { createTodoCta, header, heading, listItem, newTodo, wrapper };
+export { createTodoCta, header, heading, list, listItem, newTodo, wrapper };
