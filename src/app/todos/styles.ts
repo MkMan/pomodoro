@@ -9,7 +9,7 @@ const wrapper = css({
 const header = css({
   display: 'flex',
   alignItems: 'center',
-  paddingBlockEnd: 16,
+  paddingBlockEnd: 8,
 
   borderBottom: '2px solid currentcolor',
   marginBlockEnd: 32,
