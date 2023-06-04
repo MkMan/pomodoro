@@ -1,13 +1,20 @@
 import { Component, createMemo, createSignal, For } from 'solid-js';
 
 import { Button, Heading } from '$app-components';
-import { appStore, setAppStore, Todo } from '$app-state';
+import { appStore } from '$app-state';
 import { cx } from '$app-utils';
 
 import { Actions } from './actions/actions';
 import * as styles from './styles';
 import { TodoForm } from './todo-form/todo-form';
 import { TodoItem } from './todo-item/todo-item';
+import {
+  onCreatingNewTodo,
+  onDeletingAllTodos,
+  onDeletingCompletedTodos,
+  onTodoDelete,
+  onTodoStatusChange,
+} from './utils';
 
 const Todos: Component = () => {
   const [isNewTodoFormOpen, setIsNewTodoFormOpen] = createSignal(false);
@@ -19,38 +26,6 @@ const Todos: Component = () => {
   const hasCompletedTodos = createMemo(() =>
     appStore.todos.some(({ status }) => status === 'completed')
   );
-
-  const onCreatingNewTodo = (description: string) => {
-    setAppStore('todos', (currentTodos) => [
-      ...currentTodos,
-      {
-        id: globalThis.crypto.randomUUID(),
-        description,
-        status: 'not-started',
-      },
-    ]);
-  };
-  const onDeletingCompletedTodos = () => {
-    setAppStore(
-      'todos',
-      appStore.todos.filter(({ status }) => status !== 'completed')
-    );
-  };
-  const onDeletingAllTodos = () => {
-    if (window.confirm('This will delete all todos. Are you sure?')) {
-      setAppStore('todos', []);
-    }
-  };
-
-  const onTodoStatusChange =
-    (todoIndex: number) => (newStatus: Todo['status']) => {
-      setAppStore('todos', todoIndex, 'status', newStatus);
-    };
-  const onTodoDelete = (indexToRemove: number) => () => {
-    const todosCopy = [...appStore.todos];
-    todosCopy.splice(indexToRemove, 1);
-    setAppStore('todos', todosCopy);
-  };
 
   return (
     <section class={styles.wrapper}>
