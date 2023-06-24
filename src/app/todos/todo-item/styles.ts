@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 
 const isCompletedClassName = 'isCompleted';
+const displayModeHeight = 40; // TODO: hardcoded to match Input height. Need to fix Input height
 
 const wrapper = css({
   display: 'flex',
@@ -10,6 +11,8 @@ const wrapper = css({
 });
 
 const description = css({
+  height: displayModeHeight,
+  lineHeight: `${displayModeHeight}px`,
   marginInlineEnd: 'auto',
 
   '&.isCompleted': {
@@ -22,4 +25,15 @@ const checkbox = css({
   width: 15,
 });
 
-export { checkbox, description, isCompletedClassName, wrapper };
+const descriptionTextfield = css({
+  height: displayModeHeight,
+  flex: 1,
+});
+
+export {
+  checkbox,
+  description,
+  descriptionTextfield,
+  isCompletedClassName,
+  wrapper,
+};

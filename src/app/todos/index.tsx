@@ -13,6 +13,7 @@ import {
   onDeletingAllTodos,
   onDeletingCompletedTodos,
   onTodoDelete,
+  onTodoDescriptionChange,
   onTodoStatusChange,
 } from './utils';
 
@@ -47,8 +48,9 @@ const Todos: Component = () => {
               {...todo}
               class={styles.listItem}
               data-testid="todo-item"
-              onStatusChange={onTodoStatusChange(index())}
               onDelete={onTodoDelete(index())}
+              onDescriptionChange={onTodoDescriptionChange(index())}
+              onStatusChange={onTodoStatusChange(index())}
             />
           )}
         </For>

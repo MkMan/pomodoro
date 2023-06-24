@@ -26,6 +26,10 @@ const onTodoStatusChange =
   (todoIndex: number) => (newStatus: Todo['status']) => {
     setAppStore('todos', todoIndex, 'status', newStatus);
   };
+const onTodoDescriptionChange =
+  (todoIndex: number) => (newDescription: Todo['description']) => {
+    setAppStore('todos', todoIndex, 'description', newDescription);
+  };
 const onTodoDelete = (indexToRemove: number) => () => {
   const todosCopy = [...appStore.todos];
   todosCopy.splice(indexToRemove, 1);
@@ -37,5 +41,6 @@ export {
   onDeletingAllTodos,
   onDeletingCompletedTodos,
   onTodoDelete,
+  onTodoDescriptionChange,
   onTodoStatusChange,
 };
