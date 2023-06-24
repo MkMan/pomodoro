@@ -28,6 +28,12 @@ describe('Todos', () => {
   const getTodo = (name: string) => screen.getByRole('checkbox', { name });
   const getTodoDeleteButton = (todo: HTMLElement) =>
     within(todo).getByRole('button', { name: 'Delete' });
+  const getTodoEditButton = (todo: HTMLElement) =>
+    within(todo).getByRole('button', { name: 'Edit' });
+  const getTodoSaveButton = (todo: HTMLElement) =>
+    within(todo).getByRole('button', { name: 'Save' });
+  const getTodoTextfield = (todo: HTMLElement) =>
+    within(todo).getByRole('textbox');
   const createATodo = async (todoDescription: string) => {
     await user.type(getNewTodoDescriptionField(), todoDescription);
     await user.click(getCreateTodoButton());
@@ -91,5 +97,20 @@ describe('Todos', () => {
     await user.click(getTodoDeleteButton(todos[1]));
 
     expect(getAllTodos()).toHaveLength(0);
+  });
+
+  it('should edit todo items', async () => {
+    renderTodos();
+
+    await user.click(getOpenNewTodoFormButton());
+    await createATodo('Todo 1');
+
+    const todos = getAllTodos();
+    await user.click(getTodoEditButton(todos[0]));
+    await user.clear(getTodoTextfield(todos[0]));
+    await user.type(getTodoTextfield(todos[0]), 'Todo 1337');
+    await user.click(getTodoSaveButton(todos[0]));
+
+    expect(getAllTodos()[0]).toHaveTextContent('Todo 1337');
   });
 });

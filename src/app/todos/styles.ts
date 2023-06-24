@@ -9,7 +9,7 @@ const wrapper = css({
 const header = css({
   display: 'flex',
   alignItems: 'center',
-  paddingBlockEnd: 16,
+  paddingBlockEnd: 8,
 
   borderBottom: '2px solid currentcolor',
   marginBlockEnd: 32,
@@ -17,6 +17,10 @@ const header = css({
 
 const heading = css({
   marginInlineEnd: 'auto',
+});
+
+const list = css({
+  padding: 0,
 });
 
 const listItem = css({
@@ -35,4 +39,4 @@ const newTodo = css({
   paddingBlockStart: 40,
 });
 
-export { createTodoCta, header, heading, listItem, newTodo, wrapper };
+export { createTodoCta, header, heading, list, listItem, newTodo, wrapper };

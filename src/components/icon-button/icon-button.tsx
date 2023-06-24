@@ -7,8 +7,10 @@ import { UnstyledButtonProps } from '../unstyled-button/types';
 import { UnstyledButton } from '../unstyled-button/unstyled-button';
 
 const hover = css({
-  ':not(:disabled):hover': {
-    boxShadow: 'var(--boxShadow-input-hover)',
+  '@media (hover: hover)': {
+    ':not(:disabled):hover': {
+      boxShadow: 'var(--boxShadow-input-hover)',
+    },
   },
 });
 
