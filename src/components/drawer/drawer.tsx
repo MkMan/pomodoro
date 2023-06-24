@@ -22,6 +22,14 @@ export const Drawer: Component<DrawerProps> = (props) => {
   let drawerWrapper: HTMLDivElement | undefined;
 
   createEffect(() => {
+    document.addEventListener('keydown', ({ key }) => {
+      if (key === 'Escape' && props.isOpen) {
+        props.onClose();
+      }
+    });
+  });
+
+  createEffect(() => {
     if (props.isOpen) {
       setIsOpen(true);
     }
