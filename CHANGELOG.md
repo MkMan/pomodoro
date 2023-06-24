@@ -1,3 +1,16 @@
+# [2.14.0](https://github.com/MkMan/pomodoro/compare/v2.13.0...v2.14.0) (2023-06-24)
+
+### Bug Fixes
+
+- **app:** stop hover styles on icon buttons on mobile ([9d8bd30](https://github.com/MkMan/pomodoro/commit/9d8bd30bc6c18967147822316a573c86929a1597))
+
+### Features
+
+- **app:** close drawer on `esc` press ([a193e02](https://github.com/MkMan/pomodoro/commit/a193e025d805feb7d990228c283f0785414fa85a))
+- **todos:** cover list to `ul` ([da5f51b](https://github.com/MkMan/pomodoro/commit/da5f51b686e149a12462dfa338c1f66d7c59f886))
+- **todos:** enable editing a todo item ([fc2729e](https://github.com/MkMan/pomodoro/commit/fc2729e9390c9b8d6ff3b99a03302f839bd78200))
+- **todos:** reduce gap before botton border ([3be4975](https://github.com/MkMan/pomodoro/commit/3be49757fa097fbcfff7f820b2a25920752ef24c))
+
 # [2.13.0](https://github.com/MkMan/pomodoro/compare/v2.12.1...v2.13.0) (2023-06-03)
 
 ### Features
