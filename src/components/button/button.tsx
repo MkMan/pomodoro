@@ -2,7 +2,7 @@ import { Component, splitProps } from 'solid-js';
 
 import { cx } from '$app-utils';
 
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { ButtonProps } from './types';
 
 const buttonVariantStylingMap: Record<
