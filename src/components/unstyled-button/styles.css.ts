@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
+import { style } from '@vanilla-extract/css';
 
-export const unstyledButton = css({
+export const unstyledButton = style({
   color: 'var(--color-font)',
   backgroundColor: 'var(--color-background)',
   border: 'none',
