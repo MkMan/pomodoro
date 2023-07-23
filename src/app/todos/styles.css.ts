@@ -1,12 +1,12 @@
-import { css } from '@emotion/css';
+import { style } from '@vanilla-extract/css';
 
-const wrapper = css({
+const wrapper = style({
   padding: 16,
   borderRadius: 8,
   boxShadow: 'var(--boxShadow-card)',
 });
 
-const header = css({
+const header = style({
   display: 'flex',
   alignItems: 'center',
   paddingBlockEnd: 8,
@@ -15,27 +15,27 @@ const header = css({
   marginBlockEnd: 32,
 });
 
-const heading = css({
+const heading = style({
   marginInlineEnd: 'auto',
 });
 
-const list = css({
+const list = style({
   padding: 0,
 });
 
-const listItem = css({
+const listItem = style({
   padding: 8,
   marginBlock: 16,
   borderRadius: 8,
   boxShadow: 'var(--boxShadow-card)',
 });
 
-const createTodoCta = css({
+const createTodoCta = style({
   width: '100%',
   height: 'min-content',
 });
 
-const newTodo = css({
+const newTodo = style({
   paddingBlockStart: 40,
 });
 

@@ -5,7 +5,7 @@ import { appStore } from '$app-state';
 import { cx } from '$app-utils';
 
 import { Actions } from './actions/actions';
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { TodoForm } from './todo-form/todo-form';
 import { TodoItem } from './todo-item/todo-item';
 import {
