@@ -5,7 +5,7 @@ import { Portal } from 'solid-js/web';
 import { cx } from '$app-utils';
 
 import { IconButton } from '../icon-button/icon-button';
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { DrawerProps } from './types';
 
 const drawerContainerId = 'drawer-container-id';

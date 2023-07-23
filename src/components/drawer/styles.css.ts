@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
+import { style } from '@vanilla-extract/css';
 
-export const overlay = css({
+export const overlay = style({
   position: 'fixed',
   top: 0,
   right: 0,
@@ -14,12 +14,14 @@ export const overlay = css({
   backgroundColor: 'var(--color-overlay)',
   userSelect: 'none',
 
-  '&.isOpen': {
-    opacity: 0.7,
+  selectors: {
+    '&.isOpen': {
+      opacity: 0.7,
+    },
   },
 });
 
-export const wrapper = css({
+export const wrapper = style({
   position: 'fixed',
   top: 0,
   left: 0,
@@ -41,12 +43,14 @@ export const wrapper = css({
 
   boxShadow: '6px 0px 16px 2px #777',
 
-  '&.isOpen': {
-    transform: 'translate3d(0%, 0, 0)',
+  selectors: {
+    '&.isOpen': {
+      transform: 'translate3d(0%, 0, 0)',
+    },
   },
 });
 
-export const header = css({
+export const header = style({
   padding: 16,
   display: 'flex',
   justifyContent: 'space-between',
@@ -54,7 +58,7 @@ export const header = css({
   borderBottom: '1px solid #ddd',
 });
 
-export const content = css({
+export const content = style({
   position: 'relative',
   overflowX: 'hidden',
   overflowY: 'auto',
