@@ -1,12 +1,12 @@
-import { css } from '@emotion/css';
+import { style } from '@vanilla-extract/css';
 
-const label = css({
+const label = style({
   display: 'flex',
   alignItems: 'center',
   gap: 8,
 });
 
-const fieldset = css({
+const fieldset = style({
   minWidth: 0,
   border: 'none',
   padding: 0,

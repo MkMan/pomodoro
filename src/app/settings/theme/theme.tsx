@@ -3,7 +3,7 @@ import { AppTheme } from 'src/state/app-store/types';
 
 import { appStore, setAppStore } from '$app-state';
 
-import * as styles from './styles';
+import * as styles from './styles.css';
 
 const fields: { label: string; value: AppTheme }[] = [
   { label: 'Light', value: 'light' },
