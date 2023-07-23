@@ -2,7 +2,7 @@ import { Component, createMemo, Show, splitProps } from 'solid-js';
 
 import { cx } from '$app-utils';
 
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { InputProps } from './types';
 
 const Input: Component<InputProps> = (_props) => {
