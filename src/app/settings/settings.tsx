@@ -4,7 +4,7 @@ import { Collapse } from '$app-components';
 
 import { Alerts } from './alerts/alerts';
 import { Durations } from './durations/durations';
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { Theme } from './theme/theme';
 
 type Props = {
