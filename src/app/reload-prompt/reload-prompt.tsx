@@ -4,7 +4,7 @@ import { useRegisterSW } from 'virtual:pwa-register/solid';
 
 import { Button } from '$app-components';
 
-import * as styles from './styles';
+import * as styles from './styles.css';
 
 export const ReloadPrompt: Component = () => {
   const {
