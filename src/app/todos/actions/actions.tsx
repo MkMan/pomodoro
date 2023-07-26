@@ -1,9 +1,10 @@
-import { css } from '@emotion/css';
 import { AiOutlineClear } from 'solid-icons/ai';
 import { FiTrash } from 'solid-icons/fi';
 import { Component, Show } from 'solid-js';
 
 import { IconButton } from '$app-components';
+
+import { iconButton } from './styles.css';
 
 type Props = {
   onDeletingAllTodos: () => void;
@@ -11,14 +12,6 @@ type Props = {
   shouldShowDeleteCompletedTodosButton: boolean;
   shouldShowDeleteAllTodosButton: boolean;
 };
-
-const iconButton = css({
-  marginInlineEnd: 16,
-
-  ':last-of-type': {
-    marginInlineEnd: 'initial',
-  },
-});
 
 const Actions: Component<Props> = (props) => (
   <>
