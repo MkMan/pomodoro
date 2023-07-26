@@ -5,7 +5,7 @@ import { cx } from '$app-utils';
 
 import { Heading } from '../heading/heading';
 import { UnstyledButton } from '../unstyled-button/unstyled-button';
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { CollapseProps } from './types';
 
 const defaultHeadingLevel = 2;
