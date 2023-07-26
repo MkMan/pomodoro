@@ -2,7 +2,7 @@ import { Component, createSignal } from 'solid-js';
 
 import { appStore } from '$app-state';
 
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { onNotificationCheckboxChange } from './util';
 
 export const Alerts: Component = () => {
