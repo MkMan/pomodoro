@@ -1,8 +1,8 @@
-import { cx } from '@emotion/css';
 import { createEffect, createSignal } from 'solid-js';
 import { CurrentCounter } from 'src/types';
 
 import { appStore } from '$app-state';
+import { cx } from '$app-utils';
 
 import { audioUrlsMap } from '../assets/sounds';
 import { currentCounterMessageMap } from './constants';
