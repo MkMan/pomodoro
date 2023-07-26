@@ -3,7 +3,7 @@ import { Component, createEffect, createSignal } from 'solid-js';
 
 import { Button, Heading, IconButton, Input } from '$app-components';
 
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { TodoFormProps } from './types';
 
 const initialDescription = '';
