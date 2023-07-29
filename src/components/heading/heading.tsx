@@ -1,10 +1,10 @@
-import { css } from '@emotion/css';
 import { Component, mergeProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
 import { cx } from '$app-utils';
 
 import { fontWeightMap, sizeMap } from './constants';
+import { heading } from './styles.css';
 import { HeadingProps } from './types';
 
 const Heading: Component<HeadingProps> = (_props) => {
@@ -14,16 +14,13 @@ const Heading: Component<HeadingProps> = (_props) => {
     <Dynamic
       tabIndex={props.shouldAutoFocus ? -1 : undefined}
       component={`h${props.level}`}
-      class={cx(
-        props.class,
-        css({
-          fontFamily: `'Raleway', sans-serif`,
-          fontSize: props.size
-            ? props.size
-            : sizeMap[props.level as NonNullable<HeadingProps['level']>],
-          fontWeight: props.weight ? fontWeightMap[props.weight] : 'bold',
-        })
-      )}
+      style={{
+        'font-size': props.size
+          ? props.size
+          : sizeMap[props.level as NonNullable<HeadingProps['level']>],
+        'font-weight': props.weight ? fontWeightMap[props.weight] : 'bold',
+      }}
+      class={cx(props.class, heading)}
     >
       {props.children}
     </Dynamic>
