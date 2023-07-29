@@ -1,3 +1,4 @@
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { VitePWA } from 'vite-plugin-pwa';
 import solidPlugin from 'vite-plugin-solid';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -6,6 +7,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   plugins: [
     solidPlugin(),
+    vanillaExtractPlugin(),
     tsconfigPaths(),
     VitePWA({
       registerType: 'prompt',

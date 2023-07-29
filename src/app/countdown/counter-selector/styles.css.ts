@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
+import { style } from '@vanilla-extract/css';
 
-const wrapper = css({
+const wrapper = style({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
@@ -8,7 +8,7 @@ const wrapper = css({
   gap: 8,
 });
 
-const label = css({
+const label = style({
   fontSize: 'calc(var(--size-font-h1) + 0.6vw)',
   fontWeight: 'normal',
 });

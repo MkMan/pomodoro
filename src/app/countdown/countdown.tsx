@@ -9,7 +9,7 @@ import {
 } from '$app-state';
 
 import { CounterSelector } from './counter-selector';
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { CountdownProps, WorkerToAppMessage } from './types';
 import { getFormattedTime, getWorkerHelpers } from './utils';
 

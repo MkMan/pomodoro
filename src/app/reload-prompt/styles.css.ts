@@ -1,13 +1,13 @@
-import { css } from '@emotion/css';
+import { style } from '@vanilla-extract/css';
 
-const container = css({
+const container = style({
   padding: 0,
   margin: 0,
   width: 0,
   height: 0,
 });
 
-const toast = css({
+const toast = style({
   position: 'fixed',
   right: 0,
   bottom: 0,
@@ -21,7 +21,7 @@ const toast = css({
   backgroundColor: 'var(--color-background-inverted)',
 });
 
-const toastMessage = css({
+const toastMessage = style({
   marginBottom: 16,
   fontSize: '1.2rem',
   fontWeight: 'bold',
@@ -29,7 +29,7 @@ const toastMessage = css({
   paddingBlockEnd: 16,
 });
 
-const buttonsWrapper = css({
+const buttonsWrapper = style({
   display: 'flex',
   justifyContent: 'space-between',
 });

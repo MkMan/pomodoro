@@ -1,15 +1,15 @@
-import { css } from '@emotion/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 const expandingAnimationDuration = '300ms';
 
-const wrapper = css({
+const wrapper = style({
   borderRadius: 8,
   padding: 8,
   marginInline: -8,
   boxShadow: 'var(--boxShadow-card)',
 });
 
-const heading = css({
+const heading = style({
   width: '100%',
   display: 'flex',
   justifyContent: 'space-between',
@@ -18,20 +18,24 @@ const heading = css({
   color: 'inherit',
   transition: `padding-block-end ${expandingAnimationDuration} ease-in-out`,
 
-  '&.isOpen': {
-    paddingBlockEnd: 8,
+  selectors: {
+    '&.isOpen': {
+      paddingBlockEnd: 8,
+    },
   },
 });
 
-const headingIcon = css({
+const headingIcon = style({
   transition: `transform ${expandingAnimationDuration} ease-in-out`,
 
-  '&.isOpen': {
-    transform: 'rotate(180deg)',
+  selectors: {
+    '&.isOpen': {
+      transform: 'rotate(180deg)',
+    },
   },
 });
 
-const content = css({
+const content = style({
   paddingInline: 8,
 
   display: 'grid',
@@ -40,14 +44,16 @@ const content = css({
   transitionProperty: 'grid-template-rows, visibility',
   visibility: 'collapse',
 
-  '> *': {
-    overflow: 'hidden',
+  selectors: {
+    '&.isOpen': {
+      gridTemplateRows: '1fr',
+      visibility: 'visible',
+    },
   },
+});
 
-  '&.isOpen': {
-    gridTemplateRows: '1fr',
-    visibility: 'visible',
-  },
+globalStyle(`${content} > *`, {
+  overflow: 'hidden',
 });
 
 export { content, heading, headingIcon, wrapper };

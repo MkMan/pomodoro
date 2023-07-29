@@ -12,7 +12,7 @@ import { cx } from '$app-utils';
 
 import { counterOrder } from '../../../constants';
 import { currentCounterLabelMap } from './constants';
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { CounterSelectorProps } from './types';
 
 const selectId = 'counter-select';

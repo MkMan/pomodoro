@@ -3,7 +3,7 @@ import { Component, createMemo, For, splitProps } from 'solid-js';
 
 import { cx } from '$app-utils';
 
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { SelectProps } from './types';
 
 export const Select: Component<SelectProps> = (_props) => {

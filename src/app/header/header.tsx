@@ -4,7 +4,7 @@ import { Component } from 'solid-js';
 import { Container, Heading, IconButton } from '$app-components';
 import { cx } from '$app-utils';
 
-import * as styles from './styles';
+import * as styles from './styles.css';
 
 type Props = {
   class?: string;

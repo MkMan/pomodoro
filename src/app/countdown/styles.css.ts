@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
+import { style } from '@vanilla-extract/css';
 
-export const remainingTime = css({
+export const remainingTime = style({
   textAlign: 'center',
   paddingBlockStart: 32,
   paddingBlockEnd: 48,
@@ -8,7 +8,7 @@ export const remainingTime = css({
   fontSize: '7rem',
 });
 
-export const buttonsContainer = css({
+export const buttonsContainer = style({
   display: 'flex',
   gap: 20,
   justifyContent: 'center',

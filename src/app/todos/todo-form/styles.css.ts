@@ -1,16 +1,16 @@
-import { css } from '@emotion/css';
+import { style } from '@vanilla-extract/css';
 
-const headingWrapper = css({
+const headingWrapper = style({
   display: 'flex',
   alignItems: 'baseline',
   justifyContent: 'space-between',
 });
 
-const heading = css({
+const heading = style({
   paddingBlockEnd: 16,
 });
 
-const createCta = css({
+const createCta = style({
   marginBlockStart: 16,
   width: '100%',
 });

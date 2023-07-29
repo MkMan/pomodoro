@@ -1,4 +1,4 @@
-import { css, CSSObject } from '@emotion/css';
+import { ComplexStyleRule, style } from '@vanilla-extract/css';
 
 type BaseStylesColors = Record<'font' | 'background' | 'border', string>;
 
@@ -6,7 +6,7 @@ const getBaseStyles = ({
   font,
   background,
   border,
-}: BaseStylesColors): CSSObject => ({
+}: BaseStylesColors): ComplexStyleRule => ({
   backgroundColor: `var(${background})`,
   color: `var(${font})`,
   border: `2px solid var(${border})`,
@@ -19,15 +19,17 @@ const getBaseStyles = ({
   transition: 'background-color, color 200ms ease',
   outlineOffset: 4,
 
-  '&.isSmall': {
-    paddingInline: 16,
-    paddingBlock: 8,
-  },
+  selectors: {
+    '&.isSmall': {
+      paddingInline: 16,
+      paddingBlock: 8,
+    },
 
-  ':not(:disabled):hover': {
-    border: `2px solid var(${background})`,
-    backgroundColor: `var(${font})`,
-    color: `var(${background})`,
+    '&:not(:disabled):hover': {
+      border: `2px solid var(${background})`,
+      backgroundColor: `var(${font})`,
+      color: `var(${background})`,
+    },
   },
 
   ':disabled': {
@@ -36,7 +38,7 @@ const getBaseStyles = ({
   },
 });
 
-export const primary = css(
+export const primary = style(
   getBaseStyles({
     font: '--color-cta-font',
     background: '--color-cta-background',
@@ -44,7 +46,7 @@ export const primary = css(
   })
 );
 
-export const secondary = css(
+export const secondary = style(
   getBaseStyles({
     font: '--color-cta-background',
     background: '--color-cta-font',
@@ -52,7 +54,7 @@ export const secondary = css(
   })
 );
 
-export const danger = css(
+export const danger = style(
   getBaseStyles({
     font: '--color-cta-font',
     background: '--color-danger',

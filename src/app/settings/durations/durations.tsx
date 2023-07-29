@@ -4,7 +4,7 @@ import { Input } from '$app-components';
 import { appStore, counterState, setAppStore } from '$app-state';
 
 import { commonInputProps, durationFields } from './constants';
-import * as styles from './styles';
+import * as styles from './styles.css';
 
 const durations = appStore.durations;
 

@@ -4,7 +4,7 @@ import { Component } from 'solid-js';
 import { Container } from '$app-components';
 
 import { version } from '../../../package.json';
-import * as styles from './styles';
+import * as styles from './styles.css';
 
 export const Footer: Component = () => (
   <footer class={styles.footer}>

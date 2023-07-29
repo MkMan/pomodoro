@@ -1,29 +1,27 @@
-import { css } from '@emotion/css';
-import { Component, JSX } from 'solid-js';
+import { Component, createMemo, JSX } from 'solid-js';
 
 import { cx } from '$app-utils';
+
+import { container } from './styles.css';
 
 type ContainerProps = {
   children?: JSX.Element | JSX.Element[];
   class?: string;
-  height?: string | number;
   maxWidth?: string | number;
 };
 
-const Container: Component<ContainerProps> = (props) => (
-  <div
-    class={cx(
-      css({
-        height: props.height,
-        maxWidth: props.maxWidth,
-        marginInline: 'auto',
-        paddingInline: 16,
-      }),
-      props.class
-    )}
-  >
-    {props.children}
-  </div>
-);
+const Container: Component<ContainerProps> = (props) => {
+  const maxWidth = createMemo(() =>
+    typeof props.maxWidth === 'number' || typeof props.maxWidth === 'string'
+      ? `${props.maxWidth}px`
+      : undefined
+  );
+
+  return (
+    <div style={{ 'max-width': maxWidth() }} class={cx(container, props.class)}>
+      {props.children}
+    </div>
+  );
+};
 
 export { Container };

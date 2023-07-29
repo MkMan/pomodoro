@@ -13,7 +13,7 @@ import { Footer } from './footer/footer';
 import { Header } from './header/header';
 import { ReloadPrompt } from './reload-prompt/reload-prompt';
 import { Settings } from './settings/settings';
-import * as styles from './styles';
+import * as styles from './styles.css';
 import { Todos } from './todos';
 import { getAlertHandle, sendNotification, syncTheme } from './utils';
 
