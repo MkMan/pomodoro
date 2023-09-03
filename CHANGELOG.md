@@ -1,3 +1,9 @@
+# [3.1.0](https://github.com/MkMan/pomodoro/compare/v3.0.0...v3.1.0) (2023-09-03)
+
+### Features
+
+- **todos:** impelment dragging ([081c542](https://github.com/MkMan/pomodoro/commit/081c542db972e8617364c79d7401eba42378af16))
+
 # [3.0.0](https://github.com/MkMan/pomodoro/compare/v2.14.0...v3.0.0) (2023-07-29)
 
 - Merge pull request #50 from MkMan/switch-to-vanilla-css ([a361dbb](https://github.com/MkMan/pomodoro/commit/a361dbb3d1a6a01606d3b2fcd061ba4c8e8a75dc)), closes [#50](https://github.com/MkMan/pomodoro/issues/50)
