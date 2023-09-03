@@ -14,7 +14,11 @@ import {
   onDeletingCompletedTodos,
   onTodoDelete,
   onTodoDescriptionChange,
+  onTodoDragEnd,
+  onTodoDragStart,
+  onTodoDrop,
   onTodoStatusChange,
+  preventDefault,
 } from './utils';
 
 const Todos: Component = () => {
@@ -51,6 +55,12 @@ const Todos: Component = () => {
               onDelete={onTodoDelete(index())}
               onDescriptionChange={onTodoDescriptionChange(index())}
               onStatusChange={onTodoStatusChange(index())}
+              draggable
+              onDragStart={onTodoDragStart(index())}
+              onDragOver={preventDefault}
+              onDragEnter={preventDefault}
+              onDragEnd={onTodoDragEnd}
+              onDrop={onTodoDrop(index())}
             />
           )}
         </For>

@@ -1,3 +1,4 @@
+import { BsGripVertical } from 'solid-icons/bs';
 import { FiCheck, FiEdit3, FiX } from 'solid-icons/fi';
 import {
   Component,
@@ -42,6 +43,9 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
     <li class={cx(props.class, styles.wrapper)} {...liProps}>
       {displayMode() === 'display' && (
         <>
+          <div class={styles.dragIndicatorWrapper}>
+            <BsGripVertical />
+          </div>
           <input
             class={styles.checkbox}
             type="checkbox"
