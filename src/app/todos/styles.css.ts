@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
+import { todoDraggingClassName } from './constants';
+
 const wrapper = style({
   padding: 16,
   borderRadius: 8,
@@ -28,6 +30,12 @@ const listItem = style({
   marginBlock: 16,
   borderRadius: 8,
   boxShadow: 'var(--boxShadow-card)',
+
+  selectors: {
+    [`&.${todoDraggingClassName}`]: {
+      opacity: 0.4,
+    },
+  },
 });
 
 const createTodoCta = style({

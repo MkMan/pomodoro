@@ -10,6 +10,10 @@ const wrapper = style({
   alignItems: 'center',
 });
 
+const dragIndicatorWrapper = style({
+  cursor: 'move',
+});
+
 const description = style({
   height: displayModeHeight,
   lineHeight: `${displayModeHeight}px`,
@@ -36,6 +40,7 @@ export {
   checkbox,
   description,
   descriptionTextfield,
+  dragIndicatorWrapper,
   isCompletedClassName,
   wrapper,
 };
