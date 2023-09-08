@@ -2,7 +2,7 @@ import { JSX } from 'solid-js';
 
 import { Todo } from '$app-state';
 
-type TodoItemProps = Pick<Todo, 'description' | 'status'> & {
+type TodoItemProps = Todo & {
   class?: string;
   onDelete: () => void;
   onDescriptionChange: (description: Todo['description']) => void;

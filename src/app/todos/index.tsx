@@ -1,3 +1,10 @@
+import {
+  closestCenter,
+  DragDropProvider,
+  DragDropSensors,
+  DragOverlay,
+  SortableProvider,
+} from '@thisbeyond/solid-dnd';
 import { Component, createMemo, createSignal, For } from 'solid-js';
 
 import { Button, Heading } from '$app-components';
@@ -9,21 +16,21 @@ import * as styles from './styles.css';
 import { TodoForm } from './todo-form/todo-form';
 import { TodoItem } from './todo-item/todo-item';
 import {
+  handleDragOverlay,
   onCreatingNewTodo,
   onDeletingAllTodos,
   onDeletingCompletedTodos,
+  onDragEnd,
   onTodoDelete,
   onTodoDescriptionChange,
-  onTodoDragEnd,
-  onTodoDragStart,
-  onTodoDrop,
   onTodoStatusChange,
-  preventDefault,
 } from './utils';
 
 const Todos: Component = () => {
   const [isNewTodoFormOpen, setIsNewTodoFormOpen] = createSignal(false);
   const toggleNewTodoForm = () => setIsNewTodoFormOpen(!isNewTodoFormOpen());
+
+  const { draggedTodo, onDragStart } = handleDragOverlay();
 
   const hasTodos = createMemo(
     () => !!appStore.todos.length && appStore.todos.length > 0
@@ -31,6 +38,7 @@ const Todos: Component = () => {
   const hasCompletedTodos = createMemo(() =>
     appStore.todos.some(({ status }) => status === 'completed')
   );
+  const todoIds = createMemo(() => appStore.todos.map(({ id }) => id));
 
   return (
     <section class={styles.wrapper}>
@@ -45,26 +53,35 @@ const Todos: Component = () => {
           shouldShowDeleteCompletedTodosButton={hasCompletedTodos()}
         />
       </div>
-      <ul class={styles.list}>
-        <For each={appStore.todos}>
-          {(todo, index) => (
-            <TodoItem
-              {...todo}
-              class={styles.listItem}
-              data-testid="todo-item"
-              onDelete={onTodoDelete(index())}
-              onDescriptionChange={onTodoDescriptionChange(index())}
-              onStatusChange={onTodoStatusChange(index())}
-              draggable
-              onDragStart={onTodoDragStart(index())}
-              onDragOver={preventDefault}
-              onDragEnter={preventDefault}
-              onDragEnd={onTodoDragEnd}
-              onDrop={onTodoDrop(index())}
-            />
+      {/* TODO: move out to a component */}
+      <DragDropProvider
+        onDragStart={onDragStart}
+        onDragEnd={onDragEnd(todoIds)}
+        collisionDetector={closestCenter}
+      >
+        <DragDropSensors />
+        <ul class={styles.list}>
+          <SortableProvider ids={todoIds()}>
+            <For each={appStore.todos}>
+              {(todo, index) => (
+                <TodoItem
+                  {...todo}
+                  class={styles.listItem}
+                  data-testid="todo-item"
+                  onDelete={onTodoDelete(index())}
+                  onDescriptionChange={onTodoDescriptionChange(index())}
+                  onStatusChange={onTodoStatusChange(index())}
+                />
+              )}
+            </For>
+          </SortableProvider>
+        </ul>
+        <DragOverlay>
+          {draggedTodo() && (
+            <div class={styles.draggedItem}>{draggedTodo()?.description}</div>
           )}
-        </For>
-      </ul>
+        </DragOverlay>
+      </DragDropProvider>
 
       <div class={cx(appStore.todos.length > 0 && styles.newTodo)}>
         {isNewTodoFormOpen() ? (

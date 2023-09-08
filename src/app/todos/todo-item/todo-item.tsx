@@ -1,4 +1,4 @@
-import { BsGripVertical } from 'solid-icons/bs';
+import { createSortable } from '@thisbeyond/solid-dnd';
 import { FiCheck, FiEdit3, FiX } from 'solid-icons/fi';
 import {
   Component,
@@ -18,12 +18,16 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
   const [props, liProps] = splitProps(_props, [
     'class',
     'description',
+    'id',
     'onDelete',
     'onDescriptionChange',
     'onStatusChange',
     'status',
   ]);
   let descriptionTextfield: HTMLInputElement | undefined;
+
+  // eslint-disable-next-line solid/reactivity -- as per the docs
+  const sortable = createSortable(props.id);
 
   const [displayMode, setDisplayMode] = createSignal<Mode>('display');
   const [newDescription, setNewDescription] = createSignal('');
@@ -40,12 +44,19 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
   });
 
   return (
-    <li class={cx(props.class, styles.wrapper)} {...liProps}>
+    <li
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- unable to declare types for the directive
+      // @ts-expect-error
+      use:sortable
+      class={cx(
+        props.class,
+        styles.wrapper,
+        sortable.isActiveDraggable && styles.hasReducedOpacityClassName
+      )}
+      {...liProps}
+    >
       {displayMode() === 'display' && (
         <>
-          <div class={styles.dragIndicatorWrapper}>
-            <BsGripVertical />
-          </div>
           <input
             class={styles.checkbox}
             type="checkbox"
