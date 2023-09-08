@@ -79,7 +79,7 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
         </>
       )}
       {displayMode() === 'edit' && (
-        <>
+        <form class={styles.editWrapper}>
           <Input
             class={styles.descriptionTextfield}
             value={props.description}
@@ -89,7 +89,10 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
             }
           />
           <IconButton
-            onClick={() => {
+            type="submit"
+            onClick={(event) => {
+              event.preventDefault();
+
               props.onDescriptionChange(newDescription());
               setDisplayMode('display');
             }}
@@ -97,7 +100,7 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
           >
             <FiCheck size={25} />
           </IconButton>
-        </>
+        </form>
       )}
     </li>
   );

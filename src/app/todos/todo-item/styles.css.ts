@@ -41,10 +41,13 @@ const descriptionTextfield = style({
   flex: 1,
 });
 
+const editWrapper = style([wrapper, { width: '100%' }]);
+
 export {
   checkbox,
   description,
   descriptionTextfield,
+  editWrapper,
   hasReducedOpacityClassName,
   wrapper,
 };
