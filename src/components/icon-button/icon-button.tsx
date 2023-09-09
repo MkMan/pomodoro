@@ -1,6 +1,5 @@
-import { Component, splitProps } from 'solid-js';
-
 import { cx } from '$app-utils';
+import { Component, splitProps } from 'solid-js';
 
 import { UnstyledButtonProps } from '../unstyled-button/types';
 import { UnstyledButton } from '../unstyled-button/unstyled-button';

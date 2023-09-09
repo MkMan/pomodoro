@@ -1,7 +1,6 @@
+import { cx } from '$app-utils';
 import { Component, mergeProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
-
-import { cx } from '$app-utils';
 
 import { fontWeightMap, sizeMap } from './constants';
 import { heading } from './styles.css';
@@ -12,7 +11,7 @@ const Heading: Component<HeadingProps> = (_props) => {
 
   return (
     <Dynamic
-      tabIndex={props.shouldAutoFocus ? -1 : undefined}
+      class={cx(props.class, heading)}
       component={`h${props.level}`}
       style={{
         'font-size': props.size
@@ -20,7 +19,7 @@ const Heading: Component<HeadingProps> = (_props) => {
           : sizeMap[props.level as NonNullable<HeadingProps['level']>],
         'font-weight': props.weight ? fontWeightMap[props.weight] : 'bold',
       }}
-      class={cx(props.class, heading)}
+      tabIndex={props.shouldAutoFocus ? -1 : undefined}
     >
       {props.children}
     </Dynamic>

@@ -8,11 +8,11 @@ const appearance = [appearanceBlock, appearanceInline] as const;
 type InputProps = {
   appearance?: (typeof appearance)[number];
   class?: string;
-  error?: string | boolean;
+  error?: boolean | string;
   isRequired?: boolean;
   label?: string;
   onInput: JSX.EventHandler<HTMLInputElement, Event>;
-  value: string | number;
+  value: number | string;
 } & Omit<JSX.InputHTMLAttributes<HTMLInputElement>, 'onInput'>;
 
 export { appearanceBlock, appearanceInline };

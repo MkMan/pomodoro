@@ -1,6 +1,5 @@
-import { JSX } from 'solid-js';
-
 import { setAppStore } from '$app-state';
+import { JSX } from 'solid-js';
 
 type InputChangeEvent = Parameters<
   JSX.EventHandler<HTMLInputElement, Event>

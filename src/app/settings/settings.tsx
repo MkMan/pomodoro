@@ -1,6 +1,5 @@
-import { Component } from 'solid-js';
-
 import { Collapse } from '$app-components';
+import { Component } from 'solid-js';
 
 import { Alerts } from './alerts/alerts';
 import { Durations } from './durations/durations';
@@ -14,12 +13,12 @@ type Props = {
 export const Settings: Component<Props> = (props) => (
   <div class={styles.settingsWrapper} data-testid={props.dataTestId}>
     <Collapse
-      label="Durations"
+      content={<Durations />}
       headingLevel={3}
       isOpen
-      content={<Durations />}
+      label="Durations"
     />
-    <Collapse label="Alerts" headingLevel={3} content={<Alerts />} />
-    <Collapse label="Theme" headingLevel={3} content={<Theme />} />
+    <Collapse content={<Alerts />} headingLevel={3} label="Alerts" />
+    <Collapse content={<Theme />} headingLevel={3} label="Theme" />
   </div>
 );

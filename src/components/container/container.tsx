@@ -1,13 +1,12 @@
-import { Component, createMemo, JSX } from 'solid-js';
-
 import { cx } from '$app-utils';
+import { Component, JSX, createMemo } from 'solid-js';
 
 import { container } from './styles.css';
 
 type ContainerProps = {
   children?: JSX.Element | JSX.Element[];
   class?: string;
-  maxWidth?: string | number;
+  maxWidth?: number | string;
 };
 
 const Container: Component<ContainerProps> = (props) => {
@@ -18,7 +17,7 @@ const Container: Component<ContainerProps> = (props) => {
   );
 
   return (
-    <div style={{ 'max-width': maxWidth() }} class={cx(container, props.class)}>
+    <div class={cx(container, props.class)} style={{ 'max-width': maxWidth() }}>
       {props.children}
     </div>
   );

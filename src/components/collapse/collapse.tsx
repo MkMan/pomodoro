@@ -1,7 +1,6 @@
+import { cx } from '$app-utils';
 import { FiChevronDown } from 'solid-icons/fi';
 import { Component, createEffect, createSignal } from 'solid-js';
-
-import { cx } from '$app-utils';
 
 import { Heading } from '../heading/heading';
 import { UnstyledButton } from '../unstyled-button/unstyled-button';
@@ -37,8 +36,8 @@ export const Collapse: Component<CollapseProps> = (props) => {
         </UnstyledButton>
       </Heading>
       <div
-        class={cx(styles.content, isOpen() && 'isOpen')}
         aria-hidden={!isOpen()}
+        class={cx(styles.content, isOpen() && 'isOpen')}
         id={contentDivId(props.label)}
       >
         <div>{props.content}</div>

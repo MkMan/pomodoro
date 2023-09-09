@@ -12,8 +12,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'Click to expand/collapse',
-    headingLevel: 2,
     content: (
       <>
         <h3>The tragedy of darth Plagueis the wise</h3>
@@ -35,5 +33,7 @@ export const Default: Story = {
         </p>
       </>
     ),
+    headingLevel: 2,
+    label: 'Click to expand/collapse',
   },
 };

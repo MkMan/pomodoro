@@ -1,3 +1,5 @@
+import { IconButton, Input } from '$app-components';
+import { cx } from '$app-utils';
 import { createSortable } from '@thisbeyond/solid-dnd';
 import { FiCheck, FiEdit3, FiX } from 'solid-icons/fi';
 import {
@@ -7,9 +9,6 @@ import {
   createSignal,
   splitProps,
 } from 'solid-js';
-
-import { IconButton, Input } from '$app-components';
-import { cx } from '$app-utils';
 
 import * as styles from './styles.css';
 import { Mode, TodoItemProps } from './types';
@@ -45,25 +44,25 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
 
   return (
     <li
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- unable to declare types for the directive
-      // @ts-expect-error
-      use:sortable
       class={cx(
         props.class,
         styles.wrapper,
         sortable.isActiveDraggable && styles.hasReducedOpacityClassName
       )}
       title={props.description}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- unable to declare types for the directive
+      // @ts-expect-error
+      use:sortable
       {...liProps}
     >
       {displayMode() === 'display' && (
         <>
           <input
-            class={styles.checkbox}
-            type="checkbox"
-            id={props.description}
             checked={isCompleted()}
+            class={styles.checkbox}
+            id={props.description}
             onChange={onCheckClick}
+            type="checkbox"
           />
           <label
             class={cx(styles.description, isCompleted() && 'isCompleted')}
@@ -83,14 +82,13 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
         <form class={styles.editWrapper}>
           <Input
             class={styles.descriptionTextfield}
-            value={props.description}
-            ref={descriptionTextfield}
             onInput={({ currentTarget }) =>
               setNewDescription(currentTarget.value)
             }
+            ref={descriptionTextfield}
+            value={props.description}
           />
           <IconButton
-            type="submit"
             onClick={(event) => {
               event.preventDefault();
 
@@ -98,6 +96,7 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
               setDisplayMode('display');
             }}
             title="Save"
+            type="submit"
           >
             <FiCheck size={25} />
           </IconButton>

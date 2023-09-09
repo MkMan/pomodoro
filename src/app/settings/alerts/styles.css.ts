@@ -1,8 +1,8 @@
 import { style } from '@vanilla-extract/css';
 
 const label = style({
-  display: 'flex',
   alignItems: 'baseline',
+  display: 'flex',
   gap: 8,
 });
 

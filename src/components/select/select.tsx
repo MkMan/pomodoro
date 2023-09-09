@@ -1,7 +1,6 @@
-import { FiChevronDown } from 'solid-icons/fi';
-import { Component, createMemo, For, splitProps } from 'solid-js';
-
 import { cx } from '$app-utils';
+import { FiChevronDown } from 'solid-icons/fi';
+import { Component, For, createMemo, splitProps } from 'solid-js';
 
 import * as styles from './styles.css';
 import { SelectProps } from './types';
@@ -50,7 +49,7 @@ export const Select: Component<SelectProps> = (_props) => {
       </select>
       <div class={styles.presentational}>
         {currentLabel()}
-        <FiChevronDown size={20} color="currentcolor" />
+        <FiChevronDown color="currentcolor" size={20} />
       </div>
     </div>
   );

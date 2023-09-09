@@ -1,8 +1,8 @@
 import type { Component } from 'solid-js';
-import { Show } from 'solid-js';
-import { useRegisterSW } from 'virtual:pwa-register/solid';
 
 import { Button } from '$app-components';
+import { Show } from 'solid-js';
+import { useRegisterSW } from 'virtual:pwa-register/solid';
 
 import * as styles from './styles.css';
 
@@ -11,11 +11,11 @@ export const ReloadPrompt: Component = () => {
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
   } = useRegisterSW({
-    onRegistered(registration) {
-      console.log(`SW Registered: ${registration?.toString() ?? ''}`);
-    },
     onRegisterError(error) {
       console.error('SW registration error', error);
+    },
+    onRegistered(registration) {
+      console.log(`SW Registered: ${registration?.toString() ?? ''}`);
     },
   });
 
@@ -30,17 +30,17 @@ export const ReloadPrompt: Component = () => {
           <div class={styles.toastMessage}>App ready to work offline</div>
           <div class={styles.buttonsWrapper}>
             <Button
-              variant="primary"
-              size="small"
               onClick={() => {
                 updateServiceWorker(true).catch((error) => {
                   console.error('Error updating service worker', error);
                 });
               }}
+              size="small"
+              variant="primary"
             >
               Reload
             </Button>
-            <Button variant="danger" size="small" onClick={() => close()}>
+            <Button onClick={() => close()} size="small" variant="danger">
               Close
             </Button>
           </div>

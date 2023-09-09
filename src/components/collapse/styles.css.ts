@@ -4,52 +4,52 @@ const expandingAnimationDuration = '300ms';
 
 const wrapper = style({
   borderRadius: 8,
-  padding: 8,
-  marginInline: -8,
   boxShadow: 'var(--boxShadow-card)',
+  marginInline: -8,
+  padding: 8,
 });
 
 const heading = style({
-  width: '100%',
-  display: 'flex',
-  justifyContent: 'space-between',
   alignItems: 'center',
   backgroundColor: 'inherit',
   color: 'inherit',
-  transition: `padding-block-end ${expandingAnimationDuration} ease-in-out`,
-
+  display: 'flex',
+  justifyContent: 'space-between',
   selectors: {
     '&.isOpen': {
       paddingBlockEnd: 8,
     },
   },
+  transition: `padding-block-end ${expandingAnimationDuration} ease-in-out`,
+
+  width: '100%',
 });
 
 const headingIcon = style({
-  transition: `transform ${expandingAnimationDuration} ease-in-out`,
-
   selectors: {
     '&.isOpen': {
       transform: 'rotate(180deg)',
     },
   },
+
+  transition: `transform ${expandingAnimationDuration} ease-in-out`,
 });
 
 const content = style({
-  paddingInline: 8,
-
   display: 'grid',
-  gridTemplateRows: '0fr',
-  transition: `${expandingAnimationDuration} ease-in-out`,
-  transitionProperty: 'grid-template-rows, visibility',
-  visibility: 'collapse',
 
+  gridTemplateRows: '0fr',
+  paddingInline: 8,
   selectors: {
     '&.isOpen': {
       gridTemplateRows: '1fr',
       visibility: 'visible',
     },
   },
+  transition: `${expandingAnimationDuration} ease-in-out`,
+  transitionProperty: 'grid-template-rows, visibility',
+
+  visibility: 'collapse',
 });
 
 globalStyle(`${content} > *`, {

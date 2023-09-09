@@ -1,6 +1,5 @@
-import { Component, splitProps } from 'solid-js';
-
 import { cx } from '$app-utils';
+import { Component, splitProps } from 'solid-js';
 
 import * as styles from './styles.css';
 import { ButtonProps } from './types';
@@ -9,9 +8,9 @@ const buttonVariantStylingMap: Record<
   NonNullable<ButtonProps['variant']>,
   string
 > = {
+  danger: styles.danger,
   primary: styles.primary,
   secondary: styles.secondary,
-  danger: styles.danger,
 };
 
 export const Button: Component<ButtonProps> = (_props) => {

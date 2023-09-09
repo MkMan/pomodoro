@@ -5,8 +5,8 @@ let intervalNumber: number;
 
 const onEverySecond = () => {
   const message: WorkerToAppMessageData = {
-    type: 'newTime',
     newTime: --currentTime,
+    type: 'newTime',
   };
   self.postMessage(message);
 };

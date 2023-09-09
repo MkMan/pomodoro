@@ -1,11 +1,11 @@
 import { style } from '@vanilla-extract/css';
 
 export const remainingTime = style({
-  textAlign: 'center',
-  paddingBlockStart: 32,
-  paddingBlockEnd: 48,
-  fontWeight: 500,
   fontSize: '7rem',
+  fontWeight: 500,
+  paddingBlockEnd: 48,
+  paddingBlockStart: 32,
+  textAlign: 'center',
 });
 
 export const buttonsContainer = style({

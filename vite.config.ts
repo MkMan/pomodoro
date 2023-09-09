@@ -10,52 +10,42 @@ export default defineConfig({
     vanillaExtractPlugin(),
     tsconfigPaths(),
     VitePWA({
-      registerType: 'prompt',
       manifest: {
-        theme_color: '#bf5b4a',
-        name: 'Pomodoro',
-        id: '/pomodoro/',
         background_color: '#bf5b4a',
         icons: [
           {
-            src: '/pomodoro/images/manifest-icon-512.maskable.png',
+            purpose: 'maskable',
             sizes: '512x512',
+            src: '/pomodoro/images/manifest-icon-512.maskable.png',
             type: 'image/webp',
-            purpose: 'maskable',
           },
           {
-            src: '/pomodoro/images/manifest-icon-192.maskable.png',
-            sizes: '192x192',
-            type: 'image/webp',
             purpose: 'maskable',
+            sizes: '192x192',
+            src: '/pomodoro/images/manifest-icon-192.maskable.png',
+            type: 'image/webp',
           },
           {
-            src: '/pomodoro/images/manifest-icon-192.maskable.png',
-            sizes: '192x192',
-            type: 'image/webp',
             purpose: 'any',
+            sizes: '192x192',
+            src: '/pomodoro/images/manifest-icon-192.maskable.png',
+            type: 'image/webp',
           },
         ],
+        id: '/pomodoro/',
+        name: 'Pomodoro',
+        theme_color: '#bf5b4a',
       },
+      registerType: 'prompt',
     }),
   ],
   test: {
-    include: ['**/?(*.)test.ts?(x)'],
-    setupFiles: './test-setup.ts',
-    reporters: ['verbose'],
-
     clearMocks: true,
-    restoreMocks: true,
-    mockReset: true,
-
     coverage: {
-      thresholdAutoUpdate: true,
-      provider: 'c8',
+      all: true,
+      branches: 93.42,
       clean: true,
       cleanOnRerun: true,
-      reporter: ['lcov', 'text-summary'],
-      all: true,
-      src: ['./src'],
       exclude: [
         '**/*/index.ts?(x)',
         '**/*/*test.ts?(x)',
@@ -65,12 +55,22 @@ export default defineConfig({
         '**/*/styles.ts',
         '**/*/*.d.ts',
       ],
-
+      functions: 91.27,
       // thresholds
       lines: 91.48,
-      functions: 91.27,
-      branches: 93.42,
+      provider: 'c8',
+
+      reporter: ['lcov', 'text-summary'],
+      src: ['./src'],
       statements: 91.48,
+      thresholdAutoUpdate: true,
     },
+    include: ['**/?(*.)test.ts?(x)'],
+
+    mockReset: true,
+    reporters: ['verbose'],
+    restoreMocks: true,
+
+    setupFiles: './test-setup.ts',
   },
 });

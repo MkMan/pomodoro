@@ -1,8 +1,7 @@
-import { FiX } from 'solid-icons/fi';
-import { Component, createEffect, createSignal, Show } from 'solid-js';
-import { Portal } from 'solid-js/web';
-
 import { cx } from '$app-utils';
+import { FiX } from 'solid-icons/fi';
+import { Component, Show, createEffect, createSignal } from 'solid-js';
+import { Portal } from 'solid-js/web';
 
 import { IconButton } from '../icon-button/icon-button';
 import * as styles from './styles.css';

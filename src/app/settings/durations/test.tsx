@@ -1,8 +1,7 @@
+import * as appState from '$app-state';
 import { render, screen } from '@solidjs/testing-library';
 import userEvent from '@testing-library/user-event';
 import { Mock } from 'vitest';
-
-import * as appState from '$app-state';
 
 import { Durations } from './durations';
 
@@ -12,9 +11,9 @@ describe('Durations', () => {
     vi.spyOn(appState, 'counterState').mockReturnValue('stopped');
 
     appState.setAppStore('durations', {
+      longBreak: 3,
       pomodoro: 1,
       shortBreak: 2,
-      longBreak: 3,
     });
   };
 

@@ -1,68 +1,68 @@
 import { style } from '@vanilla-extract/css';
 
 export const overlay = style({
-  position: 'fixed',
-  top: 0,
-  right: 0,
+  backgroundColor: 'var(--color-overlay)',
   bottom: 0,
   left: 0,
-  width: '100%',
-  zIndex: 1,
   opacity: 0,
-  transition: 'opacity 300ms',
-  willChange: 'opacity',
-  backgroundColor: 'var(--color-overlay)',
-  userSelect: 'none',
-
+  position: 'fixed',
+  right: 0,
   selectors: {
     '&.isOpen': {
       opacity: 0.7,
     },
   },
+  top: 0,
+  transition: 'opacity 300ms',
+  userSelect: 'none',
+  width: '100%',
+  willChange: 'opacity',
+
+  zIndex: 1,
 });
 
 export const wrapper = style({
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  bottom: 0,
-  height: '100%',
-  width: '100%',
-  maxWidth: '500px',
-  zIndex: 2,
-  overflow: 'auto',
-
-  transition: 'transform 200ms',
-  willChange: 'transform',
   backgroundColor: 'var(--color-background)',
-
+  bottom: 0,
+  boxShadow: '6px 0px 16px 2px #777',
   display: 'flex',
   flexDirection: 'column',
+  height: '100%',
+  left: 0,
+  maxWidth: '500px',
+  overflow: 'auto',
 
-  transform: 'translate3d(-103%, 0, 0)' /* extra 3% because of box-shadow */,
-
-  boxShadow: '6px 0px 16px 2px #777',
-
+  position: 'fixed',
   selectors: {
     '&.isOpen': {
       transform: 'translate3d(0%, 0, 0)',
     },
   },
+  top: 0,
+
+  transform: 'translate3d(-103%, 0, 0)' /* extra 3% because of box-shadow */,
+  transition: 'transform 200ms',
+
+  width: '100%',
+
+  willChange: 'transform',
+
+  zIndex: 2,
 });
 
 export const header = style({
-  padding: 16,
-  display: 'flex',
-  justifyContent: 'space-between',
   alignItems: 'center',
   borderBottom: '1px solid #ddd',
+  display: 'flex',
+  justifyContent: 'space-between',
+  padding: 16,
 });
 
 export const content = style({
-  position: 'relative',
+  flex: '1',
+  height: '100%',
   overflowX: 'hidden',
   overflowY: 'auto',
-  height: '100%',
-  flex: '1',
   padding: 16,
+  position: 'relative',
 });

@@ -16,9 +16,9 @@ export const Pallet: Story = {
     <div
       style={{
         display: 'grid',
-        'justify-content': 'center',
         gap: '24px',
         'grid-template-columns': 'repeat(3, 1fr)',
+        'justify-content': 'center',
       }}
     >
       <Button>Primary</Button>

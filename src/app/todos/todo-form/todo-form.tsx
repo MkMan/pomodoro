@@ -1,7 +1,6 @@
+import { Button, Heading, IconButton, Input } from '$app-components';
 import { FiX } from 'solid-icons/fi';
 import { Component, createEffect, createSignal } from 'solid-js';
-
-import { Button, Heading, IconButton, Input } from '$app-components';
 
 import * as styles from './styles.css';
 import { TodoFormProps } from './types';
@@ -31,24 +30,24 @@ const TodoForm: Component<TodoFormProps> = (props) => {
   });
 
   return (
-    <form name="new todo details" class={props.class} onSubmit={onSubmit}>
+    <form class={props.class} name="new todo details" onSubmit={onSubmit}>
       <div class={styles.headingWrapper}>
         <Heading class={styles.heading} level={3}>
           New todo
         </Heading>
         <IconButton
-          type="button"
           onClick={props.onClose}
           title="close new todo form"
+          type="button"
         >
           <FiX size={25} />
         </IconButton>
       </div>
       <Input
         label="New todo description"
-        value={description()}
         onInput={({ currentTarget }) => setDescription(currentTarget.value)}
         ref={descriptionRef}
+        value={description()}
       />
       <Button class={styles.createCta} size="small" type="submit">
         Create

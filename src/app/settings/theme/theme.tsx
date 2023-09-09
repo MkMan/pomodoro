@@ -1,7 +1,6 @@
+import { appStore, setAppStore } from '$app-state';
 import { Component, For } from 'solid-js';
 import { AppTheme } from 'src/state/app-store/types';
-
-import { appStore, setAppStore } from '$app-state';
 
 import * as styles from './styles.css';
 
@@ -20,13 +19,13 @@ export const Theme: Component = () => {
         {(field) => (
           <label class={styles.label}>
             <input
-              type="radio"
+              checked={theme === field.value}
               name="theme"
-              value={field.value}
               onChange={({ currentTarget }) => {
                 setAppStore('theme', currentTarget.value as AppTheme);
               }}
-              checked={theme === field.value}
+              type="radio"
+              value={field.value}
             />
             <span>{field.label}</span>
           </label>

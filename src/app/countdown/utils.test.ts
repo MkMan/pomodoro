@@ -35,8 +35,8 @@ describe('Countdown utils', () => {
       getWorkerHelpers(mockWorker as Worker).startWorkerCounter(1);
 
       expect(mockPostMessage).toHaveBeenCalledWith({
-        type: 'start',
         time: 1,
+        type: 'start',
       });
     });
   });

@@ -1,5 +1,3 @@
-import { Component, createEffect, createMemo, createSignal } from 'solid-js';
-
 import { Button } from '$app-components';
 import {
   appStore,
@@ -7,6 +5,7 @@ import {
   getCurrentCounter,
   setCounterState,
 } from '$app-state';
+import { Component, createEffect, createMemo, createSignal } from 'solid-js';
 
 import { CounterSelector } from './counter-selector';
 import * as styles from './styles.css';
@@ -67,22 +66,22 @@ export const Countdown: Component<CountdownProps> = (props) => {
       <div class={styles.buttonsContainer}>
         {shouldShowStartButton() && (
           <Button
-            variant="primary"
             disabled={time() === 0}
             onClick={startCount}
+            variant="primary"
           >
             Start
           </Button>
         )}
         {shouldShowPauseButton() && (
-          <Button variant="secondary" onClick={stopCount}>
+          <Button onClick={stopCount} variant="secondary">
             Pause
           </Button>
         )}
         <Button
-          variant="danger"
           disabled={counterState() === 'running'}
           onClick={reset}
+          variant="danger"
         >
           Reset
         </Button>

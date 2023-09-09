@@ -1,18 +1,18 @@
 import { style } from '@vanilla-extract/css';
 
 const wrapper = style({
-  padding: 16,
   borderRadius: 8,
   boxShadow: 'var(--boxShadow-card)',
+  padding: 16,
 });
 
 const header = style({
-  display: 'flex',
   alignItems: 'center',
-  paddingBlockEnd: 8,
-
   borderBottom: '2px solid currentcolor',
+  display: 'flex',
+
   marginBlockEnd: 32,
+  paddingBlockEnd: 8,
 });
 
 const heading = style({
@@ -24,16 +24,16 @@ const list = style({
 });
 
 const listItem = style({
-  padding: 8,
-  marginBlock: 16,
   borderRadius: 8,
   boxShadow: 'var(--boxShadow-card)',
   cursor: 'grab',
+  marginBlock: 16,
+  padding: 8,
 });
 
 const createTodoCta = style({
-  width: '100%',
   height: 'min-content',
+  width: '100%',
 });
 
 const newTodo = style({
@@ -43,13 +43,13 @@ const newTodo = style({
 const draggedItem = style([
   listItem,
   {
-    height: 56, // hardcoded to match list item height
-    display: 'flex',
     alignItems: 'center',
-    fontSize: '1.1rem', // hardcoded to match label styling
-    fontWeight: 600, // hardcoded to match label styling
     backgroundColor: 'var(--color-background)',
     cursor: 'grabbing',
+    display: 'flex',
+    fontSize: '1.1rem', // hardcoded to match label styling
+    fontWeight: 600, // hardcoded to match label styling
+    height: 56, // hardcoded to match list item height
   },
 ]);
 

@@ -8,7 +8,7 @@ describe('Collapse', () => {
 
   it('should render the heading and content', async () => {
     render(() => (
-      <Collapse headingLevel={3} content="test content" label="Test label" />
+      <Collapse content="test content" headingLevel={3} label="Test label" />
     ));
 
     // content collapsed by default

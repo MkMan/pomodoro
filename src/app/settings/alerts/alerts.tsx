@@ -1,6 +1,5 @@
-import { Component, createSignal } from 'solid-js';
-
 import { appStore } from '$app-state';
+import { Component, createSignal } from 'solid-js';
 
 import * as styles from './styles.css';
 import { onNotificationCheckboxChange } from './util';
@@ -19,13 +18,13 @@ export const Alerts: Component = () => {
   return (
     <label class={styles.label}>
       <input
-        type="checkbox"
-        ref={notificationsCheckbox}
+        checked={appStore.alerts.shouldSendNotification}
+        disabled={isNotificationsCheckboxDisabled()}
         onChange={(event) =>
           onNotificationCheckboxChange(event, onNotificationRequestDeclined)
         }
-        checked={appStore.alerts.shouldSendNotification}
-        disabled={isNotificationsCheckboxDisabled()}
+        ref={notificationsCheckbox}
+        type="checkbox"
       />
       System notifications
     </label>

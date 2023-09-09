@@ -1,7 +1,6 @@
-import { Component, For } from 'solid-js';
-
 import { Input } from '$app-components';
 import { appStore, counterState, setAppStore } from '$app-state';
+import { Component, For } from 'solid-js';
 
 import { commonInputProps, durationFields } from './constants';
 import * as styles from './styles.css';
@@ -10,7 +9,7 @@ const durations = appStore.durations;
 
 export const Durations: Component = () => (
   <For each={durationFields}>
-    {({ stateName, label }) => (
+    {({ label, stateName }) => (
       <Input
         {...commonInputProps}
         class={styles.input}

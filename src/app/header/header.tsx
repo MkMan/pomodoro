@@ -1,8 +1,7 @@
-import { FiMenu } from 'solid-icons/fi';
-import { Component } from 'solid-js';
-
 import { Container, Heading, IconButton } from '$app-components';
 import { cx } from '$app-utils';
+import { FiMenu } from 'solid-icons/fi';
+import { Component } from 'solid-js';
 
 import * as styles from './styles.css';
 
