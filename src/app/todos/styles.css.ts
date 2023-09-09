@@ -1,7 +1,5 @@
 import { style } from '@vanilla-extract/css';
 
-import { todoDraggingClassName } from './constants';
-
 const wrapper = style({
   padding: 16,
   borderRadius: 8,
@@ -30,12 +28,7 @@ const listItem = style({
   marginBlock: 16,
   borderRadius: 8,
   boxShadow: 'var(--boxShadow-card)',
-
-  selectors: {
-    [`&.${todoDraggingClassName}`]: {
-      opacity: 0.4,
-    },
-  },
+  cursor: 'grab',
 });
 
 const createTodoCta = style({
@@ -47,4 +40,26 @@ const newTodo = style({
   paddingBlockStart: 40,
 });
 
-export { createTodoCta, header, heading, list, listItem, newTodo, wrapper };
+const draggedItem = style([
+  listItem,
+  {
+    height: 56, // hardcoded to match list item height
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: '1.1rem', // hardcoded to match label styling
+    fontWeight: 600, // hardcoded to match label styling
+    backgroundColor: 'var(--color-background)',
+    cursor: 'grabbing',
+  },
+]);
+
+export {
+  createTodoCta,
+  draggedItem,
+  header,
+  heading,
+  list,
+  listItem,
+  newTodo,
+  wrapper,
+};

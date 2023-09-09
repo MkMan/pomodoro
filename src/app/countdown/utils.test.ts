@@ -12,7 +12,7 @@ describe('Countdown utils', () => {
       ['00:30', 30],
       ['01:00', 60],
       ['01:01', 61],
-    ])('should return %s:%s when time is %s', (expected, time) => {
+    ])('should return %s when time is %s', (expected, time) => {
       expect(getFormattedTime(time)).toStrictEqual(expected);
     });
   });

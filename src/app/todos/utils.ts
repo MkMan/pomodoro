@@ -1,10 +1,7 @@
-import { JSX } from 'solid-js';
+import { DragEventHandler, Id } from '@thisbeyond/solid-dnd';
+import { Accessor, createMemo, createSignal } from 'solid-js';
 
 import { appStore, setAppStore, Todo } from '$app-state';
-
-import { todoDraggingClassName, todoIndexDataKey } from './constants';
-
-type DragEventHandler = JSX.EventHandlerUnion<HTMLLIElement, DragEvent>;
 
 const onCreatingNewTodo = (description: string) => {
   setAppStore('todos', (currentTodos) => [
@@ -46,50 +43,46 @@ const onTodoDelete = (indexToRemove: number) => () => {
   setAppStore('todos', todosCopy);
 };
 
-const preventDefault: DragEventHandler = (event): void =>
-  event.preventDefault();
+const onDragEnd: (todoIds: Accessor<string[]>) => DragEventHandler =
+  (todoIds) =>
+  ({ draggable, droppable }) => {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (!droppable || !draggable) return;
 
-const onTodoDragStart =
-  (todoIndex: number): DragEventHandler =>
-  (event) => {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    event.dataTransfer!.dropEffect = 'move';
-    event.dataTransfer?.setData(todoIndexDataKey, todoIndex.toString());
+    const fromIndex = todoIds().indexOf(draggable.id.toString());
+    const toIndex = todoIds().indexOf(droppable.id.toString());
 
-    event.target.classList.add(todoDraggingClassName);
-  };
+    if (fromIndex === toIndex) return;
 
-const onTodoDragEnd: DragEventHandler = (event) => {
-  event.target.classList.remove(todoDraggingClassName);
-};
-
-const onTodoDrop =
-  (todoIndex: number): DragEventHandler =>
-  (event) => {
-    preventDefault(event);
-
-    const oldIndex = parseInt(
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
-      event.dataTransfer?.getData(todoIndexDataKey)!
-    );
-
-    // TODO: investigate using toSpliced
     const newTodos = [...appStore.todos];
-    const movedItem = newTodos.splice(oldIndex, 1)[0];
-    newTodos.splice(todoIndex, 0, movedItem);
+    const movedItem = newTodos.splice(fromIndex, 1)[0];
+    newTodos.splice(toIndex, 0, movedItem);
 
     setAppStore('todos', newTodos);
   };
 
+const handleDragOverlay = (): {
+  onDragStart: DragEventHandler;
+  draggedTodo: Accessor<Todo | undefined>;
+} => {
+  const [draggedId, setDraggedId] = createSignal<Id>();
+  const draggedTodo = createMemo(() =>
+    appStore.todos.find(({ id }) => id === draggedId())
+  );
+
+  return {
+    onDragStart: ({ draggable: { id } }) => setDraggedId(id),
+    draggedTodo,
+  };
+};
+
 export {
+  handleDragOverlay,
   onCreatingNewTodo,
   onDeletingAllTodos,
   onDeletingCompletedTodos,
+  onDragEnd,
   onTodoDelete,
   onTodoDescriptionChange,
-  onTodoDragEnd,
-  onTodoDragStart,
-  onTodoDrop,
   onTodoStatusChange,
-  preventDefault,
 };
