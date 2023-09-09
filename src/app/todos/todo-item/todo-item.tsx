@@ -53,6 +53,7 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
         styles.wrapper,
         sortable.isActiveDraggable && styles.hasReducedOpacityClassName
       )}
+      title={props.description}
       {...liProps}
     >
       {displayMode() === 'display' && (

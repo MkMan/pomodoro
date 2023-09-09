@@ -23,6 +23,9 @@ const description = style({
   height: displayModeHeight,
   lineHeight: `${displayModeHeight}px`,
   marginInlineEnd: 'auto',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 
   selectors: {
     '&.isCompleted': {
@@ -32,6 +35,7 @@ const description = style({
 });
 
 const checkbox = style({
+  flexShrink: 0,
   height: 15,
   width: 15,
 });
