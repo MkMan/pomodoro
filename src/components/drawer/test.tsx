@@ -8,7 +8,7 @@ describe('Drawer', () => {
 
   it('should render the content when open', () => {
     render(() => (
-      <Drawer onClose={onClose} isOpen>
+      <Drawer isOpen onClose={onClose}>
         Test content
       </Drawer>
     ));
@@ -17,7 +17,7 @@ describe('Drawer', () => {
   });
 
   it('should call onClose when the close icon is clicked', async () => {
-    render(() => <Drawer onClose={onClose} isOpen closeIconLabel="close" />);
+    render(() => <Drawer closeIconLabel="close" isOpen onClose={onClose} />);
 
     await userEvent.click(screen.getByRole('button', { name: 'close' }));
 

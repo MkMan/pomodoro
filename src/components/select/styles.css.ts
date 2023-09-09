@@ -1,38 +1,38 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 
 export const wrapper = style({
+  borderRadius: 4,
   position: 'relative',
   width: 'max-content',
-  borderRadius: 4,
 });
 
 export const select = style({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100%',
+  ':disabled': {
+    cursor: 'not-allowed',
+  },
   height: '100%',
+  left: 0,
   opacity: 0,
-
+  position: 'absolute',
   selectors: {
     '&:not(:disabled):hover': {
       cursor: 'pointer',
     },
   },
 
-  ':disabled': {
-    cursor: 'not-allowed',
-  },
+  top: 0,
+
+  width: '100%',
 });
 
 globalStyle(`${select}:not(:disabled):hover + *`, {
-  color: 'var(--color-font-inverted)',
   backgroundColor: 'var(--color-background-inverted)',
+  color: 'var(--color-font-inverted)',
 });
 
 globalStyle(`${select}:disabled + *`, {
-  opacity: 'var(--opacity-input-disabled)',
   cursor: 'not-allowed',
+  opacity: 'var(--opacity-input-disabled)',
 });
 
 globalStyle(`${select}:focus + *`, {
@@ -41,17 +41,17 @@ globalStyle(`${select}:focus + *`, {
 });
 
 export const presentational = style({
-  color: 'var(--color-font)',
+  alignItems: 'center',
   backgroundColor: 'var(--color-background)',
   border: '2px solid var(--color-cta-background)',
-  padding: '6px 12px',
+  borderRadius: 4,
+  color: 'var(--color-font)',
+  display: 'flex',
   fontSize: '1rem',
   fontWeight: 500,
-  borderRadius: 4,
-  display: 'flex',
   gap: 16,
-  alignItems: 'center',
-  transition: 'color 200ms ease',
   height: '100%',
   justifyContent: 'space-between',
+  padding: '6px 12px',
+  transition: 'color 200ms ease',
 });

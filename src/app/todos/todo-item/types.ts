@@ -1,6 +1,5 @@
-import { JSX } from 'solid-js';
-
 import { Todo } from '$app-state';
+import { JSX } from 'solid-js';
 
 type TodoItemProps = Todo & {
   class?: string;
@@ -9,6 +8,6 @@ type TodoItemProps = Todo & {
   onStatusChange: (status: Todo['status']) => void;
 } & JSX.HTMLAttributes<HTMLLIElement>;
 
-type Mode = 'edit' | 'display';
+type Mode = 'display' | 'edit';
 
 export type { Mode, TodoItemProps };

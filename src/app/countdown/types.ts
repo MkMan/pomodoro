@@ -3,18 +3,18 @@ export type CountdownProps = {
 };
 
 export type AppToWorkerMessageData =
-  | { type: 'start'; time: number }
   | {
       type: 'stop';
-    };
+    }
+  | { time: number; type: 'start' };
 
 export type AppToWorkerMessage = {
   data: AppToWorkerMessageData;
 };
 
 export type WorkerToAppMessageData = {
-  type: 'newTime';
   newTime: number;
+  type: 'newTime';
 };
 
 export type WorkerToAppMessage = { data: WorkerToAppMessageData };

@@ -1,14 +1,13 @@
+import { Todo, appStore, setAppStore } from '$app-state';
 import { DragEventHandler, Id } from '@thisbeyond/solid-dnd';
 import { Accessor, createMemo, createSignal } from 'solid-js';
-
-import { appStore, setAppStore, Todo } from '$app-state';
 
 const onCreatingNewTodo = (description: string) => {
   setAppStore('todos', (currentTodos) => [
     ...currentTodos,
     {
-      id: globalThis.crypto.randomUUID(),
       description,
+      id: globalThis.crypto.randomUUID(),
       status: 'not-started',
     },
   ]);
@@ -17,7 +16,7 @@ const onCreatingNewTodo = (description: string) => {
 const onDeletingCompletedTodos = () => {
   setAppStore(
     'todos',
-    appStore.todos.filter(({ status }) => status !== 'completed')
+    appStore.todos.filter(({ status }) => status !== 'completed'),
   );
 };
 
@@ -62,17 +61,17 @@ const onDragEnd: (todoIds: Accessor<string[]>) => DragEventHandler =
   };
 
 const handleDragOverlay = (): {
-  onDragStart: DragEventHandler;
   draggedTodo: Accessor<Todo | undefined>;
+  onDragStart: DragEventHandler;
 } => {
   const [draggedId, setDraggedId] = createSignal<Id>();
   const draggedTodo = createMemo(() =>
-    appStore.todos.find(({ id }) => id === draggedId())
+    appStore.todos.find(({ id }) => id === draggedId()),
   );
 
   return {
-    onDragStart: ({ draggable: { id } }) => setDraggedId(id),
     draggedTodo,
+    onDragStart: ({ draggable: { id } }) => setDraggedId(id),
   };
 };
 

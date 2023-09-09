@@ -1,6 +1,5 @@
-import { Component, createMemo, Show, splitProps } from 'solid-js';
-
 import { cx } from '$app-utils';
+import { Component, Show, createMemo, splitProps } from 'solid-js';
 
 import * as styles from './styles.css';
 import { InputProps } from './types';
@@ -17,7 +16,7 @@ const Input: Component<InputProps> = (_props) => {
   ]);
 
   const appearance: () => InputProps['appearance'] = createMemo(
-    () => props.appearance ?? 'block'
+    () => props.appearance ?? 'block',
   );
 
   return (

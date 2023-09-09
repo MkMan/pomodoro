@@ -5,45 +5,45 @@ const hasReducedOpacityClassName = 'hasReducedOpacity';
 const displayModeHeight = 40; // TODO: hardcoded to match Input height. Need to fix Input height
 
 const wrapper = style({
+  alignItems: 'center',
   display: 'flex',
   gap: 8,
   justifyContent: 'space-between',
-  alignItems: 'center',
-  transitionProperty: 'transform',
-  transitionDuration: '0.15s',
-
   selectors: {
     [`&.${hasReducedOpacityClassName}`]: {
       opacity: 0.5,
     },
   },
+  transitionDuration: '0.15s',
+
+  transitionProperty: 'transform',
 });
 
 const description = style({
   height: displayModeHeight,
   lineHeight: `${displayModeHeight}px`,
   marginInlineEnd: 'auto',
-  whiteSpace: 'nowrap',
   overflow: 'hidden',
-  textOverflow: 'ellipsis',
-
   selectors: {
     '&.isCompleted': {
       textDecoration: 'line-through solid 2px currentcolor',
     },
   },
+  textOverflow: 'ellipsis',
+
+  whiteSpace: 'nowrap',
 });
 
 const checkbox = style({
-  marginInlineStart: 4, // optical alignment
   flexShrink: 0,
   height: 15,
+  marginInlineStart: 4, // optical alignment
   width: 15,
 });
 
 const descriptionTextfield = style({
-  height: displayModeHeight,
   flex: 1,
+  height: displayModeHeight,
 });
 
 const editWrapper = style([wrapper, { width: '100%' }]);

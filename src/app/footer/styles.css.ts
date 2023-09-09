@@ -6,8 +6,8 @@ export const footer = style({
 });
 
 export const wrapper = style({
-  display: 'flex',
   alignItems: 'center',
+  display: 'flex',
 });
 
 export const sourceCodeLink = style({

@@ -1,7 +1,6 @@
+import { setAppStore } from '$app-state';
 import { render, screen } from '@solidjs/testing-library';
 import userEvent from '@testing-library/user-event';
-
-import { setAppStore } from '$app-state';
 
 import { Theme } from './theme';
 

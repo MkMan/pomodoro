@@ -1,1 +1,1 @@
-export type CurrentCounter = 'pomodoro' | 'shortBreak' | 'longBreak';
+export type CurrentCounter = 'longBreak' | 'pomodoro' | 'shortBreak';

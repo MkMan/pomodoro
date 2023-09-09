@@ -1,6 +1,5 @@
-import { JSX } from 'solid-js';
-
 import { setAppStore } from '$app-state';
+import { JSX } from 'solid-js';
 
 type InputChangeEvent = Parameters<
   JSX.EventHandler<HTMLInputElement, Event>
@@ -8,7 +7,7 @@ type InputChangeEvent = Parameters<
 
 const onNotificationCheckboxChange = (
   event: InputChangeEvent,
-  onNotificationRequestDeclined: () => void
+  onNotificationRequestDeclined: () => void,
 ) => {
   if (Notification.permission === 'denied') {
     // shouldn't happen because the checkbox will be disabled but adding for clarity

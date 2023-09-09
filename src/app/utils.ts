@@ -1,8 +1,7 @@
-import { createEffect, createSignal } from 'solid-js';
-import { CurrentCounter } from 'src/types';
-
 import { appStore } from '$app-state';
 import { cx } from '$app-utils';
+import { createEffect, createSignal } from 'solid-js';
+import { CurrentCounter } from 'src/types';
 
 import { audioUrlsMap } from '../assets/sounds';
 import { currentCounterMessageMap } from './constants';
@@ -25,8 +24,8 @@ const syncTheme = () => {
   const isDarkTheme = darkThemeQuery.matches;
   const isLightTheme = lightThemeQuery.matches;
 
-  const [osTheme, setOsTheme] = createSignal<'light' | 'dark' | undefined>(
-    isDarkTheme ? 'dark' : isLightTheme ? 'light' : undefined
+  const [osTheme, setOsTheme] = createSignal<'dark' | 'light' | undefined>(
+    isDarkTheme ? 'dark' : isLightTheme ? 'light' : undefined,
   );
 
   darkThemeQuery.addEventListener('change', ({ matches }) => {
@@ -44,7 +43,7 @@ const syncTheme = () => {
     if (appStore.theme === 'OS') {
       document.body.setAttribute(
         'class',
-        cx(osTheme() === 'dark' && 'isDarkTheme')
+        cx(osTheme() === 'dark' && 'isDarkTheme'),
       );
     }
 

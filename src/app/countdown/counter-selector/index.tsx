@@ -1,6 +1,3 @@
-import { FiEdit3, FiX } from 'solid-icons/fi';
-import { Component, createMemo, createSignal } from 'solid-js';
-
 import { IconButton, Select } from '$app-components';
 import {
   counterState,
@@ -9,6 +6,8 @@ import {
   setCurrentCounterIndex,
 } from '$app-state';
 import { cx } from '$app-utils';
+import { FiEdit3, FiX } from 'solid-icons/fi';
+import { Component, createMemo, createSignal } from 'solid-js';
 
 import { counterOrder } from '../../../constants';
 import { currentCounterLabelMap } from './constants';
@@ -25,7 +24,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
     counterOrder.map((counter, index) => ({
       label: `${index + 1}. ${currentCounterLabelMap[counter]}`,
       value: index.toString(),
-    }))
+    })),
   );
 
   if (
@@ -43,13 +42,13 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
             Counter
           </label>
           <Select
-            id={selectId}
             disabled={counterState() !== 'stopped'}
-            value={currentCounterIndex().toString()}
+            id={selectId}
             onChange={({ currentTarget }) => {
               setCurrentCounterIndex(parseInt(currentTarget.value));
             }}
             options={selectOptions()}
+            value={currentCounterIndex().toString()}
           />
           <IconButton aria-label="close counter editing" onClick={toggleMode}>
             <FiX size={30} />

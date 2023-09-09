@@ -62,7 +62,7 @@ describe('Todos', () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- in the dom
     await user.click(getDeleteAllTodosButton()!);
     expect(windowConfirmMock).toHaveBeenCalledWith(
-      'This will delete all todos. Are you sure?'
+      'This will delete all todos. Are you sure?',
     );
 
     expect(getAllTodos()).toHaveLength(0);

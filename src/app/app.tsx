@@ -1,5 +1,3 @@
-import { Component, createMemo, createSignal } from 'solid-js';
-
 import { Container, Drawer, Heading } from '$app-components';
 import {
   appStore,
@@ -7,6 +5,7 @@ import {
   incrementCounter,
   initialiseAppStore,
 } from '$app-state';
+import { Component, createMemo, createSignal } from 'solid-js';
 
 import { Countdown } from './countdown/countdown';
 import { Footer } from './footer/footer';
@@ -28,7 +27,7 @@ export const App: Component = () => {
   const shouldSendNotification = createMemo(
     () =>
       appStore.alerts.shouldSendNotification &&
-      Notification.permission === 'granted'
+      Notification.permission === 'granted',
   );
 
   const onCounterComplete = () => {

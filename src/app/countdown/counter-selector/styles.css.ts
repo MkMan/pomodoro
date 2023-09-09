@@ -1,11 +1,11 @@
 import { style } from '@vanilla-extract/css';
 
 const wrapper = style({
+  alignItems: 'center',
   display: 'flex',
   flexWrap: 'wrap',
-  justifyContent: 'center',
-  alignItems: 'center',
   gap: 8,
+  justifyContent: 'center',
 });
 
 const label = style({

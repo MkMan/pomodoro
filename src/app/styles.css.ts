@@ -3,15 +3,15 @@ import { style } from '@vanilla-extract/css';
 const wrapper = style({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between',
   height: '100%',
+  justifyContent: 'space-between',
 });
 
 const header = style({
-  position: 'sticky',
-  top: 0,
   backgroundColor: 'var(--color-background)',
   isolation: 'isolate',
+  position: 'sticky',
+  top: 0,
   zIndex: 1,
 });
 
@@ -20,8 +20,8 @@ const main = style({
 });
 
 const section = style({
-  paddingBlockStart: 48,
   paddingBlockEnd: 32,
+  paddingBlockStart: 48,
 });
 
 export { header, main, section, wrapper };

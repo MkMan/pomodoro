@@ -1,15 +1,14 @@
+import { Button, Heading } from '$app-components';
+import { appStore } from '$app-state';
+import { cx } from '$app-utils';
 import {
-  closestCenter,
   DragDropProvider,
   DragDropSensors,
   DragOverlay,
   SortableProvider,
+  closestCenter,
 } from '@thisbeyond/solid-dnd';
-import { Component, createMemo, createSignal, For } from 'solid-js';
-
-import { Button, Heading } from '$app-components';
-import { appStore } from '$app-state';
-import { cx } from '$app-utils';
+import { Component, For, createMemo, createSignal } from 'solid-js';
 
 import { Actions } from './actions/actions';
 import * as styles from './styles.css';
@@ -33,10 +32,10 @@ const Todos: Component = () => {
   const { draggedTodo, onDragStart } = handleDragOverlay();
 
   const hasTodos = createMemo(
-    () => !!appStore.todos.length && appStore.todos.length > 0
+    () => !!appStore.todos.length && appStore.todos.length > 0,
   );
   const hasCompletedTodos = createMemo(() =>
-    appStore.todos.some(({ status }) => status === 'completed')
+    appStore.todos.some(({ status }) => status === 'completed'),
   );
   const todoIds = createMemo(() => appStore.todos.map(({ id }) => id));
 
@@ -47,17 +46,17 @@ const Todos: Component = () => {
           Todos
         </Heading>
         <Actions
-          onDeletingCompletedTodos={onDeletingCompletedTodos}
           onDeletingAllTodos={onDeletingAllTodos}
+          onDeletingCompletedTodos={onDeletingCompletedTodos}
           shouldShowDeleteAllTodosButton={hasTodos()}
           shouldShowDeleteCompletedTodosButton={hasCompletedTodos()}
         />
       </div>
       {/* TODO: move out to a component */}
       <DragDropProvider
-        onDragStart={onDragStart}
-        onDragEnd={onDragEnd(todoIds)}
         collisionDetector={closestCenter}
+        onDragEnd={onDragEnd(todoIds)}
+        onDragStart={onDragStart}
       >
         <DragDropSensors />
         <ul class={styles.list}>

@@ -4,15 +4,15 @@ export const fontWeightMap: Record<
   NonNullable<HeadingProps['weight']>,
   number
 > = {
-  light: 300,
-  normal: 400,
-  bold: 700,
   300: 300,
   400: 400,
   500: 500,
   600: 600,
   700: 700,
   800: 800,
+  bold: 700,
+  light: 300,
+  normal: 400,
 };
 
 export const sizeMap: Record<NonNullable<HeadingProps['level']>, string> = {

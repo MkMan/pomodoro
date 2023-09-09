@@ -1,16 +1,15 @@
+import { IconButton } from '$app-components';
 import { AiOutlineClear } from 'solid-icons/ai';
 import { FiTrash } from 'solid-icons/fi';
 import { Component, Show } from 'solid-js';
-
-import { IconButton } from '$app-components';
 
 import { iconButton } from './styles.css';
 
 type Props = {
   onDeletingAllTodos: () => void;
   onDeletingCompletedTodos: () => void;
-  shouldShowDeleteCompletedTodosButton: boolean;
   shouldShowDeleteAllTodosButton: boolean;
+  shouldShowDeleteCompletedTodosButton: boolean;
 };
 
 const Actions: Component<Props> = (props) => (

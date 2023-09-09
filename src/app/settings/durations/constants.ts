@@ -1,7 +1,6 @@
+import { Input } from '$app-components';
 import { ComponentProps } from 'solid-js';
 import { AppStore } from 'src/state/app-store/types';
-
-import { Input } from '$app-components';
 
 type DurationField = {
   label: string;
@@ -10,8 +9,8 @@ type DurationField = {
 
 const commonInputProps: Partial<ComponentProps<typeof Input>> = {
   isRequired: true,
-  type: 'number',
   min: 1,
+  type: 'number',
 };
 
 const durationFields: DurationField[] = [

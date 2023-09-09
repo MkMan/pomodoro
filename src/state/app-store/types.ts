@@ -1,4 +1,4 @@
-type AppTheme = 'light' | 'dark' | 'OS';
+type AppTheme = 'OS' | 'dark' | 'light';
 
 type Todo = {
   description: string;
@@ -7,15 +7,15 @@ type Todo = {
 };
 
 type AppStore = {
-  durations: {
-    pomodoro: number;
-    longBreak: number;
-    shortBreak: number;
-  };
-  theme: AppTheme;
   alerts: {
     shouldSendNotification: boolean;
   };
+  durations: {
+    longBreak: number;
+    pomodoro: number;
+    shortBreak: number;
+  };
+  theme: AppTheme;
   todos: Todo[];
 };
 

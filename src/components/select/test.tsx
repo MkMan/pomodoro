@@ -9,14 +9,14 @@ describe('Select', () => {
 
   it('should render correctly', async () => {
     const options: SelectProps['options'] = [
-      { value: 'en', label: 'English' },
-      { value: 'es', label: 'Spanish' },
+      { label: 'English', value: 'en' },
+      { label: 'Spanish', value: 'es' },
     ];
-    const { value, label } = options[0];
+    const { label, value } = options[0];
     const onChange = vi.fn();
 
     render(() => (
-      <Select value={value} options={options} onChange={onChange} />
+      <Select onChange={onChange} options={options} value={value} />
     ));
 
     const dropDown = screen.getByRole('combobox');
@@ -35,14 +35,14 @@ describe('Select', () => {
 
     render(() => (
       <Select
-        value={'not real'}
-        options={[{ value: 'en', label: 'English' }]}
         onChange={vi.fn()}
+        options={[{ label: 'English', value: 'en' }]}
+        value={'not real'}
       />
     ));
 
     expect(console.error).toHaveBeenCalledWith(
-      expect.stringContaining('Error in Select')
+      expect.stringContaining('Error in Select'),
     );
   });
 });

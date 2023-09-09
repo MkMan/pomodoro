@@ -1,8 +1,8 @@
 import { style } from '@vanilla-extract/css';
 
 const headingWrapper = style({
-  display: 'flex',
   alignItems: 'baseline',
+  display: 'flex',
   justifyContent: 'space-between',
 });
 
