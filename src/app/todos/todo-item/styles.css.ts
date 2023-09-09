@@ -35,6 +35,7 @@ const description = style({
 });
 
 const checkbox = style({
+  marginInlineStart: 4, // optical alignment
   flexShrink: 0,
   height: 15,
   width: 15,
