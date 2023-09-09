@@ -15,14 +15,14 @@ export const Select: Component<SelectProps> = (_props) => {
 
   const currentLabel = createMemo(() => {
     const currentOption = props.options.find(
-      ({ value }) => value === props.value
+      ({ value }) => value === props.value,
     );
 
     if (!currentOption) {
       console.error(
         `Error in Select: value ${props.value} not found in ${JSON.stringify(
-          props.options
-        )}`
+          props.options,
+        )}`,
       );
     }
 

@@ -7,7 +7,7 @@ describe('Footer', () => {
     render(() => <Footer />);
 
     expect(
-      screen.getByRole('link', { name: 'Source code' })
+      screen.getByRole('link', { name: 'Source code' }),
     ).toBeInTheDocument();
   });
 });

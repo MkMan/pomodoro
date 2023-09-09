@@ -26,21 +26,21 @@ describe('App', () => {
       withinTheHeader().getByRole('heading', {
         level: 1,
         name: 'Pomodoro',
-      })
+      }),
     ).toBeInTheDocument();
 
     // main
     expect(
-      withinMainSection().getByRole('button', { name: 'edit counter type' })
+      withinMainSection().getByRole('button', { name: 'edit counter type' }),
     ).toBeInTheDocument();
     expect(
-      withinMainSection().getByRole('button', { name: 'Start' })
+      withinMainSection().getByRole('button', { name: 'Start' }),
     ).toBeInTheDocument();
     expect(
-      withinMainSection().getByRole('button', { name: 'Reset' })
+      withinMainSection().getByRole('button', { name: 'Reset' }),
     ).toBeInTheDocument();
     expect(
-      withinMainSection().getByRole('button', { name: 'Create a todo' })
+      withinMainSection().getByRole('button', { name: 'Create a todo' }),
     ).toBeInTheDocument();
 
     // footer
@@ -55,7 +55,7 @@ describe('App', () => {
     await user.click(
       withinSettingsDrawer().getByRole('button', {
         name: 'close settings menu',
-      })
+      }),
     );
     await waitForElementToBeRemoved(getSettingsDrawer());
     expect(getSettingsDrawer()).not.toBeInTheDocument();

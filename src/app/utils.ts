@@ -25,7 +25,7 @@ const syncTheme = () => {
   const isLightTheme = lightThemeQuery.matches;
 
   const [osTheme, setOsTheme] = createSignal<'dark' | 'light' | undefined>(
-    isDarkTheme ? 'dark' : isLightTheme ? 'light' : undefined
+    isDarkTheme ? 'dark' : isLightTheme ? 'light' : undefined,
   );
 
   darkThemeQuery.addEventListener('change', ({ matches }) => {
@@ -43,7 +43,7 @@ const syncTheme = () => {
     if (appStore.theme === 'OS') {
       document.body.setAttribute(
         'class',
-        cx(osTheme() === 'dark' && 'isDarkTheme')
+        cx(osTheme() === 'dark' && 'isDarkTheme'),
       );
     }
 

@@ -16,7 +16,7 @@ const Input: Component<InputProps> = (_props) => {
   ]);
 
   const appearance: () => InputProps['appearance'] = createMemo(
-    () => props.appearance ?? 'block'
+    () => props.appearance ?? 'block',
   );
 
   return (

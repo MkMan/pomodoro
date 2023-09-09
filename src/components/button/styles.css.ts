@@ -43,7 +43,7 @@ export const primary = style(
     background: '--color-cta-background',
     border: '--color-cta-background',
     font: '--color-cta-font',
-  })
+  }),
 );
 
 export const secondary = style(
@@ -51,7 +51,7 @@ export const secondary = style(
     background: '--color-cta-font',
     border: '--color-cta-background',
     font: '--color-cta-background',
-  })
+  }),
 );
 
 export const danger = style(
@@ -59,5 +59,5 @@ export const danger = style(
     background: '--color-danger',
     border: '--color-danger',
     font: '--color-cta-font',
-  })
+  }),
 );

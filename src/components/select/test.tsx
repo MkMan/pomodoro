@@ -42,7 +42,7 @@ describe('Select', () => {
     ));
 
     expect(console.error).toHaveBeenCalledWith(
-      expect.stringContaining('Error in Select')
+      expect.stringContaining('Error in Select'),
     );
   });
 });

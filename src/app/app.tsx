@@ -27,7 +27,7 @@ export const App: Component = () => {
   const shouldSendNotification = createMemo(
     () =>
       appStore.alerts.shouldSendNotification &&
-      Notification.permission === 'granted'
+      Notification.permission === 'granted',
   );
 
   const onCounterComplete = () => {

@@ -16,7 +16,7 @@ const onCreatingNewTodo = (description: string) => {
 const onDeletingCompletedTodos = () => {
   setAppStore(
     'todos',
-    appStore.todos.filter(({ status }) => status !== 'completed')
+    appStore.todos.filter(({ status }) => status !== 'completed'),
   );
 };
 
@@ -66,7 +66,7 @@ const handleDragOverlay = (): {
 } => {
   const [draggedId, setDraggedId] = createSignal<Id>();
   const draggedTodo = createMemo(() =>
-    appStore.todos.find(({ id }) => id === draggedId())
+    appStore.todos.find(({ id }) => id === draggedId()),
   );
 
   return {

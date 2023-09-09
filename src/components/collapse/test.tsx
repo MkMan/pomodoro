@@ -13,7 +13,7 @@ describe('Collapse', () => {
 
     // content collapsed by default
     expect(
-      screen.getByRole('heading', { level: 3, name: 'Test label' })
+      screen.getByRole('heading', { level: 3, name: 'Test label' }),
     ).toBeInTheDocument();
     expect(screen.getByText('test content')).not.toBeVisible();
 

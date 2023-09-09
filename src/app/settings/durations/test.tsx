@@ -38,7 +38,7 @@ describe('Durations', () => {
     expect(appState.setAppStore).toHaveBeenLastCalledWith(
       'durations',
       'pomodoro',
-      20
+      20,
     );
   });
 

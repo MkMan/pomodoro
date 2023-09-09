@@ -11,7 +11,7 @@ describe('Header', () => {
     render(() => <Header onSettingsClick={onSettingsClick} />);
 
     expect(
-      screen.getByRole('heading', { name: 'Pomodoro' })
+      screen.getByRole('heading', { name: 'Pomodoro' }),
     ).toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: 'settings menu' }));

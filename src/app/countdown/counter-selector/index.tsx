@@ -24,7 +24,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
     counterOrder.map((counter, index) => ({
       label: `${index + 1}. ${currentCounterLabelMap[counter]}`,
       value: index.toString(),
-    }))
+    })),
   );
 
   if (

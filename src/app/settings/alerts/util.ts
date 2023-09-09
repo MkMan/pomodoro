@@ -7,7 +7,7 @@ type InputChangeEvent = Parameters<
 
 const onNotificationCheckboxChange = (
   event: InputChangeEvent,
-  onNotificationRequestDeclined: () => void
+  onNotificationRequestDeclined: () => void,
 ) => {
   if (Notification.permission === 'denied') {
     // shouldn't happen because the checkbox will be disabled but adding for clarity

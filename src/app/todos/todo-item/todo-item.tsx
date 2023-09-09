@@ -47,7 +47,7 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
       class={cx(
         props.class,
         styles.wrapper,
-        sortable.isActiveDraggable && styles.hasReducedOpacityClassName
+        sortable.isActiveDraggable && styles.hasReducedOpacityClassName,
       )}
       title={props.description}
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- unable to declare types for the directive

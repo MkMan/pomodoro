@@ -24,7 +24,7 @@ export const Countdown: Component<CountdownProps> = (props) => {
   const isPaused = createMemo(() => counterState() === 'stopped' && time() > 0);
   const shouldShowStartButton = createMemo(() => counterState() === 'stopped');
   const shouldShowPauseButton = createMemo(
-    () => counterState() === 'running' && time() > 0
+    () => counterState() === 'running' && time() > 0,
   );
 
   // utility functions

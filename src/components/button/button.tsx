@@ -26,7 +26,7 @@ export const Button: Component<ButtonProps> = (_props) => {
       class={cx(
         buttonVariantStylingMap[props.variant ?? 'primary'],
         props.size === 'small' && 'isSmall',
-        props.class
+        props.class,
       )}
       {...buttonProps}
     >

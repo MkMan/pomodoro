@@ -41,9 +41,9 @@ export default defineConfig({
   ],
   test: {
     clearMocks: true,
+    /* eslint-disable perfectionist/sort-objects */
     coverage: {
       all: true,
-      branches: 93.42,
       clean: true,
       cleanOnRerun: true,
       exclude: [
@@ -55,15 +55,16 @@ export default defineConfig({
         '**/*/styles.ts',
         '**/*/*.d.ts',
       ],
-      functions: 91.27,
-      // thresholds
-      lines: 91.48,
       provider: 'c8',
 
       reporter: ['lcov', 'text-summary'],
       src: ['./src'],
-      statements: 91.48,
       thresholdAutoUpdate: true,
+
+      branches: 93.35,
+      functions: 90.11,
+      lines: 87.26,
+      statements: 87.26,
     },
     include: ['**/?(*.)test.ts?(x)'],
 

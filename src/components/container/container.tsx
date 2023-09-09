@@ -13,7 +13,7 @@ const Container: Component<ContainerProps> = (props) => {
   const maxWidth = createMemo(() =>
     typeof props.maxWidth === 'number' || typeof props.maxWidth === 'string'
       ? `${props.maxWidth}px`
-      : undefined
+      : undefined,
   );
 
   return (
