@@ -9,7 +9,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/strict",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:solid/typescript"
+    "plugin:solid/typescript",
+    "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -44,7 +45,9 @@
         "vitest/max-expects": "off",
         "vitest/prefer-lowercase-title": [
           "error",
-          { "ignoreTopLevelDescribe": true }
+          {
+            "ignoreTopLevelDescribe": true
+          }
         ]
       }
     }
