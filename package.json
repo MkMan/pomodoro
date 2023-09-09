@@ -25,11 +25,11 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@fontsource/raleway": "^4.5.12",
+    "@fontsource/raleway": "^5.0.8",
     "@thisbeyond/solid-dnd": "^0.7.4",
-    "@vanilla-extract/css": "^1.12.0",
-    "solid-icons": "^1.0.4",
-    "solid-js": "^1.7.2"
+    "@vanilla-extract/css": "^1.13.0",
+    "solid-icons": "^1.0.12",
+    "solid-js": "^1.7.11"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.3",
