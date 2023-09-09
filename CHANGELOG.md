@@ -1,3 +1,9 @@
+# [3.3.0](https://github.com/MkMan/pomodoro/compare/v3.2.0...v3.3.0) (2023-09-09)
+
+### Features
+
+- **app:** update prod depedencies ([37e6910](https://github.com/MkMan/pomodoro/commit/37e691084dce2232160a8c405fe718d1595e45ef))
+
 # [3.2.0](https://github.com/MkMan/pomodoro/compare/v3.1.0...v3.2.0) (2023-09-09)
 
 ### Features
