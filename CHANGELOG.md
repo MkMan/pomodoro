@@ -1,3 +1,12 @@
+# [3.2.0](https://github.com/MkMan/pomodoro/compare/v3.1.0...v3.2.0) (2023-09-09)
+
+### Features
+
+- **todos:** allow submitting edits by {enter} key ([158761d](https://github.com/MkMan/pomodoro/commit/158761dc36412288aee6b22fa496ff280d92e8c9))
+- **todos:** optical align checkbox ([05894e0](https://github.com/MkMan/pomodoro/commit/05894e065b9c67f74f067c67bbc50afc94499e68))
+- **todos:** trim long todo description ([543d0c4](https://github.com/MkMan/pomodoro/commit/543d0c4251838802eaf36a95cf624366a0cdf630))
+- **todos:** use solid-dnd to improve drag-drop ([6f63b10](https://github.com/MkMan/pomodoro/commit/6f63b10ce1a760a13ad1b991244d44f3fb2dd5b3))
+
 # [3.1.0](https://github.com/MkMan/pomodoro/compare/v3.0.0...v3.1.0) (2023-09-03)
 
 ### Features
