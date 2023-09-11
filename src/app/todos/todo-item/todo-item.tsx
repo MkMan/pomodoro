@@ -1,6 +1,6 @@
 import { IconButton, Input } from '$app-components';
 import { cx } from '$app-utils';
-import { createSortable } from '@thisbeyond/solid-dnd';
+import { createSortable, useDragDropContext } from '@thisbeyond/solid-dnd';
 import { FiCheck, FiEdit3, FiX } from 'solid-icons/fi';
 import {
   Component,
@@ -10,6 +10,7 @@ import {
   splitProps,
 } from 'solid-js';
 
+import { classNames } from './constants';
 import * as styles from './styles.css';
 import { Mode, TodoItemProps } from './types';
 
@@ -27,6 +28,7 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
 
   // eslint-disable-next-line solid/reactivity -- as per the docs
   const sortable = createSortable(props.id);
+  const state = useDragDropContext()?.[0];
 
   const [displayMode, setDisplayMode] = createSignal<Mode>('display');
   const [newDescription, setNewDescription] = createSignal('');
@@ -47,7 +49,8 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
       class={cx(
         props.class,
         styles.wrapper,
-        sortable.isActiveDraggable && styles.hasReducedOpacityClassName,
+        sortable.isActiveDraggable && classNames.hasReducedOpacity,
+        !!state?.active.draggable && classNames.hasTransitionTransform,
       )}
       title={props.description}
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- unable to declare types for the directive

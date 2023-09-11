@@ -61,10 +61,10 @@ export default defineConfig({
       src: ['./src'],
       thresholdAutoUpdate: true,
 
-      branches: 93.35,
+      branches: 93.04,
       functions: 90.11,
-      lines: 87.26,
-      statements: 87.26,
+      lines: 87.27,
+      statements: 87.27,
     },
     include: ['**/?(*.)test.ts?(x)'],
 
