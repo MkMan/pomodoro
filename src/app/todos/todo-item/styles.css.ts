@@ -26,6 +26,7 @@ const description = style({
   height: displayModeHeight,
   lineHeight: `${displayModeHeight}px`,
   marginInlineEnd: 'auto',
+  maxWidth: 'fit-content',
   overflow: 'hidden',
   selectors: {
     '&.isCompleted': {
