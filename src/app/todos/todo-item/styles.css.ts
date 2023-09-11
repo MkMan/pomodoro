@@ -22,6 +22,7 @@ const wrapper = style({
 });
 
 const description = style({
+  flex: 1,
   height: displayModeHeight,
   lineHeight: `${displayModeHeight}px`,
   marginInlineEnd: 'auto',
@@ -37,7 +38,6 @@ const description = style({
 });
 
 const checkbox = style({
-  flexShrink: 0,
   height: 15,
   marginInlineStart: 4, // optical alignment
   width: 15,
