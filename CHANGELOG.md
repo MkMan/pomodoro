@@ -1,3 +1,12 @@
+## [3.3.1](https://github.com/MkMan/pomodoro/compare/v3.3.0...v3.3.1) (2023-09-11)
+
+### Bug Fixes
+
+- **app:** increase header/footer max width ([665e62d](https://github.com/MkMan/pomodoro/commit/665e62dc71ce7a962e2e578f30f07fc9699be060))
+- **todos:** correctly apply transform animation ([bf443e6](https://github.com/MkMan/pomodoro/commit/bf443e600664cf7f1705df02c1d2d10f43cea0b2))
+- **todos:** prevent icons from shrinking ([82c06b4](https://github.com/MkMan/pomodoro/commit/82c06b42a41347c3795da129dc4657523bae07db))
+- **todos:** prevent label from taking full width ([27fbbc3](https://github.com/MkMan/pomodoro/commit/27fbbc332c095df8fade06fbde81a649028b2617))
+
 # [3.3.0](https://github.com/MkMan/pomodoro/compare/v3.2.0...v3.3.0) (2023-09-09)
 
 ### Features
