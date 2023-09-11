@@ -7,7 +7,7 @@ import * as styles from './styles.css';
 
 export const Footer: Component = () => (
   <footer class={styles.footer}>
-    <Container class={styles.wrapper} maxWidth={600}>
+    <Container class={styles.wrapper} maxWidth={1000}>
       <span>App version: {version}</span>
       <a
         class={styles.sourceCodeLink}

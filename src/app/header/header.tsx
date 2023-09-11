@@ -12,7 +12,7 @@ type Props = {
 
 export const Header: Component<Props> = (props) => (
   <header class={cx(styles.header, props.class)}>
-    <Container maxWidth={600}>
+    <Container maxWidth={1000}>
       <div class={styles.headerContentWrapper}>
         <IconButton aria-label="settings menu" onClick={props.onSettingsClick}>
           <FiMenu size={30} />
