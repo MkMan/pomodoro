@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-const hasReducedOpacityClassName = 'hasReducedOpacity';
+import { classNames } from './constants';
 
 const displayModeHeight = 40; // TODO: hardcoded to match Input height. Need to fix Input height
 
@@ -10,13 +10,15 @@ const wrapper = style({
   gap: 8,
   justifyContent: 'space-between',
   selectors: {
-    [`&.${hasReducedOpacityClassName}`]: {
+    [`&.${classNames.hasReducedOpacity}`]: {
       opacity: 0.5,
     },
-  },
-  transitionDuration: '0.15s',
 
-  transitionProperty: 'transform',
+    [`&.${classNames.hasTransitionTransform}`]: {
+      transitionDuration: '0.15s',
+      transitionProperty: 'transform',
+    },
+  },
 });
 
 const description = style({
@@ -48,11 +50,4 @@ const descriptionTextfield = style({
 
 const editWrapper = style([wrapper, { width: '100%' }]);
 
-export {
-  checkbox,
-  description,
-  descriptionTextfield,
-  editWrapper,
-  hasReducedOpacityClassName,
-  wrapper,
-};
+export { checkbox, description, descriptionTextfield, editWrapper, wrapper };
