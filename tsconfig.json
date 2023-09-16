@@ -21,7 +21,8 @@
     "paths": {
       "$app-utils": ["./src/utility"],
       "$app-components": ["./src/components"],
-      "$app-state": ["./src/state"]
+      "$app-state": ["./src/state"],
+      "$app-theme": ["./src/theme/index.css.ts"]
     }
   },
   "include": ["src", "./test-setup.ts", "./index.tsx"],
