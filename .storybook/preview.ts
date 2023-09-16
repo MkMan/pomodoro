@@ -1,9 +1,12 @@
 import { Preview } from 'storybook-solidjs';
 
-import '../src/css/colors.css';
 import '../src/css/dimensions.css';
 import '../src/css/fonts.css';
 import '../src/css/reset.css';
+
+import { lightThemeClassName } from '../src/theme/index.css';
+
+globalThis.document.body.classList.add(lightThemeClassName);
 
 const preview: Preview = {
   parameters: {

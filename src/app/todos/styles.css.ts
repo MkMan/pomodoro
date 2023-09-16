@@ -1,8 +1,9 @@
+import { variables } from '$app-theme';
 import { style } from '@vanilla-extract/css';
 
 const wrapper = style({
   borderRadius: 8,
-  boxShadow: 'var(--boxShadow-card)',
+  boxShadow: variables.color.boxShadowCard,
   padding: 16,
 });
 
@@ -25,7 +26,7 @@ const list = style({
 
 const listItem = style({
   borderRadius: 8,
-  boxShadow: 'var(--boxShadow-card)',
+  boxShadow: variables.color.boxShadowCard,
   cursor: 'grab',
   marginBlock: 16,
   padding: 8,
@@ -44,7 +45,7 @@ const draggedItem = style([
   listItem,
   {
     alignItems: 'center',
-    backgroundColor: 'var(--color-background)',
+    backgroundColor: variables.color.background,
     cursor: 'grabbing',
     display: 'flex',
     fontSize: '1.1rem', // hardcoded to match label styling

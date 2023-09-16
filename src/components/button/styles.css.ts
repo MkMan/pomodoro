@@ -1,3 +1,4 @@
+import { variables } from '$app-theme';
 import { ComplexStyleRule, style } from '@vanilla-extract/css';
 
 type BaseStylesColors = Record<'background' | 'border' | 'font', string>;
@@ -9,12 +10,12 @@ const getBaseStyles = ({
 }: BaseStylesColors): ComplexStyleRule => ({
   ':disabled': {
     cursor: 'not-allowed',
-    opacity: 'var(--opacity-input-disabled)',
+    opacity: variables.opacity.inputDisabled,
   },
-  backgroundColor: `var(${background})`,
-  border: `2px solid var(${border})`,
+  backgroundColor: background,
+  border: `2px solid ${border}`,
   borderRadius: 8,
-  color: `var(${font})`,
+  color: font,
   cursor: 'pointer',
   fontSize: '1.2rem',
   fontWeight: 600,
@@ -29,9 +30,9 @@ const getBaseStyles = ({
     },
 
     '&:not(:disabled):hover': {
-      backgroundColor: `var(${font})`,
-      border: `2px solid var(${background})`,
-      color: `var(${background})`,
+      backgroundColor: `${font}`,
+      border: `2px solid ${background}`,
+      color: background,
     },
   },
 
@@ -40,24 +41,24 @@ const getBaseStyles = ({
 
 export const primary = style(
   getBaseStyles({
-    background: '--color-cta-background',
-    border: '--color-cta-background',
-    font: '--color-cta-font',
+    background: variables.color.ctaBackground,
+    border: variables.color.ctaBackground,
+    font: variables.color.ctaText,
   }),
 );
 
 export const secondary = style(
   getBaseStyles({
-    background: '--color-cta-font',
-    border: '--color-cta-background',
-    font: '--color-cta-background',
+    background: variables.color.ctaText,
+    border: variables.color.ctaBackground,
+    font: variables.color.ctaBackground,
   }),
 );
 
 export const danger = style(
   getBaseStyles({
-    background: '--color-danger',
-    border: '--color-danger',
-    font: '--color-cta-font',
+    background: variables.color.danger,
+    border: variables.color.danger,
+    font: variables.color.ctaText,
   }),
 );

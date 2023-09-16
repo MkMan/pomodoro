@@ -1,3 +1,4 @@
+import { variables } from '$app-theme';
 import { style } from '@vanilla-extract/css';
 
 const hover = style({
@@ -5,7 +6,7 @@ const hover = style({
     '(hover: hover)': {
       selectors: {
         '&:not(:disabled):hover': {
-          boxShadow: 'var(--boxShadow-input-hover)',
+          boxShadow: variables.color.boxShadowInputHover,
         },
       },
     },

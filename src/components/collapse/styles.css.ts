@@ -1,10 +1,11 @@
+import { variables } from '$app-theme';
 import { globalStyle, style } from '@vanilla-extract/css';
 
 const expandingAnimationDuration = '300ms';
 
 const wrapper = style({
   borderRadius: 8,
-  boxShadow: 'var(--boxShadow-card)',
+  boxShadow: variables.color.boxShadowCard,
   marginInline: -8,
   padding: 8,
 });

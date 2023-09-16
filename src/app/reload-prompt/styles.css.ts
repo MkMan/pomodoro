@@ -1,3 +1,4 @@
+import { variables } from '$app-theme';
 import { style } from '@vanilla-extract/css';
 
 const container = style({
@@ -8,7 +9,7 @@ const container = style({
 });
 
 const toast = style({
-  backgroundColor: 'var(--color-background-inverted)',
+  backgroundColor: variables.color.backgroundInverted,
   border: '1px solid #8885',
   borderRadius: 8,
   bottom: 0,
@@ -22,7 +23,7 @@ const toast = style({
 });
 
 const toastMessage = style({
-  color: 'var(--color-font-inverted)',
+  color: variables.color.fontInverted,
   fontSize: '1.2rem',
   fontWeight: 'bold',
   marginBottom: 16,
