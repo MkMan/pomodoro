@@ -49,6 +49,7 @@ export default defineConfig({
       exclude: [
         '**/*/index.ts?(x)',
         '**/*/*test.ts?(x)',
+        '**/*/*stories.ts?(x)',
         'test-setup.ts',
         '**/*/types.ts',
         '**/*/constants.ts',
@@ -62,9 +63,9 @@ export default defineConfig({
       thresholdAutoUpdate: true,
 
       branches: 93.06,
-      functions: 90.17,
-      lines: 87.32,
-      statements: 87.32,
+      functions: 91.22,
+      lines: 91.28,
+      statements: 91.28,
     },
     include: ['**/?(*.)test.ts?(x)'],
 
