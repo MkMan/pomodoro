@@ -9,6 +9,7 @@ import {
   darkThemeClassName,
 } from '../src/theme/index.css';
 import { createEffect } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
 
 const withTheme: Decorator = (StoryFn, context) => {
   const theme = context.parameters.theme || context.globals.theme;
@@ -21,6 +22,16 @@ const withTheme: Decorator = (StoryFn, context) => {
   });
 
   return StoryFn();
+};
+
+// @ts-expect-error -- TS being funny
+const withPadding: Decorator = (StoryFn) => {
+  return (
+    // @ts-expect-error -- TS being funny
+    <Dynamic component="div" style={{ padding: '16px' }}>
+      {StoryFn()}
+    </Dynamic>
+  );
 };
 
 const globalTypes = {
@@ -49,7 +60,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [withTheme],
+  decorators: [withTheme, withPadding],
 };
 
 export default preview;
