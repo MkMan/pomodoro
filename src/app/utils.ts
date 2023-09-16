@@ -1,4 +1,5 @@
 import { appStore } from '$app-state';
+import { darkThemeClassName, lightThemeClassName } from '$app-theme';
 import { cx } from '$app-utils';
 import { createEffect, createSignal } from 'solid-js';
 import { CurrentCounter } from 'src/types';
@@ -43,16 +44,18 @@ const syncTheme = () => {
     if (appStore.theme === 'OS') {
       document.body.setAttribute(
         'class',
-        cx(osTheme() === 'dark' && 'isDarkTheme'),
+        cx(osTheme() === 'dark' ? darkThemeClassName : lightThemeClassName),
       );
     }
 
     if (appStore.theme === 'light') {
-      document.body.classList.remove('isDarkTheme');
+      document.body.classList.add(lightThemeClassName);
+      document.body.classList.remove(darkThemeClassName);
     }
 
     if (appStore.theme === 'dark') {
-      document.body.classList.add('isDarkTheme');
+      document.body.classList.add(darkThemeClassName);
+      document.body.classList.remove(lightThemeClassName);
     }
   });
 };

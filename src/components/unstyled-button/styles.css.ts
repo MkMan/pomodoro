@@ -1,13 +1,14 @@
+import { variables } from '$app-theme';
 import { style } from '@vanilla-extract/css';
 
 export const unstyledButton = style({
   ':disabled': {
     cursor: 'not-allowed',
   },
-  backgroundColor: 'var(--color-background)',
+  backgroundColor: variables.color.background,
   border: 'none',
   borderRadius: 4,
-  color: 'var(--color-font)',
+  color: variables.color.font,
   cursor: 'pointer',
   padding: 3,
 

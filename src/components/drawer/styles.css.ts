@@ -1,7 +1,8 @@
+import { variables } from '$app-theme';
 import { style } from '@vanilla-extract/css';
 
 export const overlay = style({
-  backgroundColor: 'var(--color-overlay)',
+  backgroundColor: variables.color.overlay,
   bottom: 0,
   left: 0,
   opacity: 0,
@@ -22,7 +23,7 @@ export const overlay = style({
 });
 
 export const wrapper = style({
-  backgroundColor: 'var(--color-background)',
+  backgroundColor: variables.color.background,
   bottom: 0,
   boxShadow: '6px 0px 16px 2px #777',
   display: 'flex',

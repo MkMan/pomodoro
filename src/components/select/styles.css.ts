@@ -1,3 +1,4 @@
+import { variables } from '$app-theme';
 import { globalStyle, style } from '@vanilla-extract/css';
 
 export const wrapper = style({
@@ -26,13 +27,13 @@ export const select = style({
 });
 
 globalStyle(`${select}:not(:disabled):hover + *`, {
-  backgroundColor: 'var(--color-background-inverted)',
-  color: 'var(--color-font-inverted)',
+  backgroundColor: variables.color.backgroundInverted,
+  color: variables.color.fontInverted,
 });
 
 globalStyle(`${select}:disabled + *`, {
   cursor: 'not-allowed',
-  opacity: 'var(--opacity-input-disabled)',
+  opacity: variables.opacity.inputDisabled,
 });
 
 globalStyle(`${select}:focus + *`, {
@@ -42,10 +43,10 @@ globalStyle(`${select}:focus + *`, {
 
 export const presentational = style({
   alignItems: 'center',
-  backgroundColor: 'var(--color-background)',
+  backgroundColor: variables.color.background,
   border: '2px solid var(--color-cta-background)',
   borderRadius: 4,
-  color: 'var(--color-font)',
+  color: variables.color.font,
   display: 'flex',
   fontSize: '1rem',
   fontWeight: 500,

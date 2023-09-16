@@ -1,3 +1,4 @@
+import { variables } from '$app-theme';
 import { style } from '@vanilla-extract/css';
 
 const wrapper = style({
@@ -8,7 +9,7 @@ const wrapper = style({
 });
 
 const header = style({
-  backgroundColor: 'var(--color-background)',
+  backgroundColor: variables.color.background,
   isolation: 'isolate',
   position: 'sticky',
   top: 0,
