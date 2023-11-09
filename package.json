@@ -83,7 +83,7 @@
   },
   "engines": {
     "node": "18.13.0",
-    "pnpm": "8.5.1"
+    "pnpm": ">=8.10.2"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",
