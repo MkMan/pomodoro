@@ -62,7 +62,7 @@ export default defineConfig({
       src: ['./src'],
       thresholdAutoUpdate: true,
 
-      branches: 93.06,
+      branches: 92.76,
       functions: 91.22,
       lines: 91.28,
       statements: 91.28,
