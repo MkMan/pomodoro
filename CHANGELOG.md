@@ -1,3 +1,9 @@
+## [3.3.2](https://github.com/MkMan/pomodoro/compare/v3.3.1...v3.3.2) (2024-02-17)
+
+### Bug Fixes
+
+- update production dependencies ([085bdba](https://github.com/MkMan/pomodoro/commit/085bdbae3ab29b933599d9f8645df1818342ec1c))
+
 ## [3.3.1](https://github.com/MkMan/pomodoro/compare/v3.3.0...v3.3.1) (2023-09-11)
 
 ### Bug Fixes
