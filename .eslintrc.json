@@ -42,6 +42,7 @@
       ],
       "rules": {
         "vitest/max-expects": "off",
+        "vitest/prefer-expect-assertions": "off",
         "vitest/prefer-lowercase-title": [
           "error",
           {
