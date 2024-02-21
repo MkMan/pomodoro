@@ -1,3 +1,9 @@
+## [3.3.3](https://github.com/MkMan/pomodoro/compare/v3.3.2...v3.3.3) (2024-02-21)
+
+### Bug Fixes
+
+- use correct colour values ([027b06a](https://github.com/MkMan/pomodoro/commit/027b06a7d37d7e41cf9216aec93616ef70f2cd06))
+
 ## [3.3.2](https://github.com/MkMan/pomodoro/compare/v3.3.1...v3.3.2) (2024-02-17)
 
 ### Bug Fixes
