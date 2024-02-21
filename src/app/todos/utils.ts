@@ -45,7 +45,6 @@ const onTodoDelete = (indexToRemove: number) => () => {
 const onDragEnd: (todoIds: Accessor<string[]>) => DragEventHandler =
   (todoIds) =>
   ({ draggable, droppable }) => {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!droppable || !draggable) return;
 
     const fromIndex = todoIds().indexOf(draggable.id.toString());

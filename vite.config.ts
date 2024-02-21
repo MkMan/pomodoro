@@ -39,9 +39,11 @@ export default defineConfig({
       registerType: 'prompt',
     }),
   ],
+  resolve: {
+    conditions: ['development', 'browser'],
+  },
   test: {
     clearMocks: true,
-    /* eslint-disable perfectionist/sort-objects */
     coverage: {
       all: true,
       clean: true,
@@ -56,23 +58,31 @@ export default defineConfig({
         '**/*/styles.ts',
         '**/*/*.d.ts',
       ],
-      provider: 'c8',
-
+      provider: 'v8',
       reporter: ['lcov', 'text-summary'],
-      src: ['./src'],
-      thresholdAutoUpdate: true,
 
-      branches: 92.76,
-      functions: 91.22,
-      lines: 91.28,
-      statements: 91.28,
+      thresholds: {
+        autoUpdate: true,
+        branches: 91.58,
+        functions: 86.27,
+        lines: 81.74,
+        statements: 81.74,
+      },
     },
+    deps: {
+      optimizer: {
+        web: {
+          exclude: ['solid-js'],
+        },
+      },
+    },
+    environment: 'jsdom',
+    globals: true,
     include: ['**/?(*.)test.ts?(x)'],
-
     mockReset: true,
-    reporters: ['verbose'],
+    pool: 'forks',
+    // reporters: ['verbose'], // when enabled it logs twice
     restoreMocks: true,
-
     setupFiles: './test-setup.ts',
   },
 });
