@@ -44,7 +44,7 @@ globalStyle(`${select}:focus + *`, {
 export const presentational = style({
   alignItems: 'center',
   backgroundColor: variables.color.background,
-  border: '2px solid var(--color-cta-background)',
+  border: `2px solid ${variables.color.ctaBackground}`,
   borderRadius: 4,
   color: variables.color.font,
   display: 'flex',
