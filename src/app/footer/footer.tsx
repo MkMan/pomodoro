@@ -1,4 +1,5 @@
 import { Container } from '$app-components';
+import { variables } from '$app-theme';
 import { FiGithub } from 'solid-icons/fi';
 import { Component } from 'solid-js';
 
@@ -15,7 +16,7 @@ export const Footer: Component = () => (
         target="blank"
         title="Source code"
       >
-        <FiGithub color="var(--color-font)" size={20} />
+        <FiGithub color={variables.color.font} size={20} />
       </a>
     </Container>
   </footer>
