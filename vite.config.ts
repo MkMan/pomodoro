@@ -56,7 +56,7 @@ export default defineConfig({
         '**/*/styles.ts',
         '**/*/*.d.ts',
       ],
-      provider: 'c8',
+      provider: 'v8',
 
       reporter: ['lcov', 'text-summary'],
       src: ['./src'],
