@@ -23,6 +23,9 @@ const wrapper = style({
 
 const description = style({
   flex: 1,
+  fontFamily: '"Caveat Variable", cursive',
+  fontSize: '1.3rem',
+  fontWeight: 'bold',
   height: displayModeHeight,
   lineHeight: `${displayModeHeight}px`,
   marginInlineEnd: 'auto',
