@@ -31,6 +31,7 @@ const description = style({
   marginInlineEnd: 'auto',
   maxWidth: 'fit-content',
   overflow: 'hidden',
+  paddingInlineEnd: '8px', // MAGIC NUMBER: to prevent cursive font getting clipped by overflow: hidden
   selectors: {
     '&.isCompleted': {
       textDecoration: 'line-through solid 2px currentcolor',
