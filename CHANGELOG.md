@@ -1,3 +1,9 @@
+# [3.4.0](https://github.com/MkMan/pomodoro/compare/v3.3.3...v3.4.0) (2024-07-03)
+
+### Features
+
+- **todos:** use cursive font for todo items ([b232a0c](https://github.com/MkMan/pomodoro/commit/b232a0c89d00371477bab2122ad7ef9c8f0b6d7d))
+
 ## [3.3.3](https://github.com/MkMan/pomodoro/compare/v3.3.2...v3.3.3) (2024-02-21)
 
 ### Bug Fixes
