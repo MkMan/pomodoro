@@ -1,3 +1,9 @@
+## [3.4.1](https://github.com/MkMan/pomodoro/compare/v3.4.0...v3.4.1) (2024-07-03)
+
+### Bug Fixes
+
+- **todos:** stop last letter clipping in todo item description ([a5b6044](https://github.com/MkMan/pomodoro/commit/a5b6044a6e885a6aefcd84e1b7cf3e7f61324caa))
+
 # [3.4.0](https://github.com/MkMan/pomodoro/compare/v3.3.3...v3.4.0) (2024-07-03)
 
 ### Features
