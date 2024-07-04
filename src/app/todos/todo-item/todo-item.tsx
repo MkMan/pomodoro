@@ -13,6 +13,7 @@ import {
 import { classNames } from './constants';
 import * as styles from './styles.css';
 import { Mode, TodoItemProps } from './types';
+import { getRandomStrikethroughStyle } from './utils';
 
 const TodoItem: Component<TodoItemProps> = (_props) => {
   const [props, liProps] = splitProps(_props, [
@@ -70,6 +71,7 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
           <label
             class={cx(styles.description, isCompleted() && 'isCompleted')}
             for={props.description}
+            style={{ 'text-decoration-style': getRandomStrikethroughStyle() }}
           >
             {props.description}
           </label>
