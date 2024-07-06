@@ -5,7 +5,7 @@ const expandingAnimationDuration = '300ms';
 
 const wrapper = style({
   borderRadius: 8,
-  boxShadow: variables.color.boxShadowCard,
+  boxShadow: variables.shadow.mediumElevation,
   marginInline: -8,
   padding: 8,
 });

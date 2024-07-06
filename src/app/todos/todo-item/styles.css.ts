@@ -24,7 +24,7 @@ const wrapper = style({
 const description = style({
   flex: 1,
   fontFamily: '"Caveat Variable", cursive',
-  fontSize: '1.3rem',
+  fontSize: '1.5rem',
   fontWeight: 'bold',
   height: displayModeHeight,
   lineHeight: `${displayModeHeight}px`,
@@ -34,7 +34,7 @@ const description = style({
   paddingInlineEnd: '8px', // MAGIC NUMBER: to prevent cursive font getting clipped by overflow: hidden
   selectors: {
     '&.isCompleted': {
-      textDecoration: 'line-through solid 2px currentcolor',
+      textDecoration: 'line-through 2px currentcolor',
     },
   },
   textOverflow: 'ellipsis',

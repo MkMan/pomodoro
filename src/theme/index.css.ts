@@ -38,8 +38,6 @@ const [lightThemeClassName, colorVariables] = createTheme({
   background: colorGrayNurse,
   backgroundInverted: colorBleachedRevolver,
 
-  boxShadowCard: '0 2px 14px hsl(120, 5%, 85%)',
-
   ctaBackground: colorChambray,
   ctaText: colorGrayNurse,
 
@@ -49,13 +47,13 @@ const [lightThemeClassName, colorVariables] = createTheme({
   fontInverted: colorGrayNurse,
 
   overlay: colorBleachedRevolver,
+
+  shadowColor: '120deg 4% 60%',
 });
 
 const darkThemeClassName = createTheme(colorVariables, {
   background: colorBleachedRevolver,
   backgroundInverted: colorGrayNurse,
-
-  boxShadowCard: '0 2px 14px hsl(254, 37%, 5%)',
 
   ctaBackground: colorChambray,
   ctaText: colorGrayNurse,
@@ -66,14 +64,42 @@ const darkThemeClassName = createTheme(colorVariables, {
   fontInverted: colorBleachedRevolver,
 
   overlay: colorBermudaGray,
+
+  shadowColor: '254deg 57% 6%',
 });
 
 const rootVariables = createGlobalTheme('body', {
-  color: {
-    boxShadowInputHover: `0px 0px 5px 1px ${colorVariables.overlay}`,
-  },
+  color: {},
   opacity: {
     inputDisabled: '0.7',
+  },
+  shadow: {
+    /* eslint-disable perfectionist/sort-objects */
+    lowElevation: `
+      0.3px 0.5px 0.7px hsl(${colorVariables.shadowColor} / 0.29),
+      0.4px 0.8px 1px -1.2px hsl(${colorVariables.shadowColor} / 0.29),
+      0.9px 1.9px 2.4px -2.5px hsl(${colorVariables.shadowColor} / 0.29)
+    `,
+    mediumElevation: `
+      0.3px 0.5px 0.7px hsl(${colorVariables.shadowColor} / 0.24),
+      0.6px 1.3px 1.6px -0.6px hsl(${colorVariables.shadowColor} / 0.24),
+      1.2px 2.4px 3px -1.2px hsl(${colorVariables.shadowColor} / 0.24),
+      2.4px 4.8px 6px -1.9px hsl(${colorVariables.shadowColor} / 0.24),
+      4.6px 9.3px 11.7px -2.5px hsl(${colorVariables.shadowColor} / 0.24)
+    `,
+    highElevation: `
+      0.3px 0.5px 0.7px hsl(${colorVariables.shadowColor} / 0.23),
+      1.1px 2.1px 2.7px -0.3px hsl(${colorVariables.shadowColor} / 0.23),
+      1.8px 3.7px 4.6px -0.6px hsl(${colorVariables.shadowColor} / 0.23),
+      2.8px 5.6px 7px -0.8px hsl(${colorVariables.shadowColor} / 0.23),
+      4px 8.1px 10.2px -1.1px hsl(${colorVariables.shadowColor} / 0.23),
+      5.8px 11.6px 14.6px -1.4px hsl(${colorVariables.shadowColor} / 0.23),
+      8.2px 16.4px 20.6px -1.7px hsl(${colorVariables.shadowColor} / 0.23),
+      11.5px 23px 28.9px -1.9px hsl(${colorVariables.shadowColor} / 0.23),
+      15.8px 31.6px 39.7px -2.2px hsl(${colorVariables.shadowColor} / 0.23),
+      21.3px 42.5px 53.5px -2.5px hsl(${colorVariables.shadowColor} / 0.23)
+    `,
+    /* eslint-enable perfectionist/sort-objects */
   },
 });
 
