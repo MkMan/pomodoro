@@ -1,3 +1,11 @@
+# [3.5.0](https://github.com/MkMan/pomodoro/compare/v3.4.1...v3.5.0) (2024-07-06)
+
+### Features
+
+- **app:** improve icon-button styles ([9722108](https://github.com/MkMan/pomodoro/commit/97221088fecfe636440a45543892abb395c45556))
+- **app:** improve shadows ([f089895](https://github.com/MkMan/pomodoro/commit/f089895ab8f3e62f7881f3f11c64ed7fb8cd0543))
+- **todos:** improve todo text ([1f782cf](https://github.com/MkMan/pomodoro/commit/1f782cf13e71b83d018f1022b9c1b207e18b47bd))
+
 ## [3.4.1](https://github.com/MkMan/pomodoro/compare/v3.4.0...v3.4.1) (2024-07-03)
 
 ### Bug Fixes
