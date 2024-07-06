@@ -11,6 +11,4 @@ export const unstyledButton = style({
   color: variables.color.font,
   cursor: 'pointer',
   padding: 3,
-
-  transition: 'box-shadow 200ms ease',
 });

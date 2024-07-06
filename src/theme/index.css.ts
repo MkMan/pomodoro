@@ -69,9 +69,7 @@ const darkThemeClassName = createTheme(colorVariables, {
 });
 
 const rootVariables = createGlobalTheme('body', {
-  color: {
-    boxShadowInputHover: `0px 0px 5px 1px ${colorVariables.overlay}`,
-  },
+  color: {},
   opacity: {
     inputDisabled: '0.7',
   },
