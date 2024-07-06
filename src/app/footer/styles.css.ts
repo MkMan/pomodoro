@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 export const footer = style({
-  borderBlockStart: '1px solid lightgrey',
+  borderBlockStart: '1px solid currentcolor',
   paddingBlock: 16,
 });
 

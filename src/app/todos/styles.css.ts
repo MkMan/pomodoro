@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css';
 
 const wrapper = style({
   borderRadius: 8,
-  boxShadow: variables.color.boxShadowCard,
+  boxShadow: variables.shadow.highElevation,
   padding: 16,
 });
 
@@ -26,10 +26,17 @@ const list = style({
 
 const listItem = style({
   borderRadius: 8,
-  boxShadow: variables.color.boxShadowCard,
   cursor: 'grab',
   marginBlock: 16,
   padding: 8,
+  selectors: {
+    '&:hover': {
+      boxShadow: variables.shadow.mediumElevation,
+      transform: 'translate(-2px, -2px)',
+      transition: 'box-shadow 300ms, transform 100ms',
+    },
+  },
+  transitionDuration: '100ms',
 });
 
 const createTodoCta = style({

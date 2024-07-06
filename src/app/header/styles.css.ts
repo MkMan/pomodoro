@@ -1,3 +1,4 @@
+import { variables } from '$app-theme';
 import { style } from '@vanilla-extract/css';
 
 export const headerContentWrapper = style({
@@ -6,4 +7,6 @@ export const headerContentWrapper = style({
   display: 'flex',
 });
 
-export const header = style({ borderBottom: '1px solid lightgrey' });
+export const header = style({
+  boxShadow: variables.shadow.lowElevation,
+});
