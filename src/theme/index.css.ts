@@ -111,6 +111,10 @@ globalStyle('body', {
 const variables = {
   ...rootVariables,
   color: { ...rootVariables.color, ...colorVariables },
+  transition: {
+    buttonHoverEnd: '400ms',
+    buttonHoverStart: '200ms',
+  },
 };
 
 export { darkThemeClassName, lightThemeClassName, variables };

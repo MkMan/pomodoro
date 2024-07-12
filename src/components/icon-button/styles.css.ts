@@ -5,7 +5,7 @@ const activeState: Parameters<typeof style>[0] = {
   backgroundColor: variables.color.backgroundInverted,
   color: variables.color.fontInverted,
   transform: 'translate(-1px, -1px)',
-  transitionDuration: '200ms',
+  transitionDuration: variables.transition.buttonHoverStart,
 };
 
 const hover = style({
@@ -13,7 +13,7 @@ const hover = style({
     '(hover: hover)': {
       selectors: {
         '&:not(:disabled)': {
-          transitionDuration: '400ms',
+          transitionDuration: variables.transition.buttonHoverEnd,
           transitionProperty: 'color, background-color, transform',
         },
         '&:not(:disabled):hover': activeState,
