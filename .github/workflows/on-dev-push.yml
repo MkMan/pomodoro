@@ -12,35 +12,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 9.5.0
+      - uses: actions/checkout@v4
 
       - name: Set up NodeJs
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
 
       - name: Check code quality and formatting
-        run: pnpm run lint:check && pnpm run format:check
+        run: npm run lint:check && npm run format:check
 
       - name: Check TS types
-        run: pnpm run ts:check
+        run: npm run ts:check
 
       - name: Check build is fine
-        run: pnpm run build
+        run: npm run build
 
       - name: Run unit tests
-        run: pnpm test
+        run: npm test
 
       - name: Run e2e tests
-        run: pnpm cypress install && pnpm run e2e:run
+        run: npm run e2e:run
 
       - name: Upload test artifacts
         if: ${{ failure() }}
