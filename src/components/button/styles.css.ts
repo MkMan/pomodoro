@@ -22,7 +22,6 @@ const getBaseStyles = ({
   outlineOffset: 4,
   paddingBlock: 16,
   paddingInline: 40,
-
   selectors: {
     '&.isSmall': {
       paddingBlock: 8,
@@ -33,10 +32,13 @@ const getBaseStyles = ({
       backgroundColor: `${font}`,
       border: `2px solid ${background}`,
       color: background,
+      transitionDuration: variables.transition.buttonHoverStart,
     },
   },
 
-  transition: 'background-color, color 200ms ease',
+  transitionDuration: variables.transition.buttonHoverEnd,
+
+  transitionProperty: 'background-color, color',
 });
 
 export const primary = style(
