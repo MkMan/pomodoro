@@ -10,7 +10,7 @@
 @import url('@fontsource/raleway/700-italic.css');
 @import url('@fontsource/raleway/800.css');
 @import url('@fontsource/raleway/800-italic.css');
-@import url('@fontsource-variable/caveat');
+@import url('@fontsource-variable/playpen-sans');
 
 @font-face {
   font-family: 'Fallback';
