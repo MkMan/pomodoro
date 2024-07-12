@@ -83,8 +83,8 @@
     "workbox-window": "^7.0.0"
   },
   "engines": {
-    "node": "18.18.2",
-    "pnpm": ">=8.10.2"
+    "node": "20.15.1",
+    "pnpm": ">=9.5.0"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",
