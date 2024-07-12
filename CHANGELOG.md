@@ -1,3 +1,13 @@
+# [3.6.0](https://github.com/MkMan/pomodoro/compare/v3.5.0...v3.6.0) (2024-07-12)
+
+### Bug Fixes
+
+- **app:** correctly apply transition to buttons ([c9db384](https://github.com/MkMan/pomodoro/commit/c9db3845c275904c403147a2d45dfb7e4ec168b4))
+
+### Features
+
+- **app:** use a new cursive font ([ae91691](https://github.com/MkMan/pomodoro/commit/ae916918a5edcd707efcba558d01a7f7eb043043))
+
 # [3.5.0](https://github.com/MkMan/pomodoro/compare/v3.4.1...v3.5.0) (2024-07-06)
 
 ### Features
