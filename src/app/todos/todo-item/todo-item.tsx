@@ -1,4 +1,4 @@
-import { IconButton, Input } from '$app-components';
+import { Checkbox, IconButton, Input } from '$app-components';
 import { cx } from '$app-utils';
 import { createSortable, useDragDropContext } from '@thisbeyond/solid-dnd';
 import { FiCheck, FiEdit3, FiX } from 'solid-icons/fi';
@@ -61,12 +61,10 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
     >
       {displayMode() === 'display' && (
         <>
-          <input
+          <Checkbox
             checked={isCompleted()}
-            class={styles.checkbox}
             id={props.description}
             onChange={onCheckClick}
-            type="checkbox"
           />
           <label
             class={cx(styles.description, isCompleted() && 'isCompleted')}

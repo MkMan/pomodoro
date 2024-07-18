@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from 'storybook-solidjs';
 
 import { Heading } from './heading';
 
-const meta = {
+const meta: Meta<typeof Heading> = {
   component: Heading,
-} satisfies Meta<typeof Heading>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Heading>;
 
 export const Levels: Story = {
   render: () => (
