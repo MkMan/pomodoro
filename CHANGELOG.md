@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/MkMan/pomodoro/compare/v3.6.0...v3.7.0) (2024-07-18)
+
+### Features
+
+- **todos:** reduce todo font size ([d5e29b4](https://github.com/MkMan/pomodoro/commit/d5e29b4e3406958cde2be6cb48f9b58d73eb6cf8))
+- **todos:** use custom checkboxes ([b9c65e8](https://github.com/MkMan/pomodoro/commit/b9c65e836954f1ed4e76f0e0af23d0cd6086b86e))
+
 # [3.6.0](https://github.com/MkMan/pomodoro/compare/v3.5.0...v3.6.0) (2024-07-12)
 
 ### Bug Fixes
