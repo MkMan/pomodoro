@@ -3,12 +3,12 @@ import type { Meta, StoryObj } from 'storybook-solidjs';
 import { Collapse } from './collapse';
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/solid/writing-stories/introduction
-const meta = {
+const meta: Meta<typeof Collapse> = {
   component: Collapse,
-} satisfies Meta<typeof Collapse>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Collapse>;
 
 export const Default: Story = {
   args: {

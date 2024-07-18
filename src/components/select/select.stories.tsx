@@ -4,12 +4,12 @@ import { type ComponentProps, createSignal } from 'solid-js';
 
 import { Select } from './select';
 
-const meta = {
+const meta: Meta<typeof Select> = {
   component: Select,
-} satisfies Meta<typeof Select>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Select>;
 
 type SelectOptions = ComponentProps<typeof Select>['options'];
 const options: SelectOptions = [

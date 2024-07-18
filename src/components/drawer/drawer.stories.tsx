@@ -6,12 +6,12 @@ import { Button } from '../button/button';
 import { Drawer } from './drawer';
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/solid/writing-stories/introduction
-const meta = {
+const meta: Meta<typeof Drawer> = {
   component: Drawer,
-} satisfies Meta<typeof Drawer>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Drawer>;
 
 export const Default: Story = {
   render: () => {
