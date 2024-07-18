@@ -42,12 +42,6 @@ const description = style({
   whiteSpace: 'nowrap',
 });
 
-const checkbox = style({
-  height: 15,
-  marginInlineStart: 4, // optical alignment
-  width: 15,
-});
-
 const descriptionTextfield = style({
   flex: 1,
   height: displayModeHeight,
@@ -55,4 +49,4 @@ const descriptionTextfield = style({
 
 const editWrapper = style([wrapper, { width: '100%' }]);
 
-export { checkbox, description, descriptionTextfield, editWrapper, wrapper };
+export { description, descriptionTextfield, editWrapper, wrapper };
