@@ -111,6 +111,7 @@ globalStyle('body', {
 const variables = {
   ...rootVariables,
   color: { ...rootVariables.color, ...colorVariables },
+  inputOffset: '4px',
   transition: {
     buttonHoverEnd: '400ms',
     buttonHoverStart: '200ms',

@@ -19,7 +19,7 @@ const getBaseStyles = ({
   cursor: 'pointer',
   fontSize: '1.2rem',
   fontWeight: 600,
-  outlineOffset: 4,
+  outlineOffset: variables.inputOffset,
   paddingBlock: 16,
   paddingInline: 40,
   selectors: {
