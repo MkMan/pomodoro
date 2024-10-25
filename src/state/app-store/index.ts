@@ -1,8 +1,9 @@
 import { createEffect } from 'solid-js';
 import { createStore } from 'solid-js/store';
 
+import type { AppStore } from './types';
+
 import { initialAppStoreValues, localStorageKey } from './constants';
-import { AppStore } from './types';
 
 const getInitialAppStoreValue = (): AppStore => {
   const storeInLocalStorage = globalThis.localStorage.getItem(localStorageKey);

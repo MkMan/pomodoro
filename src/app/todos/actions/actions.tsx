@@ -1,7 +1,7 @@
 import { IconButton } from '$app-components';
 import { AiOutlineClear } from 'solid-icons/ai';
 import { FiTrash } from 'solid-icons/fi';
-import { Component, Show } from 'solid-js';
+import { type Component, Show } from 'solid-js';
 
 import { iconButton } from './styles.css';
 

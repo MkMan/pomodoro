@@ -1,11 +1,12 @@
 import { cx } from '$app-utils';
 import { FiChevronDown } from 'solid-icons/fi';
-import { Component, createEffect, createSignal } from 'solid-js';
+import { type Component, createEffect, createSignal } from 'solid-js';
+
+import type { CollapseProps } from './types';
 
 import { Heading } from '../heading/heading';
 import { UnstyledButton } from '../unstyled-button/unstyled-button';
 import * as styles from './styles.css';
-import { CollapseProps } from './types';
 
 const defaultHeadingLevel = 2;
 const contentDivId = (label: string) => `collapse-content-${label}`;

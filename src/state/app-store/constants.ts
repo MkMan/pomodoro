@@ -1,4 +1,4 @@
-import { AppStore } from './types';
+import type { AppStore } from './types';
 
 const localStorageKey = 'app-settings';
 

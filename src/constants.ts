@@ -1,4 +1,4 @@
-import { CurrentCounter } from './types';
+import type { CurrentCounter } from './types';
 
 export const counterOrder: CurrentCounter[] = [
   'pomodoro',

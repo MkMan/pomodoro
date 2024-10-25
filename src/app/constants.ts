@@ -1,4 +1,4 @@
-import { CurrentCounter } from '../types';
+import type { CurrentCounter } from '../types';
 
 const currentCounterMessageMap: Record<CurrentCounter, string> = {
   longBreak: 'Time for a long break 🌴',

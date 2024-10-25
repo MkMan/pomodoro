@@ -1,6 +1,7 @@
+import type { Mock } from 'vitest';
+
 import { render, screen, within } from '@solidjs/testing-library';
 import userEvent from '@testing-library/user-event';
-import { Mock } from 'vitest';
 
 import { Todos } from './index';
 
@@ -59,7 +60,7 @@ describe('Todos', () => {
 
     // delete all todos
     expect(getDeleteAllTodosButton()).toBeInTheDocument();
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- in the dom
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     await user.click(getDeleteAllTodosButton()!);
     expect(windowConfirmMock).toHaveBeenCalledWith(
       'This will delete all todos. Are you sure?',
@@ -78,7 +79,7 @@ describe('Todos', () => {
     await user.click(getTodo('Todo 1'));
 
     expect(getDeleteCompleteTodosButton()).toBeInTheDocument();
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- in the dom
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     await user.click(getDeleteCompleteTodosButton()!);
 
     expect(getAllTodos()).toHaveLength(0);

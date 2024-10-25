@@ -1,8 +1,9 @@
 import { cx } from '$app-utils';
-import { Component, Show, createMemo, splitProps } from 'solid-js';
+import { type Component, Show, createMemo, splitProps } from 'solid-js';
+
+import type { InputProps } from './types';
 
 import * as styles from './styles.css';
-import { InputProps } from './types';
 
 const Input: Component<InputProps> = (_props) => {
   const [props, inputProps] = splitProps(_props, [

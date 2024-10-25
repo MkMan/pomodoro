@@ -1,4 +1,4 @@
-import { Decorator, Preview } from 'storybook-solidjs';
+import type { Decorator, Preview } from 'storybook-solidjs';
 
 import '../src/css/dimensions.css';
 import '../src/css/fonts.css';

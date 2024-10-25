@@ -1,9 +1,10 @@
 import { Button, Heading, IconButton, Input } from '$app-components';
 import { FiX } from 'solid-icons/fi';
-import { Component, createEffect, createSignal } from 'solid-js';
+import { type Component, createEffect, createSignal } from 'solid-js';
+
+import type { TodoFormProps } from './types';
 
 import * as styles from './styles.css';
-import { TodoFormProps } from './types';
 
 const initialDescription = '';
 

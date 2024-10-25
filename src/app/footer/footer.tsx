@@ -1,7 +1,8 @@
+import type { Component } from 'solid-js';
+
 import { Container } from '$app-components';
 import { variables } from '$app-theme';
 import { FiGithub } from 'solid-icons/fi';
-import { Component } from 'solid-js';
 
 import { version } from '../../../package.json';
 import * as styles from './styles.css';

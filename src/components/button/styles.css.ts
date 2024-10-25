@@ -1,5 +1,5 @@
 import { variables } from '$app-theme';
-import { ComplexStyleRule, style } from '@vanilla-extract/css';
+import { type ComplexStyleRule, style } from '@vanilla-extract/css';
 
 type BaseStylesColors = Record<'background' | 'border' | 'font', string>;
 

@@ -5,7 +5,7 @@ import {
   incrementCounter,
   initialiseAppStore,
 } from '$app-state';
-import { Component, createMemo, createSignal } from 'solid-js';
+import { type Component, createMemo, createSignal } from 'solid-js';
 
 import { Countdown } from './countdown/countdown';
 import { Footer } from './footer/footer';

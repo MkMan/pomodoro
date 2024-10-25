@@ -1,9 +1,10 @@
 import { cx } from '$app-utils';
 import { FiChevronDown } from 'solid-icons/fi';
-import { Component, For, createMemo, splitProps } from 'solid-js';
+import { type Component, For, createMemo, splitProps } from 'solid-js';
+
+import type { SelectProps } from './types';
 
 import * as styles from './styles.css';
-import { SelectProps } from './types';
 
 export const Select: Component<SelectProps> = (_props) => {
   const [props, selectProps] = splitProps(_props, [

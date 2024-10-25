@@ -1,4 +1,4 @@
-import { HeadingProps } from './types';
+import type { HeadingProps } from './types';
 
 export const fontWeightMap: Record<
   NonNullable<HeadingProps['weight']>,
