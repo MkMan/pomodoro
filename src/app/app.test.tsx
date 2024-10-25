@@ -15,7 +15,7 @@ describe('App', () => {
     screen.queryByRole('dialog', { name: 'Settings' });
   const withinTheHeader = () => within(screen.getByRole('banner'));
   const withinMainSection = () => within(screen.getByRole('main'));
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
   const withinSettingsDrawer = () => within(getSettingsDrawer()!);
 
   it('should render content', async () => {

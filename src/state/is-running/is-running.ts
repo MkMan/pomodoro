@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 
-import { CounterState } from './types';
+import type { CounterState } from './types';
 
 const [counterState, setCounterState] = createSignal<CounterState>('stopped');
 

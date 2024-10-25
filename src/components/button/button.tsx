@@ -1,8 +1,9 @@
 import { cx } from '$app-utils';
-import { Component, splitProps } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
+
+import type { ButtonProps } from './types';
 
 import * as styles from './styles.css';
-import { ButtonProps } from './types';
 
 const buttonVariantStylingMap: Record<
   NonNullable<ButtonProps['variant']>,

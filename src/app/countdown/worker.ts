@@ -1,4 +1,4 @@
-import { AppToWorkerMessage, WorkerToAppMessageData } from './types';
+import type { AppToWorkerMessage, WorkerToAppMessageData } from './types';
 
 let currentTime: number;
 let intervalNumber: number;

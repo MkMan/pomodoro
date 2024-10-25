@@ -7,12 +7,13 @@ import {
 } from '$app-state';
 import { cx } from '$app-utils';
 import { FiEdit3, FiX } from 'solid-icons/fi';
-import { Component, createMemo, createSignal } from 'solid-js';
+import { type Component, createMemo, createSignal } from 'solid-js';
+
+import type { CounterSelectorProps } from './types';
 
 import { counterOrder } from '../../../constants';
 import { currentCounterLabelMap } from './constants';
 import * as styles from './styles.css';
-import { CounterSelectorProps } from './types';
 
 const selectId = 'counter-select';
 
@@ -45,7 +46,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
             disabled={counterState() !== 'stopped'}
             id={selectId}
             onChange={({ currentTarget }) => {
-              setCurrentCounterIndex(parseInt(currentTarget.value));
+              setCurrentCounterIndex(Number.parseInt(currentTarget.value));
             }}
             options={selectOptions()}
             value={currentCounterIndex().toString()}

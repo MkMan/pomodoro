@@ -1,6 +1,7 @@
-import { Todo, appStore, setAppStore } from '$app-state';
-import { DragEventHandler, Id } from '@thisbeyond/solid-dnd';
-import { Accessor, createMemo, createSignal } from 'solid-js';
+import type { DragEventHandler, Id } from '@thisbeyond/solid-dnd';
+
+import { type Todo, appStore, setAppStore } from '$app-state';
+import { type Accessor, createMemo, createSignal } from 'solid-js';
 
 const onCreatingNewTodo = (description: string) => {
   setAppStore('todos', (currentTodos) => [

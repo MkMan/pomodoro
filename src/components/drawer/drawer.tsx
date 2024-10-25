@@ -1,11 +1,12 @@
 import { cx } from '$app-utils';
 import { FiX } from 'solid-icons/fi';
-import { Component, Show, createEffect, createSignal } from 'solid-js';
+import { type Component, Show, createEffect, createSignal } from 'solid-js';
 import { Portal } from 'solid-js/web';
+
+import type { DrawerProps } from './types';
 
 import { IconButton } from '../icon-button/icon-button';
 import * as styles from './styles.css';
-import { DrawerProps } from './types';
 
 const drawerContainerId = 'drawer-container-id';
 if (!document.getElementById(drawerContainerId)) {
@@ -56,10 +57,11 @@ export const Drawer: Component<DrawerProps> = (props) => {
   });
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    // biome-ignore lint/style/noNonNullAssertion: define
     <Portal mount={document.getElementById(drawerContainerId)!}>
       <Show when={isOpen()}>
         <>
+          {/* biome-ignore lint/a11y/useKeyWithClickEvents: TODO: research correct implementation */}
           <div
             class={cx(styles.overlay)}
             onClick={() => props.onClose()}
@@ -69,6 +71,7 @@ export const Drawer: Component<DrawerProps> = (props) => {
             aria-labelledby="drawer-header"
             class={styles.wrapper}
             ref={drawerWrapper}
+            // biome-ignore lint/a11y/useSemanticElements: TODO: re-write as <dialog/>
             role="dialog"
           >
             <header class={styles.header} id="drawer-header">

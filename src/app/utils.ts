@@ -1,8 +1,9 @@
+import type { CurrentCounter } from 'src/types';
+
 import { appStore } from '$app-state';
 import { darkThemeClassName, lightThemeClassName } from '$app-theme';
 import { cx } from '$app-utils';
 import { createEffect, createSignal } from 'solid-js';
-import { CurrentCounter } from 'src/types';
 
 import { audioUrlsMap } from '../assets/sounds';
 import { currentCounterMessageMap } from './constants';

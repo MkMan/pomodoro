@@ -1,6 +1,6 @@
 import { Input } from '$app-components';
 import { appStore, counterState, setAppStore } from '$app-state';
-import { Component, For } from 'solid-js';
+import { type Component, For } from 'solid-js';
 
 import { commonInputProps, durationFields } from './constants';
 import * as styles from './styles.css';

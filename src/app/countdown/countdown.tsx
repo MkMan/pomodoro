@@ -5,15 +5,20 @@ import {
   getCurrentCounter,
   setCounterState,
 } from '$app-state';
-import { Component, createEffect, createMemo, createSignal } from 'solid-js';
+import {
+  type Component,
+  createEffect,
+  createMemo,
+  createSignal,
+} from 'solid-js';
+
+import type { CountdownProps, WorkerToAppMessage } from './types';
 
 import { CounterSelector } from './counter-selector';
 import * as styles from './styles.css';
-import { CountdownProps, WorkerToAppMessage } from './types';
 import { getFormattedTime, getWorkerHelpers } from './utils';
 
 const worker = new Worker(new URL('./worker.ts', import.meta.url));
-// eslint-disable-next-line @typescript-eslint/unbound-method
 const { startWorkerCounter, stopWorkerCounter } = getWorkerHelpers(worker);
 
 export const Countdown: Component<CountdownProps> = (props) => {

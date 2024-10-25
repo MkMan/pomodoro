@@ -1,10 +1,11 @@
 import { cx } from '$app-utils';
-import { Component, mergeProps } from 'solid-js';
+import { type Component, mergeProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
+
+import type { HeadingProps } from './types';
 
 import { fontWeightMap, sizeMap } from './constants';
 import { heading } from './styles.css';
-import { HeadingProps } from './types';
 
 const Heading: Component<HeadingProps> = (_props) => {
   const props = mergeProps({ level: 1 }, _props);

@@ -1,5 +1,6 @@
+import type { Component } from 'solid-js';
+
 import { Collapse } from '$app-components';
-import { Component } from 'solid-js';
 
 import { Alerts } from './alerts/alerts';
 import { Durations } from './durations/durations';

@@ -1,7 +1,7 @@
 import { createSignal } from 'solid-js';
 import { counterOrder } from 'src/constants';
 
-import { CurrentCounter } from '../../types';
+import type { CurrentCounter } from '../../types';
 
 const [currentCounterIndex, setCurrentCounterIndex] = createSignal(0);
 

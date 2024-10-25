@@ -1,7 +1,7 @@
 import type { JSX } from 'solid-js';
 
 import { cx } from '$app-utils';
-import { Component, splitProps } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 
 import * as styles from './styles.css';
 

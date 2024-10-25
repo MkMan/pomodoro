@@ -3,16 +3,17 @@ import { cx } from '$app-utils';
 import { createSortable, useDragDropContext } from '@thisbeyond/solid-dnd';
 import { FiCheck, FiEdit3, FiX } from 'solid-icons/fi';
 import {
-  Component,
+  type Component,
   createEffect,
   createMemo,
   createSignal,
   splitProps,
 } from 'solid-js';
 
+import type { Mode, TodoItemProps } from './types';
+
 import { classNames } from './constants';
 import * as styles from './styles.css';
-import { Mode, TodoItemProps } from './types';
 import { getRandomStrikethroughStyle } from './utils';
 
 const TodoItem: Component<TodoItemProps> = (_props) => {
@@ -54,7 +55,6 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
         !!state?.active.draggable && classNames.hasTransitionTransform,
       )}
       title={props.description}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- unable to declare types for the directive
       // @ts-expect-error
       use:sortable
       {...liProps}

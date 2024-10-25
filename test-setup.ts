@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-globalThis.Notification = vi.fn() as any;
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-globalThis.matchMedia = vi.fn(() => ({ addEventListener: vi.fn() })) as any;
+globalThis.Notification = vi.fn() as unknown as typeof global.Notification;
+globalThis.matchMedia = vi.fn(() => ({
+  addEventListener: vi.fn(),
+})) as unknown as typeof global.matchMedia;
 globalThis.Worker = vi.fn();

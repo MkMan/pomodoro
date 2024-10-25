@@ -8,7 +8,7 @@ import {
   SortableProvider,
   closestCenter,
 } from '@thisbeyond/solid-dnd';
-import { Component, For, createMemo, createSignal } from 'solid-js';
+import { type Component, For, createMemo, createSignal } from 'solid-js';
 
 import { Actions } from './actions/actions';
 import * as styles from './styles.css';

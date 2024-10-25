@@ -8,13 +8,13 @@ import {
   selectCounterByIndex,
 } from './app.po';
 
-describe(`App e2e test`, () => {
+describe('App e2e test', () => {
   beforeEach(() => {
     cy.visit('/');
   });
 
   describe('Counter', () => {
-    it(`should load with defaults`, () => {
+    it('should load with defaults', () => {
       // Opens in counter display mode
       getCounterDropdown().should('not.exist');
       getEditCounterButton().should('be.visible');

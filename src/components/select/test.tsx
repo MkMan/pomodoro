@@ -1,8 +1,9 @@
 import { render, screen, within } from '@solidjs/testing-library';
 import userEvent from '@testing-library/user-event';
 
+import type { SelectProps } from './types';
+
 import { Select } from './select';
-import { SelectProps } from './types';
 
 describe('Select', () => {
   const user = userEvent.setup();

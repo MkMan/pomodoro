@@ -1,6 +1,7 @@
+import type { AppTheme } from 'src/state/app-store/types';
+
 import { appStore, setAppStore } from '$app-state';
-import { Component, For } from 'solid-js';
-import { AppTheme } from 'src/state/app-store/types';
+import { type Component, For } from 'solid-js';
 
 import * as styles from './styles.css';
 

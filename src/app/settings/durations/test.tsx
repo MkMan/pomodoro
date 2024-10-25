@@ -1,7 +1,8 @@
+import type { Mock } from 'vitest';
+
 import * as appState from '$app-state';
 import { render, screen } from '@solidjs/testing-library';
 import userEvent from '@testing-library/user-event';
-import { Mock } from 'vitest';
 
 import { Durations } from './durations';
 

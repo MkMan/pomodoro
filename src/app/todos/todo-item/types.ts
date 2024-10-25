@@ -1,5 +1,5 @@
-import { Todo } from '$app-state';
-import { JSX } from 'solid-js';
+import type { Todo } from '$app-state';
+import type { JSX } from 'solid-js';
 
 type TodoItemProps = {
   class?: string;

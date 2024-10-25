@@ -1,4 +1,4 @@
-import { AppToWorkerMessageData } from './types';
+import type { AppToWorkerMessageData } from './types';
 
 const formatTimeUnit = (timeUnit: number): string =>
   timeUnit.toString().padStart(2, '0');
