@@ -10,8 +10,8 @@
     "build": "vite build --base /pomodoro",
     "e2e:open": "concurrently -k -s first \"npm start\" \"cypress open\"",
     "e2e:run": "concurrently -k -s first \"npm start\" \"cypress run\"",
-    "format:check": "prettier -c .",
-    "format:fix": "prettier -w .",
+    "format:check": "biome format .",
+    "format:fix": "biome format --write .",
     "lint:check": "eslint --report-unused-disable-directives ./src && markdownlint .",
     "lint:fix": "eslint ./src --fix && markdownlint . --fix",
     "prepare": "husky install",
@@ -33,6 +33,7 @@
     "solid-js": "^1.8.15"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@commitlint/cli": "18.2.0",
     "@commitlint/config-conventional": "18.1.0",
     "@semantic-release/changelog": "^6.0.3",
@@ -67,7 +68,6 @@
     "lint-staged": "15.0.2",
     "markdownlint": "0.31.1",
     "markdownlint-cli": "0.37.0",
-    "prettier": "3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "semantic-release": "22.0.7",
@@ -88,7 +88,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",
-    "*.{js,ts,tsx,css,md,json,html}": "prettier --write",
+    "*.{js,ts,tsx,css,md,json,html}": "biome format --write",
     "*.md": "markdownlint --fix"
   }
 }

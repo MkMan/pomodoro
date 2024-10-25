@@ -1,19 +1,19 @@
-@import url('@fontsource/raleway/300.css');
-@import url('@fontsource/raleway/300-italic.css');
-@import url('@fontsource/raleway/400.css');
-@import url('@fontsource/raleway/400-italic.css');
-@import url('@fontsource/raleway/500.css');
-@import url('@fontsource/raleway/500-italic.css');
-@import url('@fontsource/raleway/600.css');
-@import url('@fontsource/raleway/600-italic.css');
-@import url('@fontsource/raleway/700.css');
-@import url('@fontsource/raleway/700-italic.css');
-@import url('@fontsource/raleway/800.css');
-@import url('@fontsource/raleway/800-italic.css');
-@import url('@fontsource-variable/playpen-sans');
+@import url("@fontsource/raleway/300.css");
+@import url("@fontsource/raleway/300-italic.css");
+@import url("@fontsource/raleway/400.css");
+@import url("@fontsource/raleway/400-italic.css");
+@import url("@fontsource/raleway/500.css");
+@import url("@fontsource/raleway/500-italic.css");
+@import url("@fontsource/raleway/600.css");
+@import url("@fontsource/raleway/600-italic.css");
+@import url("@fontsource/raleway/700.css");
+@import url("@fontsource/raleway/700-italic.css");
+@import url("@fontsource/raleway/800.css");
+@import url("@fontsource/raleway/800-italic.css");
+@import url("@fontsource-variable/playpen-sans");
 
 @font-face {
-  font-family: 'Fallback';
+  font-family: "Fallback";
   src: local(Arial);
   size-adjust: 103%;
   ascent-override: normal;
@@ -22,8 +22,8 @@
 }
 
 * {
-  font-family: 'Raleway', 'Fallback', sans-serif;
-  font-feature-settings: 'lnum';
+  font-family: "Raleway", "Fallback", sans-serif;
+  font-feature-settings: "lnum";
 }
 
 label {
