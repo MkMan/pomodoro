@@ -1,3 +1,13 @@
+# [3.9.0](https://github.com/MkMan/pomodoro/compare/v3.8.0...v3.9.0) (2024-11-16)
+
+
+### Features
+
+* **app:** increase app max width ([de10fb0](https://github.com/MkMan/pomodoro/commit/de10fb0a651e3daade602d8593c92036e22d61a2))
+* **countdown:** reduce font size ([7120693](https://github.com/MkMan/pomodoro/commit/7120693a5ae58ab2d59dab3cbf975bcf60011398))
+* **countdown:** reduce space around counter ([6012850](https://github.com/MkMan/pomodoro/commit/6012850cf7ec7f58313608286c540faeb3669c41))
+* **todos:** reduce font size ([dbd5033](https://github.com/MkMan/pomodoro/commit/dbd503323cda388c3b09bb2d6854423595c6721e))
+
 # [3.8.0](https://github.com/MkMan/pomodoro/compare/v3.7.0...v3.8.0) (2024-11-16)
 
 
