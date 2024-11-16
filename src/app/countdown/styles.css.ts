@@ -7,7 +7,7 @@ export const wrapper = style({
 });
 
 export const remainingTime = style({
-  fontSize: '7rem',
+  fontSize: '6rem',
   fontWeight: 500,
   textAlign: 'center',
 });
