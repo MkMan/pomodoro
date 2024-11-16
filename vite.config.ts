@@ -58,15 +58,16 @@ export default defineConfig({
         '**/*/styles.ts',
         '**/*/*.d.ts',
       ],
+      include: ['src/**'],
       provider: 'v8',
       reporter: ['lcov', 'text-summary'],
 
       thresholds: {
         autoUpdate: true,
-        branches: 91.07,
-        functions: 85.41,
-        lines: 81.11,
-        statements: 81.11,
+        branches: 93.14,
+        functions: 89.51,
+        lines: 85.81,
+        statements: 85.81,
       },
     },
     deps: {
