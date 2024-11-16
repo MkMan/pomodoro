@@ -25,12 +25,12 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@fontsource-variable/playpen-sans": "^5.0.8",
-    "@fontsource/raleway": "^5.0.16",
+    "@fontsource-variable/playpen-sans": "^5.1.0",
+    "@fontsource/raleway": "^5.1.0",
     "@thisbeyond/solid-dnd": "^0.7.5",
-    "@vanilla-extract/css": "^1.14.1",
+    "@vanilla-extract/css": "^1.16.0",
     "solid-icons": "^1.1.0",
-    "solid-js": "^1.8.15"
+    "solid-js": "^1.9.3"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
