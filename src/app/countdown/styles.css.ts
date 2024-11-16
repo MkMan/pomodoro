@@ -1,10 +1,14 @@
 import { style } from '@vanilla-extract/css';
 
+export const wrapper = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '32px',
+});
+
 export const remainingTime = style({
   fontSize: '7rem',
   fontWeight: 500,
-  paddingBlockEnd: 48,
-  paddingBlockStart: 32,
   textAlign: 'center',
 });
 

@@ -63,7 +63,7 @@ export const Countdown: Component<CountdownProps> = (props) => {
   createEffect(updateTimeStateOnPropChange);
 
   return (
-    <>
+    <div class={styles.wrapper}>
       <CounterSelector />
       <div class={styles.remainingTime} data-testid="remainingTime">
         {getFormattedTime(time())}
@@ -91,6 +91,6 @@ export const Countdown: Component<CountdownProps> = (props) => {
           Reset
         </Button>
       </div>
-    </>
+    </div>
   );
 };
