@@ -47,10 +47,10 @@ export const App: Component = () => {
         onSettingsClick={() => setIsSettingsDrawerOpen(true)}
       />
       <main class={styles.main}>
-        <Container class={styles.section} maxWidth={600}>
+        <Container class={styles.section} maxWidth={800}>
           <Countdown onComplete={onCounterComplete} />
         </Container>
-        <Container class={styles.section} maxWidth={600}>
+        <Container class={styles.section} maxWidth={800}>
           <Todos />
         </Container>
       </main>
