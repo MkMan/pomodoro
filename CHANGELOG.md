@@ -1,3 +1,10 @@
+# [3.8.0](https://github.com/MkMan/pomodoro/compare/v3.7.0...v3.8.0) (2024-11-16)
+
+
+### Features
+
+* update production dependencies ([93bb253](https://github.com/MkMan/pomodoro/commit/93bb253aef0a5b52097727c1bb8d291192a69d54))
+
 # [3.7.0](https://github.com/MkMan/pomodoro/compare/v3.6.0...v3.7.0) (2024-07-18)
 
 ### Features
