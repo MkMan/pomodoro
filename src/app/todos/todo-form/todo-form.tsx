@@ -1,5 +1,5 @@
-import { Button, Heading, IconButton, Input } from '$app-components';
-import { FiX } from 'solid-icons/fi';
+import { IconButton, Input } from '$app-components';
+import { FiPlus, FiX } from 'solid-icons/fi';
 import { type Component, createEffect, createSignal } from 'solid-js';
 
 import type { TodoFormProps } from './types';
@@ -7,6 +7,7 @@ import type { TodoFormProps } from './types';
 import * as styles from './styles.css';
 
 const initialDescription = '';
+const newTodoFieldLabel = 'New todo description';
 
 const TodoForm: Component<TodoFormProps> = (props) => {
   let descriptionRef: HTMLInputElement | undefined;
@@ -32,27 +33,27 @@ const TodoForm: Component<TodoFormProps> = (props) => {
 
   return (
     <form class={props.class} name="new todo details" onSubmit={onSubmit}>
-      <div class={styles.headingWrapper}>
-        <Heading class={styles.heading} level={3}>
-          New todo
-        </Heading>
+      <div class={styles.formLayout}>
+        <Input
+          aria-label={newTodoFieldLabel}
+          class={styles.inputForm}
+          name="new-todo-description"
+          onInput={({ currentTarget }) => setDescription(currentTarget.value)}
+          placeholder={newTodoFieldLabel}
+          ref={descriptionRef}
+          value={description()}
+        />
+        <IconButton aria-label="create todo" type="submit">
+          <FiPlus size={25} />
+        </IconButton>
         <IconButton
+          aria-label="close new todo form"
           onClick={props.onClose}
-          title="close new todo form"
           type="button"
         >
           <FiX size={25} />
         </IconButton>
       </div>
-      <Input
-        label="New todo description"
-        onInput={({ currentTarget }) => setDescription(currentTarget.value)}
-        ref={descriptionRef}
-        value={description()}
-      />
-      <Button class={styles.createCta} size="small" type="submit">
-        Create
-      </Button>
     </form>
   );
 };
