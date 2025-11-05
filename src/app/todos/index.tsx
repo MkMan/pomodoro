@@ -8,7 +8,7 @@ import {
   SortableProvider,
   closestCenter,
 } from '@thisbeyond/solid-dnd';
-import { type Component, For, createMemo, createSignal } from 'solid-js';
+import { type Component, For, Show, createMemo, createSignal } from 'solid-js';
 
 import { Actions } from './actions/actions';
 import * as styles from './styles.css';
@@ -81,6 +81,10 @@ const Todos: Component = () => {
           )}
         </DragOverlay>
       </DragDropProvider>
+
+      <Show when={appStore.todos.length > 0}>
+        <hr class={styles.separator} />
+      </Show>
 
       <div class={cx(appStore.todos.length > 0 && styles.newTodo)}>
         {isNewTodoFormOpen() ? (

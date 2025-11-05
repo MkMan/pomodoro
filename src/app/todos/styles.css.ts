@@ -61,6 +61,12 @@ const draggedItem = style([
   },
 ]);
 
+const separator = style({
+  borderBlockEnd: '1px solid currentcolor',
+  marginInline: 'auto',
+  width: '55%',
+});
+
 export {
   createTodoCta,
   draggedItem,
@@ -69,5 +75,6 @@ export {
   list,
   listItem,
   newTodo,
+  separator,
   wrapper,
 };
