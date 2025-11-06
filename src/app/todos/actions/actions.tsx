@@ -1,6 +1,6 @@
 import { IconButton } from '$app-components';
 import { AiOutlineClear } from 'solid-icons/ai';
-import { FiTrash } from 'solid-icons/fi';
+import { TbTrash } from 'solid-icons/tb';
 import { type Component, Show } from 'solid-js';
 
 import { iconButton } from './styles.css';
@@ -29,7 +29,7 @@ const Actions: Component<Props> = (props) => (
         onClick={props.onDeletingAllTodos}
         title="delete all todos"
       >
-        <FiTrash size={30} />
+        <TbTrash size={30} />
       </IconButton>
     </Show>
   </>

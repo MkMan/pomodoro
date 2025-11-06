@@ -2,7 +2,7 @@ import type { Component } from 'solid-js';
 
 import { Container } from '$app-components';
 import { variables } from '$app-theme';
-import { FiGithub } from 'solid-icons/fi';
+import { TbBrandGithub } from 'solid-icons/tb';
 
 import { version } from '../../../package.json';
 import * as styles from './styles.css';
@@ -17,7 +17,7 @@ export const Footer: Component = () => (
         target="blank"
         title="Source code"
       >
-        <FiGithub color={variables.color.font} size={20} />
+        <TbBrandGithub color={variables.color.font} size={20} />
       </a>
     </Container>
   </footer>

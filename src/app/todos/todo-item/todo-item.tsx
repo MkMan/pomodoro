@@ -1,7 +1,7 @@
 import { Checkbox, IconButton, Input } from '$app-components';
 import { cx } from '$app-utils';
 import { createSortable, useDragDropContext } from '@thisbeyond/solid-dnd';
-import { FiCheck, FiEdit3, FiX } from 'solid-icons/fi';
+import { TbCheck, TbEdit, TbX } from 'solid-icons/tb';
 import {
   type Component,
   createEffect,
@@ -74,10 +74,10 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
             {props.description}
           </label>
           <IconButton onClick={() => setDisplayMode('edit')} title="Edit">
-            <FiEdit3 size={25} />
+            <TbEdit size={25} />
           </IconButton>
           <IconButton onClick={props.onDelete} title="Delete">
-            <FiX size={25} />
+            <TbX size={25} />
           </IconButton>
         </>
       )}
@@ -101,7 +101,7 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
             title="Save"
             type="submit"
           >
-            <FiCheck size={25} />
+            <TbCheck size={25} />
           </IconButton>
         </form>
       )}

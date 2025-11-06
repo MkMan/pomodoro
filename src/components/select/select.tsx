@@ -1,5 +1,5 @@
 import { cx } from '$app-utils';
-import { FiChevronDown } from 'solid-icons/fi';
+import { TbChevronDown } from 'solid-icons/tb';
 import { type Component, For, createMemo, splitProps } from 'solid-js';
 
 import type { SelectProps } from './types';
@@ -50,7 +50,7 @@ export const Select: Component<SelectProps> = (_props) => {
       </select>
       <div class={styles.presentational}>
         {currentLabel()}
-        <FiChevronDown color="currentcolor" size={20} />
+        <TbChevronDown color="currentcolor" size={20} />
       </div>
     </div>
   );
