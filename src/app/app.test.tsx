@@ -39,9 +39,6 @@ describe('App', () => {
     expect(
       withinMainSection().getByRole('button', { name: 'Reset' }),
     ).toBeInTheDocument();
-    expect(
-      withinMainSection().getByRole('button', { name: 'Create a todo' }),
-    ).toBeInTheDocument();
 
     // footer
     expect(screen.getByRole('contentinfo')).toBeInTheDocument();

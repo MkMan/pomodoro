@@ -1,18 +1,11 @@
 import { style } from '@vanilla-extract/css';
 
-const headingWrapper = style({
-  alignItems: 'baseline',
+const formLayout = style({
+  alignItems: 'center',
   display: 'flex',
-  justifyContent: 'space-between',
+  gap: 16,
 });
 
-const heading = style({
-  paddingBlockEnd: 16,
-});
+const inputForm = style({ flex: 1 });
 
-const createCta = style({
-  marginBlockStart: 16,
-  width: '100%',
-});
-
-export { createCta, heading, headingWrapper };
+export { formLayout, inputForm };

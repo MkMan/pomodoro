@@ -1,4 +1,4 @@
-import { Button, Heading } from '$app-components';
+import { Heading } from '$app-components';
 import { appStore } from '$app-state';
 import { cx } from '$app-utils';
 import {
@@ -8,7 +8,7 @@ import {
   SortableProvider,
   closestCenter,
 } from '@thisbeyond/solid-dnd';
-import { type Component, For, createMemo, createSignal } from 'solid-js';
+import { type Component, For, Show, createMemo } from 'solid-js';
 
 import { Actions } from './actions/actions';
 import * as styles from './styles.css';
@@ -26,9 +26,6 @@ import {
 } from './utils';
 
 const Todos: Component = () => {
-  const [isNewTodoFormOpen, setIsNewTodoFormOpen] = createSignal(false);
-  const toggleNewTodoForm = () => setIsNewTodoFormOpen(!isNewTodoFormOpen());
-
   const { draggedTodo, onDragStart } = handleDragOverlay();
 
   const hasTodos = createMemo(
@@ -82,18 +79,12 @@ const Todos: Component = () => {
         </DragOverlay>
       </DragDropProvider>
 
+      <Show when={appStore.todos.length > 0}>
+        <hr class={styles.separator} />
+      </Show>
+
       <div class={cx(appStore.todos.length > 0 && styles.newTodo)}>
-        {isNewTodoFormOpen() ? (
-          <TodoForm onClose={toggleNewTodoForm} onSubmit={onCreatingNewTodo} />
-        ) : (
-          <Button
-            class={styles.createTodoCta}
-            onClick={toggleNewTodoForm}
-            size="small"
-          >
-            Create a todo
-          </Button>
-        )}
+        <TodoForm onSubmit={onCreatingNewTodo} />
       </div>
     </section>
   );

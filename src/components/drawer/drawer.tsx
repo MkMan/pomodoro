@@ -1,5 +1,5 @@
 import { cx } from '$app-utils';
-import { FiX } from 'solid-icons/fi';
+import { TbX } from 'solid-icons/tb';
 import { type Component, Show, createEffect, createSignal } from 'solid-js';
 import { Portal } from 'solid-js/web';
 
@@ -80,7 +80,7 @@ export const Drawer: Component<DrawerProps> = (props) => {
                 aria-label={props.closeIconLabel ?? 'close'}
                 onClick={props.onClose}
               >
-                {<FiX size={30} />}
+                {<TbX size={30} />}
               </IconButton>
             </header>
             <div class={styles.content}>{props.children}</div>

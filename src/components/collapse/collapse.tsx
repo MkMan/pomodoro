@@ -1,5 +1,5 @@
 import { cx } from '$app-utils';
-import { FiChevronDown } from 'solid-icons/fi';
+import { TbChevronDown } from 'solid-icons/tb';
 import { type Component, createEffect, createSignal } from 'solid-js';
 
 import type { CollapseProps } from './types';
@@ -30,7 +30,7 @@ export const Collapse: Component<CollapseProps> = (props) => {
           onClick={toggle}
         >
           {props.label}
-          <FiChevronDown
+          <TbChevronDown
             class={cx(styles.headingIcon, isOpen() && 'isOpen')}
             size={20}
           />

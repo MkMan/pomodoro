@@ -6,7 +6,7 @@ import {
   setCurrentCounterIndex,
 } from '$app-state';
 import { cx } from '$app-utils';
-import { FiEdit3, FiX } from 'solid-icons/fi';
+import { TbEdit, TbX } from 'solid-icons/tb';
 import { type Component, createMemo, createSignal } from 'solid-js';
 
 import type { CounterSelectorProps } from './types';
@@ -52,7 +52,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
             value={currentCounterIndex().toString()}
           />
           <IconButton aria-label="close counter editing" onClick={toggleMode}>
-            <FiX size={30} />
+            <TbX size={30} />
           </IconButton>
         </>
       ) : (
@@ -61,7 +61,7 @@ const CounterSelector: Component<CounterSelectorProps> = (props) => {
             {currentCounterLabelMap[getCurrentCounter()]}
           </span>
           <IconButton aria-label="edit counter type" onClick={toggleMode}>
-            <FiEdit3 size={30} />
+            <TbEdit size={30} />
           </IconButton>
         </>
       )}
