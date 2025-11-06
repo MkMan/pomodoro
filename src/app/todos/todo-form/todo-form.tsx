@@ -1,5 +1,5 @@
 import { IconButton, Input } from '$app-components';
-import { FiPlus, FiX } from 'solid-icons/fi';
+import { FiPlus } from 'solid-icons/fi';
 import { type Component, createEffect, createSignal } from 'solid-js';
 
 import type { TodoFormProps } from './types';
@@ -45,13 +45,6 @@ const TodoForm: Component<TodoFormProps> = (props) => {
         />
         <IconButton aria-label="create todo" type="submit">
           <FiPlus size={25} />
-        </IconButton>
-        <IconButton
-          aria-label="close new todo form"
-          onClick={props.onClose}
-          type="button"
-        >
-          <FiX size={25} />
         </IconButton>
       </div>
     </form>

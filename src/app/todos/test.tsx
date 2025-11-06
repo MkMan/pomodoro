@@ -11,16 +11,12 @@ describe('Todos', () => {
   const renderTodos = () => render(() => <Todos />);
   const user = userEvent.setup();
 
-  const getOpenNewTodoFormButton = () =>
-    screen.getByRole('button', {
-      name: 'Create a todo',
-    });
   const getNewTodoDescriptionField = () =>
     screen.getByRole('textbox', {
       name: 'New todo description',
     });
   const getCreateTodoButton = () =>
-    screen.getByRole('button', { name: 'Create' });
+    screen.getByRole('button', { name: 'create todo' });
   const getDeleteAllTodosButton = () =>
     screen.queryByRole('button', { name: 'delete all todos' });
   const getDeleteCompleteTodosButton = () =>
@@ -52,7 +48,6 @@ describe('Todos', () => {
 
     expect(getDeleteAllTodosButton()).not.toBeInTheDocument();
 
-    await user.click(getOpenNewTodoFormButton());
     await createATodo('Todo 1');
     await createATodo('Todo 2');
 
@@ -74,7 +69,6 @@ describe('Todos', () => {
 
     expect(getDeleteCompleteTodosButton()).not.toBeInTheDocument();
 
-    await user.click(getOpenNewTodoFormButton());
     await createATodo('Todo 1');
     await user.click(getTodo('Todo 1'));
 
@@ -88,7 +82,6 @@ describe('Todos', () => {
   it('should delete individual todo items', async () => {
     renderTodos();
 
-    await user.click(getOpenNewTodoFormButton());
     await createATodo('Todo 1');
     await createATodo('Todo 2');
     expect(getAllTodos()).toHaveLength(2);
@@ -103,7 +96,6 @@ describe('Todos', () => {
   it('should edit todo items', async () => {
     renderTodos();
 
-    await user.click(getOpenNewTodoFormButton());
     await createATodo('Todo 1');
 
     const todos = getAllTodos();

@@ -2,7 +2,6 @@ import {
   createATodo,
   getAllTodos,
   getCounterDropdown,
-  getCreateTodoCta,
   getEditCounterButton,
   getRemainingTime,
   selectCounterByIndex,
@@ -81,7 +80,6 @@ describe('App e2e test', () => {
       getAllTodos().should('not.exist');
 
       // Add todos
-      getCreateTodoCta().click();
       createATodo('Todo 1');
       createATodo('Todo 2');
 

@@ -10,9 +10,6 @@ const selectCounterByIndex = (index: number) =>
 
 const getAllTodos = () => cy.findAllByTestId('todo-item');
 
-const getCreateTodoCta = () =>
-  cy.findByRole('button', { name: 'Create a todo' });
-
 const getNewTodoDescriptionField = () =>
   cy.findByLabelText('New todo description');
 
@@ -24,7 +21,6 @@ export {
   createATodo,
   getAllTodos,
   getCounterDropdown,
-  getCreateTodoCta,
   getEditCounterButton,
   getRemainingTime,
   selectCounterByIndex,
