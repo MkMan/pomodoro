@@ -1,3 +1,13 @@
+# [3.10.0](https://github.com/MkMan/pomodoro/compare/v3.9.0...v3.10.0) (2025-11-06)
+
+
+### Features
+
+* **app:** migrate to Tabler icons ([0e3c97f](https://github.com/MkMan/pomodoro/commit/0e3c97f8dcdb682c3d9cb8a889fe62d97dcc1143))
+* **todos:** add a separator after the list ([64884ba](https://github.com/MkMan/pomodoro/commit/64884ba73a4ac077339fb55b746ffa2b5cad0377))
+* **todos:** keep new todo input always visible ([c10591e](https://github.com/MkMan/pomodoro/commit/c10591ef9994a031c4adb69848c3b300f3ed6dca))
+* **todos:** simplify new todo form ([e497c44](https://github.com/MkMan/pomodoro/commit/e497c44245c6d04e95601467aeabf18dfdfbf8ec))
+
 # [3.9.0](https://github.com/MkMan/pomodoro/compare/v3.8.0...v3.9.0) (2024-11-16)
 
 
