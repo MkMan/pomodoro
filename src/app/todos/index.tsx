@@ -13,6 +13,7 @@ import {
   onDeletingCompletedTodos,
   onTodoDelete,
   onTodoDescriptionChange,
+  onTodoMove,
   onTodoStatusChange,
 } from './utils';
 
@@ -44,8 +45,12 @@ const Todos: Component = () => {
               {...todo}
               class={styles.listItem}
               data-testid="todo-item"
+              isFirstItem={index() === 0}
+              isLastItem={index() === appStore.todos.length - 1}
               onDelete={onTodoDelete(index())}
               onDescriptionChange={onTodoDescriptionChange(index())}
+              onMoveDown={() => onTodoMove(index(), 'down')}
+              onMoveUp={() => onTodoMove(index(), 'up')}
               onStatusChange={onTodoStatusChange(index())}
             />
           )}

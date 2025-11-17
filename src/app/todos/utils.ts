@@ -40,11 +40,22 @@ const onTodoDelete = (indexToRemove: number) => () => {
   setAppStore('todos', todosCopy);
 };
 
+const onTodoMove = (indexToMove: number, direction: 'down' | 'up') => {
+  const todosCopy = [...appStore.todos];
+  const todoToMove = todosCopy[indexToMove];
+  const newIndex = direction === 'down' ? indexToMove + 1 : indexToMove - 1;
+
+  todosCopy.splice(indexToMove, 1);
+  todosCopy.splice(newIndex, 0, todoToMove);
+  setAppStore('todos', todosCopy);
+};
+
 export {
   onCreatingNewTodo,
   onDeletingAllTodos,
   onDeletingCompletedTodos,
   onTodoDelete,
   onTodoDescriptionChange,
+  onTodoMove,
   onTodoStatusChange,
 };
