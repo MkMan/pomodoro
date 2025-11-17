@@ -1,7 +1,4 @@
-import type { DragEventHandler, Id } from '@thisbeyond/solid-dnd';
-
 import { type Todo, appStore, setAppStore } from '$app-state';
-import { type Accessor, createMemo, createSignal } from 'solid-js';
 
 const onCreatingNewTodo = (description: string) => {
   setAppStore('todos', (currentTodos) => [
@@ -43,44 +40,10 @@ const onTodoDelete = (indexToRemove: number) => () => {
   setAppStore('todos', todosCopy);
 };
 
-const onDragEnd: (todoIds: Accessor<string[]>) => DragEventHandler =
-  (todoIds) =>
-  ({ draggable, droppable }) => {
-    if (!droppable || !draggable) return;
-
-    const fromIndex = todoIds().indexOf(draggable.id.toString());
-    const toIndex = todoIds().indexOf(droppable.id.toString());
-
-    if (fromIndex === toIndex) return;
-
-    const newTodos = [...appStore.todos];
-    const movedItem = newTodos.splice(fromIndex, 1)[0];
-    newTodos.splice(toIndex, 0, movedItem);
-
-    setAppStore('todos', newTodos);
-  };
-
-const handleDragOverlay = (): {
-  draggedTodo: Accessor<Todo | undefined>;
-  onDragStart: DragEventHandler;
-} => {
-  const [draggedId, setDraggedId] = createSignal<Id>();
-  const draggedTodo = createMemo(() =>
-    appStore.todos.find(({ id }) => id === draggedId()),
-  );
-
-  return {
-    draggedTodo,
-    onDragStart: ({ draggable: { id } }) => setDraggedId(id),
-  };
-};
-
 export {
-  handleDragOverlay,
   onCreatingNewTodo,
   onDeletingAllTodos,
   onDeletingCompletedTodos,
-  onDragEnd,
   onTodoDelete,
   onTodoDescriptionChange,
   onTodoStatusChange,

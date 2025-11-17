@@ -26,17 +26,8 @@ const list = style({
 
 const listItem = style({
   borderRadius: 8,
-  cursor: 'grab',
   marginBlock: 16,
   padding: 8,
-  selectors: {
-    '&:hover': {
-      boxShadow: variables.shadow.mediumElevation,
-      transform: 'translate(-2px, -2px)',
-      transition: 'box-shadow 300ms, transform 100ms',
-    },
-  },
-  transitionDuration: '100ms',
 });
 
 const createTodoCta = style({
@@ -48,19 +39,6 @@ const newTodo = style({
   paddingBlockStart: 40,
 });
 
-const draggedItem = style([
-  listItem,
-  {
-    alignItems: 'center',
-    backgroundColor: variables.color.background,
-    cursor: 'grabbing',
-    display: 'flex',
-    fontSize: '1.1rem', // hardcoded to match label styling
-    fontWeight: 600, // hardcoded to match label styling
-    height: 56, // hardcoded to match list item height
-  },
-]);
-
 const separator = style({
   borderBlockEnd: '1px solid currentcolor',
   marginInline: 'auto',
@@ -69,7 +47,6 @@ const separator = style({
 
 export {
   createTodoCta,
-  draggedItem,
   header,
   heading,
   list,
