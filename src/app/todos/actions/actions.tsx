@@ -1,5 +1,5 @@
 import { IconButton } from '$app-components';
-import { AiOutlineClear } from 'solid-icons/ai';
+import { TbEraser } from 'solid-icons/tb';
 import { TbTrash } from 'solid-icons/tb';
 import { type Component, Show } from 'solid-js';
 
@@ -20,7 +20,7 @@ const Actions: Component<Props> = (props) => (
         onClick={props.onDeletingCompletedTodos}
         title="remove completed todos"
       >
-        <AiOutlineClear size={30} />
+        <TbEraser size={30} />
       </IconButton>
     </Show>
     <Show when={props.shouldShowDeleteAllTodosButton}>

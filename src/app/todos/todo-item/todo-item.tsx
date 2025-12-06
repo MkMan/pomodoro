@@ -1,9 +1,15 @@
 import { Checkbox, IconButton, Input } from '$app-components';
 import { cx } from '$app-utils';
-import { createSortable, useDragDropContext } from '@thisbeyond/solid-dnd';
-import { TbCheck, TbEdit, TbX } from 'solid-icons/tb';
+import {
+  TbCheck,
+  TbChevronDown,
+  TbChevronUp,
+  TbEdit,
+  TbX,
+} from 'solid-icons/tb';
 import {
   type Component,
+  Show,
   createEffect,
   createMemo,
   createSignal,
@@ -12,7 +18,6 @@ import {
 
 import type { Mode, TodoItemProps } from './types';
 
-import { classNames } from './constants';
 import * as styles from './styles.css';
 import { getRandomStrikethroughStyle } from './utils';
 
@@ -25,12 +30,12 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
     'onDescriptionChange',
     'onStatusChange',
     'status',
+    'onMoveDown',
+    'onMoveUp',
+    'isLastItem',
+    'isFirstItem',
   ]);
   let descriptionTextfield: HTMLInputElement | undefined;
-
-  // eslint-disable-next-line solid/reactivity -- as per the docs
-  const sortable = createSortable(props.id);
-  const state = useDragDropContext()?.[0];
 
   const [displayMode, setDisplayMode] = createSignal<Mode>('display');
   const [newDescription, setNewDescription] = createSignal('');
@@ -48,15 +53,8 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
 
   return (
     <li
-      class={cx(
-        props.class,
-        styles.wrapper,
-        sortable.isActiveDraggable && classNames.hasReducedOpacity,
-        !!state?.active.draggable && classNames.hasTransitionTransform,
-      )}
+      class={cx(props.class, styles.wrapper)}
       title={props.description}
-      // @ts-expect-error
-      use:sortable
       {...liProps}
     >
       {displayMode() === 'display' && (
@@ -73,6 +71,17 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
           >
             {props.description}
           </label>
+
+          <Show when={!props.isLastItem}>
+            <IconButton onClick={props.onMoveDown}>
+              <TbChevronDown size={25} />
+            </IconButton>
+          </Show>
+          <Show when={!props.isFirstItem}>
+            <IconButton onClick={props.onMoveUp}>
+              <TbChevronUp size={25} />
+            </IconButton>
+          </Show>
           <IconButton onClick={() => setDisplayMode('edit')} title="Edit">
             <TbEdit size={25} />
           </IconButton>

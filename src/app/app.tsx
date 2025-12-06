@@ -1,4 +1,4 @@
-import { Container, Drawer, Heading } from '$app-components';
+import { Drawer, Heading } from '$app-components';
 import {
   appStore,
   getCurrentCounter,
@@ -47,12 +47,8 @@ export const App: Component = () => {
         onSettingsClick={() => setIsSettingsDrawerOpen(true)}
       />
       <main class={styles.main}>
-        <Container class={styles.section} maxWidth={800}>
-          <Countdown onComplete={onCounterComplete} />
-        </Container>
-        <Container class={styles.section} maxWidth={800}>
-          <Todos />
-        </Container>
+        <Countdown class={styles.countdown} onComplete={onCounterComplete} />
+        <Todos class={styles.todos} />
       </main>
       <Drawer
         closeIconLabel="close settings menu"
@@ -66,7 +62,7 @@ export const App: Component = () => {
       >
         <Settings dataTestId="appSettings" />
       </Drawer>
-      <Footer />
+      <Footer class={styles.footer} />
     </div>
   );
 };

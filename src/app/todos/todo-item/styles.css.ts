@@ -1,7 +1,5 @@
 import { style } from '@vanilla-extract/css';
 
-import { classNames } from './constants';
-
 const displayModeHeight = 40; // TODO: hardcoded to match Input height. Need to fix Input height
 
 const wrapper = style({
@@ -9,16 +7,6 @@ const wrapper = style({
   display: 'flex',
   gap: 8,
   justifyContent: 'space-between',
-  selectors: {
-    [`&.${classNames.hasReducedOpacity}`]: {
-      opacity: 0.5,
-    },
-
-    [`&.${classNames.hasTransitionTransform}`]: {
-      transitionDuration: '0.15s',
-      transitionProperty: 'transform',
-    },
-  },
 });
 
 const description = style({

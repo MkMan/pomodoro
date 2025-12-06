@@ -1,4 +1,5 @@
 export type CountdownProps = {
+  class?: string;
   onComplete?: () => void;
 };
 

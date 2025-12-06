@@ -1,15 +1,14 @@
 import { style } from '@vanilla-extract/css';
 
-export const footer = style({
+const footer = style({
+  alignItems: 'center',
   borderBlockStart: '1px solid currentcolor',
+  display: 'flex',
   paddingBlock: 16,
 });
 
-export const wrapper = style({
-  alignItems: 'center',
-  display: 'flex',
-});
-
-export const sourceCodeLink = style({
+const sourceCodeLink = style({
   marginInlineStart: 'auto',
 });
+
+export { footer, sourceCodeLink };
