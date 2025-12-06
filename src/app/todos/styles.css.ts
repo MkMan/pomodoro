@@ -1,11 +1,4 @@
-import { variables } from '$app-theme';
 import { style } from '@vanilla-extract/css';
-
-const wrapper = style({
-  borderRadius: 8,
-  boxShadow: variables.shadow.highElevation,
-  padding: 16,
-});
 
 const header = style({
   alignItems: 'center',
@@ -45,13 +38,4 @@ const separator = style({
   width: '55%',
 });
 
-export {
-  createTodoCta,
-  header,
-  heading,
-  list,
-  listItem,
-  newTodo,
-  separator,
-  wrapper,
-};
+export { createTodoCta, header, heading, list, listItem, newTodo, separator };

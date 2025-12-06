@@ -5,6 +5,7 @@ import {
   getCurrentCounter,
   setCounterState,
 } from '$app-state';
+import { cx } from '$app-utils';
 import {
   type Component,
   createEffect,
@@ -63,7 +64,7 @@ export const Countdown: Component<CountdownProps> = (props) => {
   createEffect(updateTimeStateOnPropChange);
 
   return (
-    <div class={styles.wrapper}>
+    <div class={cx(styles.wrapper, props.class)}>
       <CounterSelector />
       <div class={styles.remainingTime} data-testid="remainingTime">
         {getFormattedTime(time())}

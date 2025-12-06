@@ -17,7 +17,11 @@ import {
   onTodoStatusChange,
 } from './utils';
 
-const Todos: Component = () => {
+type TodosProps = {
+  class?: string;
+};
+
+const Todos: Component<TodosProps> = (props) => {
   const hasTodos = createMemo(
     () => !!appStore.todos.length && appStore.todos.length > 0,
   );
@@ -26,7 +30,7 @@ const Todos: Component = () => {
   );
 
   return (
-    <section class={styles.wrapper}>
+    <section class={props.class}>
       <div class={styles.header}>
         <Heading class={styles.heading} level={2}>
           Todos
