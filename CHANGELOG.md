@@ -1,3 +1,13 @@
+# [3.11.0](https://github.com/MkMan/pomodoro/compare/v3.10.0...v3.11.0) (2025-12-06)
+
+
+### Features
+
+* **app:** rebuild app layout to use space more efficiently ([e0ef2f4](https://github.com/MkMan/pomodoro/commit/e0ef2f4de8d33c6334d1cc87f3579d4d755ff12a))
+* **todos:** allow re-orderering todos using buttons ([81849f6](https://github.com/MkMan/pomodoro/commit/81849f6856a72ef2910e2de0510b020d61313504))
+* **todos:** remove drag and drop ([2fb88c7](https://github.com/MkMan/pomodoro/commit/2fb88c75d2715e1efef77e41ca93f6cdc23a9361))
+* **todos:** update missed clear icon ([10c9486](https://github.com/MkMan/pomodoro/commit/10c94867017713b0a87bc78c450e40b99c57b2b0))
+
 # [3.10.0](https://github.com/MkMan/pomodoro/compare/v3.9.0...v3.10.0) (2025-11-06)
 
 
