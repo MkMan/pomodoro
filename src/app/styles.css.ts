@@ -46,6 +46,7 @@ const main = style([
 
     // eslint-disable-next-line perfectionist/sort-objects -- will be overridden by basic styles
     [containerQuery]: {
+      alignItems: 'flex-start',
       flexDirection: 'row',
     },
   },
@@ -56,7 +57,7 @@ const todos = style({
   boxShadow: variables.shadow.highElevation,
 
   [containerQuery]: {
-    flex: 1,
+    flex: 3,
   },
 });
 
@@ -65,6 +66,7 @@ const countdown = style({
     ...cardStyles,
     alignSelf: 'start',
     boxShadow: variables.shadow.mediumElevation,
+    flex: 1,
   },
 });
 
