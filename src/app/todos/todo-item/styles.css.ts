@@ -9,6 +9,13 @@ const wrapper = style({
   justifyContent: 'space-between',
 });
 
+const dragHandle = style({
+  cursor: 'grab',
+  display: 'flex',
+  marginBlockStart: '4px', // Optical alignment with the checkbox
+  padding: '4px',
+});
+
 const description = style({
   flex: 1,
   fontFamily: '"Playpen Sans Variable", cursive',
@@ -37,4 +44,4 @@ const descriptionTextfield = style({
 
 const editWrapper = style([wrapper, { width: '100%' }]);
 
-export { description, descriptionTextfield, editWrapper, wrapper };
+export { description, descriptionTextfield, dragHandle, editWrapper, wrapper };
