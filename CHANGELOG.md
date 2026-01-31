@@ -1,3 +1,16 @@
+# [3.12.0](https://github.com/MkMan/pomodoro/compare/v3.11.0...v3.12.0) (2026-01-31)
+
+
+### Bug Fixes
+
+* **app:** improve layout ([93c6583](https://github.com/MkMan/pomodoro/commit/93c6583a87d8fc31cd07df59e1cf99c5266b9103))
+* **app:** remove usages of html title attribute ([58852b1](https://github.com/MkMan/pomodoro/commit/58852b1461869b6316ce8733e5d7a05d282496f3))
+
+
+### Features
+
+* **todos:** add Drag and Drop ([a351476](https://github.com/MkMan/pomodoro/commit/a3514767fb59075a383d389d34a75f645ce1af97))
+
 # [3.11.0](https://github.com/MkMan/pomodoro/compare/v3.10.0...v3.11.0) (2025-12-06)
 
 
