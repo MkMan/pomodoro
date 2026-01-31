@@ -38,10 +38,10 @@ const ViewMode: Component<{
     >
       {props.description}
     </label>
-    <IconButton onClick={props.onEditClick} title="Edit">
+    <IconButton aria-label="Edit" onClick={props.onEditClick}>
       <TbEdit size={25} />
     </IconButton>
-    <IconButton onClick={props.onDeleteClick} title="Delete">
+    <IconButton aria-label="Delete" onClick={props.onDeleteClick}>
       <TbX size={25} />
     </IconButton>
   </>
@@ -68,11 +68,11 @@ const EditMode: Component<{
         value={newDescription()}
       />
       <IconButton
+        aria-label="Save"
         onClick={(event) => {
           event.preventDefault();
           props.onSave(newDescription());
         }}
-        title="Save"
         type="submit"
       >
         <TbCheck size={25} />
@@ -107,7 +107,6 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
     <li
       class={cx(props.class, styles.wrapper)}
       ref={draggable.ref}
-      title={props.description}
       {...liProps}
       use:sortable
     >

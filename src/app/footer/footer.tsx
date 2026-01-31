@@ -15,10 +15,10 @@ export const Footer: Component<FooterProps> = (props) => (
   <footer class={cx(styles.footer, props.class)}>
     <span>App version: {version}</span>
     <a
+      aria-label="Source code"
       class={styles.sourceCodeLink}
       href="https://github.com/MkMan/pomodoro"
       target="blank"
-      title="Source code"
     >
       <TbBrandGithub color={variables.color.font} size={20} />
     </a>

@@ -16,18 +16,18 @@ const Actions: Component<Props> = (props) => (
   <>
     <Show when={props.shouldShowDeleteCompletedTodosButton}>
       <IconButton
+        aria-label="remove completed todos"
         class={iconButton}
         onClick={props.onDeletingCompletedTodos}
-        title="remove completed todos"
       >
         <TbEraser size={30} />
       </IconButton>
     </Show>
     <Show when={props.shouldShowDeleteAllTodosButton}>
       <IconButton
+        aria-label="delete all todos"
         class={iconButton}
         onClick={props.onDeletingAllTodos}
-        title="delete all todos"
       >
         <TbTrash size={30} />
       </IconButton>

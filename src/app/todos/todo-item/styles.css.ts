@@ -21,20 +21,12 @@ const description = style({
   fontFamily: '"Playpen Sans Variable", cursive',
   fontSize: '1.1rem',
   fontWeight: 'normal',
-  height: displayModeHeight,
-  lineHeight: `${displayModeHeight}px`,
-  marginInlineEnd: 'auto',
-  maxWidth: 'fit-content',
-  overflow: 'hidden',
-  paddingInlineEnd: '8px', // MAGIC NUMBER: to prevent cursive font getting clipped by overflow: hidden
+  paddingInline: '8px', // MAGIC NUMBER: to prevent cursive font getting clipped by overflow: hidden
   selectors: {
     '&.isCompleted': {
       textDecoration: 'line-through 2px currentcolor',
     },
   },
-  textOverflow: 'ellipsis',
-
-  whiteSpace: 'nowrap',
 });
 
 const descriptionTextfield = style({
