@@ -1,6 +1,13 @@
 import { Heading } from '$app-components';
 import { appStore } from '$app-state';
 import { cx } from '$app-utils';
+import {
+  DragDropProvider,
+  DragDropSensors,
+  type DragEventHandler,
+  SortableProvider,
+  closestCenter,
+} from '@thisbeyond/solid-dnd';
 import { type Component, For, Show, createMemo } from 'solid-js';
 
 import { Actions } from './actions/actions';
@@ -13,7 +20,7 @@ import {
   onDeletingCompletedTodos,
   onTodoDelete,
   onTodoDescriptionChange,
-  onTodoMove,
+  onTodoDrop,
   onTodoStatusChange,
 } from './utils';
 
@@ -22,12 +29,24 @@ type TodosProps = {
 };
 
 const Todos: Component<TodosProps> = (props) => {
+  const todoIds = createMemo(() => appStore.todos.map(({ id }) => id));
   const hasTodos = createMemo(
     () => !!appStore.todos.length && appStore.todos.length > 0,
   );
   const hasCompletedTodos = createMemo(() =>
     appStore.todos.some(({ status }) => status === 'completed'),
   );
+
+  const onDragEnd: DragEventHandler = ({ draggable, droppable }) => {
+    if (!draggable || !droppable) return;
+
+    const fromIndex = todoIds().indexOf(String(draggable.id));
+    const toIndex = todoIds().indexOf(String(droppable.id));
+
+    if (fromIndex === toIndex) return;
+
+    onTodoDrop(fromIndex, toIndex);
+  };
 
   return (
     <section class={props.class}>
@@ -42,24 +61,25 @@ const Todos: Component<TodosProps> = (props) => {
           shouldShowDeleteCompletedTodosButton={hasCompletedTodos()}
         />
       </div>
-      <ul class={styles.list}>
-        <For each={appStore.todos}>
-          {(todo, index) => (
-            <TodoItem
-              {...todo}
-              class={styles.listItem}
-              data-testid="todo-item"
-              isFirstItem={index() === 0}
-              isLastItem={index() === appStore.todos.length - 1}
-              onDelete={onTodoDelete(index())}
-              onDescriptionChange={onTodoDescriptionChange(index())}
-              onMoveDown={() => onTodoMove(index(), 'down')}
-              onMoveUp={() => onTodoMove(index(), 'up')}
-              onStatusChange={onTodoStatusChange(index())}
-            />
-          )}
-        </For>
-      </ul>
+      <DragDropProvider collisionDetector={closestCenter} onDragEnd={onDragEnd}>
+        <DragDropSensors />
+        <ul class={styles.list}>
+          <SortableProvider ids={todoIds()}>
+            <For each={appStore.todos}>
+              {(todo, index) => (
+                <TodoItem
+                  {...todo}
+                  class={styles.listItem}
+                  data-testid="todo-item"
+                  onDelete={onTodoDelete(index())}
+                  onDescriptionChange={onTodoDescriptionChange(index())}
+                  onStatusChange={onTodoStatusChange(index())}
+                />
+              )}
+            </For>
+          </SortableProvider>
+        </ul>
+      </DragDropProvider>
       <Show when={appStore.todos.length > 0}>
         <hr class={styles.separator} />
       </Show>

@@ -1,15 +1,11 @@
 import { Checkbox, IconButton, Input } from '$app-components';
 import { cx } from '$app-utils';
-import {
-  TbCheck,
-  TbChevronDown,
-  TbChevronUp,
-  TbEdit,
-  TbX,
-} from 'solid-icons/tb';
+import { createDraggable, createSortable } from '@thisbeyond/solid-dnd';
+import { TbCheck, TbEdit, TbGripVertical, TbX } from 'solid-icons/tb';
 import {
   type Component,
-  Show,
+  Match,
+  Switch,
   createEffect,
   createMemo,
   createSignal,
@@ -21,6 +17,70 @@ import type { Mode, TodoItemProps } from './types';
 import * as styles from './styles.css';
 import { getRandomStrikethroughStyle } from './utils';
 
+const ViewMode: Component<{
+  description: string;
+  id: string;
+  isChecked: boolean;
+  onCheck: () => void;
+  onDeleteClick: () => void;
+  onEditClick: () => void;
+}> = (props) => (
+  <>
+    <Checkbox
+      checked={props.isChecked}
+      id={props.id}
+      onChange={props.onCheck}
+    />
+    <label
+      class={cx(styles.description, props.isChecked && 'isCompleted')}
+      for={props.id}
+      style={{ 'text-decoration-style': getRandomStrikethroughStyle() }}
+    >
+      {props.description}
+    </label>
+    <IconButton aria-label="Edit" onClick={props.onEditClick}>
+      <TbEdit size={25} />
+    </IconButton>
+    <IconButton aria-label="Delete" onClick={props.onDeleteClick}>
+      <TbX size={25} />
+    </IconButton>
+  </>
+);
+
+const EditMode: Component<{
+  description: string;
+  onSave: (newDescription: string) => void;
+}> = (props) => {
+  // eslint-disable-next-line solid/reactivity -- won't change post mount
+  const [newDescription, setNewDescription] = createSignal(props.description);
+  let inputElement: HTMLInputElement | undefined;
+
+  createEffect(() => {
+    inputElement?.focus();
+  });
+
+  return (
+    <form class={styles.editWrapper}>
+      <Input
+        class={styles.descriptionTextfield}
+        onInput={({ currentTarget }) => setNewDescription(currentTarget.value)}
+        ref={inputElement}
+        value={newDescription()}
+      />
+      <IconButton
+        aria-label="Save"
+        onClick={(event) => {
+          event.preventDefault();
+          props.onSave(newDescription());
+        }}
+        type="submit"
+      >
+        <TbCheck size={25} />
+      </IconButton>
+    </form>
+  );
+};
+
 const TodoItem: Component<TodoItemProps> = (_props) => {
   const [props, liProps] = splitProps(_props, [
     'class',
@@ -30,90 +90,50 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
     'onDescriptionChange',
     'onStatusChange',
     'status',
-    'onMoveDown',
-    'onMoveUp',
-    'isLastItem',
-    'isFirstItem',
   ]);
-  let descriptionTextfield: HTMLInputElement | undefined;
+
+  // eslint-disable-next-line solid/reactivity -- id won't change
+  const sortable = createSortable(props.id);
+  // eslint-disable-next-line solid/reactivity -- id won't change
+  const draggable = createDraggable(props.id);
 
   const [displayMode, setDisplayMode] = createSignal<Mode>('display');
-  const [newDescription, setNewDescription] = createSignal('');
 
   const isCompleted = createMemo(() => props.status === 'completed');
   const onCheckClick = () =>
     props.onStatusChange(isCompleted() ? 'not-started' : 'completed');
 
-  createEffect(() => {
-    if (displayMode() === 'edit') {
-      setNewDescription(props.description);
-      descriptionTextfield?.focus();
-    }
-  });
-
   return (
     <li
       class={cx(props.class, styles.wrapper)}
-      title={props.description}
+      ref={draggable.ref}
       {...liProps}
+      use:sortable
     >
-      {displayMode() === 'display' && (
-        <>
-          <Checkbox
-            checked={isCompleted()}
-            id={props.description}
-            onChange={onCheckClick}
+      <span class={styles.dragHandle} {...draggable.dragActivators}>
+        <TbGripVertical size={16} />
+      </span>
+      <Switch fallback={null}>
+        <Match when={displayMode() === 'display'}>
+          <ViewMode
+            description={props.description}
+            id={props.id}
+            isChecked={isCompleted()}
+            onCheck={onCheckClick}
+            onDeleteClick={props.onDelete}
+            onEditClick={() => setDisplayMode('edit')}
           />
-          <label
-            class={cx(styles.description, isCompleted() && 'isCompleted')}
-            for={props.description}
-            style={{ 'text-decoration-style': getRandomStrikethroughStyle() }}
-          >
-            {props.description}
-          </label>
-
-          <Show when={!props.isLastItem}>
-            <IconButton onClick={props.onMoveDown}>
-              <TbChevronDown size={25} />
-            </IconButton>
-          </Show>
-          <Show when={!props.isFirstItem}>
-            <IconButton onClick={props.onMoveUp}>
-              <TbChevronUp size={25} />
-            </IconButton>
-          </Show>
-          <IconButton onClick={() => setDisplayMode('edit')} title="Edit">
-            <TbEdit size={25} />
-          </IconButton>
-          <IconButton onClick={props.onDelete} title="Delete">
-            <TbX size={25} />
-          </IconButton>
-        </>
-      )}
-      {displayMode() === 'edit' && (
-        <form class={styles.editWrapper}>
-          <Input
-            class={styles.descriptionTextfield}
-            onInput={({ currentTarget }) =>
-              setNewDescription(currentTarget.value)
-            }
-            ref={descriptionTextfield}
-            value={props.description}
-          />
-          <IconButton
-            onClick={(event) => {
-              event.preventDefault();
-
-              props.onDescriptionChange(newDescription());
+        </Match>
+        <Match when={displayMode() === 'edit'}>
+          <EditMode
+            description={props.description}
+            onSave={(newDescription) => {
+              props.onDescriptionChange(newDescription);
               setDisplayMode('display');
             }}
-            title="Save"
-            type="submit"
-          >
-            <TbCheck size={25} />
-          </IconButton>
-        </form>
-      )}
+          />
+        </Match>
+      </Switch>
     </li>
   );
 };
