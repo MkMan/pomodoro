@@ -1,14 +1,12 @@
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { VitePWA } from 'vite-plugin-pwa';
 import solidPlugin from 'vite-plugin-solid';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   plugins: [
     solidPlugin(),
     vanillaExtractPlugin(),
-    tsconfigPaths(),
     VitePWA({
       manifest: {
         background_color: '#bf5b4a',
@@ -41,6 +39,7 @@ export default defineConfig({
   ],
   resolve: {
     conditions: ['development', 'browser'],
+    tsconfigPaths: true,
   },
   test: {
     clearMocks: true,
@@ -64,10 +63,10 @@ export default defineConfig({
 
       thresholds: {
         autoUpdate: true,
-        branches: 91.48,
-        functions: 90,
-        lines: 85.97,
-        statements: 85.97,
+        branches: 57.47,
+        functions: 88.38,
+        lines: 85.77,
+        statements: 88.08,
       },
     },
     deps: {

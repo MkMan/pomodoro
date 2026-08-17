@@ -19,7 +19,9 @@ import { CounterSelector } from './counter-selector';
 import * as styles from './styles.css';
 import { getFormattedTime, getWorkerHelpers } from './utils';
 
-const worker = new Worker(new URL('./worker.ts', import.meta.url));
+const worker = new Worker(new URL('./worker.ts?worker', import.meta.url), {
+  type: 'module',
+});
 const { startWorkerCounter, stopWorkerCounter } = getWorkerHelpers(worker);
 
 export const Countdown: Component<CountdownProps> = (props) => {
