@@ -1,3 +1,4 @@
+// @ts-expect-error
 import type { Meta, StoryObj } from 'storybook-solidjs';
 
 import { Checkbox } from './checkbox';
@@ -14,6 +15,7 @@ export const Default: Story = {};
 
 export const LargeFont: Story = {
   decorators: [
+    // @ts-expect-error
     (Story) => (
       <div style={{ 'font-size': '40px' }}>
         <Story />

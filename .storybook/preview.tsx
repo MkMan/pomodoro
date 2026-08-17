@@ -1,3 +1,4 @@
+// @ts-expect-error
 import type { Decorator, Preview } from 'storybook-solidjs';
 
 import '../src/css/dimensions.css';

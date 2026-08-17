@@ -6,7 +6,6 @@
   "settings": {},
   "extends": [
     "plugin:solid/typescript",
-    "plugin:storybook/recommended",
     "plugin:perfectionist/recommended-natural"
   ],
   "parser": "@typescript-eslint/parser",

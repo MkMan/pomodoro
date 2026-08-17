@@ -1,3 +1,4 @@
+// @ts-expect-error
 import type { Meta, StoryObj } from 'storybook-solidjs';
 
 import { Heading } from './heading';

@@ -1,3 +1,4 @@
+// @ts-expect-error
 import type { Meta, StoryObj } from 'storybook-solidjs';
 
 import { type ComponentProps, createSignal } from 'solid-js';
