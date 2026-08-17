@@ -5,24 +5,23 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "types": ["vitest/globals", "vite-plugin-pwa/client"],
-    "baseUrl": ".",
     "paths": {
       "$app-utils": ["./src/utility"],
       "$app-components": ["./src/components"],
       "$app-state": ["./src/state"],
-      "$app-theme": ["./src/theme/index.css.ts"]
+      "$app-theme": ["./src/theme/index.css.ts"],
+      "$app-constants": ["./src/constants.ts"]
     }
   },
   "include": ["src", "./test-setup.ts", "./index.tsx"],

@@ -1,4 +1,4 @@
-import type { AppTheme } from 'src/state/app-store/types';
+import type { AppTheme } from '$app-state';
 
 import { appStore, setAppStore } from '$app-state';
 import { type Component, For } from 'solid-js';

@@ -1,5 +1,5 @@
+import { counterOrder } from '$app-constants';
 import { createSignal } from 'solid-js';
-import { counterOrder } from 'src/constants';
 
 import type { CurrentCounter } from '../../types';
 

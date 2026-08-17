@@ -1,4 +1,4 @@
-import { counterOrder } from 'src/constants';
+import { counterOrder } from '$app-constants';
 
 import {
   currentCounterIndex,

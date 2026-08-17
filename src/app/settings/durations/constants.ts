@@ -1,6 +1,6 @@
 import type { Input } from '$app-components';
+import type { AppStore } from '$app-state';
 import type { ComponentProps } from 'solid-js';
-import type { AppStore } from 'src/state/app-store/types';
 
 type DurationField = {
   label: string;
