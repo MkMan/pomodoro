@@ -5,6 +5,7 @@ import * as styles from './styles.css';
 import { onNotificationCheckboxChange } from './util';
 
 export const Alerts: Component = () => {
+  // oxlint-disable-next-line no-unassigned-vars -- used in JSX
   let notificationsCheckbox: HTMLInputElement | undefined;
   const [isNotificationsCheckboxDisabled, setIsNotificationsCheckboxDisabled] =
     createSignal(Notification.permission === 'denied');

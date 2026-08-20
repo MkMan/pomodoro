@@ -11,14 +11,14 @@ export const getFormattedTime = (timeInSeconds: number): string => {
 };
 
 export const getWorkerHelpers = (worker: Worker) => ({
-  startWorkerCounter(time: number) {
+  startWorkerCounter: (time: number) => {
     const workerMessage: AppToWorkerMessageData = {
       time,
       type: 'start',
     };
     worker.postMessage(workerMessage);
   },
-  stopWorkerCounter() {
+  stopWorkerCounter: () => {
     const workerMessage: AppToWorkerMessageData = {
       type: 'stop',
     };

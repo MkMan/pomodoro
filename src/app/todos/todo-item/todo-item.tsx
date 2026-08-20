@@ -53,6 +53,7 @@ const EditMode: Component<{
 }> = (props) => {
   // eslint-disable-next-line solid/reactivity -- won't change post mount
   const [newDescription, setNewDescription] = createSignal(props.description);
+  // oxlint-disable-next-line no-unassigned-vars -- assigned in JSX
   let inputElement: HTMLInputElement | undefined;
 
   createEffect(() => {
@@ -92,7 +93,7 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
     'status',
   ]);
 
-  // eslint-disable-next-line solid/reactivity -- id won't change
+  // oxlint-disable-next-line no-unused-vars -- used in JSX
   const sortable = createSortable(props.id);
   // eslint-disable-next-line solid/reactivity -- id won't change
   const draggable = createDraggable(props.id);

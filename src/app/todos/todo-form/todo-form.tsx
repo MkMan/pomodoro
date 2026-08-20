@@ -10,6 +10,7 @@ const initialDescription = '';
 const newTodoFieldLabel = 'New todo description';
 
 const TodoForm: Component<TodoFormProps> = (props) => {
+  // oxlint-disable-next-line no-unassigned-vars -- used in JSX
   let descriptionRef: HTMLInputElement | undefined;
 
   const [description, setDescription] = createSignal(initialDescription);

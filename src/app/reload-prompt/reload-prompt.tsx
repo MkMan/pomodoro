@@ -15,7 +15,7 @@ export const ReloadPrompt: Component = () => {
       console.error('SW registration error', error);
     },
     onRegistered(registration) {
-      console.log(`SW Registered: ${registration?.toString() ?? ''}`);
+      console.log(`SW Registered: ${JSON.stringify(registration)}`);
     },
   });
 

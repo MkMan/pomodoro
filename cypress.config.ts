@@ -5,6 +5,6 @@ export default defineConfig({
     // We've imported your old cypress plugins here.
     baseUrl: 'http://localhost:3000',
     // You may want to clean this up later by importing these.
-    setupNodeEvents(on, config) {},
+    setupNodeEvents(_on, _config) {},
   },
 });

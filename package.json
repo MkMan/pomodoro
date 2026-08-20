@@ -59,6 +59,8 @@
     "lint-staged": "15.0.2",
     "markdownlint": "0.31.1",
     "markdownlint-cli": "0.37.0",
+    "oxlint": "^1.78.0",
+    "oxlint-tsgolint": "^7.0.2001",
     "semantic-release": "22.0.7",
     "typescript": "7.0.2",
     "vite": "^8.2.1",
@@ -72,7 +74,10 @@
     "node": "20.19.0"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": ["eslint --cache --fix", "biome lint --write"],
+    "*.{js,ts,tsx}": [
+      "eslint --cache --fix",
+      "biome lint --write"
+    ],
     "*.{js,ts,tsx,css,md,json,html}": "biome format --write",
     "*.md": "markdownlint --fix"
   }

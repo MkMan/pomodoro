@@ -18,7 +18,9 @@ if (!document.getElementById(drawerContainerId)) {
 export const Drawer: Component<DrawerProps> = (props) => {
   const [isOpen, setIsOpen] = createSignal(false);
 
+  // oxlint-disable-next-line no-unassigned-vars -- used in JSX
   let overlay: HTMLDivElement | undefined;
+  // oxlint-disable-next-line no-unassigned-vars -- used in JSX
   let drawerWrapper: HTMLDivElement | undefined;
 
   createEffect(() => {
