@@ -14,7 +14,7 @@ describe('Select', () => {
       { label: 'Spanish', value: 'es' },
     ];
     const { label, value } = options[0];
-    const onChange = vi.fn();
+    const onChange = vi.fn<SelectProps['onChange']>();
 
     render(() => (
       <Select onChange={onChange} options={options} value={value} />
@@ -36,7 +36,7 @@ describe('Select', () => {
 
     render(() => (
       <Select
-        onChange={vi.fn()}
+        onChange={vi.fn<SelectProps['onChange']>()}
         options={[{ label: 'English', value: 'en' }]}
         value={'not real'}
       />

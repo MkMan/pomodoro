@@ -6,5 +6,5 @@ export type HeadingProps = {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   shouldAutoFocus?: boolean;
   size?: string;
-  weight?: 'bold' | 'light' | 'normal' | 300 | 400 | 500 | 600 | 700 | 800;
+  weight?: 300 | 400 | 500 | 600 | 700 | 800 | 'bold' | 'light' | 'normal';
 };

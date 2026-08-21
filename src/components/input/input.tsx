@@ -1,5 +1,5 @@
 import { cx } from '$app-utils';
-import { type Component, Show, createMemo, splitProps } from 'solid-js';
+import { type Component, createMemo, Show, splitProps } from 'solid-js';
 
 import type { InputProps } from './types';
 

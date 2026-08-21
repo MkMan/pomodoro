@@ -5,12 +5,13 @@ import '../src/css/dimensions.css';
 import '../src/css/fonts.css';
 import '../src/css/reset.css';
 
-import {
-  lightThemeClassName,
-  darkThemeClassName,
-} from '../src/theme/index.css';
 import { createEffect } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
+
+import {
+  darkThemeClassName,
+  lightThemeClassName,
+} from '../src/theme/index.css';
 
 const withTheme: Decorator = (StoryFn, context) => {
   const theme = context.parameters.theme || context.globals.theme;
@@ -37,14 +38,14 @@ const withPadding: Decorator = (StoryFn) => {
 
 const globalTypes = {
   theme: {
-    name: 'theme',
-    description: 'Global theme for components',
     defaultValue: 'light',
+    description: 'Global theme for components',
+    name: 'theme',
     toolbar: {
       icon: 'circlehollow',
       items: [
-        { value: 'light', icon: 'circlehollow', title: 'light' },
-        { value: 'dark', icon: 'circle', title: 'dark' },
+        { icon: 'circlehollow', title: 'light', value: 'light' },
+        { icon: 'circle', title: 'dark', value: 'dark' },
       ],
       showName: true,
     },
@@ -52,6 +53,7 @@ const globalTypes = {
 };
 
 const preview: Preview = {
+  decorators: [withTheme, withPadding],
   parameters: {
     controls: {
       matchers: {
@@ -60,7 +62,6 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [withTheme, withPadding],
 };
 
 export default preview;

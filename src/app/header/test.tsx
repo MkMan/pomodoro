@@ -6,7 +6,7 @@ import { Header } from './header';
 describe('Header', () => {
   it('should render the content correctly', async () => {
     const user = userEvent.setup();
-    const onSettingsClick = vi.fn();
+    const onSettingsClick = vi.fn<VoidFunction>();
 
     render(() => <Header onSettingsClick={onSettingsClick} />);
 

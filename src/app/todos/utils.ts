@@ -1,4 +1,4 @@
-import { type Todo, appStore, setAppStore } from '$app-state';
+import { appStore, setAppStore, type Todo } from '$app-state';
 
 const onCreatingNewTodo = (description: string) => {
   setAppStore('todos', (currentTodos) => [

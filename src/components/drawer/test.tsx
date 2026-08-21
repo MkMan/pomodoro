@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { Drawer } from './drawer';
 
 describe('Drawer', () => {
-  const onClose = vi.fn();
+  const onClose = vi.fn<VoidFunction>();
 
   it('should render the content when open', () => {
     render(() => (

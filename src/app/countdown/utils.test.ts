@@ -18,13 +18,13 @@ describe('Countdown utils', () => {
   });
 
   describe('#getWorkerHelpers', () => {
-    const mockPostMessage = vi.fn();
-    const mockWorker: Pick<Worker, 'postMessage'> = {
+    const mockPostMessage = vi.fn<Worker['postMessage']>();
+    const mockWorker = {
       postMessage: mockPostMessage,
     };
 
     it('should post a stop message correctly', () => {
-      getWorkerHelpers(mockWorker as Worker).stopWorkerCounter();
+      getWorkerHelpers(mockWorker as unknown as Worker).stopWorkerCounter();
 
       expect(mockPostMessage).toHaveBeenCalledWith({
         type: 'stop',
@@ -32,7 +32,7 @@ describe('Countdown utils', () => {
     });
 
     it('should post a start message correctly', () => {
-      getWorkerHelpers(mockWorker as Worker).startWorkerCounter(1);
+      getWorkerHelpers(mockWorker as unknown as Worker).startWorkerCounter(1);
 
       expect(mockPostMessage).toHaveBeenCalledWith({
         time: 1,

@@ -10,9 +10,9 @@ const meta: Meta<typeof Select> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Select>;
-
 type SelectOptions = ComponentProps<typeof Select>['options'];
+
+type Story = StoryObj<typeof Select>;
 const options: SelectOptions = [
   { label: 'Mitsubishi', value: 'mitsubishi' },
   { label: 'Mazda', value: 'mazda' },

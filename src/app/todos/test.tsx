@@ -37,7 +37,7 @@ describe('Todos', () => {
   };
 
   const setUp = () => {
-    windowConfirmMock = vi.fn().mockReturnValue(true);
+    windowConfirmMock = vi.fn<Window['confirm']>().mockReturnValue(true);
 
     vi.spyOn(window, 'confirm').mockImplementation(windowConfirmMock);
   };

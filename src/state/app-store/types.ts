@@ -1,11 +1,3 @@
-type AppTheme = 'OS' | 'dark' | 'light';
-
-type Todo = {
-  description: string;
-  id: string;
-  status: 'completed' | 'not-started';
-};
-
 type AppStore = {
   alerts: {
     shouldSendNotification: boolean;
@@ -17,6 +9,14 @@ type AppStore = {
   };
   theme: AppTheme;
   todos: Todo[];
+};
+
+type AppTheme = 'dark' | 'light' | 'OS';
+
+type Todo = {
+  description: string;
+  id: string;
+  status: 'completed' | 'not-started';
 };
 
 export type { AppStore, AppTheme, Todo };

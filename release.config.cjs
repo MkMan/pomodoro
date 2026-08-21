@@ -1,4 +1,3 @@
-/* eslint-disable no-undef -- CJS file */
 module.exports = {
   branches: ['main'],
   plugins: [

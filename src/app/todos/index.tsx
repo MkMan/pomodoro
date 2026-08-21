@@ -2,13 +2,13 @@ import { Heading } from '$app-components';
 import { appStore } from '$app-state';
 import { cx } from '$app-utils';
 import {
+  closestCenter,
   DragDropProvider,
   DragDropSensors,
   type DragEventHandler,
   SortableProvider,
-  closestCenter,
 } from '@thisbeyond/solid-dnd';
-import { type Component, For, Show, createMemo } from 'solid-js';
+import { type Component, createMemo, For, Show } from 'solid-js';
 
 import { Actions } from './actions/actions';
 import * as styles from './styles.css';

@@ -10,13 +10,13 @@ declare module 'solid-js' {
   }
 }
 
+type Mode = 'display' | 'edit';
+
 type TodoItemProps = {
   onDelete: () => void;
   onDescriptionChange: (description: Todo['description']) => void;
   onStatusChange: (status: Todo['status']) => void;
 } & JSX.HTMLAttributes<HTMLLIElement> &
   Todo;
-
-type Mode = 'display' | 'edit';
 
 export type { Mode, TodoItemProps };

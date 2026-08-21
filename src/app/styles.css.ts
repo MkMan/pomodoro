@@ -44,7 +44,7 @@ const main = style([
     gap: 32,
     paddingBlock: 32,
 
-    // eslint-disable-next-line perfectionist/sort-objects -- will be overridden by basic styles
+    // oxlint-disable-next-line perfectionist/sort-objects
     [containerQuery]: {
       alignItems: 'flex-start',
       flexDirection: 'row',

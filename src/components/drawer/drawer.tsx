@@ -1,6 +1,6 @@
 import { cx } from '$app-utils';
 import { TbX } from 'solid-icons/tb';
-import { type Component, Show, createEffect, createSignal } from 'solid-js';
+import { type Component, createEffect, createSignal, Show } from 'solid-js';
 import { Portal } from 'solid-js/web';
 
 import type { DrawerProps } from './types';

@@ -1,5 +1,5 @@
 import { cx } from '$app-utils';
-import { type Component, type JSX, createMemo } from 'solid-js';
+import { type Component, createMemo, type JSX } from 'solid-js';
 
 import { container } from './styles.css';
 

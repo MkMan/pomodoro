@@ -1,9 +1,12 @@
 import type { JSX } from 'solid-js';
 
-type SelectProps = {
+type SelectProps = Omit<
+  JSX.SelectHTMLAttributes<HTMLSelectElement>,
+  'onChange' | 'value'
+> & {
   onChange: JSX.EventHandler<HTMLSelectElement, Event>;
   options: { label: string; value: string }[];
   value: string;
-} & Omit<JSX.SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'value'>;
+};
 
 export type { SelectProps };

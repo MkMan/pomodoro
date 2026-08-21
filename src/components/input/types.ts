@@ -5,7 +5,7 @@ const appearanceInline = 'inline';
 
 const appearance = [appearanceBlock, appearanceInline] as const;
 
-type InputProps = {
+type InputProps = Omit<JSX.InputHTMLAttributes<HTMLInputElement>, 'onInput'> & {
   appearance?: (typeof appearance)[number];
   class?: string;
   error?: boolean | string;
@@ -13,7 +13,7 @@ type InputProps = {
   label?: string;
   onInput: JSX.EventHandler<HTMLInputElement, Event>;
   value: number | string;
-} & Omit<JSX.InputHTMLAttributes<HTMLInputElement>, 'onInput'>;
+};
 
 export { appearanceBlock, appearanceInline };
 export type { InputProps };

@@ -1,5 +1,6 @@
 import type { JSX } from 'solid-js';
 
-export type UnstyledButtonProps = {
-  children: JSX.Element;
-} & JSX.ButtonHTMLAttributes<HTMLButtonElement>;
+export type UnstyledButtonProps =
+  JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
+    children: JSX.Element;
+  };

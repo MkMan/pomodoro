@@ -1,6 +1,6 @@
 import { cx } from '$app-utils';
 import { TbChevronDown } from 'solid-icons/tb';
-import { type Component, For, createMemo, splitProps } from 'solid-js';
+import { type Component, createMemo, For, splitProps } from 'solid-js';
 
 import type { SelectProps } from './types';
 

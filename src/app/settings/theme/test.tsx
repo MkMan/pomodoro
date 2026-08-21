@@ -1,4 +1,6 @@
-import { setAppStore } from '$app-state';
+import type { SetStoreFunction } from 'solid-js/store';
+
+import { type AppStore, setAppStore } from '$app-state';
 import { render, screen } from '@solidjs/testing-library';
 import userEvent from '@testing-library/user-event';
 
@@ -8,7 +10,7 @@ vi.mock('$app-state', () => ({
   appStore: {
     theme: 'dark',
   },
-  setAppStore: vi.fn(),
+  setAppStore: vi.fn<SetStoreFunction<AppStore>>(),
 }));
 
 describe('Theme', () => {

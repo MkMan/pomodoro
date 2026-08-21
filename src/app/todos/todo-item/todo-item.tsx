@@ -4,12 +4,12 @@ import { createDraggable, createSortable } from '@thisbeyond/solid-dnd';
 import { TbCheck, TbEdit, TbGripVertical, TbX } from 'solid-icons/tb';
 import {
   type Component,
-  Match,
-  Switch,
   createEffect,
   createMemo,
   createSignal,
+  Match,
   splitProps,
+  Switch,
 } from 'solid-js';
 
 import type { Mode, TodoItemProps } from './types';
@@ -51,7 +51,7 @@ const EditMode: Component<{
   description: string;
   onSave: (newDescription: string) => void;
 }> = (props) => {
-  // eslint-disable-next-line solid/reactivity -- won't change post mount
+  // oxlint-disable-next-line solid/reactivity -- won't change post mount
   const [newDescription, setNewDescription] = createSignal(props.description);
   // oxlint-disable-next-line no-unassigned-vars -- assigned in JSX
   let inputElement: HTMLInputElement | undefined;
@@ -93,9 +93,9 @@ const TodoItem: Component<TodoItemProps> = (_props) => {
     'status',
   ]);
 
-  // oxlint-disable-next-line no-unused-vars -- used in JSX
+  // oxlint-disable-next-line no-unused-vars  solid/reactivity-- used in JSX
   const sortable = createSortable(props.id);
-  // eslint-disable-next-line solid/reactivity -- id won't change
+  // oxlint-disable-next-line solid/reactivity
   const draggable = createDraggable(props.id);
 
   const [displayMode, setDisplayMode] = createSignal<Mode>('display');
